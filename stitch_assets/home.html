@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#390c00",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c2c6d8",
+                        "surface-container-highest": "#e1e2ee",
+                        "secondary-fixed-dim": "#c4c7c9",
+                        "secondary-fixed": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#dae1ff",
+                        "on-primary-container": "#f8f7ff",
+                        "inverse-surface": "#2e303a",
+                        "on-tertiary-fixed-variant": "#832600",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-secondary-fixed": "#191c1e",
+                        "surface": "#faf8ff",
+                        "on-secondary-container": "#626567",
+                        "tertiary": "#a33200",
+                        "inverse-primary": "#b3c5ff",
+                        "primary-container": "#0066ff",
+                        "surface-bright": "#faf8ff",
+                        "outline": "#727687",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e1e2ee",
+                        "surface-dim": "#d8d9e6",
+                        "on-background": "#191b24",
+                        "primary": "#0050cb",
+                        "on-primary-fixed": "#001849",
+                        "background": "#faf8ff",
+                        "on-primary-fixed-variant": "#003fa4",
+                        "tertiary-fixed": "#ffdbd0",
+                        "on-tertiary-container": "#fff6f4",
+                        "surface-container-high": "#e6e7f4",
+                        "inverse-on-surface": "#eff0fd",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#e0e3e5",
+                        "on-surface-variant": "#424656",
+                        "on-secondary-fixed-variant": "#444749",
+                        "surface-tint": "#0054d6",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb59d",
+                        "tertiary-container": "#cc4204",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f2f3ff",
+                        "secondary": "#5c5f61",
+                        "surface-container": "#ecedfa",
+                        "on-surface": "#191b24"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Arial"],
+                        "body-lg": ["Arial"],
+                        "body-md": ["Arial"],
+                        "button": ["Arial"],
+                        "h2": ["Arial"],
+                        "label-caps": ["Arial"],
+                        "h1": ["Arial"]
+                    },
+                    "fontSize": {
+                        "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "button": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 102, 255, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-blue-100/20 shadow-sm">
+<nav class="flex justify-between items-center h-16 px-8 max-w-[1280px] mx-auto">
+<div class="text-xl font-bold text-blue-600 tracking-tight">De Drone World</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="font-sans text-sm tracking-wide text-blue-600 font-semibold border-b-2 border-blue-600 transition-all duration-200" href="#">Home</a>
+<a class="font-sans text-sm tracking-wide text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all duration-200" href="#">Training</a>
+<a class="font-sans text-sm tracking-wide text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all duration-200" href="#">Services</a>
+<a class="font-sans text-sm tracking-wide text-slate-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all duration-200" href="#">Manufacturing</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-slate-600 hover:text-blue-600 transition-all duration-200" data-icon="chat">chat</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-button text-button hover:opacity-90 active:scale-95 transition-all duration-200">Register Now</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center justify-center overflow-hidden pt-16">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Cinematic wide shot of a professional drone flying over a majestic mountain landscape at sunrise with soft golden light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_31Mq_r6CW6pjrSQ98gpZvy_e9fU28y2eD-DIEv4uNfGOarjGFGnXF9C88eoaPESkm8QX1SzkDcc-21jb23L6D_DVqU6YY7eotmb8R4Q46GeRxA4RMwJqJk7jYXq-5mlCpupdXxp2UixbVq2LM1C7Vjnlgf1jeWCl812QbYpfJV2JJpuJSj9D3RQpGyZDMGa0jcEj-gqiqFtSvz_p2G5zcz5tOBpwfh29ceB6Xx2uLffI_ELYfCL7gd5j4d7O3HP5_IvSRrMoU3E"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-[1280px] w-full px-8">
+<div class="max-w-2xl">
+<span class="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps mb-6">PIONEERING THE SKY</span>
+<h1 class="font-h1 text-h1 text-on-background mb-6 leading-tight">World is a better place with Drones</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-lg">Experience technical mastery and expansive freedom with the next generation of aerial intelligence. Precision-engineered for global impact.</p>
+<div class="flex space-x-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-button text-button flex items-center gap-2 hover:opacity-90 transition-all">
+                            Explore Us
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-white/10 backdrop-blur-md border border-white/20 text-on-surface px-8 py-4 rounded-lg font-button text-button hover:bg-white/20 transition-all">
+                            View Fleet
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Innovation in Flight - Bento Grid -->
+<section class="py-xl max-w-[1280px] mx-auto px-8">
+<div class="mb-lg">
+<h2 class="font-h2 text-h2 text-on-background">Innovation in Flight</h2>
+<div class="h-1 w-20 bg-primary mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Speed -->
+<div class="md:col-span-8 glass-card rounded-xl overflow-hidden p-md group">
+<div class="flex flex-col md:flex-row gap-md h-full">
+<div class="flex-1 flex flex-col justify-center">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<h3 class="font-h3 text-h3 mb-2">Unmatched Speed</h3>
+<p class="font-body-md text-on-surface-variant">Our propulsion systems redefine limits, delivering rapid response times for critical missions and time-sensitive aerial data collection.</p>
+</div>
+<div class="flex-1 rounded-lg overflow-hidden h-48 md:h-full">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close-up of high-speed drone rotors spinning, motion blur against a clear blue sky, technical detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPxNSJqStxTr_l5aJvvg_7q_OM-gVPpRf8UpHr1amEIedIilnO_5QVo3XAhUaeK9NQZi9HW_-4mBab_mPOTqPdO4XlgRicPGPL762dTUR18a7ng-_gj1fcw008jmXnordu9U1dJ5GbLZFf9s-mvIvUFqvU3-AGgyDvqfmt5Y8LeASiPx4EgmiFTz7Q3x4RWU-8PnYz-eDD8jxCWPoIQisGDjPAkmzl8qaIoohrDDo5PQAd6zjjZMmMbT2r31b-uo1t7Yr_EMRIhSg"/>
+</div>
+</div>
+</div>
+<!-- Precision -->
+<div class="md:col-span-4 glass-card rounded-xl overflow-hidden p-md text-center group">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="target">target</span>
+<h3 class="font-h3 text-h3 mb-2">Surgical Precision</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Centimeter-level accuracy through advanced GPS and RTK integration for mapping and inspection.</p>
+<img class="w-full h-40 object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" data-alt="Aerial view of a drone perfectly hovering over a structured industrial facility, technical accuracy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHM55ccWTNYG-3Pn0mIloX_mZ4qUhiiQXuvkNNzCBRoZB_GJ8iwkAaGfgNAQFeVMk4ySbPw9E5DANnLQx0G_fr_GqO1siSvaOsYBeZrXu81THAwRkn_kZre-WESyp2TJeyR4SmcMm4HC44Lf8ioHii5fvD7DpOwQWrNvJrVwXHeliWB6zjvbiRoQN2l5qrA_JY16JFzeHiYgMVxlGI7rt4cPSY2eAhE4NtWWH3hgdCiv2IJfIzrBzkfJduBbLk4GEMv6OsuuvrWjA"/>
+</div>
+<!-- Autonomy -->
+<div class="md:col-span-12 glass-card rounded-xl p-md flex items-center justify-between group">
+<div class="max-w-xl">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="smart_toy">smart_toy</span>
+<h3 class="font-h3 text-h3">Intelligent Autonomy</h3>
+</div>
+<p class="font-body-md text-on-surface-variant">AI-driven obstacle avoidance and path planning enable drones to operate safely in complex environments without human intervention.</p>
+</div>
+<div class="hidden md:block w-1/3">
+<div class="flex justify-end gap-2">
+<div class="px-4 py-2 bg-primary/5 rounded-lg border border-primary/10 font-label-caps text-xs">PATHFINDER V2</div>
+<div class="px-4 py-2 bg-primary/5 rounded-lg border border-primary/10 font-label-caps text-xs">AI-CHIP INTEGRATED</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Drone Fleet Showcase -->
+<section class="bg-surface-container-low py-xl">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="text-center mb-lg">
+<h2 class="font-h2 text-h2 text-on-background">Our Enterprise Fleet</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto mt-4">Precision-engineered hardware designed for diverse mission profiles, from cinematic production to thermal industrial inspection.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Drone 1 -->
+<div class="bg-white rounded-xl p-md border border-blue-100/20 shadow-sm hover:shadow-md transition-all group">
+<div class="relative mb-6 rounded-lg overflow-hidden bg-slate-50">
+<img class="w-full aspect-square object-contain group-hover:scale-110 transition-transform duration-500" data-alt="Studio product shot of a sleek white enterprise drone with multiple camera sensors on a clean gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK78P6BOnAzwTzS2brybHPRSzQ746PEXv5zNwmwQpe_YVIOWmNcV0Om7IRHc9OkoTllUXveiPBgoRwbCaeEwj6LSW2kmcbpnp24I9Xw5V81xvcdi59ZdIN9lqh0jKosk7YAJw5btz85ua17Stw5Xy3sDNYAHn9AOt9VPJfBdVKDJKTgKVTOcBAX_HHJA3SmqBmiJ9L-SVFb9_ebZezcHj-cGjVFwNIRgvyRMqStgkGQ5sm3NlHGCpBJSzxa_jJnCpV4rrMMf-WBKQ"/>
+<div class="absolute top-4 right-4 glass-card px-3 py-1 rounded-full text-xs font-bold text-primary">BEST SELLER</div>
+</div>
+<h4 class="font-h3 text-h3 mb-2">AeroGuardian X1</h4>
+<div class="flex items-center gap-4 text-xs font-label-caps text-slate-400 mb-4">
+<span>45 MIN FLIGHT</span>
+<span>•</span>
+<span>8K THERMAL</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">The ultimate tool for industrial inspections and long-range surveillance missions.</p>
+<button class="w-full py-3 rounded-lg border border-primary text-primary font-button hover:bg-primary hover:text-white transition-all">Technical Specs</button>
+</div>
+<!-- Drone 2 -->
+<div class="bg-white rounded-xl p-md border border-blue-100/20 shadow-sm hover:shadow-md transition-all group">
+<div class="relative mb-6 rounded-lg overflow-hidden bg-slate-50">
+<img class="w-full aspect-square object-contain group-hover:scale-110 transition-transform duration-500" data-alt="Sleek black agile racing drone on a carbon fiber surface, technical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvA1hWOVoQEs_Gck2gGLw5gSvNk7d3-ZZz0AiXLAs__P4qsFC8BZFOTRSospghjgsXzUPg0ZwgkrI2f3BcRMCkn2bo-DbguwlW_ZXMVOUmTHkueg5CDYJ743Qip_aUOZXdsH-HenZ489Cf7kxLJmIa6lJVE-rt_0QJXzy2pUQQmOfDHPIS7Ste-iXdS5ctfaVZUDlGlaq3jXqY_-68tkbTU-4CFcJUmf6T6ttwVUGzQfMJyU4YbsRc0DrvsBwntap6aaMaf6ETkAg"/>
+</div>
+<h4 class="font-h3 text-h3 mb-2">SwiftCore Nano</h4>
+<div class="flex items-center gap-4 text-xs font-label-caps text-slate-400 mb-4">
+<span>15 MIN FLIGHT</span>
+<span>•</span>
+<span>ULTRA AGILE</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">Engineered for tight indoor spaces and high-speed tactical reconnaissance.</p>
+<button class="w-full py-3 rounded-lg border border-primary text-primary font-button hover:bg-primary hover:text-white transition-all">Technical Specs</button>
+</div>
+<!-- Drone 3 -->
+<div class="bg-white rounded-xl p-md border border-blue-100/20 shadow-sm hover:shadow-md transition-all group">
+<div class="relative mb-6 rounded-lg overflow-hidden bg-slate-50">
+<img class="w-full aspect-square object-contain group-hover:scale-110 transition-transform duration-500" data-alt="Heavy duty agricultural drone with spraying nozzles attached, industrial setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBwerRI6tiuoLteywf0imoiW5i82ApD-_8nL3Os1kQ19mwKqThWasf123T-mhhBDRRhp1GeZh3OQRiOPUdJfrh3dqZXHBaeZXJzbsgcEtBZdbQpPngGrZpE3yJnn0E5sX70igVg1z-osVuSKZtdEBpKai5Asrk0U648Tp8Wg00gIMzxolvEVASHKodpRBSsMQUWA0qmNyIIFbtIxueAMjnJa5c-F4J1CordMytAmKcWiB5sRky38DdAL7qp9xNyBF4KWDqZ9a4Hm8"/>
+<div class="absolute top-4 right-4 glass-card px-3 py-1 rounded-full text-xs font-bold text-primary">HEAVY LIFT</div>
+</div>
+<h4 class="font-h3 text-h3 mb-2">Atlas Carrier V3</h4>
+<div class="flex items-center gap-4 text-xs font-label-caps text-slate-400 mb-4">
+<span>30 MIN FLIGHT</span>
+<span>•</span>
+<span>20KG PAYLOAD</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">Designed for heavy payloads and agricultural precision spraying applications.</p>
+<button class="w-full py-3 rounded-lg border border-primary text-primary font-button hover:bg-primary hover:text-white transition-all">Technical Specs</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Training Academy Section -->
+<section class="py-xl max-w-[1280px] mx-auto px-8 flex flex-col md:flex-row items-center gap-lg">
+<div class="flex-1">
+<span class="font-label-caps text-primary mb-4 block">WORLD-CLASS EDUCATION</span>
+<h2 class="font-h2 text-h2 mb-6">Training Academy: Master the Skies</h2>
+<p class="font-body-lg text-on-surface-variant mb-8">From beginner pilot certifications to advanced enterprise sensor operations, our DGCA-certified training programs provide the mastery needed for a professional drone career.</p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<div>
+<span class="font-button block">DGCA Certified Instructors</span>
+<p class="text-sm text-slate-500">Learn from the industry's most experienced flight masters.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<div>
+<span class="font-button block">Hands-on Simulator &amp; Field Experience</span>
+<p class="text-sm text-slate-500">Practice in safe virtual environments before live field flight.</p>
+</div>
+</li>
+</ul>
+<button class="bg-primary text-white px-8 py-4 rounded-lg font-button hover:bg-blue-700 transition-all">Enroll Today</button>
+</div>
+<div class="flex-1 relative">
+<div class="absolute -top-4 -left-4 w-24 h-24 bg-primary/10 rounded-xl z-0"></div>
+<img class="w-full h-[450px] object-cover rounded-xl shadow-xl relative z-10" data-alt="Young professional students in a high-tech classroom learning about drone mechanics and flight software" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXDG1EqGi43JAo-RUM8sVJcwRs7edkyOf6BENFyxvRC6myNZ4jSOYdkXVtKYZpQUv9sw56TWpcuct6_yClNDE75gOojWbDUavXVXyyhF2lGyvIdGmleqGB_P7xqyYtSqBMiJGTnF3QfMKlnO8cF5rvXXY-qrGJ6sCgy3UlH7MvIJFquolksn0r3k483rTIRwIa6q2Ex5oa8Griey6JIdV4r9NwPjiYcAPzDv1Z2i6CGlXKilQiL-PKMo28VE5LOFMDw83Ua9Z1heE"/>
+<div class="absolute -bottom-6 -right-6 glass-card p-6 rounded-xl z-20 shadow-lg">
+<div class="text-h3 font-h3 text-primary">5000+</div>
+<div class="text-xs font-label-caps text-slate-600">CERTIFIED PILOTS</div>
+</div>
+</div>
+</section>
+<!-- Enterprise Services -->
+<section class="py-xl bg-slate-900 text-white">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-lg">
+<div class="max-w-xl">
+<h2 class="font-h2 text-h2 mb-4">Enterprise Solutions</h2>
+<p class="text-slate-400 font-body-md">We don't just provide drones; we provide end-to-end aerial intelligence strategies that transform businesses.</p>
+</div>
+<button class="mt-8 md:mt-0 text-white border-b border-white hover:text-blue-400 hover:border-blue-400 transition-all font-button">See all services</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+<div class="p-md bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/10">
+<span class="material-symbols-outlined text-blue-400 mb-4" data-icon="construction">construction</span>
+<h4 class="font-button mb-2">Industrial Inspection</h4>
+<p class="text-sm text-slate-400">High-res thermal imaging for solar farms, cell towers, and energy grids.</p>
+</div>
+<div class="p-md bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/10">
+<span class="material-symbols-outlined text-blue-400 mb-4" data-icon="agriculture">agriculture</span>
+<h4 class="font-button mb-2">Smart Agriculture</h4>
+<p class="text-sm text-slate-400">Precision spraying and multispectral crop health monitoring.</p>
+</div>
+<div class="p-md bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/10">
+<span class="material-symbols-outlined text-blue-400 mb-4" data-icon="map">map</span>
+<h4 class="font-button mb-2">GIS &amp; Mapping</h4>
+<p class="text-sm text-slate-400">3D topographical mapping and land survey with CM-level accuracy.</p>
+</div>
+<div class="p-md bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/10">
+<span class="material-symbols-outlined text-blue-400 mb-4" data-icon="local_shipping">local_shipping</span>
+<h4 class="font-button mb-2">Delivery Logistics</h4>
+<p class="text-sm text-slate-400">Next-mile autonomous delivery systems for medical and retail.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-slate-200 bg-slate-50">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 max-w-[1280px] mx-auto">
+<div class="flex flex-col gap-4">
+<div class="text-lg font-black text-slate-900">De Drone World</div>
+<p class="font-sans text-sm text-slate-500">© 2024 De Drone World. Technical mastery and expansive freedom.</p>
+<div class="flex gap-4 mt-2">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-blue-600" data-icon="public">public</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-blue-600" data-icon="mail">mail</span>
+</div>
+</div>
+<div>
+<h5 class="font-button text-slate-900 mb-4">Offices</h5>
+<ul class="space-y-2">
+<li><a class="font-sans text-sm text-slate-500 hover:text-blue-600 hover:underline transition-colors" href="#">Coimbatore Office</a></li>
+<li><a class="font-sans text-sm text-slate-500 hover:text-blue-600 hover:underline transition-colors" href="#">Madurai Office</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-button text-slate-900 mb-4">Resources</h5>
+<ul class="space-y-2">
+<li><a class="font-sans text-sm text-slate-500 hover:text-blue-600 hover:underline transition-colors" href="#">Resource Center</a></li>
+<li><a class="font-sans text-sm text-slate-500 hover:text-blue-600 hover:underline transition-colors" href="#">Case Studies</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-button text-slate-900 mb-4">Legal</h5>
+<ul class="space-y-2">
+<li><a class="font-sans text-sm text-slate-500 hover:text-blue-600 hover:underline transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-sans text-sm text-slate-500 hover:text-blue-600 hover:underline transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

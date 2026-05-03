@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#390c00",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#c2c6d8",
+                    "surface-container-highest": "#e1e2ee",
+                    "secondary-fixed-dim": "#c4c7c9",
+                    "secondary-fixed": "#e0e3e5",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#dae1ff",
+                    "on-primary-container": "#f8f7ff",
+                    "inverse-surface": "#2e303a",
+                    "on-tertiary-fixed-variant": "#832600",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "on-secondary-fixed": "#191c1e",
+                    "surface": "#faf8ff",
+                    "on-secondary-container": "#626567",
+                    "tertiary": "#a33200",
+                    "inverse-primary": "#b3c5ff",
+                    "primary-container": "#0066ff",
+                    "surface-bright": "#faf8ff",
+                    "outline": "#727687",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e1e2ee",
+                    "surface-dim": "#d8d9e6",
+                    "on-background": "#191b24",
+                    "primary": "#0050cb",
+                    "on-primary-fixed": "#001849",
+                    "background": "#faf8ff",
+                    "on-primary-fixed-variant": "#003fa4",
+                    "tertiary-fixed": "#ffdbd0",
+                    "on-tertiary-container": "#fff6f4",
+                    "surface-container-high": "#e6e7f4",
+                    "inverse-on-surface": "#eff0fd",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#e0e3e5",
+                    "on-surface-variant": "#424656",
+                    "on-secondary-fixed-variant": "#444749",
+                    "surface-tint": "#0054d6",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb59d",
+                    "tertiary-container": "#cc4204",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f2f3ff",
+                    "secondary": "#5c5f61",
+                    "surface-container": "#ecedfa",
+                    "on-surface": "#191b24"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "sm": "12px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "h3": ["Arial"],
+                    "body-lg": ["Arial"],
+                    "body-md": ["Arial"],
+                    "button": ["Arial"],
+                    "h2": ["Arial"],
+                    "label-caps": ["Arial"],
+                    "h1": ["Arial"]
+            },
+            "fontSize": {
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "button": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 102, 255, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-blue-100/20 dark:border-blue-900/20 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center h-16 px-8 max-w-[1280px] mx-auto">
+<div class="text-xl font-bold text-blue-600 dark:text-blue-400 tracking-tight font-h3">De Drone World</div>
+<div class="hidden md:flex space-x-8 items-center font-sans text-sm tracking-wide">
+<a class="text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-blue-50/50 transition-all px-3 py-2 rounded-lg" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-blue-50/50 transition-all px-3 py-2 rounded-lg" href="#">Training</a>
+<a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 px-3 py-2" href="#">Services</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-blue-50/50 transition-all px-3 py-2 rounded-lg" href="#">Manufacturing</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-slate-600 hover:text-blue-600" data-icon="chat">chat</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg font-button active:scale-95 duration-200">Register Now</button>
+</div>
+</div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative h-[716px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Agricultural drone flying over a vibrant green crop field at sunrise" class="w-full h-full object-cover" data-alt="wide shot of a high-tech agricultural drone hovering over a vast emerald green field with soft morning sunlight and atmospheric haze" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwMUKn5Yioj31PXRmF9pQFlpaozx1JlnooFf5aRNl9m22RTuCUnbRq0IZQWoQ2mR8ilp8Qv1j70R44HJqyYBcO8OylsCjCGsAaOVcip4xjiEOZxsCLl0epXoFU2OVa2N0Q_n5-arHJMP--laeKjwA5heaidwnqGcEmQ52SLU9UaClk7RfTIRvbWvG7NqeKPS1kXK6XcEg3_J4v3VpWRUo_R1_16Ma9S28BmMI5Gz0URBC_950MXzMSRViHu_sXj5sW0D1yk1BjyFI"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-[1280px] mx-auto px-8 w-full">
+<div class="max-w-2xl">
+<span class="font-label-caps text-primary tracking-widest mb-4 block">ELEVATING AGRICULTURE</span>
+<h1 class="font-h1 text-on-background mb-6">Precision Agriculture Ecosystem</h1>
+<p class="font-body-lg text-secondary mb-8">Technical mastery meets expansive freedom. We redefine crop management through autonomous aerial intelligence and hyper-accurate data analytics.</p>
+<div class="flex space-x-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-button shadow-lg shadow-primary/20">Explore Services</button>
+<button class="border border-primary text-primary px-8 py-4 rounded-lg font-button hover:bg-primary/5 transition-colors">Download Arsenal Catalog</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-xl max-w-[1280px] mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-card p-md rounded-xl flex flex-col items-center text-center">
+<div class="w-24 h-24 mb-4 relative flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-blue-50" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="27.6" stroke-width="8"></circle>
+</svg>
+<span class="absolute font-h2 text-primary">89%</span>
+</div>
+<h3 class="font-h3 mb-2">Strategy Efficiency</h3>
+<p class="font-body-md text-secondary">Optimized flight paths and resource allocation protocols.</p>
+</div>
+<div class="glass-card p-md rounded-xl flex flex-col items-center text-center">
+<div class="w-24 h-24 mb-4 relative flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-blue-50" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="45.2" stroke-width="8"></circle>
+</svg>
+<span class="absolute font-h2 text-primary">82%</span>
+</div>
+<h3 class="font-h3 mb-2">Predictive Analytics</h3>
+<p class="font-body-md text-secondary">Early detection of pest infestations and nutrient deficiencies.</p>
+</div>
+<div class="glass-card p-md rounded-xl flex flex-col items-center text-center">
+<div class="w-24 h-24 mb-4 relative flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-blue-50" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="12.5" stroke-width="8"></circle>
+</svg>
+<span class="absolute font-h2 text-primary">95%</span>
+</div>
+<h3 class="font-h3 mb-2">Yield Results</h3>
+<p class="font-body-md text-secondary">Consistent improvement in crop quality and harvest volume.</p>
+</div>
+</div>
+</section>
+<!-- Services Section: Bento Grid -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="text-center mb-16">
+<span class="font-label-caps text-primary tracking-widest mb-2 block">OUR CAPABILITIES</span>
+<h2 class="font-h2">Precision Agriculture Services</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-white shadow-sm border border-blue-50">
+<img alt="Precision drone spraying over a field" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="close up of an industrial drone nozzles spraying fine mist over agricultural crops with surgical precision in daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSGh_b64d1qjcvTuq38ziE2DwhyvYr5rZqpguYjRsYGSP3MqueJFraFeVzFbQC3e0oNLnAnR2ZptPLhTWMv2eUcCaMAFdtCK1c4L-LrDHztu_FocgrFD2AdVtQ55d8NUQ8HaR6MshQVhcJl1OCI7Cqb9ELgKMfu1EDEuHk-r-qE7dGTKGMrpFBv6CB6bh9LiADhTr3P7IT9UbdgJ-C4M9Lh3o0t9lGW2LYFFGNGew2YeXrN-kbbsJWVO2tH4bJZDwRfQGiXSjjtcw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h3 class="font-h3 text-white mb-2">Autonomous Crop Spraying</h3>
+<p class="text-white/80 max-w-lg">Targeted delivery of fertilizers and pesticides using GPS-gated swarming technology to reduce chemical waste by up to 30%.</p>
+</div>
+</div>
+<div class="md:col-span-4 glass-card p-8 flex flex-col justify-center rounded-xl">
+<div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="energy_savings_leaf">energy_savings_leaf</span>
+</div>
+<h3 class="font-h3 mb-4">Precision Seeding</h3>
+<p class="font-body-md text-secondary">Micro-dispensing technology for reforestation and row-crop initiation with sub-centimeter accuracy.</p>
+<hr class="my-6 border-blue-100"/>
+<div class="flex items-center space-x-2 text-primary font-button">
+<span>Learn more</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<div class="md:col-span-4 glass-card p-8 flex flex-col justify-center rounded-xl">
+<div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="monitoring">monitoring</span>
+</div>
+<h3 class="font-h3 mb-4">Multispectral Monitoring</h3>
+<p class="font-body-md text-secondary">Real-time crop health assessment using NDVI sensors to visualize photosynthetic activity before human eyes can detect stress.</p>
+</div>
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-white shadow-sm border border-blue-50">
+<img alt="Aerial view of crop field patterns" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="top-down aerial perspective of geometric green crop fields showing patterns of varying health and growth stages" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKE9ajFsVc3nn9WnzhqINdmr-IWQECLQYDR3CU9U2Gxcs2l81QBrJREvxgKQSor5kbgTPu0evm5lGbXej7FA13Kk8q9hn3l1K_E5B-xd4oG7qkQlOlTa3J1tqcn2dKQR5tpliTeQRLWWgxZ7xZqz5QINXC3ggPIIzgZiD0o37LAwEFIMpSqOhzw77JPWu2Gq4S2aB44n9jwSuPba0_R9GJ6oj9lWPY908WGoV0pXprvERaBu4kFLrLE1IJYSS6b4nwbEXCzb0yd3g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h3 class="font-h3 text-white mb-2">Field Mapping &amp; Topography</h3>
+<p class="text-white/80 max-w-lg">High-resolution 3D terrain modeling for irrigation planning and drainage management.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="py-xl max-w-[1280px] mx-auto px-8">
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2">
+<span class="font-label-caps text-primary tracking-widest mb-4 block">VALUE PROPOSITION</span>
+<h2 class="font-h2 mb-6">Strategic Agricultural Benefits</h2>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<div class="mt-1 bg-primary text-on-primary rounded-full p-1">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<div>
+<h4 class="font-h3 text-lg">Input Cost Reduction</h4>
+<p class="font-body-md text-secondary">Minimize the use of water, pesticides, and fertilizers through variable-rate application technologies.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="mt-1 bg-primary text-on-primary rounded-full p-1">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<div>
+<h4 class="font-h3 text-lg">Labor Optimization</h4>
+<p class="font-body-md text-secondary">Automate dangerous or repetitive tasks, allowing your workforce to focus on high-level farm management.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="mt-1 bg-primary text-on-primary rounded-full p-1">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<div>
+<h4 class="font-h3 text-lg">Environmental Stewardship</h4>
+<p class="font-body-md text-secondary">Promote sustainable farming practices by preventing over-application and reducing the carbon footprint of heavy machinery.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="w-full md:w-1/2 relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+<img alt="High-tech farming dashboard" class="rounded-xl shadow-2xl relative z-10" data-alt="close up of a modern tablet displaying a complex agricultural data dashboard with 3D field maps and color-coded health metrics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrdhK6QVPpBUmzoZyT_PrMCXPq-6N-rq1_JLA02ZWHomIz0yFp-1C9h3gnXmTdQWO1TmQCdfhr7u1uGGKzK7WKe0hiDwg60x3K9xEjWThVLCRkYaGlnKUldCRAQVHS5_RQp_B0v6wloeRMRb-5QtbV5mWWsxtLWHWiAk1oJXBJbkjAHmy2zkfiIYHLGvd4hnrV4KudwMzSxWPW9X2aZLa4PXIpnf4OwYMDea48z-H7kuwRdetQNIGwikhIMKuSotCIbDicPoapYuI"/>
+</div>
+</div>
+</section>
+<!-- Technical Arsenal Section -->
+<section class="py-xl bg-slate-900 text-white">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="flex justify-between items-end mb-16">
+<div class="max-w-xl">
+<span class="font-label-caps text-blue-400 tracking-widest mb-2 block">HARDWARE &amp; PAYLOAD</span>
+<h2 class="font-h2">The Technical Arsenal</h2>
+<p class="text-slate-400 mt-4">Precision-engineered hardware designed for extreme agricultural conditions and mission-critical reliability.</p>
+</div>
+<button class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-lg font-button transition-colors">Compare Models</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Arsenal Card 1 -->
+<div class="bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden hover:border-blue-500/50 transition-colors">
+<div class="h-48 bg-slate-700 relative">
+<img alt="Drone engine detail" class="w-full h-full object-cover mix-blend-overlay opacity-50" data-alt="close up macro shot of high-end carbon fiber drone propeller and brushless motor with metallic blue accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqpYUNMb8dIsPZkYbUYlImzZXErEyLim-PWHstwc5pk4lXFxkf_2tZ0snmklNoPbHMEGgh4IzyoV3RvOchfB5jSaiaHA0n5JcuvDjtC5YxzHzBw3wn3kNaNh7Z2Cl1OjO_y4gsw80ML8yPY7WEjwN_-_Yxilv25Sn0or1HSx1MTAseMiX9omvuZj_aR1bl1p84PhlIy0dx5z0P_gFhz6a_rvlqtJ628dJmOdHTe6BEDxEQ6fChtfJp89c0XPcQy66pF9snBMaUb7A"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-blue-400" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-xl">Aero-Core Propulsion</h3>
+<span class="bg-blue-600/20 text-blue-400 text-xs px-2 py-1 rounded">V3.4</span>
+</div>
+<p class="text-slate-400 font-body-md mb-6">IP67-rated brushless motors designed for 1000+ flight hours in dusty, corrosive environments.</p>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Payload Cap</span>
+<span>40 KG</span>
+</div>
+<div class="w-full bg-slate-700 h-1 rounded-full overflow-hidden">
+<div class="bg-blue-500 h-full w-[85%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Arsenal Card 2 -->
+<div class="bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden hover:border-blue-500/50 transition-colors">
+<div class="h-48 bg-slate-700 relative">
+<img alt="Sensor electronics" class="w-full h-full object-cover mix-blend-overlay opacity-50" data-alt="circuit board with glowing blue light paths representing high speed data processing and AI intelligence" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPI3n_0-qvyXz3Yht1o5C-pOHJIk0dnorY8spJrME9zoDTNGypZjHOC0QIdWF2-5XalPzNAfEnNzabGTPN1z6-2cxouPyR28ayhcnZcxis9iRcV4AL4KMrXhvuUxaBTUH0gUz0AvLEEC3X1yX3pLn033uuWG0MT9M8S9nZ3oWhFORXc08TpkSdrtXdyZYjtzpUwFnTATwcdUXx_z5lnsbi3AO9lkLRWZ-8-E-ZL2AsQvjPVbWzacyKmHJ9edcThB7N6xAPKEWuIko"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-blue-400" data-icon="sensors">sensors</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-xl">Spectral-Eye Suite</h3>
+<span class="bg-blue-600/20 text-blue-400 text-xs px-2 py-1 rounded">Optic-X</span>
+</div>
+<p class="text-slate-400 font-body-md mb-6">10-band multispectral sensors capturing ultra-high resolution data across IR and visible spectrums.</p>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Scan Resolution</span>
+<span>1.2 CM/PX</span>
+</div>
+<div class="w-full bg-slate-700 h-1 rounded-full overflow-hidden">
+<div class="bg-blue-500 h-full w-[92%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Arsenal Card 3 -->
+<div class="bg-slate-800/50 border border-slate-700 rounded-xl overflow-hidden hover:border-blue-500/50 transition-colors">
+<div class="h-48 bg-slate-700 relative">
+<img alt="Connectivity concept" class="w-full h-full object-cover mix-blend-overlay opacity-50" data-alt="abstract digital connection network with bright blue nodes on a dark background representing seamless wireless communication" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo0NK-iKp4mt67N5k3y90GVly7lf_C4vHOOTIrjlZlqIKoRXLjJoDgl9IGQQPCe9sMRLzPrHLMjbSYu_nq2sinHh7t0ki8S6eKwUxvg1m79LRYgn0NDoiMds043twg4kV3btC3Sa3Wo6GGnTSsU9xf5qp6QmRecd7mf5LmyT_imgKKsD9MBnMljCT5zgUP-4aGpCGd44TGMoegtK9kHogi3LvFUl1nP2AvjQnbIH9yzltxA3NuztznKoTNnmL5AZnrmmi42DqQk74"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-blue-400" data-icon="settings_input_antenna">settings_input_antenna</span>
+</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-xl">Nexus Link RTK</h3>
+<span class="bg-blue-600/20 text-blue-400 text-xs px-2 py-1 rounded">Pro-Link</span>
+</div>
+<p class="text-slate-400 font-body-md mb-6">Centimeter-level positioning accuracy via triple-redundant satellite link and ground stations.</p>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Latency</span>
+<span>&lt; 10 MS</span>
+</div>
+<div class="w-full bg-slate-700 h-1 rounded-full overflow-hidden">
+<div class="bg-blue-500 h-full w-[98%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-xl">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="bg-primary rounded-2xl p-12 text-center text-on-primary relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+<div class="relative z-10">
+<h2 class="font-h1 mb-6">Ready to Optimize Your Harvest?</h2>
+<p class="font-body-lg text-on-primary-container/80 max-w-2xl mx-auto mb-8">Schedule a technical consultation with our agricultural specialists and discover the ROI of drone integration.</p>
+<button class="bg-white text-primary px-10 py-4 rounded-lg font-button hover:bg-slate-50 transition-colors">Request a Demo</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 border-t border-slate-200 dark:border-slate-800">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 max-w-[1280px] mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-lg font-black text-slate-900 dark:text-white mb-4">De Drone World</div>
+<p class="font-sans text-sm text-slate-500">Technical mastery and expansive freedom in the sky.</p>
+</div>
+<div class="flex flex-col space-y-3">
+<h4 class="font-button text-slate-900 dark:text-white uppercase tracking-wider mb-2">Offices</h4>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors font-sans text-sm" href="#">Coimbatore Office</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors font-sans text-sm" href="#">Madurai Office</a>
+</div>
+<div class="flex flex-col space-y-3">
+<h4 class="font-button text-slate-900 dark:text-white uppercase tracking-wider mb-2">Resources</h4>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors font-sans text-sm" href="#">Resource Center</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors font-sans text-sm" href="#">Service Status</a>
+</div>
+<div class="flex flex-col space-y-3">
+<h4 class="font-button text-slate-900 dark:text-white uppercase tracking-wider mb-2">Legal</h4>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors font-sans text-sm" href="#">Privacy Policy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors font-sans text-sm" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto px-8 mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-500 font-sans text-sm">
+<p>© 2024 De Drone World. Technical mastery and expansive freedom.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<span class="material-symbols-outlined cursor-pointer hover:text-blue-600" data-icon="language">language</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-blue-600" data-icon="share">share</span>
+</div>
+</div>
+</footer>
+</body></html>

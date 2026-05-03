@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed": "#390c00",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#c2c6d8",
+                      "surface-container-highest": "#e1e2ee",
+                      "secondary-fixed-dim": "#c4c7c9",
+                      "secondary-fixed": "#e0e3e5",
+                      "on-error": "#ffffff",
+                      "primary-fixed": "#dae1ff",
+                      "on-primary-container": "#f8f7ff",
+                      "inverse-surface": "#2e303a",
+                      "on-tertiary-fixed-variant": "#832600",
+                      "primary-fixed-dim": "#b3c5ff",
+                      "on-secondary-fixed": "#191c1e",
+                      "surface": "#faf8ff",
+                      "on-secondary-container": "#626567",
+                      "tertiary": "#a33200",
+                      "inverse-primary": "#b3c5ff",
+                      "primary-container": "#0066ff",
+                      "surface-bright": "#faf8ff",
+                      "outline": "#727687",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e1e2ee",
+                      "surface-dim": "#d8d9e6",
+                      "on-background": "#191b24",
+                      "primary": "#0050cb",
+                      "on-primary-fixed": "#001849",
+                      "background": "#faf8ff",
+                      "on-primary-fixed-variant": "#003fa4",
+                      "tertiary-fixed": "#ffdbd0",
+                      "on-tertiary-container": "#fff6f4",
+                      "surface-container-high": "#e6e7f4",
+                      "inverse-on-surface": "#eff0fd",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#e0e3e5",
+                      "on-surface-variant": "#424656",
+                      "on-secondary-fixed-variant": "#444749",
+                      "surface-tint": "#0054d6",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed-dim": "#ffb59d",
+                      "tertiary-container": "#cc4204",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f2f3ff",
+                      "secondary": "#5c5f61",
+                      "surface-container": "#ecedfa",
+                      "on-surface": "#191b24"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1280px",
+                      "xs": "4px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "lg": "48px",
+                      "xl": "80px",
+                      "sm": "12px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "h3": ["Arial"],
+                      "body-lg": ["Arial"],
+                      "body-md": ["Arial"],
+                      "button": ["Arial"],
+                      "h2": ["Arial"],
+                      "label-caps": ["Arial"],
+                      "h1": ["Arial"]
+              },
+              "fontSize": {
+                      "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "button": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                      "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                      "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 102, 255, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-blue-100/20 dark:border-blue-900/20 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center h-16 px-8 max-w-[1280px] mx-auto">
+<div class="text-xl font-bold text-blue-600 dark:text-blue-400 tracking-tight">De Drone World</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-300 hover:text-blue-600 font-sans text-sm tracking-wide transition-all" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-blue-600 font-sans text-sm tracking-wide transition-all" href="#">Training</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-blue-600 font-sans text-sm tracking-wide transition-all" href="#">Services</a>
+<a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 font-sans text-sm tracking-wide transition-all" href="#">Manufacturing</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-600 cursor-pointer hover:bg-blue-50/50 p-2 rounded-full transition-all">chat</span>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg font-button text-button active:scale-95 duration-200 shadow-sm">Register Now</button>
+</div>
+</div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section: Make in India -->
+<section class="relative h-[600px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Modern high-tech manufacturing facility with robotic arms and blue ambient lighting, clean futuristic atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmby0efGYlx63JpxUxb5d1fWQU63pLw2qaEuDfCMDNdNy4IHaz2VAJh_xVyUlkDbpFFfoKJXpLw8vPu0qamJxuKoYFUEf1Klhg7qpvAwn9euyICKvzBdvOpHC-oa8PWGUOid1zEZHpbssxXIBPeMyCYb9IOrpKankOAo8EIfx_7dn-xNd0xn9SHQQi3avxVMHVOFwi6mZJKmsYp4yXHLXZKbH7JvDfOzSG0UkuALqhKGtvXPOeVlfWRKZmf1hIk6D1PJKsBiPnYLQ"/>
+<div class="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-[1280px] mx-auto px-8 w-full">
+<div class="max-w-2xl">
+<span class="inline-block py-1 px-3 bg-primary-container/10 text-primary font-label-caps text-label-caps rounded mb-4">PIONEERING INDIGENOUS TECHNOLOGY</span>
+<h1 class="font-h1 text-h1 text-on-surface mb-6">Leading the 'Make in India' Drone Revolution</h1>
+<p class="font-body-lg text-body-lg text-secondary mb-8">De Drone World is committed to strengthening the national ecosystem through local manufacturing, high-precision engineering, and scalable production capabilities.</p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-button text-button active:scale-95 duration-200">Our Facilities</button>
+<button class="border border-primary text-primary px-8 py-4 rounded-lg font-button text-button hover:bg-primary-container/5 transition-all">Download Brochure</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Contract Manufacturing Proposals: Bento Grid -->
+<section class="py-xl max-w-[1280px] mx-auto px-8">
+<div class="text-center mb-16">
+<h2 class="font-h2 text-h2 mb-4">Contract Manufacturing Solutions</h2>
+<p class="font-body-md text-body-md text-secondary max-w-2xl mx-auto">Scalable and precise manufacturing tailored to your business needs, from component fabrication to full product assembly.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[240px]">
+<!-- Private Label -->
+<div class="md:col-span-8 glass-card rounded-xl p-md flex flex-col justify-end relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8">
+<span class="material-symbols-outlined text-4xl text-primary opacity-20 group-hover:opacity-100 transition-opacity">branding_watermark</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-h3 text-h3 mb-2">Private Label Manufacturing</h3>
+<p class="font-body-md text-body-md text-secondary max-w-lg">Launch your own brand with our flight-tested platforms. We handle the engineering; you own the brand identity.</p>
+</div>
+</div>
+<!-- Individual Component -->
+<div class="md:col-span-4 bg-primary-container text-on-primary-container rounded-xl p-md flex flex-col justify-between">
+<span class="material-symbols-outlined text-3xl">settings_input_component</span>
+<div>
+<h3 class="font-h3 text-h3 mb-2">Individual Components</h3>
+<p class="font-body-md text-body-md opacity-90">Precision fabrication of carbon fiber frames, PCB assembly, and motor enclosures.</p>
+</div>
+</div>
+<!-- Subcontracting -->
+<div class="md:col-span-4 glass-card rounded-xl p-md flex flex-col justify-between">
+<span class="material-symbols-outlined text-3xl text-primary">handshake</span>
+<div>
+<h3 class="font-h3 text-h3 mb-2">Subcontracting</h3>
+<p class="font-body-md text-body-md text-secondary">Expert capacity for overflow production or specific technical modules for your existing supply chain.</p>
+</div>
+</div>
+<!-- End-to-End -->
+<div class="md:col-span-8 glass-card rounded-xl p-md flex items-center gap-8 overflow-hidden">
+<div class="w-1/3 h-full rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Engineer in a clean room assembling a complex drone circuit board with high precision tools" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx0-n0omTLwFaQAHjg4StQkEc79slY_FXsvSH2-TrRmb7m6EJ7lqYUoCTBUhPkA2HYqE3YG2Baf3wtUscv-vjXOZLs4bbt792URiSLZiE7ZqmuZCuZ0acJLuVC8kcapqmF4mhgtc9H6ULpJKWK5gEOlUzcN-X-sub1Y58F2Cy3_z8LGJ1xysSZIomsW9ddDooC46gJAgF1pLCJq3leyt3EG44qX91vFjg2-eKBeXgY1Qu2b6t7BWzPoJFjN-6QI7wK3tjXB0ZESEQ"/>
+</div>
+<div>
+<h3 class="font-h3 text-h3 mb-2">End-to-End Production</h3>
+<p class="font-body-md text-body-md text-secondary mb-4">From initial CAD design and prototyping to final flight testing and packaging. A complete turnkey manufacturing solution.</p>
+<a class="text-primary font-button text-button flex items-center gap-2" href="#">Learn more <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Cards: Kits -->
+<section class="bg-surface-container-low py-xl">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-h2 text-h2 mb-2">Specialized Training &amp; Assembly Kits</h2>
+<p class="font-body-md text-body-md text-secondary">Industrial-grade kits for engineering schools and private research labs.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Engineering Drone Kit -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm border border-blue-100/20 group">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Exploded view of a high-tech racing drone kit with carbon fiber parts, motors, and electronics laid out neatly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQhD9lar6W3N6tFdeVmvPi_6jJ4ueib09SKYdGHrHx_lZYprjhkPTv9Oa-S2JfhSTIIjmbWnDcRFFjxWTN1l8bpcU4_P80rxns-KbMhOleTJvmpCdsPO6kDh62lobDcULMfe96nL3laaQjQ0aEOyXB5oWZjOYdRndIp_pDibwDd4bNvQdJ8rypiqy6E3S7dqcYaU6fYGDL0VfVp_9r_ndXB_k_iT06-kROGv6mflP73TNKVYEBuw1X5hEBn11K_oIrHTxRAq10aTQ"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded text-[10px] font-bold tracking-widest text-primary uppercase">Best Seller</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-h3">Engineering Drone Kit</h3>
+<span class="text-primary font-bold">X-Series Pro</span>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex justify-between py-2 border-b border-slate-100">
+<span class="text-slate-500 text-sm">Frame Material</span>
+<span class="text-on-surface font-semibold text-sm">3K Carbon Fiber</span>
+</div>
+<div class="flex justify-between py-2 border-b border-slate-100">
+<span class="text-slate-500 text-sm">Flight Controller</span>
+<span class="text-on-surface font-semibold text-sm">Pixhawk 6C Ready</span>
+</div>
+<div class="flex justify-between py-2 border-b border-slate-100">
+<span class="text-slate-500 text-sm">Payload Capacity</span>
+<span class="text-on-surface font-semibold text-sm">1.5kg Max</span>
+</div>
+<div class="flex justify-between py-2">
+<span class="text-slate-500 text-sm">Assembly Time</span>
+<span class="text-on-surface font-semibold text-sm">~4-6 Hours</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-lg font-button text-button active:scale-95 duration-200">Enquire Now</button>
+</div>
+</div>
+<!-- Wooden Drone Kit -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm border border-blue-100/20 group">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artisanal wooden drone frame crafted from high-quality birch plywood, sustainable and aesthetic design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpmTSs5QoxgiZN9vuK6yDS_a4YdYCM2RsZVOKyKAtvgvgZP-NsrgQm8xI9druYiWBd_4rEFBbvzvz5c6JC9KFbT5Pq9zyd-ZZp5fVVDhXVOU7S1Tx1zYG9TWSLvLS7sTUpKcUM0HZI1Wdx4X0E03nTPZWT7ldkrU7hemLEh1rR3IIEdRfQeE16_W5zz3khD8b0nviCchIWlKgun3Sv1mcYbGGS3I57FUGE9SiUScAX2SFsJtsTXAlcE8QPmaySD1ayaMJLRSH-IvA"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded text-[10px] font-bold tracking-widest text-secondary uppercase">Educational</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-h3">Wooden Drone Kit</h3>
+<span class="text-secondary font-bold">Eco-Flyer v2</span>
+</div>
+<div class="space-y-3 mb-8">
+<div class="flex justify-between py-2 border-b border-slate-100">
+<span class="text-slate-500 text-sm">Frame Material</span>
+<span class="text-on-surface font-semibold text-sm">Birch Plywood</span>
+</div>
+<div class="flex justify-between py-2 border-b border-slate-100">
+<span class="text-slate-500 text-sm">Flight Controller</span>
+<span class="text-on-surface font-semibold text-sm">Arduino Compatible</span>
+</div>
+<div class="flex justify-between py-2 border-b border-slate-100">
+<span class="text-slate-500 text-sm">Focus</span>
+<span class="text-on-surface font-semibold text-sm">STEM Learning</span>
+</div>
+<div class="flex justify-between py-2">
+<span class="text-slate-500 text-sm">Sustainable</span>
+<span class="text-on-surface font-semibold text-sm">100% Recyclable</span>
+</div>
+</div>
+<button class="w-full border-2 border-primary text-primary py-4 rounded-lg font-button text-button hover:bg-primary/5 active:scale-95 duration-200">Enquire Now</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Excellence Stats -->
+<section class="py-xl max-w-[1280px] mx-auto px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center p-md">
+<div class="text-4xl font-bold text-primary mb-2">15,000+</div>
+<div class="text-slate-500 font-label-caps text-label-caps">UNITS PRODUCED</div>
+</div>
+<div class="text-center p-md">
+<div class="text-4xl font-bold text-primary mb-2">99.8%</div>
+<div class="text-slate-500 font-label-caps text-label-caps">QA ACCURACY</div>
+</div>
+<div class="text-center p-md">
+<div class="text-4xl font-bold text-primary mb-2">24/7</div>
+<div class="text-slate-500 font-label-caps text-label-caps">FACILITY MONITORING</div>
+</div>
+<div class="text-center p-md">
+<div class="text-4xl font-bold text-primary mb-2">ISO 9001</div>
+<div class="text-slate-500 font-label-caps text-label-caps">CERTIFIED PROCESSES</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 max-w-[1280px] mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-lg font-black text-slate-900 dark:text-white mb-4">De Drone World</div>
+<p class="font-sans text-sm text-slate-500 mb-4">Technical mastery and expansive freedom in the sky.</p>
+<p class="font-sans text-sm text-slate-500">© 2024 De Drone World.</p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4 text-sm">LOCATIONS</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors cursor-pointer text-sm font-sans" href="#">Coimbatore Office</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors cursor-pointer text-sm font-sans" href="#">Madurai Office</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4 text-sm">RESOURCES</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors cursor-pointer text-sm font-sans" href="#">Resource Center</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors cursor-pointer text-sm font-sans" href="#">Technical Specs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4 text-sm">LEGAL</h4>
+<ul class="space-y-2">
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors cursor-pointer text-sm font-sans" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:underline transition-colors cursor-pointer text-sm font-sans" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>

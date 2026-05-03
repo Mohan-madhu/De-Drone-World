@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#390c00",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#c2c6d8",
+                    "surface-container-highest": "#e1e2ee",
+                    "secondary-fixed-dim": "#c4c7c9",
+                    "secondary-fixed": "#e0e3e5",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#dae1ff",
+                    "on-primary-container": "#f8f7ff",
+                    "inverse-surface": "#2e303a",
+                    "on-tertiary-fixed-variant": "#832600",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "on-secondary-fixed": "#191c1e",
+                    "surface": "#faf8ff",
+                    "on-secondary-container": "#626567",
+                    "tertiary": "#a33200",
+                    "inverse-primary": "#b3c5ff",
+                    "primary-container": "#0066ff",
+                    "surface-bright": "#faf8ff",
+                    "outline": "#727687",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e1e2ee",
+                    "surface-dim": "#d8d9e6",
+                    "on-background": "#191b24",
+                    "primary": "#0050cb",
+                    "on-primary-fixed": "#001849",
+                    "background": "#faf8ff",
+                    "on-primary-fixed-variant": "#003fa4",
+                    "tertiary-fixed": "#ffdbd0",
+                    "on-tertiary-container": "#fff6f4",
+                    "surface-container-high": "#e6e7f4",
+                    "inverse-on-surface": "#eff0fd",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#e0e3e5",
+                    "on-surface-variant": "#424656",
+                    "on-secondary-fixed-variant": "#444749",
+                    "surface-tint": "#0054d6",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb59d",
+                    "tertiary-container": "#cc4204",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f2f3ff",
+                    "secondary": "#5c5f61",
+                    "surface-container": "#ecedfa",
+                    "on-surface": "#191b24"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "sm": "12px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "h3": ["Arial"],
+                    "body-lg": ["Arial"],
+                    "body-md": ["Arial"],
+                    "button": ["Arial"],
+                    "h2": ["Arial"],
+                    "label-caps": ["Arial"],
+                    "h1": ["Arial"]
+            },
+            "fontSize": {
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "button": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 102, 255, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-blue-100/20 shadow-sm">
+<nav class="flex justify-between items-center h-16 px-8 max-w-[1280px] mx-auto">
+<div class="text-xl font-bold text-blue-600 tracking-tight font-h3">De Drone World</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="text-slate-600 hover:text-blue-600 transition-all font-button text-button" href="#">Home</a>
+<a class="text-blue-600 font-semibold border-b-2 border-blue-600 transition-all font-button text-button" href="#">Training</a>
+<a class="text-slate-600 hover:text-blue-600 transition-all font-button text-button" href="#">Services</a>
+<a class="text-slate-600 hover:text-blue-600 transition-all font-button text-button" href="#">Manufacturing</a>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-slate-600 cursor-pointer p-2 hover:bg-blue-50/50 rounded-full transition-all" data-icon="chat">chat</span>
+<button class="bg-primary-container text-on-primary-container px-md py-sm rounded-lg font-button text-button active:scale-95 duration-200">Register Now</button>
+</div>
+</nav>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative h-[819px] w-full flex items-center justify-center overflow-hidden bg-slate-900">
+<div class="absolute inset-0 z-0">
+<img alt="Professional drone cinematic shot" class="w-full h-full object-cover opacity-60" data-alt="Cinematic wide shot of a professional agricultural drone flying over lush green fields during a crisp blue sky day" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD06YrZdzwAU9Yhensi8x2CXRZ4SmFd3JK1IGeil1EDNcTb5wHp1nX28cKGn03o5HsWdq5KT8H_HLAPev3mFZuzmMVyojFH_ADXybT7nEip9YrQkNTN0PwIJ16TWB3VXYKj6jNe-y1HWIGfeSBM8DE2Yaw6qE7sWdC-7gjtB-5Gjk5UYwwJyy80narXyP9n8zTzOIEf-XD5J1352Qhz0kywe3lvKMa562RkqHT2tz3NjD1XkSeuu4Qln0xaM9yBCHGF8tnWpA-Bk5g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 text-center px-8 max-w-[900px]">
+<div class="inline-flex items-center bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 text-blue-400 px-md py-xs rounded-full mb-md">
+<span class="material-symbols-outlined text-sm mr-2" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-caps text-label-caps uppercase">Government of India Approved</span>
+</div>
+<h1 class="font-h1 text-h1 text-white mb-md leading-tight">Master the Skies with DGCA Certified Remote Pilot Training</h1>
+<p class="font-body-lg text-body-lg text-slate-200 mb-lg max-w-2xl mx-auto">Launch your career in the booming drone industry with India's premier flight academy. Technical mastery meets expansive freedom.</p>
+<div class="flex flex-col sm:flex-row gap-md justify-center">
+<button class="bg-primary-container text-on-primary-container px-xl py-md rounded-lg font-h3 text-button shadow-lg shadow-blue-600/20">Enroll for Next Batch</button>
+<button class="glass text-white px-xl py-md rounded-lg font-h3 text-button">Download Brochure</button>
+</div>
+</div>
+</section>
+<!-- Core Features / Benefits -->
+<section class="py-xl max-w-[1280px] mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="p-md bg-white border border-blue-100/50 rounded-xl shadow-sm">
+<div class="w-12 h-12 bg-blue-50 flex items-center justify-center rounded-lg mb-md">
+<span class="material-symbols-outlined text-blue-600" data-icon="school">school</span>
+</div>
+<h3 class="font-h3 text-h3 text-slate-900 mb-sm">DGCA Approved</h3>
+<p class="font-body-md text-body-md text-slate-600">Our curriculum is strictly aligned with DGCA standards, ensuring you receive a valid Remote Pilot Certificate (RPC).</p>
+</div>
+<div class="p-md bg-white border border-blue-100/50 rounded-xl shadow-sm">
+<div class="w-12 h-12 bg-blue-50 flex items-center justify-center rounded-lg mb-md">
+<span class="material-symbols-outlined text-blue-600" data-icon="flight">flight</span>
+</div>
+<h3 class="font-h3 text-h3 text-slate-900 mb-sm">Hands-on Training</h3>
+<p class="font-body-md text-body-md text-slate-600">Extensive flight time on professional grade micro and small category drones under expert supervision.</p>
+</div>
+<div class="p-md bg-white border border-blue-100/50 rounded-xl shadow-sm">
+<div class="w-12 h-12 bg-blue-50 flex items-center justify-center rounded-lg mb-md">
+<span class="material-symbols-outlined text-blue-600" data-icon="work">work</span>
+</div>
+<h3 class="font-h3 text-h3 text-slate-900 mb-sm">Career Focused</h3>
+<p class="font-body-md text-body-md text-slate-600">Post-training placement assistance and networking with industry leaders in surveying, mapping, and cinema.</p>
+</div>
+</div>
+</section>
+<!-- About Section with Image -->
+<section class="py-xl bg-slate-50">
+<div class="max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+<div class="relative">
+<img alt="Instructor showing drone components" class="rounded-xl shadow-2xl w-full h-[500px] object-cover" data-alt="Professional drone instructor in high-visibility vest explaining the internal components of a heavy-lift drone to a group of attentive students" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEOpqRcFU5xSv0s5wCkl0v3bPT7AwBFT4TWKDj6akqzPvQ8S9ACedO398vv1dCk1xUafBu3uz0ZAfpXGQJSbmz7rdP70jLo0gYpiZC1jAGJE4RKUuYc5ThQM-AAVgzqAgWt2VQB5GKTbuSELnnVXB7vCy0jTKOj8xDz_qFKNW3fVQ4ipOAerURDrcBokCnmkOTDa1pUcGVSpjhe5YEkqTMhwsr8Orq45XxXTKoiymvwwgMnJEunm47VW5wIV0b8u_4ie6Gwi0VhTk"/>
+<div class="absolute -bottom-6 -right-6 glass p-md rounded-xl max-w-[240px]">
+<p class="text-blue-600 font-h2 mb-xs">500+</p>
+<p class="font-body-md text-slate-700">Certified Pilots graduated this year from our academies.</p>
+</div>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-blue-600 mb-sm block">EXPERTISE IN FLIGHT</span>
+<h2 class="font-h2 text-h2 text-slate-900 mb-md leading-tight">Setting the Standard for Excellence in Unmanned Aviation</h2>
+<p class="font-body-md text-body-md text-slate-600 mb-md">At De Drone World, we believe that becoming a drone pilot is about more than just moving sticks on a controller. It's about safety, regulatory knowledge, and technical proficiency.</p>
+<p class="font-body-md text-body-md text-slate-600 mb-lg">Our training facility features a state-of-the-art flight simulator lab and a dedicated green-zone airfield for unrestricted practice. We provide everything from basic flight maneuvers to advanced GIS mapping techniques.</p>
+<div class="space-y-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-blue-600 text-base" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-slate-800">Advanced Navigation &amp; Waypoint Planning</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-blue-600 text-base" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-slate-800">Emergency Procedures &amp; Safety Drills</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-blue-600 text-base" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-slate-800">Payload Integration &amp; Maintenance</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tactical Syllabus (Bento Grid Style) -->
+<section class="py-xl max-w-[1280px] mx-auto px-8">
+<div class="text-center mb-xl">
+<h2 class="font-h2 text-h2 text-slate-900 mb-sm">Tactical Curriculum</h2>
+<p class="font-body-md text-slate-500 max-w-xl mx-auto">A comprehensive deep-dive into the science and art of drone operations.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-md h-auto md:h-[600px]">
+<div class="md:col-span-2 md:row-span-2 bg-white border border-blue-100 p-lg rounded-xl flex flex-col justify-end relative overflow-hidden group">
+<div class="absolute inset-0 bg-blue-600/5 group-hover:bg-blue-600/10 transition-colors"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-blue-600 text-4xl mb-md" data-icon="analytics">analytics</span>
+<h3 class="font-h3 text-h3 mb-sm">Air Regulations &amp; Air Traffic Control</h3>
+<p class="font-body-md text-slate-600">In-depth study of the New Drone Rules 2021, airspace classification, and communication protocols with ATC.</p>
+</div>
+</div>
+<div class="md:col-span-2 bg-slate-900 p-lg rounded-xl flex items-center text-white relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover opacity-30" data-alt="Digital HUD showing technical drone telemetry data like altitude, speed, and GPS coordinates on a dark interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAELQOwEt0j8TgzAAD2A-lDMm3mPQ5s4yVtPx8LFCZeKSkF8XO1_oFNa3Xe1BnXtM9SorAC50GfJqD0Vv-Si1604XguDYRdtGw24ELEMdjQrMVqHOwnXJooXOexuVKeKOuqIPMxCzdzl8iFx8fT-hLyUUZfebztJ6pYn8CTh-epF8bhqr29a_x-tUQkj9pnYc71gQE5-LYAPG7zkFopwXGXzW2lP1Sf8omFb6c5BVHLhVsZkfT1T-FInVnw95qk-7RO-BjDJK4BINE"/>
+<div class="relative z-10">
+<h3 class="font-h3 text-h3 mb-sm">Meteorology &amp; Flight Prep</h3>
+<p class="font-body-md text-slate-300">Weather patterns, wind velocity analysis, and comprehensive pre-flight checklists.</p>
+</div>
+</div>
+<div class="bg-white border border-blue-100 p-md rounded-xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-blue-600" data-icon="settings">settings</span>
+<div>
+<h4 class="font-button text-slate-900 mb-xs">Maintenance</h4>
+<p class="text-sm text-slate-500">Hardware troubleshooting &amp; battery safety.</p>
+</div>
+</div>
+<div class="bg-white border border-blue-100 p-md rounded-xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-blue-600" data-icon="emergency_home">emergency_home</span>
+<div>
+<h4 class="font-button text-slate-900 mb-xs">Emergency</h4>
+<p class="text-sm text-slate-500">Failsafe logic &amp; manual override recovery.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 5-Day Schedule -->
+<section class="py-xl bg-slate-900 text-white">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-xl gap-md">
+<div>
+<span class="font-label-caps text-blue-400 mb-sm block">COURSE TIMELINE</span>
+<h2 class="font-h2 text-h2 leading-tight">5-Day Intensive Training Schedule</h2>
+</div>
+<p class="font-body-md text-slate-400 max-w-sm">A structured journey from theory to professional flight certification.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-base">
+<!-- Day 1 -->
+<div class="bg-slate-800/50 p-md border-l-4 border-blue-600 rounded-r-lg">
+<span class="font-label-caps text-blue-400 block mb-sm">DAY 01</span>
+<h4 class="font-h3 text-lg mb-sm">Ground School</h4>
+<ul class="text-sm text-slate-400 space-y-xs">
+<li>• Intro to UAS</li>
+<li>• DGCA Regulations</li>
+<li>• Basic Aerodynamics</li>
+</ul>
+</div>
+<!-- Day 2 -->
+<div class="bg-slate-800/50 p-md border-l-4 border-blue-600 rounded-r-lg">
+<span class="font-label-caps text-blue-400 block mb-sm">DAY 02</span>
+<h4 class="font-h3 text-lg mb-sm">Simulations</h4>
+<ul class="text-sm text-slate-400 space-y-xs">
+<li>• Simulator Training</li>
+<li>• Basic Controls</li>
+<li>• Flight Physics</li>
+</ul>
+</div>
+<!-- Day 3 -->
+<div class="bg-slate-800/50 p-md border-l-4 border-blue-600 rounded-r-lg">
+<span class="font-label-caps text-blue-400 block mb-sm">DAY 03</span>
+<h4 class="font-h3 text-lg mb-sm">Field Flight I</h4>
+<ul class="text-sm text-slate-400 space-y-xs">
+<li>• Take-off &amp; Landing</li>
+<li>• Hovering Practice</li>
+<li>• Figure-of-8</li>
+</ul>
+</div>
+<!-- Day 4 -->
+<div class="bg-slate-800/50 p-md border-l-4 border-blue-600 rounded-r-lg">
+<span class="font-label-caps text-blue-400 block mb-sm">DAY 04</span>
+<h4 class="font-h3 text-lg mb-sm">Advanced Flight</h4>
+<ul class="text-sm text-slate-400 space-y-xs">
+<li>• Night Flying</li>
+<li>• Payload Ops</li>
+<li>• Beyond Line of Sight</li>
+</ul>
+</div>
+<!-- Day 5 -->
+<div class="bg-slate-800/50 p-md border-l-4 border-blue-400 rounded-r-lg">
+<span class="font-label-caps text-blue-400 block mb-sm">DAY 05</span>
+<h4 class="font-h3 text-lg mb-sm">Certification</h4>
+<ul class="text-sm text-slate-400 space-y-xs">
+<li>• Theory Exam</li>
+<li>• Practical Flight Test</li>
+<li>• Graduation</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-xl max-w-[1280px] mx-auto px-8">
+<div class="bg-primary px-8 py-xl rounded-2xl flex flex-col md:flex-row items-center justify-between gap-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
+<div class="relative z-10 text-center md:text-left">
+<h2 class="font-h2 text-h2 text-white mb-sm">Ready to become a certified pilot?</h2>
+<p class="font-body-md text-blue-100 opacity-80">Join our upcoming batch in Coimbatore or Madurai. Limited seats available.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-md relative z-10 w-full md:w-auto">
+<button class="bg-white text-primary px-lg py-md rounded-lg font-button hover:bg-slate-50 transition-colors">Apply for Course</button>
+<button class="border border-white/30 text-white px-lg py-md rounded-lg font-button hover:bg-white/10 transition-colors">Talk to Counselor</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-slate-50 border-t border-slate-200 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 max-w-[1280px] mx-auto">
+<div>
+<div class="text-lg font-black text-slate-900 mb-md uppercase">De Drone World</div>
+<p class="font-body-md text-slate-500 text-sm">© 2024 De Drone World. Technical mastery and expansive freedom.</p>
+</div>
+<div>
+<h4 class="font-button text-slate-900 mb-md">Quick Links</h4>
+<ul class="space-y-sm">
+<li><a class="text-slate-500 hover:text-blue-600 hover:underline transition-colors font-body-md text-sm" href="#">Home</a></li>
+<li><a class="text-blue-600 hover:underline transition-colors font-body-md text-sm" href="#">Training</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 hover:underline transition-colors font-body-md text-sm" href="#">Resource Center</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-button text-slate-900 mb-md">Our Offices</h4>
+<ul class="space-y-sm">
+<li><a class="text-slate-500 hover:text-blue-600 hover:underline transition-colors font-body-md text-sm" href="#">Coimbatore Office</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 hover:underline transition-colors font-body-md text-sm" href="#">Madurai Office</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-button text-slate-900 mb-md">Legal</h4>
+<ul class="space-y-sm">
+<li><a class="text-slate-500 hover:text-blue-600 hover:underline transition-colors font-body-md text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 hover:text-blue-600 hover:underline transition-colors font-body-md text-sm" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>
