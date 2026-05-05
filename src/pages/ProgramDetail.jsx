@@ -989,6 +989,12 @@ export default function ProgramDetail() {
             <BulletList items={program.droneDetails} />
           </DetailBlock>
 
+          {program.tools && (
+            <DetailBlock icon={<Sparkles size={20} />} title="Tools & Software">
+              <BulletList items={program.tools} />
+            </DetailBlock>
+          )}
+
           <DetailBlock icon={<MapPin size={20} />} title="Who Should Join">
             <BulletList items={program.audience} />
           </DetailBlock>
@@ -996,6 +1002,12 @@ export default function ProgramDetail() {
           <DetailBlock icon={<GraduationCap size={20} />} title="What You'll Gain">
             <BulletList items={program.gains} />
           </DetailBlock>
+
+          {program.practical && (
+            <DetailBlock icon={<Plane size={20} />} title="Practical Training Highlights">
+              <BulletList items={program.practical} />
+            </DetailBlock>
+          )}
 
           <div className="grid gap-8 md:grid-cols-2">
             <DetailBlock icon={<BadgeCheck size={20} />} title="Eligibility">
@@ -1006,6 +1018,12 @@ export default function ProgramDetail() {
           <DetailBlock icon={<Sparkles size={20} />} title="Why This Course Stands Out">
             <BulletList items={program.why} />
           </DetailBlock>
+
+          {program.finalTakeaway && (
+            <DetailBlock icon={<Sparkles size={20} />} title="Final Takeaway">
+              <p className="text-lg font-semibold leading-relaxed text-slate-700">{program.finalTakeaway}</p>
+            </DetailBlock>
+          )}
         </div>
 
         <EnrollmentCard program={program} />
