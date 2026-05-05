@@ -325,4 +325,5 @@ const Services = () => {
     </div>
   );
 };
-};export default Services;
+
+export default Services;
