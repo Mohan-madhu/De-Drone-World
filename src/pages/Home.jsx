@@ -748,50 +748,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION D — Photo Gallery (6 images) */}
-      <section ref={gallerySectionRef} className="bg-white py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-navy text-center font-[Space_Grotesk] mb-10">
-            Training in Action
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <img
-              src="https://images.pexels.com/photos/336232/pexels-photo-336232.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-              alt="Drone flying against blue sky with camera"
-              className="gallery-item w-full h-full object-cover rounded-xl aspect-video"
-            />
-            <img
-              src="https://images.pexels.com/photos/4355183/pexels-photo-4355183.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-              alt="Drone camera across open sky"
-              className="gallery-item w-full h-full object-cover rounded-xl aspect-video"
-            />
-            <img
-              src="https://images.pexels.com/photos/997122/pexels-photo-997122.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-              alt="Worm eye view of quadcopter drone"
-              className="gallery-item w-full h-full object-cover rounded-xl aspect-video"
-            />
-            <img
-              src="https://images.pexels.com/photos/67699/pexels-photo-67699.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-              alt="Black and white quadcopter drone in sky"
-              className="gallery-item w-full h-full object-cover rounded-xl aspect-video"
-            />
-            <img
-              src="https://images.pexels.com/photos/8459566/pexels-photo-8459566.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-              alt="Drone flying with palm trees backdrop"
-              className="gallery-item w-full h-full object-cover rounded-xl aspect-video"
-            />
-            <img
-              src="https://images.pexels.com/photos/8459526/pexels-photo-8459526.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-              alt="Drone camera aerial view blue sky"
-              className="gallery-item w-full h-full object-cover rounded-xl aspect-video"
-            />
-          </div>
-        </div>
-      </section>
-
-
-
-
       {/* Enterprise Solutions Section */}
       <section className="py-24 bg-slate-950 text-white">
         <div className="max-w-7xl mx-auto px-8">
