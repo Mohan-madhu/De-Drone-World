@@ -161,7 +161,7 @@ export default function AgricultureServices() {
 
   return (
     <div ref={mainRef} className="overflow-hidden bg-slate-50">
-      <section className="relative flex min-h-[620px] items-center overflow-hidden bg-slate-950 px-6 pt-20 text-white">
+      <section className="relative flex min-h-[560px] items-center overflow-hidden bg-slate-950 px-6 pb-12 pt-24 text-white md:min-h-[620px]">
         <img
           src="/assets/services_hero.png"
           alt="Agriculture drone service"
@@ -173,16 +173,16 @@ export default function AgricultureServices() {
           <span className="agri-hero-reveal inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-5 py-2 text-xs font-bold uppercase tracking-[0.24em] text-blue-200">
             <Leaf size={16} /> Agriculture Drone Services
           </span>
-          <h1 className="agri-hero-reveal mt-7 max-w-4xl text-5xl font-bold leading-tight tracking-tight text-white md:text-7xl">
+          <h1 className="agri-hero-reveal mt-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white md:mt-7 md:text-7xl">
             Precision farming powered by advanced drone solutions
           </h1>
-          <p className="agri-hero-reveal mt-6 max-w-2xl text-lg leading-relaxed text-slate-200 md:text-xl">
+          <p className="agri-hero-reveal mt-4 max-w-2xl text-base leading-relaxed text-slate-200 md:mt-6 md:text-xl">
             Enhance farm productivity, reduce operational costs, and make better field decisions with efficient,
             data-driven agriculture drone services built for modern farming needs.
           </p>
           <a
             href="#agri-contact"
-            className="agri-hero-reveal mt-9 inline-flex items-center gap-3 rounded-xl bg-primary px-8 py-4 font-bold text-white shadow-2xl shadow-primary/20 transition-transform hover:scale-[1.02]"
+            className="agri-hero-reveal mt-6 inline-flex items-center gap-3 rounded-xl bg-primary px-8 py-4 font-bold text-white shadow-2xl shadow-primary/20 transition-transform hover:scale-[1.02] md:mt-8"
           >
             Schedule a Demo <ArrowRight size={19} />
           </a>
