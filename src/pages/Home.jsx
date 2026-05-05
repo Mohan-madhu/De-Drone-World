@@ -17,7 +17,6 @@ const splitTextToChars = (text) => {
   ));
 };
 
-const reachHeadlines = ['Training Missions', 'Aerial Operations', 'Drone Innovation'];
 const REACH_IMAGE_LIMIT = 40;
 
 const preloadImage = (src) =>
@@ -337,28 +336,21 @@ const Home = () => {
 
           <div ref={reachCarouselRef} className="reach-carousel-mask reach-carousel-stage">
             <div ref={reachTrackRef} className="reach-carousel-track reach-carousel-track--gallery">
-              {reachSlides.map((image, index) => {
-                const title = reachHeadlines[index % reachHeadlines.length];
-                return (
-                  <article
-                    key={`${image}-${index}`}
-                    className="reach-carousel-card group relative h-[340px] w-[280px] flex-none overflow-hidden rounded-[2rem] bg-slate-100 shadow-xl border border-slate-100 md:w-[360px]"
-                    data-reach-card
-                  >
-                    <div className="reach-carousel-card-inner h-full w-full overflow-hidden rounded-[2rem] transition-transform duration-300 ease-out will-change-transform">
-                      <img
-                        src={image}
-                        alt={title}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent"></div>
-                      <h3 className="absolute bottom-7 left-7 right-7 text-2xl font-bold text-white font-display tracking-tight">
-                        {title}
-                      </h3>
-                    </div>
-                  </article>
-                );
-              })}
+              {reachSlides.map((image, index) => (
+                <article
+                  key={`${image}-${index}`}
+                  className="reach-carousel-card group relative h-[340px] w-[280px] flex-none overflow-hidden rounded-[2rem] bg-slate-100 shadow-xl border border-slate-100 md:w-[360px]"
+                  data-reach-card
+                >
+                  <div className="reach-carousel-card-inner h-full w-full overflow-hidden rounded-[2rem] transition-transform duration-300 ease-out will-change-transform">
+                    <img
+                      src={image}
+                      alt="How High We Are gallery image"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </div>
