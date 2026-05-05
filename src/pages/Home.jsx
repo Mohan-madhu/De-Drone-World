@@ -31,6 +31,8 @@ const preloadImage = (src) =>
 const Home = () => {
   const mainRef = useRef(null);
   const dgcaBannerRef = useRef(null);
+  const reachCarouselRef = useRef(null);
+  const reachTrackRef = useRef(null);
   const [hoveredCert, setHoveredCert] = useState(null);
   const [reachImages, setReachImages] = useState([]);
   const statsSectionRef = useRef(null);
@@ -65,6 +67,74 @@ const Home = () => {
   }, []);
 
   const reachSlides = reachImages.length > 0 ? [...reachImages, ...reachImages] : [];
+
+  useEffect(() => {
+    if (!reachCarouselRef.current || !reachTrackRef.current || reachSlides.length === 0) return;
+
+    const carousel = reachCarouselRef.current;
+    const track = reachTrackRef.current;
+    const cards = Array.from(track.querySelectorAll('[data-reach-card]'));
+    if (cards.length === 0) return;
+
+    let offset = 0;
+    let lastTime = performance.now();
+    let frameId;
+    let trackWidth = track.scrollWidth / 2;
+
+    const updateTrackWidth = () => {
+      trackWidth = track.scrollWidth / 2;
+    };
+
+    const updateCardScale = () => {
+      const carouselRect = carousel.getBoundingClientRect();
+      const carouselCenter = carouselRect.left + carouselRect.width / 2;
+      const maxDistance = carouselRect.width / 2;
+
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(carouselCenter - cardCenter);
+        const progress = Math.min(distance / maxDistance, 1);
+        const scale = 1.22 - progress * 0.38;
+        const lift = -18 + progress * 14;
+
+        card.style.transform = `translateY(${lift}px) scale(${scale})`;
+        card.style.opacity = `${0.72 + (1 - progress) * 0.28}`;
+        card.style.zIndex = `${Math.round(scale * 1000)}`;
+      });
+    };
+
+    const animate = (time) => {
+      const delta = time - lastTime;
+      lastTime = time;
+
+      updateTrackWidth();
+      offset += delta * 0.025;
+
+      if (trackWidth > 0 && offset >= trackWidth) {
+        offset -= trackWidth;
+      }
+
+      track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+      updateCardScale();
+      frameId = requestAnimationFrame(animate);
+    };
+
+    const handleResize = () => {
+      updateTrackWidth();
+      updateCardScale();
+    };
+
+    updateTrackWidth();
+    updateCardScale();
+    frameId = requestAnimationFrame(animate);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [reachSlides.length]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -265,24 +335,27 @@ const Home = () => {
             <h2 className="text-3xl md:text-5xl font-bold text-navy font-display tracking-tight">How High We Are</h2>
           </div>
 
-          <div className="reach-carousel-mask">
-            <div className="reach-carousel-track">
+          <div ref={reachCarouselRef} className="reach-carousel-mask reach-carousel-stage">
+            <div ref={reachTrackRef} className="reach-carousel-track reach-carousel-track--gallery">
               {reachSlides.map((image, index) => {
                 const title = reachHeadlines[index % reachHeadlines.length];
                 return (
                   <article
                     key={`${image}-${index}`}
-                    className="group relative h-[340px] w-[280px] flex-none overflow-hidden rounded-[2rem] bg-slate-100 shadow-xl border border-slate-100 md:w-[360px]"
+                    className="reach-carousel-card group relative h-[340px] w-[280px] flex-none overflow-hidden rounded-[2rem] bg-slate-100 shadow-xl border border-slate-100 md:w-[360px]"
+                    data-reach-card
                   >
-                    <img
-                      src={image}
-                      alt={title}
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent"></div>
-                    <h3 className="absolute bottom-7 left-7 right-7 text-2xl font-bold text-white font-display tracking-tight">
-                      {title}
-                    </h3>
+                    <div className="reach-carousel-card-inner h-full w-full overflow-hidden rounded-[2rem] transition-transform duration-300 ease-out will-change-transform">
+                      <img
+                        src={image}
+                        alt={title}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent"></div>
+                      <h3 className="absolute bottom-7 left-7 right-7 text-2xl font-bold text-white font-display tracking-tight">
+                        {title}
+                      </h3>
+                    </div>
                   </article>
                 );
               })}
