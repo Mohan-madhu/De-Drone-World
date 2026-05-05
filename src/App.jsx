@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Training from './pages/Training';
 import ProgramDetail from './pages/ProgramDetail';
 import Services from './pages/Services';
+import AgricultureServices from './pages/AgricultureServices';
 import Manufacturing from './pages/Manufacturing';
 import Contact from './pages/Contact';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -36,6 +37,7 @@ function App() {
             <Route path="/training" element={<Training />} />
             <Route path="/training/:programSlug" element={<ProgramDetail />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/agriculture" element={<AgricultureServices />} />
             <Route path="/manufacturing" element={<Manufacturing />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
