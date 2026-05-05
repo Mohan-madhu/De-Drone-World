@@ -54,7 +54,8 @@ const servicesData = [
       'Complete aerial event coverage',
       'Shareable social media content',
       'Archive-quality documentation'
-    ]
+    ],
+    path: '/services/events'
   },
   {
     id: 3,
