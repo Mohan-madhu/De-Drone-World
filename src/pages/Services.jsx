@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Leaf, Monitor, Map, Hammer, Wheat, Zap, Radio } from 'lucide-react';
+import { X, ArrowRight, Leaf, Camera, Zap, Map } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const serviceCards = [
   {
