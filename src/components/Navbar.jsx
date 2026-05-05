@@ -40,7 +40,7 @@ const dgcaCourseTitles = [
   { name: 'Small RPC', icon: <Plane size={16} /> },
   { name: 'Medium RPC', icon: <Gauge size={16} /> },
   { name: 'Small And Medium RPC', icon: <Layers size={16} /> },
-  { name: 'RPC Upgradation', icon: <RefreshCw size={16} /> },
+  { name: 'Inspector Development Course', icon: <RefreshCw size={16} /> },
 ];
 
 const trainingSubMenus = {
