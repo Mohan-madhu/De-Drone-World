@@ -12,6 +12,7 @@ import Services from './pages/Services';
 import AgricultureServices from './pages/AgricultureServices';
 import InspectionServices from './pages/InspectionServices';
 import EventServices from './pages/EventServices';
+import SurveyMappingServices from './pages/SurveyMappingServices';
 import Manufacturing from './pages/Manufacturing';
 import Contact from './pages/Contact';
 
@@ -41,6 +42,7 @@ function App() {
             <Route path="/services/agriculture" element={<AgricultureServices />} />
             <Route path="/services/inspection" element={<InspectionServices />} />
             <Route path="/services/events" element={<EventServices />} />
+            <Route path="/services/survey-mapping" element={<SurveyMappingServices />} />
             <Route path="/manufacturing" element={<Manufacturing />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
