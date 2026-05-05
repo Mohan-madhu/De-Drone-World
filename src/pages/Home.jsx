@@ -342,11 +342,11 @@ const Home = () => {
                   className="reach-carousel-card group relative h-[340px] w-[280px] flex-none overflow-hidden rounded-[2rem] bg-slate-100 shadow-xl border border-slate-100 md:w-[360px]"
                   data-reach-card
                 >
-                  <div className="reach-carousel-card-inner h-full w-full overflow-hidden rounded-[2rem] transition-transform duration-300 ease-out will-change-transform">
+                  <div className="reach-carousel-card-inner absolute inset-0 overflow-hidden rounded-[2rem] transition-transform duration-300 ease-out will-change-transform">
                     <img
                       src={image}
                       alt="How High We Are gallery image"
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="h-full w-full scale-[1.04] object-cover object-center transition-transform duration-700 group-hover:scale-[1.12]"
                     />
                   </div>
                 </article>
