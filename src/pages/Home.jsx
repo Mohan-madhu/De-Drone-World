@@ -789,57 +789,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Fleet Showcase */}
-      <section className="bg-slate-50 py-32">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="section-reveal text-center mb-24">
-            <h2 className="text-4xl md:text-6xl font-bold text-on-surface font-display tracking-tighter">Our Enterprise Fleet</h2>
-            <p className="text-xl text-slate-500 max-w-2xl mx-auto mt-8 font-sans leading-relaxed">
-              Precision-engineered hardware designed for diverse mission profiles, from cinematic production to thermal industrial inspection.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              {
-                name: "AeroGuardian X1",
-                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCK78P6BOnAzwTzS2brybHPRSzQ746PEXv5zNwmwQpe_YVIOWmNcV0Om7IRHc9OkoTllUXveiPBgoRwbCaeEwj6LSW2kmcbpnp24I9Xw5V81xvcdi59ZdIN9lqh0jKosk7YAJw5btz85ua17Stw5Xy3sDNYAHn9AOt9VPJfBdVKDJKTgKVTOcBAX_HHJA3SmqBmiJ9L-SVFb9_ebZezcHj-cGjVFwNIRgvyRMqStgkGQ5sm3NlHGCpBJSzxa_jJnCpV4rrMMf-WBKQ",
-                specs: "45 MIN FLIGHT • 8K THERMAL",
-                desc: "The ultimate tool for industrial inspections and long-range surveillance missions.",
-                badge: "BEST SELLER"
-              },
-              {
-                name: "SwiftCore Nano",
-                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCvA1hWOVoQEs_Gck2gGLw5gSvNk7d3-ZZz0AiXLAs__P4qsFC8BZFOTRSospghjgsXzUPg0ZwgkrI2f3BcRMCkn2bo-DbguwlW_ZXMVOUmTHkueg5CDYJ743Qip_aUOZXdsH-HenZ489Cf7kxLJmIa6lJVE-rt_0QJXzy2pUQQmOfDHPIS7Ste-iXdS5ctfaVZUDlGlaq3jXqY_-68tkbTU-4CFcJUmf6T6ttwVUGzQfMJyU4YbsRc0DrvsBwntap6aaMaf6ETkAg",
-                specs: "15 MIN FLIGHT • ULTRA AGILE",
-                desc: "Engineered for tight indoor spaces and high-speed tactical reconnaissance."
-              },
-              {
-                name: "Atlas Carrier V3",
-                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDBwerRI6tiuoLteywf0imoiW5i82ApD-_8nL3Os1kQ19mwKqThWasf123T-mhhBDRRhp1GeZh3OQRiOPUdJfrh3dqZXHBaeZXJzbsgcEtBZdbQpPngGrZpE3yJnn0E5sX70igVg1z-osVuSKZtdEBpKai5Asrk0U648Tp8Wg00gIMzxolvEVASHKodpRBSsMQUWA0qmNyIIFbtIxueAMjnJa5c-F4J1CordMytAmKcWiB5sRky38DdAL7qp9xNyBF4KWDqZ9a4Hm8",
-                specs: "30 MIN FLIGHT • 20KG PAYLOAD",
-                desc: "Designed for heavy payloads and agricultural precision spraying applications.",
-                badge: "HEAVY LIFT"
-              }
-            ].map((drone, index) => (
-              <div key={index} className="section-reveal bg-white rounded-[2rem] p-10 border border-slate-200 hover:border-primary/40 hover:shadow-2xl transition-all duration-500 group">
-                <div className="relative mb-10 rounded-2xl overflow-hidden bg-slate-50 aspect-square flex items-center justify-center p-12">
-                  <img className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-1000" src={drone.img} alt={drone.name} />
-                  {drone.badge && (
-                    <div className="absolute top-6 right-6 bg-primary text-white px-5 py-2 rounded-full text-[10px] font-bold tracking-[0.2em] shadow-lg shadow-primary/20">{drone.badge}</div>
-                  )}
-                </div>
-                <h4 className="text-3xl font-bold mb-4 font-display">{drone.name}</h4>
-                <div className="text-xs font-bold tracking-[0.1em] text-primary mb-6 bg-primary/5 inline-block px-4 py-1 rounded-lg">{drone.specs}</div>
-                <p className="text-slate-500 mb-10 leading-relaxed font-sans">{drone.desc}</p>
-                <button className="w-full py-5 rounded-2xl border-2 border-slate-100 text-slate-900 font-bold hover:bg-primary hover:border-primary hover:text-white transition-all duration-300">
-                  Technical Specs
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
       {/* Enterprise Solutions Section */}
