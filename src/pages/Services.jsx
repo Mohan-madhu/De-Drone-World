@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { X, ArrowRight, Leaf, Camera, Zap, Map } from 'lucide-react';
@@ -28,7 +29,8 @@ const servicesData = [
       'Labor cost savings through automation',
       'Early pest and disease detection',
       'Better ROI through data-driven decisions'
-    ]
+    ],
+    path: '/services/agriculture'
   },
   {
     id: 2,
@@ -188,11 +190,17 @@ const Services = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {servicesData.map((service) => (
-              <div
+            {servicesData.map((service) => {
+              const CardWrapper = service.path ? Link : 'div';
+              const wrapperProps = service.path
+                ? { to: service.path }
+                : { onClick: () => handleOpenService(service) };
+
+              return (
+              <CardWrapper
                 key={service.id}
-                onClick={() => handleOpenService(service)}
-                className="section-reveal group cursor-pointer"
+                {...wrapperProps}
+                className="section-reveal group block cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl border border-slate-200 hover:border-blue-400/50 transition-all duration-500 hover:shadow-2xl h-96">
                   {/* Background Image */}
@@ -215,8 +223,9 @@ const Services = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              </CardWrapper>
+              );
+            })}
           </div>
         </div>
       </section>
