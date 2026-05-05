@@ -669,124 +669,35 @@ const Home = () => {
         )}
       </div>
 
-      {/* Academy Section - MOVED TO TOP */}
-      <section className="py-32 max-w-7xl mx-auto px-8 flex flex-col lg:flex-row items-center gap-20">
-        <div className="section-reveal flex-1">
-          <span className="font-bold text-xs tracking-[0.3em] text-primary mb-6 block uppercase font-display">WORLD-CLASS EDUCATION</span>
-          <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-[1.1] font-display tracking-tighter">Training Academy: Master the Skies</h2>
-          <p className="text-xl text-slate-600 mb-12 leading-relaxed font-sans max-w-xl">
-            Our DGCA-certified training programs provide the essential Remote Pilot Certificate (RPC) required to operate drones legally in India. From ground school to advanced field flight.
-          </p>
-          <div className="space-y-10 mb-12">
-            <div className="flex items-start gap-6 group">
-              <div className="mt-1 p-3 bg-primary/10 rounded-2xl text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                <CheckCircle size={24} />
-              </div>
-              <div>
-                <span className="font-bold text-xl block mb-2 font-display">RPC Licensing Program</span>
-                <p className="text-slate-500 font-sans leading-relaxed">Official DGCA certification for Small & Medium category drones.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-6 group">
-              <div className="mt-1 p-3 bg-primary/10 rounded-2xl text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                <CheckCircle size={24} />
-              </div>
-              <div>
-                <span className="font-bold text-xl block mb-2 font-display">Hands-on Flight Mastery</span>
-                <p className="text-slate-500 font-sans leading-relaxed">Practice on industrial-grade drones with real-time instructor feedback.</p>
-              </div>
-            </div>
+      {/* SECTION B — Stats Strip */}
+      <section ref={statsSectionRef} className="bg-white border-y border-[#BDDFF0] py-10 px-6">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-[#BDDFF0]">
+          <div className="flex flex-col items-center text-center px-4">
+            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
+              <span className="stat-number">500</span>+
+            </span>
+            <span className="text-sm text-[#555555] mt-1">Pilots Trained</span>
           </div>
-          <a href="/contact" className="inline-block bg-primary text-white px-12 py-5 rounded-2xl font-bold hover:bg-primary/90 transition-all shadow-2xl shadow-primary/30 font-display text-lg tracking-wide hover:-translate-y-1">
-            Register for Batch
-          </a>
-        </div>
-        <div className="section-reveal flex-1 relative">
-          <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/5 rounded-[3rem] -z-10"></div>
-          <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
-            <img
-              className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-1000"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXDG1EqGi43JAo-RUM8sVJcwRs7edkyOf6BENFyxvRC6myNZ4jSOYdkXVtKYZpQUv9sw56TWpcuct6_yClNDE75gOojWbDUavXVXyyhF2lGyvIdGmleqGB_P7xqyYtSqBMiJGTnF3QfMKlnO8cF5rvXXY-qrGJ6sCgy3UlH7MvIJFquolksn0r3k483rTIRwIa6q2Ex5oa8Griey6JIdV4r9NwPjiYcAPzDv1Z2i6CGlXKilQiL-PKMo28VE5LOFMDw83Ua9Z1heE"
-              alt="Drone Academy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent"></div>
+          <div className="flex flex-col items-center text-center px-4">
+            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
+              <span className="stat-number">5</span> Days
+            </span>
+            <span className="text-sm text-[#555555] mt-1">Training Duration</span>
           </div>
-          <div className="absolute -bottom-10 -right-10 dark-glass p-10 rounded-[2.5rem] shadow-2xl text-center min-w-[240px] border-white/20">
-            <div className="text-5xl font-bold text-primary mb-2 font-display tracking-tighter">5000+</div>
-            <div className="text-xs font-bold tracking-[0.2em] text-white/70 uppercase font-display">CERTIFIED PILOTS</div>
+          <div className="flex flex-col items-center text-center px-4">
+            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
+              <span className="stat-number">10</span> Years
+            </span>
+            <span className="text-sm text-[#555555] mt-1">License Validity</span>
+          </div>
+          <div className="flex flex-col items-center text-center px-4">
+            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
+              ₹<span className="stat-number">1</span> Lakh
+            </span>
+            <span className="text-sm text-[#555555] mt-1">Monthly Earning Potential</span>
           </div>
         </div>
       </section>
-
-      {/* Innovation Section - Bento Grid */}
-      <section className="py-32 max-w-7xl mx-auto px-8">
-        <div className="section-reveal mb-20 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-on-surface font-display tracking-tighter">Innovation in Flight</h2>
-          <div className="h-2 w-24 bg-primary mx-auto mt-6 rounded-full"></div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* Speed */}
-          <div className="section-reveal md:col-span-8 glass-card rounded-[2rem] overflow-hidden p-10 group border-white/20">
-            <div className="flex flex-col lg:flex-row gap-12 h-full">
-              <div className="flex-1 flex flex-col justify-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-8 floating-icon border border-primary/20">
-                  <Bolt size={32} fill="currentColor" />
-                </div>
-                <h3 className="text-3xl font-bold mb-4 font-display">Unmatched Speed</h3>
-                <p className="text-slate-600 leading-relaxed font-sans text-lg">
-                  Our propulsion systems redefine limits, delivering rapid response times for critical missions and time-sensitive aerial data collection.
-                </p>
-              </div>
-              <div className="flex-1 rounded-2xl overflow-hidden h-64 lg:h-auto shadow-2xl">
-                <img
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPxNSJqStxTr_l5aJvvg_7q_OM-gVPpRf8UpHr1amEIedIilnO_5QVo3XAhUaeK9NQZi9HW_-4mBab_mPOTqPdO4XlgRicPGPL762dTUR18a7ng-_gj1fcw008jmXnordu9U1dJ5GbLZFf9s-mvIvUFqvU3-AGgyDvqfmt5Y8LeASiPx4EgmiFTz7Q3x4RWU-8PnYz-eDD8jxCWPoIQisGDjPAkmzl8qaIoohrDDo5PQAd6zjjZMmMbT2r31b-uo1t7Yr_EMRIhSg"
-                  alt="Drone Speed"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Precision */}
-          <div className="section-reveal md:col-span-4 glass-card rounded-[2rem] overflow-hidden p-10 group flex flex-col border-white/20">
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-8 floating-icon border border-primary/20">
-              <Target size={32} />
-            </div>
-            <h3 className="text-3xl font-bold mb-4 font-display">Surgical Precision</h3>
-            <p className="text-slate-600 mb-8 leading-relaxed font-sans">
-              Centimeter-level accuracy through advanced GPS and RTK integration for mapping and inspection.
-            </p>
-            <div className="mt-auto rounded-2xl overflow-hidden h-56 shadow-2xl">
-              <img
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHM55ccWTNYG-3Pn0mIloX_mZ4qUhiiQXuvkNNzCBRoZB_GJ8iwkAaGfgNAQFeVMk4ySbPw9E5DANnLQx0G_fr_GqO1siSvaOsYBeZrXu81THAwRkn_kZre-WESyp2TJeyR4SmcMm4HC44Lf8ioHii5fvD7DpOwQWrNvJrVwXHeliWB6zjvbiRoQN2l5qrA_JY16JFzeHiYgMVxlGI7rt4cPSY2eAhE4NtWWH3hgdCiv2IJfIzrBzkfJduBbLk4GEMv6OsuuvrWjA"
-                alt="Precision Hover"
-              />
-            </div>
-          </div>
-
-          {/* Autonomy */}
-          <div className="section-reveal md:col-span-12 glass-card rounded-[2rem] p-10 flex flex-col md:flex-row items-center justify-between group gap-12 border-white/20">
-            <div className="max-w-xl">
-              <div className="flex items-center gap-6 mb-6">
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary floating-icon border border-primary/20">
-                  <Cpu size={28} />
-                </div>
-                <h3 className="text-3xl font-bold font-display">Intelligent Autonomy</h3>
-              </div>
-              <p className="text-slate-600 leading-relaxed font-sans text-lg">
-                AI-driven obstacle avoidance and path planning enable drones to operate safely in complex environments without human intervention.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <div className="px-8 py-3 bg-primary/10 rounded-full border border-primary/20 text-xs font-bold tracking-[0.2em] text-primary uppercase font-display">PATHFINDER V2</div>
-              <div className="px-8 py-3 bg-primary/10 rounded-full border border-primary/20 text-xs font-bold tracking-[0.2em] text-primary uppercase font-display">AI-CHIP INTEGRATED</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SECTION B — Stats Strip */}
       <section ref={statsSectionRef} className="bg-white border-y border-[#BDDFF0] py-10 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-[#BDDFF0]">
