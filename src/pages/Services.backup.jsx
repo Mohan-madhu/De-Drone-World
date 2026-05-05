@@ -3,6 +3,94 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Leaf, Monitor, Map, Hammer, Wheat, Zap, Radio } from 'lucide-react';
 
+const serviceCards = [
+  {
+    title: 'Aerial Survey & Mapping',
+    icon: <Map size={28} />,
+    accent: 'from-sky-500/15 to-cyan-500/10',
+    description:
+      'High-accuracy aerial survey services for land assessment, infrastructure planning, and large-scale project execution.',
+    points: [
+      'Orthomosaic maps with true-to-scale terrain representation',
+      'Topographic surveys for elevation and contour analysis',
+      'GIS-ready outputs for geospatial decision-making',
+    ],
+    featured: true,
+  },
+  {
+    title: '3D Modeling & Digital Twin',
+    icon: <Monitor size={28} />,
+    accent: 'from-indigo-500/15 to-blue-500/10',
+    description:
+      'Immersive digital replicas of environments and assets for remote analysis, visualization, and planning.',
+    points: [
+      'Accurate 3D reconstructions from aerial data',
+      'Interactive digital twins for asset monitoring',
+      'Ideal for infrastructure planning and management',
+    ],
+  },
+  {
+    title: 'Inspection & Monitoring',
+    icon: <Zap size={28} />,
+    accent: 'from-amber-500/15 to-orange-500/10',
+    description:
+      'Drone-based inspection workflows that reduce manual risk and improve operational safety and efficiency.',
+    points: [
+      'Solar, wind, telecom, and powerline inspections',
+      'High-definition imaging with automated flight paths',
+      'Early issue detection with actionable insights',
+    ],
+  },
+  {
+    title: 'Mining & Volumetric Analysis',
+    icon: <Hammer size={28} />,
+    accent: 'from-stone-500/15 to-slate-500/10',
+    description:
+      'Precise drone services for mining operations, material measurement, stockpile monitoring, and site progress tracking.',
+    points: [
+      'Stockpile measurements with confidence',
+      'Cut and fill analysis for excavation planning',
+      'Real-time visibility into mining operations',
+    ],
+  },
+  {
+    title: 'Agriculture Solutions',
+    icon: <Wheat size={28} />,
+    accent: 'from-emerald-500/15 to-lime-500/10',
+    description:
+      'Data-driven agricultural intelligence for crop health, precision spraying, and sustainable yield optimization.',
+    points: [
+      'Crop health analysis using advanced imaging',
+      'Precision spraying to reduce waste and increase productivity',
+      'Multispectral imaging for deeper crop insight',
+    ],
+  },
+  {
+    title: 'Construction & Infrastructure Monitoring',
+    icon: <Radio size={28} />,
+    accent: 'from-violet-500/15 to-fuchsia-500/10',
+    description:
+      'Continuous drone monitoring for construction progress, site coordination, and infrastructure oversight.',
+    points: [
+      'Real-time site monitoring and reporting',
+      'Improved workflows through visual progress tracking',
+      'Reduced risk and stronger project control',
+    ],
+  },
+  {
+    title: 'Drone Data Analytics Platform',
+    icon: <Monitor size={28} />,
+    accent: 'from-blue-500/15 to-slate-500/10',
+    description:
+      'Cloud-based analytics that convert raw aerial data into actionable intelligence for faster decisions.',
+    points: [
+      'Cloud dashboards for anytime access',
+      'AI-powered analytics for large datasets',
+      'Real-time reporting for competitive advantage',
+    ],
+  },
+];
+
 const Services = () => {
   const mainRef = useRef(null);
 
@@ -96,6 +184,54 @@ const Services = () => {
                 Download Arsenal Catalog
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Cards Intro */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="section-reveal text-center mb-16 max-w-4xl mx-auto">
+            <span className="font-bold text-[10px] tracking-widest text-primary mb-4 block uppercase">SERVICE AREAS</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-5">Drone Services Built for Real-World Operations</h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              Explore the core service offerings below. Each card represents a clear capability with practical outcomes, and the layout is designed to stay readable even as you add more services later.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            {serviceCards.map((service) => (
+              <article
+                key={service.title}
+                className={`section-reveal group relative overflow-hidden rounded-[2rem] border border-slate-100 bg-white shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${service.featured ? 'md:col-span-2 xl:col-span-2' : ''}`}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.accent} opacity-100`} />
+                <div className="relative z-10 h-full p-8 md:p-10 flex flex-col">
+                  <div className="flex items-start justify-between gap-6 mb-8">
+                    <div className="bg-primary text-white rounded-2xl p-4 shadow-lg shadow-primary/20">
+                      {service.icon}
+                    </div>
+                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-slate-400 pt-3">{service.featured ? 'Core Service' : 'Specialized Service'}</span>
+                  </div>
+
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">{service.title}</h3>
+                  <p className="text-slate-600 leading-relaxed text-base md:text-lg mb-8 max-w-2xl">{service.description}</p>
+
+                  <div className="grid gap-3 mb-8">
+                    {service.points.map((point) => (
+                      <div key={point} className="flex items-start gap-3 rounded-2xl bg-white/80 px-4 py-3 border border-white/60 backdrop-blur-sm">
+                        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-primary shrink-0" />
+                        <span className="text-slate-700 leading-relaxed">{point}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-auto flex items-center gap-3 text-primary font-bold group-hover:translate-x-1 transition-transform">
+                    Learn more <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
