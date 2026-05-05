@@ -334,8 +334,8 @@ const Home = () => {
             <h2 className="text-3xl md:text-5xl font-bold text-navy font-display tracking-tight">How High We Are</h2>
           </div>
 
-          <div ref={reachCarouselRef} className="reach-carousel-mask reach-carousel-stage">
-            <div ref={reachTrackRef} className="reach-carousel-track reach-carousel-track--gallery">
+          <div ref={reachCarouselRef} className="reach-carousel-mask reach-carousel-stage py-8 md:py-12">
+            <div ref={reachTrackRef} className="reach-carousel-track reach-carousel-track--gallery py-6 md:py-8">
               {reachSlides.map((image, index) => (
                 <article
                   key={`${image}-${index}`}
