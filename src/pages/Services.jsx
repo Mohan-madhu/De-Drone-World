@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -141,15 +141,21 @@ const Services = () => {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const handleOpenService = (service) => {
     setSelectedService(service);
     setIsOpen(true);
-    document.body.style.overflow = 'hidden';
   };
 
   const handleCloseModal = () => {
     setIsOpen(false);
-    document.body.style.overflow = 'unset';
   };
 
   return (
