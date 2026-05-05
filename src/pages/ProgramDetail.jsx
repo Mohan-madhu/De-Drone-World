@@ -60,7 +60,7 @@ const programs = [
     certification: 'DGCA Certified',
     overview:
       'Step into the world of professional drone aviation with a DGCA-compliant Remote Pilot Certification designed for Small Class drones. A perfect blend of theory, simulation, and real-time flying aligned with Drone Rules 2021 and DGCA standards.',
-    image: '/assets/training_hero.png',
+    image: '/assets/training/small-training.jpeg',
     ...baseSections,
   },
   {
@@ -129,7 +129,7 @@ const programs = [
     certification: 'DGCA Certified',
     overview:
       'Build and upgrade your drone piloting expertise with a DGCA-certified program covering both Small and Medium categories. Designed to deliver complete skill progression from basic flying to advanced industrial operations.',
-    image: '/assets/manufacturing_hero.png',
+    image: '/assets/training/small-and-medium-training.jpeg',
     ...baseSections,
     timeline: [
       'Day 1-2: Theory & Core Concepts',
@@ -310,24 +310,32 @@ export default function ProgramDetail() {
 
   return (
     <div className="bg-slate-50 pt-16">
-      <section className="relative overflow-hidden bg-slate-950 px-6 py-24 text-white">
-        <img src={program.image} alt={program.title} className="absolute inset-0 h-full w-full object-cover opacity-35" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/55" />
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-blue-300">
-            <BadgeCheck size={16} /> {program.eyebrow}
-          </span>
-          <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.75)] md:text-7xl font-display">
-            {program.title}
-          </h1>
-          <p className="mt-5 max-w-2xl text-xl font-semibold text-blue-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)]">{program.tagline}</p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <span className="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-5 py-3 font-semibold">
-              <Clock size={18} /> {program.duration}
+      <section className="relative overflow-hidden bg-slate-950 px-6 py-16 text-white md:py-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(30,159,212,0.24),transparent_42%),radial-gradient(circle_at_82%_10%,rgba(8,47,73,0.55),transparent_40%)]" />
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1fr_420px]">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-blue-300">
+              <BadgeCheck size={16} /> {program.eyebrow}
             </span>
-            <span className="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-5 py-3 font-semibold">
-              <ShieldCheck size={18} /> {program.certification}
-            </span>
+            <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.75)] md:text-6xl font-display">
+              {program.title}
+            </h1>
+            <p className="mt-5 max-w-2xl text-xl font-semibold text-blue-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)]">{program.tagline}</p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <span className="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-5 py-3 font-semibold">
+                <Clock size={18} /> {program.duration}
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-5 py-3 font-semibold">
+                <ShieldCheck size={18} /> {program.certification}
+              </span>
+            </div>
+          </div>
+          <div className="group mx-auto w-full max-w-[420px] overflow-hidden rounded-3xl border border-white/20 bg-white/10 p-3 shadow-[0_20px_55px_rgba(2,6,23,0.5)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(2,6,23,0.62)] backdrop-blur-sm">
+            <img
+              src={program.image}
+              alt={program.title}
+              className="h-[360px] w-full rounded-2xl bg-slate-900 object-contain transition-transform duration-700 ease-out group-hover:scale-105 group-hover:rotate-[0.35deg] md:h-[420px]"
+            />
           </div>
         </div>
       </section>
