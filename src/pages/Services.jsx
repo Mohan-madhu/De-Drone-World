@@ -104,7 +104,8 @@ const servicesData = [
       'GIS-compatible deliverables',
       'Reduced field time and costs',
       'Real-time project monitoring'
-    ]
+    ],
+    path: '/services/survey-mapping'
   }
 ];
 
