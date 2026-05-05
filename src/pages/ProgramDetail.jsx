@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { BadgeCheck, CalendarDays, CheckCircle, Clock, GraduationCap, MapPin, Plane, Send, ShieldCheck, Sparkles } from 'lucide-react';
 
