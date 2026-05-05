@@ -11,6 +11,7 @@ import ProgramDetail from './pages/ProgramDetail';
 import Services from './pages/Services';
 import AgricultureServices from './pages/AgricultureServices';
 import InspectionServices from './pages/InspectionServices';
+import EventServices from './pages/EventServices';
 import Manufacturing from './pages/Manufacturing';
 import Contact from './pages/Contact';
 
@@ -39,6 +40,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/services/agriculture" element={<AgricultureServices />} />
             <Route path="/services/inspection" element={<InspectionServices />} />
+            <Route path="/services/events" element={<EventServices />} />
             <Route path="/manufacturing" element={<Manufacturing />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
