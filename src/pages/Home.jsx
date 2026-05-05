@@ -211,7 +211,7 @@ const Home = () => {
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
           <div className="w-24 h-24 rounded-2xl bg-white/95 shadow-lg ring-2 ring-white/30 flex items-center justify-center p-2 flex-shrink-0">
             <img
-              src="/assets/dgca-badge.png"
+              src="/assets/dgca-badge.jpeg"
               alt="DGCA Approved RPTO badge"
               onError={(event) => {
                 event.currentTarget.src = '/assets/logo.png';
