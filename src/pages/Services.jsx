@@ -5,92 +5,103 @@ import { X, ArrowRight, Leaf, Camera, Zap, Map } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const serviceCards = [
+
+const servicesData = [
   {
-    title: 'Aerial Survey & Mapping',
-    icon: <Map size={28} />,
-    accent: 'from-sky-500/15 to-cyan-500/10',
-    description:
-      'High-accuracy aerial survey services for land assessment, infrastructure planning, and large-scale project execution.',
-    points: [
-      'Orthomosaic maps with true-to-scale terrain representation',
-      'Topographic surveys for elevation and contour analysis',
-      'GIS-ready outputs for geospatial decision-making',
+    id: 1,
+    title: 'Agriculture',
+    subtitle: 'Precision Crop Management',
+    icon: <Leaf size={40} />,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDSGh_b64d1qjcvTuq38ziE2DwhyvYr5rZqpguYjRsYGSP3MqueJFraFeVzFbQC3e0oNLnAnR2ZptPLhTWMv2eUcCaMAFdtCK1c4L-LrDHztu_FocgrFD2AdVtQ55d8NUQ8HaR6MshQVhcJl1OCI7Cqb9ELgKMfu1EDEuHk-r-qE7dGTKGMrpFBv6CB6bh9LiADhTr3P7IT9UbdgJ-C4M9Lh3o0t9lGW2LYFFGNGew2YeXrN-kbbsJWVO2tH4bJZDwRfQGiXSjjtcw',
+    description: 'Advanced drone solutions for crop health monitoring, precision spraying, and yield optimization. Our multispectral imaging and GPS-guided application systems reduce chemical waste by up to 30% while increasing productivity.',
+    features: [
+      'Real-time crop health monitoring with NDVI sensors',
+      'Precision variable-rate spraying and seeding',
+      'Multispectral analysis for nutrient deficiency detection',
+      ' 3D field mapping for irrigation optimization',
+      'Automated flight path generation based on field data',
+      'Historical crop performance analytics'
     ],
-    featured: true,
+    benefits: [
+      '30% reduction in chemical usage',
+      '25% improvement in crop yield',
+      'Labor cost savings through automation',
+      'Early pest and disease detection',
+      'Better ROI through data-driven decisions'
+    ]
   },
   {
-    title: '3D Modeling & Digital Twin',
-    icon: <Monitor size={28} />,
-    accent: 'from-indigo-500/15 to-blue-500/10',
-    description:
-      'Immersive digital replicas of environments and assets for remote analysis, visualization, and planning.',
-    points: [
-      'Accurate 3D reconstructions from aerial data',
-      'Interactive digital twins for asset monitoring',
-      'Ideal for infrastructure planning and management',
+    id: 2,
+    title: 'Events',
+    subtitle: 'Aerial Coverage & Documentation',
+    icon: <Camera size={40} />,
+    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=80',
+    description: 'Professional drone videography and photography for conferences, festivals, weddings, corporate events, and large-scale productions. High-resolution 4K/8K capture with dynamic aerial perspectives that traditional crews cannot achieve.',
+    features: [
+      '4K and 8K video capture with professional color grading',
+      'Real-time FPV piloting for dynamic shots',
+      'Panoramic and time-lapse photography',
+      'Live event streaming capability',
+      'Multi-angle simultaneous filming',
+      'Post-production editing and montage creation'
     ],
+    benefits: [
+      'Unique perspectives that engage audiences',
+      'Professional quality at 40% lower cost',
+      'Faster turnaround on post-production',
+      'Complete aerial event coverage',
+      'Shareable social media content',
+      'Archive-quality documentation'
+    ]
   },
   {
-    title: 'Inspection & Monitoring',
-    icon: <Zap size={28} />,
-    accent: 'from-amber-500/15 to-orange-500/10',
-    description:
-      'Drone-based inspection workflows that reduce manual risk and improve operational safety and efficiency.',
-    points: [
-      'Solar, wind, telecom, and powerline inspections',
-      'High-definition imaging with automated flight paths',
-      'Early issue detection with actionable insights',
+    id: 3,
+    title: 'Inspection',
+    subtitle: 'Infrastructure & Asset Monitoring',
+    icon: <Zap size={40} />,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCK78P6BOnAzwTzS2brybHPRSzQ746PEXv5zNwmwQpe_YVIOWmNcV0Om7IRHc9OkoTllUXveiPBgoRwbCaeEwj6LSW2kmcbpnp24I9Xw5V81xvcdi59ZdIN9lqh0jKosk7YAJw5btz85ua17Stw5Xy3sDNYAHn9AOt9VPJfBdVKDJKTgKVTOcBAX_HHJA3SmqBmiJ9L-SVFb9_ebZezcHj-cGjVFwNIRgvyRMqStgkGQ5sm3NlHGCpBJSzxa_jJnCpV4rrMMf-WBKQ',
+    description: 'Safe, efficient, and cost-effective inspections of solar farms, wind turbines, telecommunications towers, power lines, and industrial equipment. Thermal imaging and HD cameras detect issues before they become critical failures.',
+    features: [
+      'Thermal imaging for electrical anomalies',
+      '4K HD close-up inspection footage',
+      'Safe access to hard-to-reach infrastructure',
+      'Real-time defect detection and mapping',
+      'Automated inspection reporting',
+      'Historical trend analysis for predictive maintenance'
     ],
+    benefits: [
+      '80% reduction in inspection time',
+      'Eliminates dangerous manual climbing',
+      'Early failure detection saves equipment',
+      'Comprehensive documentation',
+      'Minimal business disruption',
+      'Lower inspection costs'
+    ]
   },
   {
-    title: 'Mining & Volumetric Analysis',
-    icon: <Hammer size={28} />,
-    accent: 'from-stone-500/15 to-slate-500/10',
-    description:
-      'Precise drone services for mining operations, material measurement, stockpile monitoring, and site progress tracking.',
-    points: [
-      'Stockpile measurements with confidence',
-      'Cut and fill analysis for excavation planning',
-      'Real-time visibility into mining operations',
+    id: 4,
+    title: 'Survey & Mapping',
+    subtitle: 'Geospatial Intelligence',
+    icon: <Map size={40} />,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBKE9ajFsVc3nn9WnzhqINdmr-IWQECLQYDR3CU9U2Gxcs2l81QBrJREvxgKQSor5kbgTPu0evm5lGbXej7FA13Kk8q9hn3l1K_E5B-xd4oG7qkQlOlTa3J1tqcn2dKQR5tpliTeQRLWWgxZ7xZqz5QINXC3ggPIIzgZiD0o37LAwEFIMpSqOhzw77JPWu2Gq4S2aB44n9jwSuPba0_R9GJ6oj9lWPY908WGoV0pXprvERaBu4kFLrLE1IJYSS6b4nwbEXCzb0yd3g',
+    description: 'High-accuracy topographic surveys and 3D mapping for land development, infrastructure planning, and environmental monitoring. Centimeter-level precision with GIS-ready outputs for seamless integration into planning workflows.',
+    features: [
+      'RTK GPS positioning for centimeter accuracy',
+      '3D orthomosaic map generation',
+      'Digital elevation model (DEM) creation',
+      'GIS data export (Shapefile, GeoTIFF)',
+      'Volume calculations for stockpiles',
+      'Change detection and progress tracking'
     ],
-  },
-  {
-    title: 'Agriculture Solutions',
-    icon: <Wheat size={28} />,
-    accent: 'from-emerald-500/15 to-lime-500/10',
-    description:
-      'Data-driven agricultural intelligence for crop health, precision spraying, and sustainable yield optimization.',
-    points: [
-      'Crop health analysis using advanced imaging',
-      'Precision spraying to reduce waste and increase productivity',
-      'Multispectral imaging for deeper crop insight',
-    ],
-  },
-  {
-    title: 'Construction & Infrastructure Monitoring',
-    icon: <Radio size={28} />,
-    accent: 'from-violet-500/15 to-fuchsia-500/10',
-    description:
-      'Continuous drone monitoring for construction progress, site coordination, and infrastructure oversight.',
-    points: [
-      'Real-time site monitoring and reporting',
-      'Improved workflows through visual progress tracking',
-      'Reduced risk and stronger project control',
-    ],
-  },
-  {
-    title: 'Drone Data Analytics Platform',
-    icon: <Monitor size={28} />,
-    accent: 'from-blue-500/15 to-slate-500/10',
-    description:
-      'Cloud-based analytics that convert raw aerial data into actionable intelligence for faster decisions.',
-    points: [
-      'Cloud dashboards for anytime access',
-      'AI-powered analytics for large datasets',
-      'Real-time reporting for competitive advantage',
-    ],
-  },
+    benefits: [
+      'Centimeter-level accuracy for critical projects',
+      '60% faster surveying than traditional methods',
+      'Complete area coverage in single flight',
+      'GIS-compatible deliverables',
+      'Reduced field time and costs',
+      'Real-time project monitoring'
+    ]
+  }
 ];
 
 const Services = () => {
