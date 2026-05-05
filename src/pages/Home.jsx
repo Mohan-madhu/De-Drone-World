@@ -798,7 +798,7 @@ const Home = () => {
           </div>
           <div className="flex flex-col items-center text-center px-4">
             <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
-              <span className="stat-number">7</span> Days
+              <span className="stat-number">5</span> Days
             </span>
             <span className="text-sm text-[#555555] mt-1">Training Duration</span>
           </div>
