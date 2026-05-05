@@ -209,9 +209,12 @@ const Home = () => {
       {/* SECTION A — DGCA Trust Banner */}
       <section ref={dgcaBannerRef} className="bg-primary py-12 px-6">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
-          {/* DGCA Badge placeholder */}
-          <div className="w-24 h-24 rounded-full border-4 border-dashed border-white/50 flex items-center justify-center text-white text-xs text-center p-2 flex-shrink-0">
-            DGCA_BADGE replace with PNG
+          <div className="w-24 h-24 rounded-2xl bg-white/95 shadow-lg ring-2 ring-white/30 flex items-center justify-center p-2 flex-shrink-0">
+            <img
+              src="/assets/dgca-badge.png"
+              alt="DGCA Approved RPTO badge"
+              className="w-full h-full object-contain"
+            />
           </div>
           {/* Text */}
           <div>
