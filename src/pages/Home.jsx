@@ -213,6 +213,9 @@ const Home = () => {
             <img
               src="/assets/dgca-badge.png"
               alt="DGCA Approved RPTO badge"
+              onError={(event) => {
+                event.currentTarget.src = '/assets/logo.png';
+              }}
               className="w-full h-full object-contain"
             />
           </div>
