@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,7 +12,6 @@ import Services from './pages/Services';
 import AgricultureServices from './pages/AgricultureServices';
 import Manufacturing from './pages/Manufacturing';
 import Contact from './pages/Contact';
-import WhatsAppButton from './components/WhatsAppButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
