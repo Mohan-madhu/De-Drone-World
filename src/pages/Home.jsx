@@ -698,35 +698,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* SECTION B — Stats Strip */}
-      <section ref={statsSectionRef} className="bg-white border-y border-[#BDDFF0] py-10 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-[#BDDFF0]">
-          <div className="flex flex-col items-center text-center px-4">
-            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
-              <span className="stat-number">500</span>+
-            </span>
-            <span className="text-sm text-[#555555] mt-1">Pilots Trained</span>
-          </div>
-          <div className="flex flex-col items-center text-center px-4">
-            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
-              <span className="stat-number">5</span> Days
-            </span>
-            <span className="text-sm text-[#555555] mt-1">Training Duration</span>
-          </div>
-          <div className="flex flex-col items-center text-center px-4">
-            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
-              <span className="stat-number">10</span> Years
-            </span>
-            <span className="text-sm text-[#555555] mt-1">License Validity</span>
-          </div>
-          <div className="flex flex-col items-center text-center px-4">
-            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
-              ₹<span className="stat-number">1</span> Lakh
-            </span>
-            <span className="text-sm text-[#555555] mt-1">Monthly Earning Potential</span>
-          </div>
-        </div>
-      </section>
 
       {/* SECTION C — Student Testimonials */}
       <section ref={testimonialsSectionRef} className="bg-[#F0FAFF] py-20 px-6">
