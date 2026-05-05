@@ -89,3 +89,50 @@
   overflow: hidden;
   position: relative;
 }
+
+.reach-carousel-mask {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.reach-carousel-mask::before,
+.reach-carousel-mask::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 56px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.reach-carousel-mask::before {
+  left: 0;
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.reach-carousel-mask::after {
+  right: 0;
+  background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.reach-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: reach-scroll 52s linear infinite;
+}
+
+.reach-carousel-mask:hover .reach-carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes reach-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
