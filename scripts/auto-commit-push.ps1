@@ -93,7 +93,11 @@ foreach ($target in $watchTargets) {
     $watcher.Filter = "*"
   } else {
     $watcher = New-Object System.IO.FileSystemWatcher
-    $watcher.Path = (Resolve-Path (Split-Path $target -Parent))
+    $parent = Split-Path $target -Parent
+    if ([string]::IsNullOrWhiteSpace($parent)) {
+      $parent = "."
+    }
+    $watcher.Path = (Resolve-Path $parent)
     $watcher.Filter = (Split-Path $target -Leaf)
     $watcher.IncludeSubdirectories = $false
   }

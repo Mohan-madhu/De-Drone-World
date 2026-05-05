@@ -126,7 +126,7 @@ const Navbar = () => {
                 </NavLink>
 
                 <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 -translate-y-2 pointer-events-none transition-all duration-150 group-hover/training:opacity-100 group-hover/training:translate-y-0 group-hover/training:pointer-events-auto"
+                  className="absolute top-[calc(100%-1px)] left-1/2 -translate-x-1/2 opacity-0 -translate-y-2 pointer-events-none transition-all duration-150 group-hover/training:opacity-100 group-hover/training:translate-y-0 group-hover/training:pointer-events-auto"
                 >
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 min-w-[220px]">
                     <div className="px-4 py-2 bg-slate-50 border-b border-slate-100">
@@ -151,7 +151,7 @@ const Navbar = () => {
                         </button>
 
                         {submenu && (
-                          <div className="absolute left-full top-0 ml-2 min-w-[280px] rounded-2xl border border-slate-100 bg-white py-2 opacity-0 shadow-2xl transition-all duration-200 -translate-x-2 pointer-events-none group-hover/sub:translate-x-0 group-hover/sub:opacity-100 group-hover/sub:pointer-events-auto">
+                          <div className="absolute left-[calc(100%-1px)] top-0 min-w-[280px] rounded-2xl border border-slate-100 bg-white py-2 opacity-0 shadow-2xl transition-all duration-200 -translate-x-2 pointer-events-none group-hover/sub:translate-x-0 group-hover/sub:opacity-100 group-hover/sub:pointer-events-auto">
                             {submenu.map((course) => (
                               <Link
                                 key={course.name}
