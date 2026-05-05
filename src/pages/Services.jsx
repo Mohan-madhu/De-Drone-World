@@ -78,7 +78,8 @@ const servicesData = [
       'Comprehensive documentation',
       'Minimal business disruption',
       'Lower inspection costs'
-    ]
+    ],
+    path: '/services/inspection'
   },
   {
     id: 4,
