@@ -17,28 +17,54 @@ const splitTextToChars = (text) => {
   ));
 };
 
-const altitudeHighlights = [
-  {
-    title: 'Training Missions',
-    image: '/assets/training_hero.png',
-  },
-  {
-    title: 'Aerial Operations',
-    image: '/assets/services_hero.png',
-  },
-  {
-    title: 'Drone Innovation',
-    image: '/assets/manufacturing_hero.png',
-  },
-];
+const reachHeadlines = ['Training Missions', 'Aerial Operations', 'Drone Innovation'];
+const REACH_IMAGE_LIMIT = 40;
+
+const preloadImage = (src) =>
+  new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => resolve(src);
+    image.onerror = () => resolve(null);
+    image.src = src;
+  });
 
 const Home = () => {
   const mainRef = useRef(null);
   const dgcaBannerRef = useRef(null);
   const [hoveredCert, setHoveredCert] = useState(null);
+  const [reachImages, setReachImages] = useState([]);
   const statsSectionRef = useRef(null);
   const testimonialsSectionRef = useRef(null);
   const gallerySectionRef = useRef(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadReachImages = async () => {
+      const candidates = Array.from(
+        { length: REACH_IMAGE_LIMIT },
+        (_, index) => `/assets/how-high-we-are/${String(index + 1).padStart(2, '0')}.jpeg`
+      );
+
+      const loaded = (await Promise.all(candidates.map(preloadImage))).filter(Boolean);
+      if (!isMounted) return;
+
+      if (loaded.length > 0) {
+        setReachImages(loaded);
+        return;
+      }
+
+      setReachImages(['/assets/training_hero.png', '/assets/services_hero.png', '/assets/manufacturing_hero.png']);
+    };
+
+    loadReachImages();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const reachSlides = reachImages.length > 0 ? [...reachImages, ...reachImages] : [];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -239,20 +265,28 @@ const Home = () => {
             <h2 className="text-3xl md:text-5xl font-bold text-navy font-display tracking-tight">How High We Are</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {altitudeHighlights.map((item) => (
-              <article key={item.title} className="group relative h-[340px] overflow-hidden rounded-[2rem] bg-slate-100 shadow-xl border border-slate-100">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent"></div>
-                <h3 className="absolute bottom-7 left-7 right-7 text-2xl font-bold text-white font-display tracking-tight">
-                  {item.title}
-                </h3>
-              </article>
-            ))}
+          <div className="reach-carousel-mask">
+            <div className="reach-carousel-track">
+              {reachSlides.map((image, index) => {
+                const title = reachHeadlines[index % reachHeadlines.length];
+                return (
+                  <article
+                    key={`${image}-${index}`}
+                    className="group relative h-[340px] w-[280px] flex-none overflow-hidden rounded-[2rem] bg-slate-100 shadow-xl border border-slate-100 md:w-[360px]"
+                  >
+                    <img
+                      src={image}
+                      alt={title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent"></div>
+                    <h3 className="absolute bottom-7 left-7 right-7 text-2xl font-bold text-white font-display tracking-tight">
+                      {title}
+                    </h3>
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
