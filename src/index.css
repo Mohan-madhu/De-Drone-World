@@ -119,9 +119,18 @@
 
 .reach-carousel-track {
   display: flex;
+  align-items: center;
   gap: 1.5rem;
   width: max-content;
   animation: reach-scroll 52s linear infinite;
+}
+
+.reach-carousel-card {
+  transform-origin: center center;
+}
+
+.reach-carousel-stage {
+  padding-block: 3rem;
 }
 
 .reach-carousel-mask:hover .reach-carousel-track {
