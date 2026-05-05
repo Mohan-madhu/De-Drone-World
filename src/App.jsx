@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Training from './pages/Training';
+import ProgramDetail from './pages/ProgramDetail';
 import Services from './pages/Services';
 import Manufacturing from './pages/Manufacturing';
 import Contact from './pages/Contact';
@@ -33,6 +34,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/training" element={<Training />} />
+            <Route path="/training/:programSlug" element={<ProgramDetail />} />
             <Route path="/services" element={<Services />} />
             <Route path="/manufacturing" element={<Manufacturing />} />
             <Route path="/contact" element={<Contact />} />
