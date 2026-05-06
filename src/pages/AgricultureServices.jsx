@@ -6,8 +6,7 @@ const agricultureServices = [
   {
     title: 'Fertilizer Spraying',
     kicker: 'Uniform nutrient application',
-    image:
-      'https://images.openai.com/static-rsc-4/nDj-fxRN8Jc6rr30DM0u_6e8UBLeccW2gRU_tZRK_v1JWFVOsnHDzObnQXW4TdRb5l7f3gqYD3LbGYyXrPezyA09LWt28Sbg9lEPxvcZcsFyyYK1rxi4FnUPD3hwemFG7hStz6kS-5AElvg1Jw4u9C_CJaJcTvVEHI0zeoUkw3V7xFUf9ZQI5wZqkam7woYy?purpose=fullsize',
+    image: '/assets/services/fertilizer-spraying.jpeg',
     description:
       'Optimize nutrient application with high-precision aerial spraying that gives crops consistent coverage while reducing waste and farmer exposure.',
     points: [
@@ -22,8 +21,7 @@ const agricultureServices = [
   {
     title: 'Seed Sowing',
     kicker: 'Fast aerial seeding',
-    image:
-      'https://images.openai.com/static-rsc-4/hB861oOpT_Vu3Po0kQ2-Q7UmnVHEU3FajHg1W34V2cAW3saJd9YgvyISXtJWrxKk11oa_fNx-2deTQLbd6ahy7rDznjciqyfPswkRtWMoUleqwz9Avm8_hTfOpZuEAuIeVht8NnBEaZgBwPEz8Zxdqu7uGl8uH1nJkwZOl8plpKMlNhqW925GcVZ6_7pz2Zn?purpose=fullsize',
+    image: '/assets/services/fertilizer-spraying.jpeg',
     description:
       'Deploy seeds quickly across large or difficult terrain using automated aerial dispersal designed for better coverage and reduced labor.',
     points: [
@@ -37,8 +35,7 @@ const agricultureServices = [
   {
     title: 'Crop Monitoring',
     kicker: 'Real-time crop intelligence',
-    image:
-      'https://images.openai.com/static-rsc-4/DcWIcOERicy1-35b7hOtipeOlrRuzDURf5WYspe04Teq7K_HHsJJMBrY_kypzClAW5Yb8tPW2Dt9NFeLVgSqlEhz_cH1iOY4RL6SbOYPSgI4jSSghiZWTS7ooXdfVpHfUNUPuv5NpsZgMKrZvIBk1HJhWdsq_Slz0YNVfNl_IXgqzXCOMyOtzcSbiIhFs5ML?purpose=fullsize',
+    image: '/assets/services/fertilizer-spraying.jpeg',
     description:
       'Use aerial imaging and crop surveillance to detect field issues early, understand plant health, and support faster farm decisions.',
     points: [
@@ -52,8 +49,7 @@ const agricultureServices = [
   {
     title: 'Precision Agriculture Using Drones',
     kicker: 'Data-led farm automation',
-    image:
-      'https://images.openai.com/static-rsc-4/V4pRnYAUCEIxVwP65-XzGscVQdzbtiSsfB9efu5Y6wnyVnncFC_cibFponY6UHdZADuGvDeUVoKvv93sDGmbB5j7SUdeMPpddBIu2Yb6CRYERnWMdOmuhK4ifa0WHq2abRHTNwhQ68SqNE56EW58FwQ5GYZ784ipUEMacKrBl6NiWMYS67S8OwIiQWxwDlU6?purpose=fullsize',
+    image: '/assets/services/fertilizer-spraying.jpeg',
     description:
       'Turn field data into practical action plans with mapping, multispectral crop insights, and targeted input planning.',
     points: [

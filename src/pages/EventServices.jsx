@@ -18,8 +18,7 @@ const eventServices = [
     title: 'Drone Videography & Photography',
     kicker: 'Cinematic event coverage',
     icon: Camera,
-    image:
-      'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=80',
+    image: '/assets/services/videography.jpeg',
     description:
       'Capture stunning aerial moments with cinematic visuals, smooth movement, and professional event storytelling.',
     points: [
@@ -34,8 +33,7 @@ const eventServices = [
     title: 'Drone Flower Showering',
     kicker: 'Magical aerial moments',
     icon: Flower2,
-    image:
-      'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80',
+    image: '/assets/services/flower-showering.jpeg',
     description:
       'Create elegant ceremonies and unforgettable entries with controlled aerial flower petal drops.',
     points: [
@@ -50,8 +48,7 @@ const eventServices = [
     title: 'Flag Towing',
     kicker: 'High-visibility aerial display',
     icon: Flag,
-    image:
-      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80',
+    image: '/assets/services/flag-towing.jpeg',
     description:
       'Make inaugurations, rallies, public gatherings, and brand events stand out with aerial flag displays.',
     points: [
@@ -66,8 +63,7 @@ const eventServices = [
     title: 'Drone Light Show',
     kicker: 'Next-generation sky entertainment',
     icon: Lightbulb,
-    image:
-      'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1400&q=80',
+    image: '/assets/services/light-show.jpeg',
     description:
       'Deliver a coordinated aerial spectacle with drone swarm light displays customized for your audience and occasion.',
     points: [
@@ -82,8 +78,7 @@ const eventServices = [
     title: 'Drone LED Panel Advertisement',
     kicker: 'Aerial advertising innovation',
     icon: Megaphone,
-    image:
-      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1400&q=80',
+    image: '/assets/services/drone-led-panel.jpeg',
     description:
       'Promote launches, campaigns, and announcements with drone-mounted LED displays that command attention.',
     points: [

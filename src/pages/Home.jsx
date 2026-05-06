@@ -340,8 +340,8 @@ const Home = () => {
       <section className="bg-white py-20 px-6 section-reveal">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-bold text-[11px] tracking-[0.35em] text-primary uppercase font-display block mb-4">Our Reach</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-navy font-display tracking-tight">How High We Are</h2>
+              <span className="font-bold text-4xl md:text-6xl tracking-tight text-navy uppercase font-display block mb-3">Our Reach</span>
+              <h2 className="text-2xl md:text-4xl font-bold font-display text-navy tracking-tight">How High We Are</h2>
           </div>
 
           <div ref={reachCarouselRef} className="reach-carousel-mask reach-carousel-stage py-8 md:py-12">
@@ -368,11 +368,11 @@ const Home = () => {
 
       {/* About Us Section */}
       <section className="py-0 overflow-hidden">
-        {/* Section Header — Navy Banner */}
-        <div className="bg-gradient-to-r from-navy via-slate-800 to-navy py-14 px-8 mb-16 text-center section-reveal">
-          <span className="font-bold text-[11px] tracking-[0.35em] text-primary uppercase font-display block mb-4">ABOUT US</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display text-white tracking-tight mb-4">HI! WE ARE...</h2>
-          <p className="text-slate-300 font-sans text-base md:text-lg max-w-xl mx-auto">
+        {/* Section Header */}
+        <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
+          <span className="font-bold text-4xl md:text-6xl tracking-tight text-white uppercase font-display block mb-3">ABOUT US</span>
+          <h2 className="text-2xl md:text-4xl font-bold font-display text-white tracking-tight mb-4">HI! WE ARE...</h2>
+          <p className="text-white/80 font-sans text-sm md:text-base max-w-xl mx-auto">
             An entrepreneurial venture powered by aviation experts and passionate technocrats
           </p>
         </div>
@@ -421,10 +421,10 @@ const Home = () => {
       {/* Vision & Mission Section */}
       <section className="py-0 overflow-hidden">
         {/* Section Header — Navy Banner */}
-        <div className="bg-gradient-to-r from-navy via-slate-800 to-navy py-14 px-8 mb-16 text-center section-reveal">
-          <span className="font-bold text-[11px] tracking-[0.35em] text-primary uppercase font-display block mb-4">OUR</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display text-white tracking-tight mb-4">Vision and Mission</h2>
-          <p className="text-slate-300 font-sans text-base md:text-lg max-w-xl mx-auto">
+        <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
+          <span className="font-bold text-4xl md:text-6xl tracking-tight text-white uppercase font-display block mb-3">OUR</span>
+          <h2 className="text-2xl md:text-4xl font-bold font-display text-white tracking-tight mb-4">Vision and Mission</h2>
+          <p className="text-white/80 font-sans text-sm md:text-base max-w-xl mx-auto">
             Driving meaningful change through innovation and collaboration in drone technology
           </p>
         </div>
@@ -473,10 +473,10 @@ const Home = () => {
       {/* Training Centers Section */}
       <section className="py-0 overflow-hidden">
         {/* Section Header — Navy Banner */}
-        <div className="bg-gradient-to-r from-navy via-slate-800 to-navy py-14 px-8 mb-16 text-center section-reveal">
-          <span className="font-bold text-[11px] tracking-[0.35em] text-primary uppercase font-display block mb-4">OUR LOCATIONS</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display text-white tracking-tight mb-4">Training Center</h2>
-          <p className="text-slate-300 font-sans text-base md:text-lg max-w-xl mx-auto">
+        <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
+          <span className="font-bold text-4xl md:text-6xl tracking-tight text-white uppercase font-display block mb-3">OUR LOCATIONS</span>
+          <h2 className="text-2xl md:text-4xl font-bold font-display text-white tracking-tight mb-4">Training Center</h2>
+          <p className="text-white/80 font-sans text-sm md:text-base max-w-xl mx-auto">
             State-of-the-art campus equipped for world-class drone pilot training
           </p>
         </div>
@@ -544,10 +544,10 @@ const Home = () => {
       {/* Certifications Section */}
       <section className="py-14 overflow-hidden">
         {/* Section Header — Navy Banner */}
-        <div className="bg-gradient-to-r from-navy via-slate-800 to-navy py-14 px-8 mb-12 text-center section-reveal">
-          <span className="font-bold text-[11px] tracking-[0.35em] text-primary uppercase font-display block mb-4">TRUST & SAFETY</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display text-white tracking-tight mb-4">Our Certification</h2>
-          <p className="text-slate-300 font-sans text-base md:text-lg max-w-xl mx-auto mb-8">
+        <div className="bg-primary py-14 px-8 mb-12 text-center section-reveal">
+          <span className="font-bold text-4xl md:text-6xl tracking-tight text-white uppercase font-display block mb-3">TRUST & SAFETY</span>
+          <h2 className="text-2xl md:text-4xl font-bold font-display text-white tracking-tight mb-4">Our Certification</h2>
+          <p className="text-white/80 font-sans text-sm md:text-base max-w-xl mx-auto mb-8">
             DGCA Approved Drone Training Institute · Government-certified instructors & authorized RPTO
           </p>
           <div className="flex flex-wrap justify-center gap-3">
@@ -592,11 +592,11 @@ const Home = () => {
 
       {/* Our Infrastructure Section */}
       <section className="py-0 overflow-hidden">
-        {/* Section Header — Navy Banner */}
-        <div className="bg-gradient-to-r from-navy via-slate-800 to-navy py-14 px-8 mb-16 text-center section-reveal">
-          <span className="font-bold text-[11px] tracking-[0.35em] text-primary uppercase font-display block mb-4">WORLD-CLASS FACILITIES</span>
-          <h2 className="text-3xl md:text-5xl font-bold font-display text-white tracking-tight mb-4">Our Infrastructure</h2>
-          <p className="text-slate-300 font-sans text-base md:text-lg max-w-xl mx-auto">
+        {/* Section Header — Light Blue Theme */}
+        <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
+          <span className="font-bold text-4xl md:text-6xl tracking-tight text-white uppercase font-display block mb-3">WORLD-CLASS FACILITIES</span>
+          <h2 className="text-2xl md:text-4xl font-bold font-display text-white tracking-tight mb-4">Our Infrastructure</h2>
+          <p className="text-white/80 font-sans text-sm md:text-base max-w-xl mx-auto">
             Built for excellence — from advanced simulation labs to a live drone flying zone
           </p>
         </div>

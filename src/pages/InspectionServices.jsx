@@ -66,8 +66,7 @@ const inspectionServices = [
     title: 'Drone Thermography',
     kicker: 'Thermal issue detection',
     icon: Flame,
-    image:
-      'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1400&q=80',
+    image: '/assets/services/drone-thermography-service.jpeg',
     description:
       'Use infrared drone imaging to uncover hidden thermal issues, overheating, insulation failures, and leak patterns before they escalate.',
     points: [
@@ -82,8 +81,7 @@ const inspectionServices = [
     title: 'Construction Inspection',
     kicker: 'Site progress intelligence',
     icon: Construction,
-    image:
-      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80',
+    image: '/assets/services/construction-service.jpeg',
     description:
       'Track construction progress with real-time aerial documentation, site mapping, and visual records for planning and compliance.',
     points: [
@@ -98,8 +96,7 @@ const inspectionServices = [
     title: 'Pipeline Inspection',
     kicker: 'Long-distance infrastructure monitoring',
     icon: ShieldCheck,
-    image:
-      'https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1400&q=80',
+    image: '/assets/services/pipeline-service.jpeg',
     description:
       'Monitor pipelines and industrial corridors efficiently, including remote stretches where manual inspection is slow, risky, or expensive.',
     points: [

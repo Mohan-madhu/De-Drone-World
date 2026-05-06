@@ -34,8 +34,7 @@ const surveyServices = [
     title: 'Construction & Infrastructure Mapping',
     kicker: 'Smart project mapping',
     icon: Building2,
-    image:
-      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80',
+    image: '/assets/services/construction-service.jpeg',
     description:
       'Improve construction visibility with aerial maps, models, progress tracking, and accurate material volume calculations.',
     points: [

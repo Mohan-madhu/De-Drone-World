@@ -13,7 +13,7 @@ const servicesData = [
     title: 'Agriculture',
     subtitle: 'Precision Crop Management',
     icon: <Leaf size={40} />,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDSGh_b64d1qjcvTuq38ziE2DwhyvYr5rZqpguYjRsYGSP3MqueJFraFeVzFbQC3e0oNLnAnR2ZptPLhTWMv2eUcCaMAFdtCK1c4L-LrDHztu_FocgrFD2AdVtQ55d8NUQ8HaR6MshQVhcJl1OCI7Cqb9ELgKMfu1EDEuHk-r-qE7dGTKGMrpFBv6CB6bh9LiADhTr3P7IT9UbdgJ-C4M9Lh3o0t9lGW2LYFFGNGew2YeXrN-kbbsJWVO2tH4bJZDwRfQGiXSjjtcw',
+    image: '/assets/services/fertilizer-spraying.jpeg',
     description: 'Advanced drone solutions for crop health monitoring, precision spraying, and yield optimization. Our multispectral imaging and GPS-guided application systems reduce chemical waste by up to 30% while increasing productivity.',
     features: [
       'Real-time crop health monitoring with NDVI sensors',
@@ -37,7 +37,7 @@ const servicesData = [
     title: 'Events',
     subtitle: 'Aerial Coverage & Documentation',
     icon: <Camera size={40} />,
-    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=80',
+    image: '/assets/services/videography.jpeg',
     description: 'Professional drone videography and photography for conferences, festivals, weddings, corporate events, and large-scale productions. High-resolution 4K/8K capture with dynamic aerial perspectives that traditional crews cannot achieve.',
     features: [
       '4K and 8K video capture with professional color grading',
@@ -62,7 +62,7 @@ const servicesData = [
     title: 'Inspection',
     subtitle: 'Infrastructure & Asset Monitoring',
     icon: <Zap size={40} />,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCK78P6BOnAzwTzS2brybHPRSzQ746PEXv5zNwmwQpe_YVIOWmNcV0Om7IRHc9OkoTllUXveiPBgoRwbCaeEwj6LSW2kmcbpnp24I9Xw5V81xvcdi59ZdIN9lqh0jKosk7YAJw5btz85ua17Stw5Xy3sDNYAHn9AOt9VPJfBdVKDJKTgKVTOcBAX_HHJA3SmqBmiJ9L-SVFb9_ebZezcHj-cGjVFwNIRgvyRMqStgkGQ5sm3NlHGCpBJSzxa_jJnCpV4rrMMf-WBKQ',
+    image: '/assets/services/drone-thermography-service.jpeg',
     description: 'Safe, efficient, and cost-effective inspections of solar farms, wind turbines, telecommunications towers, power lines, and industrial equipment. Thermal imaging and HD cameras detect issues before they become critical failures.',
     features: [
       'Thermal imaging for electrical anomalies',
@@ -87,7 +87,7 @@ const servicesData = [
     title: 'Survey & Mapping',
     subtitle: 'Geospatial Intelligence',
     icon: <Map size={40} />,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBKE9ajFsVc3nn9WnzhqINdmr-IWQECLQYDR3CU9U2Gxcs2l81QBrJREvxgKQSor5kbgTPu0evm5lGbXej7FA13Kk8q9hn3l1K_E5B-xd4oG7qkQlOlTa3J1tqcn2dKQR5tpliTeQRLWWgxZ7xZqz5QINXC3ggPIIzgZiD0o37LAwEFIMpSqOhzw77JPWu2Gq4S2aB44n9jwSuPba0_R9GJ6oj9lWPY908WGoV0pXprvERaBu4kFLrLE1IJYSS6b4nwbEXCzb0yd3g',
+    image: '/assets/services/construction-service.jpeg',
     description: 'High-accuracy topographic surveys and 3D mapping for land development, infrastructure planning, and environmental monitoring. Centimeter-level precision with GIS-ready outputs for seamless integration into planning workflows.',
     features: [
       'RTK GPS positioning for centimeter accuracy',

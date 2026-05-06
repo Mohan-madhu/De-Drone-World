@@ -4,6 +4,8 @@ import {
   Menu,
   X,
   ChevronDown,
+  BarChart3,
+  Building2,
   GraduationCap,
   Cpu,
   Users,
@@ -13,6 +15,10 @@ import {
   Gauge,
   Layers,
   RefreshCw,
+  Flower2,
+  Flag,
+  Lightbulb,
+  Megaphone,
   MapPinned,
   Gamepad2,
   Sprout,
@@ -22,10 +28,17 @@ import {
   Wrench,
   Code2,
   ScanLine,
+  Flame,
+  ShieldCheck,
+  Sun,
+  UtilityPole,
+  Wind,
   Hammer,
   Trophy,
   BadgeCheck,
   CalendarDays,
+  Cuboid,
+  Boxes,
 } from 'lucide-react';
 
 const trainingSubLinks = [
@@ -74,10 +87,52 @@ const trainingSubMenus = {
 
 const toTrainingPath = (name) => `/training/${name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
 
+const serviceCategories = [
+  { name: 'Agriculture', path: '/services/agriculture', icon: <Sprout size={16} /> },
+  { name: 'Events', path: '/services/events', icon: <Camera size={16} /> },
+  { name: 'Inspection', path: '/services/inspection', icon: <ShieldCheck size={16} /> },
+  { name: 'Survey & Mapping', path: '/services/survey-mapping', icon: <MapPinned size={16} /> },
+];
+
+const serviceSubMenus = {
+  Agriculture: [
+    { name: 'Fertilizer Spraying', icon: <Sprout size={16} /> },
+    { name: 'Seed Sowing', icon: <Layers size={16} /> },
+    { name: 'Crop Monitoring', icon: <BarChart3 size={16} /> },
+    { name: 'Precision Agriculture Using Drones', icon: <Gauge size={16} /> },
+  ],
+  Events: [
+    { name: 'Drone Videography & Photography', icon: <Camera size={16} /> },
+    { name: 'Drone Flower Showering', icon: <Flower2 size={16} /> },
+    { name: 'Flag Towing', icon: <Flag size={16} /> },
+    { name: 'Drone Light Show', icon: <Lightbulb size={16} /> },
+    { name: 'Drone LED Panel Advertisement', icon: <Megaphone size={16} /> },
+  ],
+  Inspection: [
+    { name: 'Windmill Inspection', icon: <Wind size={16} /> },
+    { name: 'Solar Panel Inspection', icon: <Sun size={16} /> },
+    { name: 'Power Line Inspection', icon: <UtilityPole size={16} /> },
+    { name: 'Drone Thermography', icon: <Flame size={16} /> },
+    { name: 'Construction Inspection', icon: <Hammer size={16} /> },
+    { name: 'Pipeline Inspection', icon: <ShieldCheck size={16} /> },
+  ],
+  'Survey & Mapping': [
+    { name: 'Land Surveying', icon: <MapPinned size={16} /> },
+    { name: 'Construction & Infrastructure Mapping', icon: <Building2 size={16} /> },
+    { name: '3D Mapping & Modeling', icon: <Cuboid size={16} /> },
+    { name: 'GIS & Data Analysis', icon: <Database size={16} /> },
+    { name: 'Mining & Stockpile Analysis', icon: <Boxes size={16} /> },
+  ],
+};
+
+const toServiceItemPath = (category, name) =>
+  `${category.path}#${name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileTrainingOpen, setMobileTrainingOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -87,8 +142,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Training', path: '/training', hasDropdown: true },
-    { name: 'Services', path: '/services' },
+    { name: 'Training', path: '/training', hasDropdown: 'training' },
+    { name: 'Services', path: '/services', hasDropdown: 'services' },
     { name: 'Manufacturing', path: '/manufacturing' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -107,8 +162,14 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex space-x-8 items-center h-full">
-          {navLinks.map((link) =>
-            link.hasDropdown ? (
+          {navLinks.map((link) => {
+            if (link.hasDropdown) {
+              const isServicesDropdown = link.hasDropdown === 'services';
+              const dropdownItems = isServicesDropdown ? serviceCategories : trainingSubLinks;
+              const dropdownMenus = isServicesDropdown ? serviceSubMenus : trainingSubMenus;
+              const dropdownLabel = isServicesDropdown ? 'Service Categories' : 'Our Programs';
+
+              return (
               <div
                 key={link.path}
                 className="relative h-full flex items-center group/training"
@@ -130,17 +191,18 @@ const Navbar = () => {
                 >
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 min-w-[220px]">
                     <div className="px-4 py-2 bg-slate-50 border-b border-slate-100">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Our Programs</span>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{dropdownLabel}</span>
                     </div>
-                    {trainingSubLinks.map((sub, i) => {
-                      const submenu = trainingSubMenus[sub.name];
+                    {dropdownItems.map((sub, i) => {
+                      const submenu = dropdownMenus[sub.name];
 
                       return (
                       <div
                         key={i}
                         className="relative group/sub"
                       >
-                        <button
+                        <Link
+                          to={sub.path || link.path}
                           className="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-navy hover:bg-primary/5 hover:text-primary transition-all duration-150 group"
                         >
                           <span className="text-primary/60 group-hover:text-primary transition-colors">{sub.icon}</span>
@@ -148,18 +210,18 @@ const Navbar = () => {
                           {submenu && (
                             <ChevronDown size={14} className="-rotate-90 text-slate-400 transition-colors group-hover:text-primary" />
                           )}
-                        </button>
+                        </Link>
 
                         {submenu && (
                           <div className="absolute left-[calc(100%-1px)] top-0 min-w-[280px] rounded-2xl border border-slate-100 bg-white py-2 opacity-0 shadow-2xl transition-all duration-200 -translate-x-2 pointer-events-none group-hover/sub:translate-x-0 group-hover/sub:opacity-100 group-hover/sub:pointer-events-auto">
-                            {submenu.map((course) => (
+                            {submenu.map((item) => (
                               <Link
-                                key={course.name}
-                                to={toTrainingPath(course.name)}
+                                key={item.name}
+                                to={isServicesDropdown ? toServiceItemPath(sub, item.name) : toTrainingPath(item.name)}
                                 className="group/course flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-navy transition-colors hover:bg-primary/5 hover:text-primary"
                               >
-                                <span className="text-primary/60 transition-colors group-hover/course:text-primary">{course.icon}</span>
-                                {course.name}
+                                <span className="text-primary/60 transition-colors group-hover/course:text-primary">{item.icon}</span>
+                                {item.name}
                               </Link>
                             ))}
                           </div>
@@ -170,7 +232,10 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
-            ) : (
+              );
+            }
+
+            return (
               <NavLink
                 key={link.path}
                 to={link.path}
@@ -182,8 +247,8 @@ const Navbar = () => {
               >
                 {link.name}
               </NavLink>
-            )
-          )}
+            );
+          })}
         </div>
 
         <div className="flex items-center space-x-4">
@@ -202,38 +267,49 @@ const Navbar = () => {
 
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 flex flex-col">
-          {navLinks.map((link) =>
-            link.hasDropdown ? (
+          {navLinks.map((link) => {
+            if (link.hasDropdown) {
+              const isServicesDropdown = link.hasDropdown === 'services';
+              const dropdownItems = isServicesDropdown ? serviceCategories : trainingSubLinks;
+              const dropdownMenus = isServicesDropdown ? serviceSubMenus : trainingSubMenus;
+              const isOpen = isServicesDropdown ? mobileServicesOpen : mobileTrainingOpen;
+              const setIsOpen = isServicesDropdown ? setMobileServicesOpen : setMobileTrainingOpen;
+
+              return (
               <div key={link.path}>
                 <button
-                  onClick={() => setMobileTrainingOpen(!mobileTrainingOpen)}
+                  onClick={() => setIsOpen(!isOpen)}
                   className="w-full flex items-center justify-between px-8 py-4 text-sm font-medium text-navy hover:text-primary hover:bg-slate-50 border-b border-slate-50 transition-colors"
                 >
                   {link.name}
-                  <ChevronDown size={16} className={`transition-transform duration-200 ${mobileTrainingOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown size={16} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
-                {mobileTrainingOpen && (
+                {isOpen && (
                   <div className="bg-slate-50 border-b border-slate-100">
-                    {trainingSubLinks.map((sub, i) => {
-                      const submenu = trainingSubMenus[sub.name];
+                    {dropdownItems.map((sub, i) => {
+                      const submenu = dropdownMenus[sub.name];
 
                       return (
                       <div key={i}>
-                        <button className="w-full flex items-center gap-3 px-12 py-3 text-sm font-medium text-slate-600 hover:text-primary hover:bg-primary/5 transition-colors">
+                        <Link
+                          to={sub.path || link.path}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="w-full flex items-center gap-3 px-12 py-3 text-sm font-medium text-slate-600 hover:text-primary hover:bg-primary/5 transition-colors"
+                        >
                           <span className="text-primary/60">{sub.icon}</span>
                           {sub.name}
-                        </button>
+                        </Link>
                         {submenu && (
                           <div className="bg-white/70">
-                            {submenu.map((course) => (
+                            {submenu.map((item) => (
                               <Link
-                                key={course.name}
-                                to={toTrainingPath(course.name)}
+                                key={item.name}
+                                to={isServicesDropdown ? toServiceItemPath(sub, item.name) : toTrainingPath(item.name)}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="flex w-full items-center gap-3 px-16 py-2.5 text-left text-xs font-medium text-slate-500 hover:bg-primary/5 hover:text-primary transition-colors"
                               >
-                                <span className="text-primary/60">{course.icon}</span>
-                                {course.name}
+                                <span className="text-primary/60">{item.icon}</span>
+                                {item.name}
                               </Link>
                             ))}
                           </div>
@@ -244,7 +320,10 @@ const Navbar = () => {
                   </div>
                 )}
               </div>
-            ) : (
+              );
+            }
+
+            return (
               <NavLink
                 key={link.path}
                 to={link.path}
@@ -257,8 +336,8 @@ const Navbar = () => {
               >
                 {link.name}
               </NavLink>
-            )
-          )}
+            );
+          })}
           <div className="p-8">
             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full bg-primary text-white px-5 py-3 rounded-lg text-sm font-semibold text-center hover:bg-opacity-90 transition-all">
               Enroll Now
