@@ -21,7 +21,7 @@ const agricultureServices = [
   {
     title: 'Seed Sowing',
     kicker: 'Fast aerial seeding',
-    image: '/assets/services/fertilizer-spraying.jpeg',
+    image: '/assets/services/seed-sowing.jpeg',
     description:
       'Deploy seeds quickly across large or difficult terrain using automated aerial dispersal designed for better coverage and reduced labor.',
     points: [

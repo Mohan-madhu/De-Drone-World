@@ -210,23 +210,23 @@ const Training = () => {
             {/* CARD 4 */}
             <div className="course-card bg-white rounded-2xl border border-[#BDDFF0] overflow-hidden shadow-[0_2px_12px_rgba(30,159,212,0.10)] hover:shadow-[0_8px_24px_rgba(30,159,212,0.18)] transition-shadow duration-300">
               <img
-                src="https://images.pexels.com/photos/6624608/pexels-photo-6624608.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop"
-                alt="Drone with spinning propellers close up"
+                src="/assets/services/diplomo-course.jpeg"
+                alt="Advanced Diploma in Drone Technology and Operations"
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
                 <span className="inline-block bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                  Certification
+                  Diploma Program
                 </span>
                 <h3 className="text-navy text-xl font-bold font-[Space_Grotesk] mb-2">
-                  Drone Technician Course
+                  Advanced Diploma in Drone Technology & Operations
                 </h3>
-                <p className="text-[#555555] text-sm mb-4">Duration: 5 Days</p>
-                <p className="text-navy text-2xl font-bold mb-5">
-                  ₹35,000<span className="text-sm font-normal text-[#555555] ml-1">+ GST</span>
+                <p className="text-[#555555] text-sm mb-4">Duration: 6 Months</p>
+                <p className="text-navy text-base font-semibold leading-relaxed mb-5">
+                  Professional training in drone technology, operations, assembly, mapping, and live projects.
                 </p>
-                <Link to="/contact" className="block w-full text-center bg-primary text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all">
-                  Enroll Now
+                <Link to="/training/drone-technician-6-months" className="block w-full text-center bg-primary text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all">
+                  View Diploma
                 </Link>
               </div>
             </div>

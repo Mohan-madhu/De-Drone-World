@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { BadgeCheck, CalendarDays, CheckCircle, Clock, GraduationCap, MapPin, Plane, Send, ShieldCheck, Sparkles } from 'lucide-react';
+import { BadgeCheck, Briefcase, CalendarDays, CheckCircle, Clock, GraduationCap, MapPin, Plane, Send, ShieldCheck, Sparkles } from 'lucide-react';
 
 const slugify = (value) =>
   value.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -190,7 +190,7 @@ const programs = [
     certification: 'DGCA Certified',
     overview:
       'Step into a leadership role in the drone industry with this Instructor Development Program designed for certified RPC holders. This course builds advanced flight experience + professional teaching capability, aligning with DGCA standards under Drone Rules 2021.',
-    image: '/assets/training_hero.png',
+    image: '/assets/services/diplomo-course.jpeg',
     timeline: [
       'Day 1: Flight Logging & Theory Sessions - 20 Hours Program Foundation',
       'Day 2: Simulator Briefings & Student Assessment Techniques',
@@ -250,14 +250,6 @@ const simplePrograms = [
   'Drone Repair and Maintenance',
   'Python for GIS',
   'LiDAR & GIS',
-  'Build Your Own Drone',
-  'Build Your Racing Drone',
-  'Build Your Own Agri Drone',
-  'Drone Customization',
-  'Drone Technician (6 Months)',
-  '7 Days',
-  '15 Days',
-  '30 Days',
 ].map((title) => ({
   title,
   menuTitle: title,
@@ -274,6 +266,676 @@ const simplePrograms = [
   eligibility: ['Basic interest in drones', 'Valid ID for registration', 'No prior experience required unless specified'],
   why: ['Built around practical learning', 'Mentor-led sessions', 'Drone industry focused examples', 'Clear next-step guidance'],
 }));
+
+const diplomaPrograms = [
+  {
+    title: 'Advanced Diploma in Drone Technology & Operations',
+    menuTitle: 'Drone Technician (6 Months)',
+    eyebrow: 'Diploma Program',
+    tagline: '6-Month Professional Drone Training Program',
+    duration: '6 Months',
+    certification: 'Advanced Diploma',
+    overview:
+      'Transform your passion for drones into a professional career with our 6-Month Advanced Diploma Program in Drone Technology & Operations. Designed with an industry-focused curriculum, this program combines technical knowledge, practical flying, drone assembly, mapping, mission planning, and industrial applications to prepare students for real-world opportunities in the rapidly growing drone sector.',
+    image: '/assets/services/workshop-build-your-own-drone.jpeg',
+    courseDuration: [
+      'Duration: 6 Months',
+      'Mode: Offline + Practical Training',
+      'Training Style: Classroom + Simulator + Field Operations',
+    ],
+    droneDetails: [
+      'Drone Category: Small Class Drones',
+      'Drone Category: Medium Class Drones',
+      'Platform: Quad-Copter',
+      'Platform: Hexacopter',
+      'Platform: Fixed-Wing Basics',
+    ],
+    audience: [
+      'Students & Freshers',
+      'Engineering / Polytechnic Students',
+      'Drone Enthusiasts',
+      'Survey & Mapping Aspirants',
+      'Photographers & Videographers',
+      'Agriculture Professionals',
+      'Entrepreneurs & Startup Founders',
+      'Anyone seeking a career in drone technology',
+    ],
+    modules: [
+      'Drone Fundamentals',
+      'Drone Components & Assembly',
+      'Flight Training',
+      'Surveying & Mapping',
+      'Industrial Applications',
+      'Aerial Media Production',
+      'Software & Mission Planning',
+      'Internship & Live Projects',
+    ],
+    facilities: [
+      'Advanced Drone Lab',
+      'Flight Simulators',
+      'Dedicated Flying Zone',
+      'Mapping & Processing Systems',
+      'Industry-Standard Drone Platforms',
+    ],
+    highlights: [
+      'Industry-Oriented Curriculum',
+      'Hands-On Practical Training',
+      'Real-Time Flying Experience',
+      'Drone Assembly & Maintenance',
+      'Survey & Mapping Exposure',
+      'Industrial Application Training',
+      'Internship & Project Support',
+      'Career Guidance & Skill Development',
+    ],
+    careers: [
+      'Drone Pilot',
+      'Survey & Mapping Operator',
+      'Drone Service Technician',
+      'Aerial Photographer / Videographer',
+      'Agriculture Drone Operator',
+      'Inspection & Monitoring Specialist',
+      'Drone Instructor',
+      'UAV Project Coordinator',
+    ],
+    finalTakeaway: 'Learn. Build. Fly. Lead the Future of Aviation.',
+  },
+];
+
+const workshopPrograms = [
+  {
+    title: 'Build Your Own Drone Workshop',
+    menuTitle: 'Build Your Own Drone',
+    eyebrow: 'Drone Workshop',
+    tagline: 'Design - Assemble - Fly',
+    duration: '1 Day / 2 Days / Weekend Workshop',
+    certification: 'Workshop Participation',
+    overview:
+      'Experience the excitement of building and flying your own drone from scratch in this hands-on practical workshop designed for beginners, students, innovators, and drone enthusiasts. Learn the complete process of assembling, configuring, calibrating, and flying a drone with guidance from industry professionals. This workshop blends technical learning with real-time practical exposure to help participants understand how drones actually work beyond just flying them.',
+    image: '/assets/services/fpv-drone-building.jpeg',
+    durationTitle: 'Workshop Duration',
+    courseDuration: [
+      '1 Day / 2 Days / Weekend Workshop',
+      'Offline Practical Session',
+    ],
+    buildTitle: 'What You Will Build',
+    buildItems: [
+      'Quad-Copter Drone',
+      'Flight-Ready DIY Drone System',
+    ],
+    audience: [
+      'School & College Students',
+      'Engineering / Polytechnic Students',
+      'Drone Enthusiasts',
+      'Beginners with no prior experience',
+      'Robotics & Tech Club Members',
+      'Startup & Innovation Aspirants',
+    ],
+    highlightTitle: 'Workshop Highlights',
+    highlights: [
+      'Introduction to Drone Technology',
+      'Understanding Drone Components',
+      'Frame Assembly & Wiring',
+      'Flight Controller Setup',
+      'ESC & Motor Connections',
+      'Propeller Installation & Balancing',
+      'GPS & Receiver Integration',
+      'Battery & Power Management',
+      'Drone Calibration & Configuration',
+      'Safety Procedures & Pre-Flight Checks',
+      'Basic Flight Controls',
+      'Hands-On Flying Experience',
+      'Troubleshooting & Maintenance Basics',
+    ],
+    skills: [
+      'Practical Drone Assembly Knowledge',
+      'Hardware Integration Skills',
+      'Basic Electronics & Wiring Understanding',
+      'Flight Safety Awareness',
+      'Real-Time Problem Solving',
+      'Drone Operation Confidence',
+    ],
+    facilitiesTitle: 'Workshop Facilities',
+    facilities: [
+      'Fully Equipped Drone Lab',
+      'Professional Tools & Components',
+      'Simulator Support',
+      'Dedicated Flying Area',
+      'Industry-Standard Equipment',
+    ],
+    why: [
+      'Learn by Building',
+      'Practical Hands-On Experience',
+      'Beginner-Friendly Training',
+      'Interactive Learning Environment',
+      'Real Drone Flying Exposure',
+      'Industry-Oriented Guidance',
+    ],
+    outcomes: [
+      'Understand drone architecture',
+      'Assemble a working drone',
+      'Configure and calibrate systems',
+      'Perform safe take-off & landing',
+      'Gain confidence in drone technology fundamentals',
+    ],
+    finalTakeaway: "Don't just fly a drone. Build one yourself.",
+  },
+  {
+    title: 'FPV Racing Drone Building Workshop',
+    menuTitle: 'Build Your Racing Drone',
+    eyebrow: 'Drone Workshop',
+    tagline: 'Build Fast - Fly Smart - Race Hard',
+    duration: '1 Day / 2 Days / Weekend Workshop',
+    certification: 'Workshop Participation',
+    overview:
+      'Dive into the thrilling world of FPV (First Person View) Racing Drones with this intensive hands-on workshop designed for speed enthusiasts, makers, and future drone racers. Learn how to build, tune, configure, and fly a high-performance FPV racing drone from the ground up. This workshop combines electronics, aerodynamics, flight control systems, and real-time FPV flying experience to give participants a complete introduction to competitive drone racing technology.',
+    image: '/assets/training_hero.png',
+    durationTitle: 'Workshop Duration',
+    courseDuration: [
+      '1 Day / 2 Days / Weekend Workshop',
+      'Offline Practical Training',
+    ],
+    buildTitle: 'What You Will Build',
+    buildItems: [
+      'FPV Racing Drone',
+      'High-Speed Quad-Copter Platform',
+    ],
+    audience: [
+      'Drone Enthusiasts',
+      'Engineering & Polytechnic Students',
+      'FPV Beginners',
+      'Robotics & Tech Club Members',
+      'Gamers & Racing Enthusiasts',
+      'DIY Electronics Learners',
+      'Innovation & Startup Aspirants',
+    ],
+    highlightTitle: 'Workshop Highlights',
+    highlights: [
+      'Introduction to FPV Drone Ecosystem',
+      'Understanding Racing Drone Architecture',
+      'Frame Assembly & Carbon Fiber Setup',
+      'Flight Controller & ESC Integration',
+      'Motor Installation & Wiring',
+      'FPV Camera & Video Transmission System',
+      'Receiver & Radio Controller Setup',
+      'Soldering Techniques & Circuit Safety',
+      'Betaflight Configuration & Tuning',
+      'Battery Management & Power Distribution',
+      'Propeller Selection & Balancing',
+      'Drone Calibration & Testing',
+      'FPV Goggles Setup & Usage',
+      'Flight Modes & Racing Techniques',
+      'Hands-On FPV Flying Practice',
+      'Safety Procedures & Crash Recovery Basics',
+    ],
+    skills: [
+      'FPV Drone Building Expertise',
+      'Soldering & Electronics Skills',
+      'Flight Controller Configuration',
+      'FPV System Setup Knowledge',
+      'Real-Time Racing Drone Handling',
+      'Troubleshooting & Maintenance Skills',
+    ],
+    facilitiesTitle: 'Workshop Facilities',
+    facilities: [
+      'Professional FPV Drone Lab',
+      'Racing Drone Components & Tools',
+      'FPV Goggles & Controllers',
+      'Dedicated Practice Arena',
+      'Simulator Support for Beginners',
+    ],
+    why: [
+      'Learn to Build Your Own Racing Drone',
+      'Real FPV Flying Experience',
+      'Beginner-Friendly Practical Training',
+      'Exposure to Competitive Drone Racing',
+      'Hands-On Electronics & Tuning Skills',
+      'Industry & Hobby Level Learning',
+    ],
+    outcomes: [
+      'Build a functional FPV racing drone',
+      'Configure and tune flight systems',
+      'Understand FPV communication systems',
+      'Perform controlled FPV flights',
+      'Gain confidence in drone racing technology',
+    ],
+    finalTakeaway: 'Build the machine. Wear the goggles. Own the race.',
+  },
+  {
+    title: 'Agri Drone Building Workshop',
+    menuTitle: 'Build Your Own Agri Drone',
+    eyebrow: 'Drone Workshop',
+    tagline: 'Build Smart Farming Solutions with Drone Technology',
+    duration: '1 Day / 2 Days / Weekend Workshop',
+    certification: 'Workshop Participation',
+    overview:
+      'Step into the future of precision agriculture with our Agri Drone Building Workshop designed for innovators, students, farmers, and drone enthusiasts. Learn how to assemble, configure, calibrate, and operate agricultural spraying drones used in modern smart farming applications. This hands-on workshop provides practical exposure to drone technology for agriculture, including spraying systems, payload integration, and field operation techniques.',
+    image: '/assets/services/agri-drone-workshop.jpeg',
+    durationTitle: 'Workshop Duration',
+    courseDuration: [
+      '1 Day / 2 Days / Weekend Workshop',
+      'Offline Practical Training',
+    ],
+    buildTitle: 'What You Will Build',
+    buildItems: [
+      'Agricultural Spraying Drone',
+      'Multi-Rotor Agri Drone Platform',
+    ],
+    audience: [
+      'Agriculture Students & Professionals',
+      'Drone Enthusiasts',
+      'Engineering & Polytechnic Students',
+      'Farmers & Agri-Tech Innovators',
+      'Startup Founders & Entrepreneurs',
+      'Precision Farming Aspirants',
+    ],
+    highlightTitle: 'Workshop Highlights',
+    highlights: [
+      'Introduction to Agricultural Drone Technology',
+      'Smart Farming & Precision Agriculture Concepts',
+      'Agri Drone Frame Assembly',
+      'Motor, ESC & Propeller Integration',
+      'Flight Controller Configuration',
+      'GPS & Navigation System Setup',
+      'Sprayer Tank & Nozzle Integration',
+      'Pump & Spraying Mechanism Setup',
+      'Battery & Power Distribution System',
+      'Wiring & Safety Procedures',
+      'Drone Calibration & System Testing',
+      'Payload Management & Spraying Control',
+      'Mission Planning for Agriculture Operations',
+      'Field Demonstration & Flying Practice',
+      'Maintenance & Troubleshooting Basics',
+    ],
+    skills: [
+      'Agri Drone Assembly Knowledge',
+      'Spraying System Integration Skills',
+      'Precision Agriculture Understanding',
+      'Flight & Payload Management',
+      'Basic Electronics & Wiring Skills',
+      'Drone Maintenance & Operational Safety',
+    ],
+    facilitiesTitle: 'Workshop Facilities',
+    facilities: [
+      'Advanced Drone Lab',
+      'Agricultural Drone Components',
+      'Professional Tools & Equipment',
+      'Dedicated Flying & Demonstration Area',
+      'Real-Time Practical Training Environment',
+    ],
+    why: [
+      'Learn Future Farming Technology',
+      'Hands-On Drone Building Experience',
+      'Industry-Oriented Practical Training',
+      'Exposure to Smart Agriculture Solutions',
+      'Beginner-Friendly Learning Approach',
+      'Real-World Agricultural Applications',
+    ],
+    outcomes: [
+      'Understand agricultural drone systems',
+      'Build and configure an agri drone',
+      'Operate spraying mechanisms safely',
+      'Perform basic mission planning',
+      'Gain confidence in precision farming technology',
+    ],
+    finalTakeaway: 'Build smarter drones. Empower smarter farming.',
+  },
+  {
+    title: 'Drone Customization Workshop',
+    menuTitle: 'Drone Customization',
+    eyebrow: 'Drone Workshop',
+    tagline: 'Design - Modify - Upgrade Your Drone',
+    duration: '1 Day / 2 Days / Weekend Workshop',
+    certification: 'Workshop Participation',
+    overview:
+      'Unlock the next level of drone technology with our Drone Customization Workshop, designed for drone enthusiasts, makers, engineers, and innovators who want to personalize and upgrade drone systems for specific applications. Learn how to modify drone frames, integrate advanced components, optimize performance, and customize drones for industrial, cinematic, racing, and agricultural operations through hands-on practical sessions.',
+    image: '/assets/services/drone-customization.jpeg',
+    durationTitle: 'Workshop Duration',
+    courseDuration: [
+      '1 Day / 2 Days / Weekend Workshop',
+      'Offline Practical Training',
+    ],
+    buildTitle: 'Customization Areas Covered',
+    buildItems: [
+      'Performance Upgrades',
+      'Payload Integration',
+      'Camera & Gimbal Setup',
+      'FPV System Customization',
+      'Battery & Power Optimization',
+      'Frame Modification & Tuning',
+    ],
+    audience: [
+      'Drone Enthusiasts',
+      'Engineering & Polytechnic Students',
+      'FPV & Racing Drone Builders',
+      'Aerial Photography Creators',
+      'Agri Drone Operators',
+      'Industrial Drone Professionals',
+      'DIY Tech Innovators & Startup Founders',
+    ],
+    highlightTitle: 'Workshop Highlights',
+    highlights: [
+      'Introduction to Drone Customization',
+      'Understanding Drone Architecture',
+      'Frame Selection & Modifications',
+      'Flight Controller Configuration',
+      'ESC & Motor Upgrades',
+      'Battery & Power Distribution Optimization',
+      'Payload & Sensor Integration',
+      'Camera, Gimbal & FPV System Setup',
+      'GPS & Telemetry Configuration',
+      'Firmware Installation & Tuning',
+      'Flight Performance Optimization',
+      'Weight Balancing & Aerodynamics',
+      'Mission-Based Drone Customization',
+      'Safety Checks & System Calibration',
+      'Live Testing & Flying Demonstration',
+      'Troubleshooting & Maintenance Techniques',
+    ],
+    skills: [
+      'Drone Modification Expertise',
+      'Hardware Integration Skills',
+      'Performance Tuning Knowledge',
+      'Payload Configuration Techniques',
+      'Flight Stability Optimization',
+      'Real-Time Troubleshooting Ability',
+    ],
+    facilitiesTitle: 'Workshop Facilities',
+    facilities: [
+      'Advanced Drone Lab',
+      'Professional Tools & Components',
+      'Flight Simulators',
+      'Dedicated Flying Zone',
+      'Industry-Standard Equipment Access',
+    ],
+    why: [
+      'Hands-On Technical Experience',
+      'Learn Real Drone Upgrade Techniques',
+      'Beginner to Advanced Friendly',
+      'Exposure to Multiple Drone Applications',
+      'Practical Industry-Oriented Learning',
+      'Build & Customize Based on Your Mission Needs',
+    ],
+    outcomes: [
+      'Understand drone customization workflows',
+      'Upgrade and optimize drone systems',
+      'Configure mission-specific setups',
+      'Improve flight performance & stability',
+      'Gain confidence in advanced drone modification',
+    ],
+    finalTakeaway: "Don't just fly drones. Customize them your way.",
+  },
+];
+
+const internshipPrograms = [
+  {
+    title: '7-Day Drone Internship Program',
+    menuTitle: '7 Days',
+    eyebrow: 'Internship Program',
+    tagline: 'Learn - Build - Fly - Innovate',
+    duration: '7 Days',
+    certification: 'Internship Certificate',
+    overview:
+      'Kickstart your journey into the world of drone technology with our 7-Day Intensive Drone Internship Program designed for students, beginners, and technology enthusiasts. This internship delivers a powerful blend of drone fundamentals, practical flying, drone assembly, mission planning, and real-time field exposure to help participants gain industry-oriented skills in a short duration.',
+    image: '/assets/services/7days-drone-internship.jpeg',
+    durationTitle: 'Internship Duration',
+    courseDuration: [
+      'Duration: 7 Days',
+      'Mode: Offline Practical Training',
+      'Training Style: Classroom + Simulator + Live Flying Sessions',
+    ],
+    fee: 'Rs. 3,499/- Only',
+    feeNote: 'Inclusive of Training Materials & Practical Sessions',
+    buildTitle: 'Training Areas Covered',
+    buildItems: [
+      'Drone Basics & UAV Technology',
+      'Drone Components & Working Systems',
+      'Drone Assembly Fundamentals',
+      'Flight Simulator Training',
+      'Hands-On Flying Practice',
+      'Safety Procedures & Flight Protocols',
+      'Drone Applications & Industry Use Cases',
+    ],
+    audience: [
+      'School & College Students',
+      'Engineering / Polytechnic Students',
+      'Drone Enthusiasts',
+      'Beginners with No Experience',
+      'Robotics & Tech Club Members',
+      'Startup & Innovation Aspirants',
+    ],
+    highlightTitle: 'Internship Highlights',
+    highlights: [
+      'Introduction to Drone Technology',
+      'Drone Rules & Safety Awareness',
+      'Understanding Motors, ESC, GPS & Flight Controllers',
+      'Basic Drone Assembly',
+      'Flight Simulator Practice',
+      'Manual Drone Flying Techniques',
+      'Pre-flight & Post-flight Checks',
+      'Industrial Drone Applications',
+      'Team Activities & Practical Sessions',
+      'Live Flying Demonstration',
+    ],
+    skills: [
+      'Drone Operation Fundamentals',
+      'Basic Flying Confidence',
+      'Hardware & System Understanding',
+      'Safety & Maintenance Knowledge',
+      'Practical Exposure to Drone Industry',
+    ],
+    facilitiesTitle: 'Training Facilities',
+    facilities: [
+      'Advanced Drone Lab',
+      'Flight Simulator Access',
+      'Dedicated Flying Zone',
+      'Practical Learning Environment',
+      'Industry-Standard Drone Platforms',
+    ],
+    why: [
+      'Beginner-Friendly Program',
+      'Practical Hands-On Training',
+      'Industry-Oriented Learning',
+      'Exposure to Real Drone Operations',
+      'Skill Development & Career Awareness',
+      'Internship Certificate Provided',
+    ],
+    outcomes: [
+      'Understand drone technology fundamentals',
+      'Fly drones with confidence',
+      'Perform basic assembly',
+      'Gain exposure to industrial drone applications',
+      'Build a strong foundation for future drone careers',
+    ],
+    outcomeTitle: 'Internship Outcome',
+    finalTakeaway: 'Your drone journey starts here. Learn today, fly tomorrow.',
+  },
+  {
+    title: '15-Day Drone Internship Program',
+    menuTitle: '15 Days',
+    eyebrow: 'Internship Program',
+    tagline: 'Learn - Build - Fly - Explore the Future of Aviation',
+    duration: '15 Days',
+    certification: 'Internship Certificate',
+    overview:
+      'Take your first major step into the drone industry with our 15-Day Intensive Drone Internship Program crafted for students, beginners, and aspiring drone professionals. This program combines technical learning, practical flying, drone assembly, mapping, mission planning, and industrial applications to provide a complete hands-on learning experience.',
+    image: '/assets/services/15days-drone-workshop.jpeg',
+    durationTitle: 'Internship Duration',
+    courseDuration: [
+      'Duration: 15 Days',
+      'Mode: Offline Practical Training',
+      'Training Style: Classroom + Simulator + Live Field Sessions',
+    ],
+    fee: 'Rs. 6,999/- Only',
+    feeNote: 'Inclusive of Training Materials & Practical Sessions',
+    buildTitle: 'Training Areas Covered',
+    buildItems: [
+      'Drone Fundamentals & UAV Technology',
+      'Drone Components & Electronics',
+      'Drone Assembly & Calibration',
+      'Flight Simulator Training',
+      'Basic to Advanced Flying Techniques',
+      'Mission Planning & Flight Operations',
+      'Aerial Photography & Videography',
+      'Surveying & Mapping Basics',
+      'Industrial Drone Applications',
+      'Safety Procedures & Maintenance',
+    ],
+    audience: [
+      'School & College Students',
+      'Engineering / Polytechnic Students',
+      'Drone Enthusiasts',
+      'Beginners & Tech Learners',
+      'Robotics Club Members',
+      'Startup & Innovation Aspirants',
+    ],
+    highlightTitle: 'Internship Highlights',
+    highlights: [
+      'Introduction to Drone Ecosystem',
+      'Drone Rules & Airspace Awareness',
+      'Flight Principles & Aerodynamics',
+      'Understanding ESC, Motors, GPS & Flight Controllers',
+      'Hands-On Drone Assembly Sessions',
+      'Simulator Flying Practice',
+      'Live Drone Flying Training',
+      'Pre-flight & Post-flight SOPs',
+      'Emergency Handling Techniques',
+      'Mapping & Survey Workflow Basics',
+      'Agriculture & Industrial Drone Applications',
+      'FPV & Advanced Drone Introduction',
+      'Team Projects & Field Activities',
+      'Real-Time Mission Demonstration',
+      'Career Guidance in Drone Industry',
+    ],
+    skills: [
+      'Drone Flying Confidence',
+      'Basic Assembly & Wiring Skills',
+      'Flight Safety Awareness',
+      'Mission Planning Understanding',
+      'Technical Knowledge of UAV Systems',
+      'Real-Time Operational Exposure',
+    ],
+    facilitiesTitle: 'Training Facilities',
+    facilities: [
+      'Advanced Drone Lab',
+      'Professional Flight Simulators',
+      'Dedicated Flying Field',
+      'Industry-Standard Drone Platforms',
+      'Practical Learning Environment',
+    ],
+    why: [
+      'Hands-On Practical Experience',
+      'Industry-Oriented Curriculum',
+      'Beginner-Friendly Learning Approach',
+      'Exposure to Real Drone Operations',
+      'Skill Development & Career Growth',
+      'Internship Certificate Provided',
+    ],
+    outcomes: [
+      'Understand drone technology fundamentals',
+      'Assemble and configure basic drones',
+      'Perform safe drone operations',
+      'Execute basic mapping & mission planning',
+      'Gain confidence for advanced drone learning',
+    ],
+    outcomeTitle: 'Internship Outcome',
+    finalTakeaway: 'Build skills. Fly smarter. Shape the future with drones.',
+  },
+  {
+    title: '30-Day Drone Internship Program',
+    menuTitle: '30 Days',
+    eyebrow: 'Internship Program',
+    tagline: 'Master Drone Technology with Real-Time Practical Training',
+    duration: '30 Days',
+    certification: 'Internship Certificate',
+    overview:
+      'Step into the world of advanced drone technology with our 30-Day Intensive Drone Internship Program designed for students, aspiring drone pilots, and technology enthusiasts. This comprehensive program offers a perfect blend of theory, simulator practice, drone assembly, live flying, mapping, mission planning, and industrial applications to provide complete industry-oriented exposure.',
+    image: '/assets/services/30days-drone-internship.jpeg',
+    durationTitle: 'Internship Duration',
+    courseDuration: [
+      'Duration: 30 Days',
+      'Mode: Offline Practical Training',
+      'Training Style: Classroom + Simulator + Field Operations',
+    ],
+    fee: 'Rs. 10,000/- Only',
+    feeNote: 'Inclusive of Training Materials & Practical Sessions',
+    buildTitle: 'Training Areas Covered',
+    buildItems: [
+      'Drone Fundamentals & UAV Technology',
+      'Drone Components & Electronics',
+      'Drone Assembly & Configuration',
+      'Flight Simulator Training',
+      'Basic to Advanced Flying Techniques',
+      'Mission Planning & Flight Operations',
+      'Surveying & Mapping Basics',
+      'Aerial Photography & Videography',
+      'Industrial Drone Applications',
+      'Safety Procedures & Maintenance',
+      'FPV Drone Introduction',
+      'Agriculture Drone Basics',
+      'Live Field Operations & Team Projects',
+    ],
+    audience: [
+      'School & College Students',
+      'Engineering / Polytechnic Students',
+      'Drone Enthusiasts',
+      'Beginners & Tech Learners',
+      'Robotics Club Members',
+      'Startup & Innovation Aspirants',
+      'Anyone interested in drone technology careers',
+    ],
+    highlightTitle: 'Internship Highlights',
+    highlights: [
+      'Introduction to Drone Ecosystem',
+      'Drone Rules & Airspace Awareness',
+      'Flight Principles & Aerodynamics',
+      'ESC, Motors, GPS & Flight Controller Systems',
+      'Hands-On Drone Assembly Sessions',
+      'Simulator Flying Practice',
+      'Live Drone Flying Training',
+      'Pre-flight & Post-flight SOPs',
+      'Emergency Handling & Safety Procedures',
+      'Mapping & Survey Workflow Introduction',
+      'Agriculture & Industrial Drone Exposure',
+      'Mission Planning & Data Collection Basics',
+      'Team-Based Practical Activities',
+      'Real-Time Flying Demonstrations',
+      'Career Guidance & Industry Exposure',
+    ],
+    skills: [
+      'Drone Flying Confidence',
+      'Assembly & Calibration Skills',
+      'Mission Planning Knowledge',
+      'Flight Safety Awareness',
+      'Technical Understanding of Drone Systems',
+      'Real-Time Operational Experience',
+    ],
+    facilitiesTitle: 'Training Facilities',
+    facilities: [
+      'Advanced Drone Lab',
+      'Professional Flight Simulators',
+      'Dedicated Flying Field',
+      'Industry-Standard Drone Platforms',
+      'Practical Learning Environment',
+    ],
+    why: [
+      'Complete Hands-On Practical Training',
+      'Industry-Oriented Learning Approach',
+      'Beginner-Friendly to Advanced Exposure',
+      'Real Drone Flying Experience',
+      'Skill Development & Career Enhancement',
+      'Internship Certificate Provided',
+    ],
+    outcomes: [
+      'Understand drone technology fundamentals',
+      'Assemble and configure drones',
+      'Perform safe and controlled drone operations',
+      'Execute basic mapping & mission workflows',
+      'Gain confidence for advanced drone careers',
+    ],
+    outcomeTitle: 'Internship Outcome',
+    finalTakeaway: 'Learn the technology. Fly the future. Build your drone career.',
+  },
+];
 
 const skillPrograms = [
   {
@@ -866,7 +1528,7 @@ const skillPrograms = [
   },
 ];
 
-const programMap = [...programs, ...simplePrograms, ...skillPrograms].reduce((acc, program) => {
+const programMap = [...programs, ...simplePrograms, ...diplomaPrograms, ...workshopPrograms, ...internshipPrograms, ...skillPrograms].reduce((acc, program) => {
   acc[slugify(program.menuTitle)] = program;
   return acc;
 }, {});
@@ -981,13 +1643,42 @@ export default function ProgramDetail() {
             <p className="text-lg leading-relaxed text-slate-600">{program.overview}</p>
           </DetailBlock>
 
-          <DetailBlock icon={<CalendarDays size={20} />} title="Course Timeline">
-            <BulletList items={program.timeline} />
-          </DetailBlock>
+          {program.courseDuration && (
+            <DetailBlock icon={<Clock size={20} />} title={program.durationTitle || 'Course Duration'}>
+              <BulletList items={program.courseDuration} />
+            </DetailBlock>
+          )}
 
-          <DetailBlock icon={<Plane size={20} />} title="Drone Details">
-            <BulletList items={program.droneDetails} />
-          </DetailBlock>
+          {program.fee && (
+            <DetailBlock icon={<BadgeCheck size={20} />} title="Internship Fee">
+              <p className="text-3xl font-bold text-primary">{program.fee}</p>
+              {program.feeNote && <p className="mt-3 text-slate-600">{program.feeNote}</p>}
+            </DetailBlock>
+          )}
+
+          {program.timeline && (
+            <DetailBlock icon={<CalendarDays size={20} />} title="Course Timeline">
+              <BulletList items={program.timeline} />
+            </DetailBlock>
+          )}
+
+          {program.droneDetails && (
+            <DetailBlock icon={<Plane size={20} />} title="Drone Details">
+              <BulletList items={program.droneDetails} />
+            </DetailBlock>
+          )}
+
+          {program.buildItems && (
+            <DetailBlock icon={<Plane size={20} />} title={program.buildTitle || 'What You Will Build'}>
+              <BulletList items={program.buildItems} />
+            </DetailBlock>
+          )}
+
+          {program.modules && (
+            <DetailBlock icon={<GraduationCap size={20} />} title="Course Modules">
+              <BulletList items={program.modules} />
+            </DetailBlock>
+          )}
 
           {program.tools && (
             <DetailBlock icon={<Sparkles size={20} />} title="Tools & Software">
@@ -999,9 +1690,11 @@ export default function ProgramDetail() {
             <BulletList items={program.audience} />
           </DetailBlock>
 
-          <DetailBlock icon={<GraduationCap size={20} />} title="What You'll Gain">
-            <BulletList items={program.gains} />
-          </DetailBlock>
+          {program.gains && (
+            <DetailBlock icon={<GraduationCap size={20} />} title="What You'll Gain">
+              <BulletList items={program.gains} />
+            </DetailBlock>
+          )}
 
           {program.practical && (
             <DetailBlock icon={<Plane size={20} />} title="Practical Training Highlights">
@@ -1009,15 +1702,49 @@ export default function ProgramDetail() {
             </DetailBlock>
           )}
 
-          <div className="grid gap-8 md:grid-cols-2">
-            <DetailBlock icon={<BadgeCheck size={20} />} title="Eligibility">
-              <BulletList items={program.eligibility} />
+          {program.facilities && (
+            <DetailBlock icon={<MapPin size={20} />} title={program.facilitiesTitle || 'Training Facilities'}>
+              <BulletList items={program.facilities} />
             </DetailBlock>
-          </div>
+          )}
 
-          <DetailBlock icon={<Sparkles size={20} />} title="Why This Course Stands Out">
-            <BulletList items={program.why} />
-          </DetailBlock>
+          {program.highlights && (
+            <DetailBlock icon={<Sparkles size={20} />} title={program.highlightTitle || 'Key Highlights'}>
+              <BulletList items={program.highlights} />
+            </DetailBlock>
+          )}
+
+          {program.skills && (
+            <DetailBlock icon={<GraduationCap size={20} />} title="Skills You'll Gain">
+              <BulletList items={program.skills} />
+            </DetailBlock>
+          )}
+
+          {program.eligibility && (
+            <div className="grid gap-8 md:grid-cols-2">
+              <DetailBlock icon={<BadgeCheck size={20} />} title="Eligibility">
+                <BulletList items={program.eligibility} />
+              </DetailBlock>
+            </div>
+          )}
+
+          {program.why && (
+            <DetailBlock icon={<Sparkles size={20} />} title="Why This Course Stands Out">
+              <BulletList items={program.why} />
+            </DetailBlock>
+          )}
+
+          {program.careers && (
+            <DetailBlock icon={<Briefcase size={20} />} title="Career Opportunities">
+              <BulletList items={program.careers} />
+            </DetailBlock>
+          )}
+
+          {program.outcomes && (
+            <DetailBlock icon={<BadgeCheck size={20} />} title={program.outcomeTitle || 'Workshop Outcome'}>
+              <BulletList items={program.outcomes} />
+            </DetailBlock>
+          )}
 
           {program.finalTakeaway && (
             <DetailBlock icon={<Sparkles size={20} />} title="Final Takeaway">
