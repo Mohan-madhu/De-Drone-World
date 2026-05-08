@@ -18,7 +18,7 @@ import Contact from './pages/Contact';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const API_BASE = 'https://dine360.ca/api';
+const API_BASE = 'https://dine360.ca/api'; 
 
 function getVisitorId() {
   let vid = localStorage.getItem('vid');
