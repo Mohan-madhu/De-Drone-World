@@ -336,12 +336,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* How High We Are Section */}
+      {/* Our Journey Section */}
       <section className="bg-white py-20 px-6 section-reveal">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-              <span className="font-bold text-4xl md:text-6xl tracking-tight text-navy uppercase font-display block mb-3">Our Reach</span>
-              <h2 className="text-2xl md:text-4xl font-bold font-display text-navy tracking-tight">How High We Are</h2>
+              <span className="font-bold text-4xl md:text-6xl tracking-tight text-navy uppercase font-display block mb-3">Our Journey</span>
+              <h2 className="text-2xl md:text-4xl font-bold font-display text-navy tracking-tight">Moments from the Field</h2>
           </div>
 
           <div ref={reachCarouselRef} className="reach-carousel-mask reach-carousel-stage py-8 md:py-12">
@@ -355,7 +355,7 @@ const Home = () => {
                   <div className="reach-carousel-card-inner absolute inset-0 overflow-hidden rounded-[2rem] transition-transform duration-300 ease-out will-change-transform">
                     <img
                       src={image.src}
-                      alt="How High We Are gallery image"
+                      alt="De Drone World field gallery image"
                       className="h-full w-full scale-[1.04] object-cover object-center transition-transform duration-700 group-hover:scale-[1.12]"
                     />
                   </div>
@@ -370,10 +370,9 @@ const Home = () => {
       <section className="py-0 overflow-hidden">
         {/* Section Header */}
         <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
-          <span className="font-bold text-4xl md:text-6xl tracking-tight text-white uppercase font-display block mb-3">ABOUT US</span>
-          <h2 className="text-2xl md:text-4xl font-bold font-display text-white tracking-tight mb-4">HI! WE ARE...</h2>
-          <p className="text-white/80 font-sans text-sm md:text-base max-w-xl mx-auto">
-            An entrepreneurial venture powered by aviation experts and passionate technocrats
+          <h2 className="text-4xl md:text-6xl font-bold font-display text-white tracking-tight mb-4">About Us</h2>
+          <p className="text-white/85 font-sans text-sm md:text-lg max-w-2xl mx-auto">
+            Hi! We are an entrepreneurial venture powered by aviation experts and passionate technocrats
           </p>
         </div>
 
@@ -422,9 +421,8 @@ const Home = () => {
       <section className="py-0 overflow-hidden">
         {/* Section Header — Navy Banner */}
         <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
-          <span className="font-bold text-4xl md:text-6xl tracking-tight text-white uppercase font-display block mb-3">OUR</span>
-          <h2 className="text-2xl md:text-4xl font-bold font-display text-white tracking-tight mb-4">Vision and Mission</h2>
-          <p className="text-white/80 font-sans text-sm md:text-base max-w-xl mx-auto">
+          <h2 className="text-4xl md:text-6xl font-bold font-display text-white tracking-tight mb-4">Vision and Mission</h2>
+          <p className="text-white/85 font-sans text-sm md:text-lg max-w-2xl mx-auto">
             Driving meaningful change through innovation and collaboration in drone technology
           </p>
         </div>
@@ -474,10 +472,9 @@ const Home = () => {
       <section className="py-0 overflow-hidden">
         {/* Section Header — Navy Banner */}
         <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
-          <span className="font-bold text-4xl md:text-6xl tracking-tight text-white uppercase font-display block mb-3">OUR LOCATIONS</span>
-          <h2 className="text-2xl md:text-4xl font-bold font-display text-white tracking-tight mb-4">Training Center</h2>
-          <p className="text-white/80 font-sans text-sm md:text-base max-w-xl mx-auto">
-            State-of-the-art campus equipped for world-class drone pilot training
+          <h2 className="text-4xl md:text-6xl font-bold font-display text-white tracking-tight mb-4">Training Center</h2>
+          <p className="text-white/85 font-sans text-sm md:text-lg max-w-2xl mx-auto">
+            Our locations feature state-of-the-art campuses equipped for world-class drone pilot training
           </p>
         </div>
 
@@ -545,10 +542,9 @@ const Home = () => {
       <section className="py-14 overflow-hidden">
         {/* Section Header — Navy Banner */}
         <div className="bg-primary py-14 px-8 mb-12 text-center section-reveal">
-          <span className="font-bold text-4xl md:text-6xl tracking-tight text-white uppercase font-display block mb-3">TRUST & SAFETY</span>
-          <h2 className="text-2xl md:text-4xl font-bold font-display text-white tracking-tight mb-4">Our Certification</h2>
-          <p className="text-white/80 font-sans text-sm md:text-base max-w-xl mx-auto mb-8">
-            DGCA Approved Drone Training Institute · Government-certified instructors & authorized RPTO
+          <h2 className="text-4xl md:text-6xl font-bold font-display text-white tracking-tight mb-4">Our Certification</h2>
+          <p className="text-white/85 font-sans text-sm md:text-lg max-w-2xl mx-auto mb-8">
+            Trust and safety backed by DGCA approval, government-certified instructors, and authorized RPTO credentials
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <span className="bg-primary text-white px-5 py-2 rounded-full font-bold text-sm tracking-wide shadow-lg shadow-primary/30">RPTO202500086</span>
@@ -563,9 +559,9 @@ const Home = () => {
           <div className="grid grid-cols-2 gap-5">
             {[
               { src: "/assets/certs/cert1.jpg", title: "DGCA RPTO Authorization Certificate" },
-              { src: "/assets/certs/cert2.jpg", title: "Drone Pilot Training Approval" },
-              { src: "/assets/certs/cert3.jpg", title: "Civil Aviation Certification" },
-              { src: "/assets/certs/cert4.jpeg", title: "DGCA Ground Training Certificate" }
+              { src: "/assets/certs/cert2.jpg", title: "Udhayam Registration Certificate" },
+              { src: "/assets/certs/cert3.jpg", title: "Startup India Certificate of Recognition" },
+              { src: "/assets/certs/cert4.jpeg", title: "Certificate of Incorporation" }
             ].map((cert, index) => (
               <div
                 key={index}
@@ -594,10 +590,9 @@ const Home = () => {
       <section className="py-0 overflow-hidden">
         {/* Section Header — Light Blue Theme */}
         <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
-          <span className="font-bold text-4xl md:text-6xl tracking-tight text-white uppercase font-display block mb-3">WORLD-CLASS FACILITIES</span>
-          <h2 className="text-2xl md:text-4xl font-bold font-display text-white tracking-tight mb-4">Our Infrastructure</h2>
-          <p className="text-white/80 font-sans text-sm md:text-base max-w-xl mx-auto">
-            Built for excellence — from advanced simulation labs to a live drone flying zone
+          <h2 className="text-4xl md:text-6xl font-bold font-display text-white tracking-tight mb-4">Our Infrastructure</h2>
+          <p className="text-white/85 font-sans text-sm md:text-lg max-w-2xl mx-auto">
+            World-class facilities built for excellence, from advanced simulation labs to a live drone flying zone
           </p>
         </div>
 

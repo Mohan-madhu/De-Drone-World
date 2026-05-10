@@ -206,9 +206,9 @@ export default function InspectionServices() {
         <img
           src="https://images.unsplash.com/photo-1578926314433-ed0da05e0dd4?auto=format&fit=crop&w=2000&q=80"
           alt="Drone inspection service"
-          className="absolute inset-0 h-full w-full object-cover opacity-45"
+          className="absolute inset-0 h-full w-full object-cover opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/40 to-slate-950/10" />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl">
           <span className="inspection-hero-reveal inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-5 py-2 text-xs font-bold uppercase tracking-[0.24em] text-blue-200">

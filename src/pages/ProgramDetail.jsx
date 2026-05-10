@@ -1569,20 +1569,20 @@ function EnrollmentCard({ program }) {
   return (
     <aside className="self-start lg:sticky lg:top-28">
       <div className="overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-2xl shadow-primary/10">
-        <div className="bg-navy p-6 text-white">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Ready to Take Off?</p>
-          <h3 className="mt-3 text-2xl font-bold font-display">Start your journey</h3>
-          <p className="mt-2 text-sm text-slate-300">Share your details and get complete enrollment support.</p>
+        <div className="bg-navy p-7 text-white">
+          <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">Ready to Take Off?</p>
+          <h3 className="mt-3 text-3xl font-bold font-display text-white">Start your journey</h3>
+          <p className="mt-3 text-base font-medium leading-relaxed text-slate-200">Share your details and get complete enrollment support.</p>
         </div>
 
         <form className="grid gap-4 p-6" onSubmit={handleSubmit}>
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="Name" required />
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" type="email" placeholder="Email" required />
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="Phone" required />
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="City" required />
+          <input className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-base font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="Name" required />
+          <input className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-base font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" type="email" placeholder="Email" required />
+          <input className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-base font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="Phone" required />
+          <input className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-base font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="City" required />
           <input type="hidden" value={program.title} readOnly />
 
-          <button className="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-4 font-bold text-white shadow-xl shadow-primary/20 transition-transform hover:scale-[1.02]">
+          <button className="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-4 text-base font-extrabold text-white shadow-xl shadow-primary/20 transition-transform hover:scale-[1.02]">
             Submit Details <Send size={18} />
           </button>
 
@@ -1592,7 +1592,7 @@ function EnrollmentCard({ program }) {
             </p>
           )}
 
-          <p className="text-center text-xs text-slate-500">Get certified. Own the sky.</p>
+          <p className="text-center text-sm font-semibold text-slate-500">Get certified. Own the sky.</p>
         </form>
       </div>
     </aside>

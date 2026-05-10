@@ -93,12 +93,12 @@ const Training = () => {
       <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-slate-950 parallax-container">
         <div className="absolute inset-0 z-0">
           <img 
-            className="w-full h-full object-cover opacity-50 parallax-bg" 
+            className="w-full h-full object-cover opacity-80 parallax-bg" 
             src="/assets/training_hero.png" 
             alt="Drone Training"
             style={{ height: '120%', top: '-10%' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent"></div>
         </div>
         
         <div className="relative z-10 text-center px-8 max-w-[1000px]">

@@ -172,7 +172,7 @@ const Services = () => {
             alt="Services Hero"
             style={{ height: '100%' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/35 to-transparent"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
