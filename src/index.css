@@ -13,6 +13,7 @@
   
   --font-heading: "Sora", sans-serif;
   --font-display: "Sora", sans-serif;
+  --font-sketch: "Patrick Hand SC", cursive;
   --font-body: "Manrope", sans-serif;
   --font-sans: "Manrope", sans-serif;
   
@@ -54,6 +55,29 @@
 }
 
 @layer utilities {
+  .home-section-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--banner-bg);
+  }
+
+  .home-section-banner::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.25);
+    pointer-events: none;
+  }
+
+  .home-section-banner .font-sketch {
+    filter: none;
+    text-shadow: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+
   .glass-card {
     @apply backdrop-blur-xl border border-white/40 shadow-xl;
     background: rgba(255, 255, 255, 0.6);

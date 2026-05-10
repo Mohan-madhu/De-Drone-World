@@ -2,7 +2,22 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Bolt, Target, Cpu, CheckCircle, Construction, Map, Truck, MapPin } from 'lucide-react';
+import {
+  ArrowRight,
+  BadgeCheck,
+  Bolt,
+  Building2,
+  CheckCircle,
+  ClipboardCheck,
+  Construction,
+  Cpu,
+  Images,
+  Map,
+  MapPin,
+  Newspaper,
+  Target,
+  Truck,
+} from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 
 const splitTextToChars = (text) => {
@@ -32,6 +47,26 @@ const preloadImage = (src) =>
     image.onerror = () => resolve(null);
     image.src = src;
   });
+
+const HomeSectionBanner = ({ eyebrow, icon: Icon, lines, color }) => (
+  <div className="home-section-banner mb-10 px-6 py-6 text-center section-reveal md:py-8" style={{ '--banner-bg': color }}>
+    <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center">
+      <div className="mb-4 flex w-full max-w-[320px] items-center justify-center gap-3">
+        <span className="h-px flex-1 bg-white/90" />
+        <span className="font-sketch text-xl font-normal uppercase tracking-[0.06em] text-white md:text-2xl">{eyebrow}</span>
+        <span className="h-px flex-1 bg-white/90" />
+      </div>
+      <Icon size={36} strokeWidth={1.8} className="mb-3 text-slate-700/85" />
+      <h2 className="font-sketch text-3xl font-normal uppercase leading-[0.98] tracking-wide text-white md:text-5xl">
+        {lines.map((line) => (
+          <span key={line} className="block">
+            {line}
+          </span>
+        ))}
+      </h2>
+    </div>
+  </div>
+);
 
 const Home = () => {
   const mainRef = useRef(null);
@@ -337,13 +372,14 @@ const Home = () => {
       </section>
 
       {/* Our Journey Section */}
-      <section className="bg-white py-20 px-6 section-reveal">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-              <span className="font-bold text-4xl md:text-6xl tracking-tight text-navy uppercase font-display block mb-3">Our Journey</span>
-              <h2 className="text-2xl md:text-4xl font-bold font-display text-navy tracking-tight">Moments from the Field</h2>
-          </div>
-
+      <section className="bg-white pb-20 section-reveal">
+        <HomeSectionBanner
+          eyebrow="Our Journey"
+          icon={Images}
+          lines={['Moments', 'from the field...']}
+          color="#5CC5E6"
+        />
+        <div className="max-w-7xl mx-auto px-6">
           <div ref={reachCarouselRef} className="reach-carousel-mask reach-carousel-stage py-8 md:py-12">
             <div ref={reachTrackRef} className="reach-carousel-track reach-carousel-track--gallery py-6 md:py-8">
               {reachSlides.map((image, index) => (
@@ -368,13 +404,12 @@ const Home = () => {
 
       {/* About Us Section */}
       <section className="py-0 overflow-hidden">
-        {/* Section Header */}
-        <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
-          <h2 className="text-4xl md:text-6xl font-bold font-display text-white tracking-tight mb-4">About Us</h2>
-          <p className="text-white/85 font-sans text-sm md:text-lg max-w-2xl mx-auto">
-            Hi! We are an entrepreneurial venture powered by aviation experts and passionate technocrats
-          </p>
-        </div>
+        <HomeSectionBanner
+          eyebrow="About Us"
+          icon={Newspaper}
+          lines={['Hi !', 'We are...']}
+          color="#58BFE0"
+        />
 
         <div className="max-w-7xl mx-auto px-8 pb-24">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
@@ -419,13 +454,12 @@ const Home = () => {
 
       {/* Vision & Mission Section */}
       <section className="py-0 overflow-hidden">
-        {/* Section Header — Navy Banner */}
-        <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
-          <h2 className="text-4xl md:text-6xl font-bold font-display text-white tracking-tight mb-4">Vision and Mission</h2>
-          <p className="text-white/85 font-sans text-sm md:text-lg max-w-2xl mx-auto">
-            Driving meaningful change through innovation and collaboration in drone technology
-          </p>
-        </div>
+        <HomeSectionBanner
+          eyebrow="Vision & Mission"
+          icon={ClipboardCheck}
+          lines={['We think', 'beyond...']}
+          color="#3BC8BE"
+        />
 
         <div className="max-w-7xl mx-auto px-8 pb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -470,13 +504,12 @@ const Home = () => {
 
       {/* Training Centers Section */}
       <section className="py-0 overflow-hidden">
-        {/* Section Header — Navy Banner */}
-        <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
-          <h2 className="text-4xl md:text-6xl font-bold font-display text-white tracking-tight mb-4">Training Center</h2>
-          <p className="text-white/85 font-sans text-sm md:text-lg max-w-2xl mx-auto">
-            Our locations feature state-of-the-art campuses equipped for world-class drone pilot training
-          </p>
-        </div>
+        <HomeSectionBanner
+          eyebrow="Our Locations"
+          icon={MapPin}
+          lines={['Train with', 'confidence...']}
+          color="#70D26B"
+        />
 
         <div className="max-w-7xl mx-auto px-8 pb-24">
           {/* Coimbatore Center */}
@@ -540,17 +573,16 @@ const Home = () => {
 
       {/* Certifications Section */}
       <section className="py-14 overflow-hidden">
-        {/* Section Header — Navy Banner */}
-        <div className="bg-primary py-14 px-8 mb-12 text-center section-reveal">
-          <h2 className="text-4xl md:text-6xl font-bold font-display text-white tracking-tight mb-4">Our Certification</h2>
-          <p className="text-white/85 font-sans text-sm md:text-lg max-w-2xl mx-auto mb-8">
-            Trust and safety backed by DGCA approval, government-certified instructors, and authorized RPTO credentials
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <span className="bg-primary text-white px-5 py-2 rounded-full font-bold text-sm tracking-wide shadow-lg shadow-primary/30">RPTO202500086</span>
-            <span className="bg-white/10 border border-white/20 text-white px-5 py-2 rounded-full font-bold text-sm backdrop-blur-sm">VLOS (Rotorcraft)</span>
-            <span className="bg-white/10 border border-white/20 text-white px-5 py-2 rounded-full font-bold text-sm backdrop-blur-sm">Class: Small</span>
-          </div>
+        <HomeSectionBanner
+          eyebrow="Trust & Safety"
+          icon={BadgeCheck}
+          lines={['Certified', 'to fly...']}
+          color="#F4CE45"
+        />
+        <div className="mx-auto mb-12 flex max-w-4xl flex-wrap justify-center gap-3 px-6">
+          <span className="bg-primary text-white px-5 py-2 rounded-full font-bold text-sm tracking-wide shadow-lg shadow-primary/30">RPTO202500086</span>
+          <span className="bg-navy/5 border border-primary/20 text-navy px-5 py-2 rounded-full font-bold text-sm backdrop-blur-sm">VLOS (Rotorcraft)</span>
+          <span className="bg-navy/5 border border-primary/20 text-navy px-5 py-2 rounded-full font-bold text-sm backdrop-blur-sm">Class: Small</span>
         </div>
 
         <div className="max-w-6xl mx-auto px-8">
@@ -588,13 +620,12 @@ const Home = () => {
 
       {/* Our Infrastructure Section */}
       <section className="py-0 overflow-hidden">
-        {/* Section Header — Light Blue Theme */}
-        <div className="bg-primary py-14 px-8 mb-16 text-center section-reveal">
-          <h2 className="text-4xl md:text-6xl font-bold font-display text-white tracking-tight mb-4">Our Infrastructure</h2>
-          <p className="text-white/85 font-sans text-sm md:text-lg max-w-2xl mx-auto">
-            World-class facilities built for excellence, from advanced simulation labs to a live drone flying zone
-          </p>
-        </div>
+        <HomeSectionBanner
+          eyebrow="Our Infrastructure"
+          icon={Building2}
+          lines={['Built for', 'excellence...']}
+          color="#39C8BE"
+        />
 
         <div className="max-w-7xl mx-auto px-8 pb-24">
           <div className="flex flex-col lg:flex-row items-center gap-16">

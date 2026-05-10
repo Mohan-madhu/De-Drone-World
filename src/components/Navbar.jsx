@@ -177,7 +177,7 @@ const Navbar = () => {
                 <NavLink
                   to={link.path}
                   className={({ isActive }) =>
-                    `text-navy hover:text-primary text-sm font-medium transition-colors h-full flex items-center gap-1 border-b-2 ${
+                    `font-display text-[0.98rem] font-semibold text-navy hover:text-primary transition-colors h-full flex items-center gap-1 border-b-2 ${
                       isActive ? 'border-primary text-primary' : 'border-transparent'
                     }`
                   }
@@ -191,7 +191,7 @@ const Navbar = () => {
                 >
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 min-w-[220px]">
                     <div className="px-4 py-2 bg-slate-50 border-b border-slate-100">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{dropdownLabel}</span>
+                      <span className="font-display text-sm font-bold text-slate-500 uppercase tracking-[0.14em]">{dropdownLabel}</span>
                     </div>
                     {dropdownItems.map((sub, i) => {
                       const submenu = dropdownMenus[sub.name];
@@ -203,7 +203,7 @@ const Navbar = () => {
                       >
                         <Link
                           to={sub.path || link.path}
-                          className="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-navy hover:bg-primary/5 hover:text-primary transition-all duration-150 group"
+                          className="w-full flex items-center gap-3 px-4 py-3 font-display text-[0.98rem] font-semibold text-navy hover:bg-primary/5 hover:text-primary transition-all duration-150 group"
                         >
                           <span className="text-primary/60 group-hover:text-primary transition-colors">{sub.icon}</span>
                           <span className="flex-1 text-left">{sub.name}</span>
@@ -218,7 +218,7 @@ const Navbar = () => {
                               <Link
                                 key={item.name}
                                 to={isServicesDropdown ? toServiceItemPath(sub, item.name) : toTrainingPath(item.name)}
-                                className="group/course flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-medium text-navy transition-colors hover:bg-primary/5 hover:text-primary"
+                                className="group/course flex w-full items-center gap-3 px-4 py-3 text-left font-display text-[0.95rem] font-semibold text-navy transition-colors hover:bg-primary/5 hover:text-primary"
                               >
                                 <span className="text-primary/60 transition-colors group-hover/course:text-primary">{item.icon}</span>
                                 {item.name}
@@ -240,7 +240,7 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-navy hover:text-primary text-sm font-medium transition-colors h-full flex items-center border-b-2 ${
+                  `font-display text-[0.98rem] font-semibold text-navy hover:text-primary transition-colors h-full flex items-center border-b-2 ${
                     isActive ? 'border-primary text-primary' : 'border-transparent'
                   }`
                 }
@@ -252,7 +252,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-4">
-          <Link to="/contact" className="hidden md:block bg-primary text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-opacity-90 transition-all">
+          <Link to="/contact" className="hidden md:block bg-primary text-white px-5 py-2 rounded-lg font-display text-[0.95rem] font-bold hover:bg-opacity-90 transition-all">
             Enroll Now
           </Link>
           <button
@@ -279,7 +279,7 @@ const Navbar = () => {
               <div key={link.path}>
                 <button
                   onClick={() => setIsOpen(!isOpen)}
-                  className="w-full flex items-center justify-between px-8 py-4 text-sm font-medium text-navy hover:text-primary hover:bg-slate-50 border-b border-slate-50 transition-colors"
+                  className="w-full flex items-center justify-between px-8 py-4 font-display text-base font-semibold text-navy hover:text-primary hover:bg-slate-50 border-b border-slate-50 transition-colors"
                 >
                   {link.name}
                   <ChevronDown size={16} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -294,7 +294,7 @@ const Navbar = () => {
                         <Link
                           to={sub.path || link.path}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="w-full flex items-center gap-3 px-12 py-3 text-sm font-medium text-slate-600 hover:text-primary hover:bg-primary/5 transition-colors"
+                          className="w-full flex items-center gap-3 px-12 py-3 font-display text-[0.98rem] font-semibold text-slate-700 hover:text-primary hover:bg-primary/5 transition-colors"
                         >
                           <span className="text-primary/60">{sub.icon}</span>
                           {sub.name}
@@ -306,7 +306,7 @@ const Navbar = () => {
                                 key={item.name}
                                 to={isServicesDropdown ? toServiceItemPath(sub, item.name) : toTrainingPath(item.name)}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="flex w-full items-center gap-3 px-16 py-2.5 text-left text-xs font-medium text-slate-500 hover:bg-primary/5 hover:text-primary transition-colors"
+                                className="flex w-full items-center gap-3 px-16 py-2.5 text-left font-display text-[0.92rem] font-semibold text-slate-600 hover:bg-primary/5 hover:text-primary transition-colors"
                               >
                                 <span className="text-primary/60">{item.icon}</span>
                                 {item.name}
@@ -329,7 +329,7 @@ const Navbar = () => {
                 to={link.path}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={({ isActive }) =>
-                  `px-8 py-4 text-sm font-medium transition-colors border-b border-slate-50 ${
+                  `px-8 py-4 font-display text-base font-semibold transition-colors border-b border-slate-50 ${
                     isActive ? 'text-primary bg-primary/5 border-l-4 border-l-primary' : 'text-navy hover:text-primary hover:bg-slate-50'
                   }`
                 }
@@ -339,7 +339,7 @@ const Navbar = () => {
             );
           })}
           <div className="p-8">
-            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full bg-primary text-white px-5 py-3 rounded-lg text-sm font-semibold text-center hover:bg-opacity-90 transition-all">
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full bg-primary text-white px-5 py-3 rounded-lg font-display text-base font-bold text-center hover:bg-opacity-90 transition-all">
               Enroll Now
             </Link>
           </div>

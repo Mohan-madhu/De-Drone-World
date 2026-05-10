@@ -1540,7 +1540,9 @@ function DetailBlock({ icon, title, children }) {
         <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">{icon}</span>
         <h2 className="text-2xl font-bold text-navy font-display">{title}</h2>
       </div>
-      {children}
+      <div className="pl-[52px]">
+        {children}
+      </div>
     </section>
   );
 }
@@ -1549,8 +1551,8 @@ function BulletList({ items }) {
   return (
     <ul className="grid gap-3 text-slate-600">
       {items.map((item) => (
-        <li key={item} className="flex gap-3 leading-relaxed">
-          <CheckCircle size={18} className="mt-1 shrink-0 text-primary" />
+        <li key={item} className="relative leading-relaxed">
+          <CheckCircle size={18} className="absolute -left-8 top-1 shrink-0 text-primary" />
           <span>{item}</span>
         </li>
       ))}
@@ -1721,11 +1723,9 @@ export default function ProgramDetail() {
           )}
 
           {program.eligibility && (
-            <div className="grid gap-8 md:grid-cols-2">
-              <DetailBlock icon={<BadgeCheck size={20} />} title="Eligibility">
-                <BulletList items={program.eligibility} />
-              </DetailBlock>
-            </div>
+            <DetailBlock icon={<BadgeCheck size={20} />} title="Eligibility">
+              <BulletList items={program.eligibility} />
+            </DetailBlock>
           )}
 
           {program.why && (
