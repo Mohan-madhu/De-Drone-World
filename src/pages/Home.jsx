@@ -467,7 +467,7 @@ const Home = () => {
             <div className="section-reveal bg-white rounded-[2rem] overflow-hidden shadow-xl border border-slate-100 group hover:-translate-y-2 transition-all duration-500">
               <div className="h-64 overflow-hidden relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" 
+                  src="/assets/drone_precision.png" 
                   alt="Vision" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -476,7 +476,7 @@ const Home = () => {
               </div>
               <div className="p-8 md:p-10 flex-1">
                 <p className="text-lg text-slate-600 leading-relaxed font-sans">
-                  To bring the potential of drones for the betterment of life in this world. We invest and innovate to transform the way drones are made and utilized to bring positive and lasting change in human lives.
+                  To advance the drone field through trusted training, practical innovation, and reliable aerial solutions that help industries work smarter, safer, and faster.
                 </p>
               </div>
             </div>
@@ -485,7 +485,7 @@ const Home = () => {
             <div className="section-reveal bg-white rounded-[2rem] overflow-hidden shadow-xl border border-slate-100 group hover:-translate-y-2 transition-all duration-500 delay-100">
               <div className="h-64 overflow-hidden relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" 
+                  src="/assets/services_hero.png" 
                   alt="Mission" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
