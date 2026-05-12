@@ -1536,12 +1536,12 @@ const programMap = [...programs, ...simplePrograms, ...diplomaPrograms, ...works
 function DetailBlock({ icon, title, children }) {
   return (
     <section className="rounded-3xl border border-slate-100 bg-white p-7 shadow-sm">
-      <div className="mb-4 flex items-center gap-3">
+      <div className="grid grid-cols-[40px_1fr] items-center gap-x-3 gap-y-4">
         <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">{icon}</span>
         <h2 className="text-2xl font-bold text-navy font-display">{title}</h2>
-      </div>
-      <div className="pl-[52px]">
-        {children}
+        <div className="col-start-2">
+          {children}
+        </div>
       </div>
     </section>
   );
@@ -1551,8 +1551,8 @@ function BulletList({ items }) {
   return (
     <ul className="grid gap-3 text-slate-600">
       {items.map((item) => (
-        <li key={item} className="relative leading-relaxed">
-          <CheckCircle size={18} className="absolute -left-8 top-1 shrink-0 text-primary" />
+        <li key={item} className="flex items-start gap-3 leading-relaxed">
+          <CheckCircle size={18} className="mt-1 shrink-0 text-primary" />
           <span>{item}</span>
         </li>
       ))}

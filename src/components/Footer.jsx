@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PhoneCall } from 'lucide-react';
 
 const Icon = ({ children }) => (
   <svg viewBox="0 0 24 24" className="h-[18px] w-[18px] fill-current" aria-hidden="true">
@@ -59,6 +60,22 @@ const Footer = () => {
     <footer className="bg-[#1A2A3A] text-white">
       {/* Top accent bar */}
       <div className="h-1 w-full bg-primary" />
+
+      <section className="relative flex min-h-[58vh] items-center justify-center overflow-hidden bg-[#F4CE45] px-6 py-16 text-center md:min-h-[64vh] md:py-20">
+        <div className="absolute inset-y-0 left-1/2 w-1/2 bg-black/5" />
+        <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center">
+          <div className="mb-8 flex w-full max-w-[390px] items-center justify-center gap-3">
+            <span className="h-px flex-1 bg-white/90" />
+            <span className="font-flux text-xl font-normal uppercase tracking-[0.06em] text-white md:text-2xl">Contact Us</span>
+            <span className="h-px flex-1 bg-white/90" />
+          </div>
+          <PhoneCall size={48} strokeWidth={2.2} className="mb-9 text-slate-700/85" />
+          <h2 className="font-flux uppercase leading-[0.98] tracking-wide text-white">
+            <span className="block text-4xl font-normal md:text-5xl">Get in</span>
+            <span className="mt-2 block text-5xl font-normal md:text-7xl">touch...</span>
+          </h2>
+        </div>
+      </section>
 
       {/* Main footer grid */}
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">

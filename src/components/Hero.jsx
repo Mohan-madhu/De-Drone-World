@@ -63,7 +63,7 @@ const Hero = (props) => {
         <div className="max-w-2xl">
           <div 
             ref={chipRef} 
-            className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full font-flux text-sm font-normal mb-6"
           >
             DGCA Approved RPTO • Direct. Devise. Deliver.
           </div>

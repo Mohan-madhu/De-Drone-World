@@ -7,16 +7,20 @@ import {
   BadgeCheck,
   Bolt,
   Building2,
+  Camera,
   CheckCircle,
   ClipboardCheck,
-  Construction,
   Cpu,
+  Handshake,
   Images,
+  Leaf,
   Map,
   MapPin,
+  MonitorSmartphone,
   Newspaper,
+  Quote,
   Target,
-  Truck,
+  Zap,
 } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 
@@ -34,6 +38,13 @@ const splitTextToChars = (text) => {
 
 const REACH_IMAGE_LIMIT = 40;
 
+const certificates = [
+  { src: "/assets/certs/cert1.jpg", title: "DGCA RPTO Authorization Certificate" },
+  { src: "/assets/certs/cert2.jpg", title: "Udhayam Registration Certificate" },
+  { src: "/assets/certs/cert3.jpg", title: "Startup India Certificate of Recognition" },
+  { src: "/assets/certs/cert4.jpeg", title: "Certificate of Incorporation" },
+];
+
 const preloadImage = (src) =>
   new Promise((resolve) => {
     const image = new Image();
@@ -49,20 +60,23 @@ const preloadImage = (src) =>
   });
 
 const HomeSectionBanner = ({ eyebrow, icon: Icon, lines, color }) => (
-  <div className="home-section-banner mb-10 px-6 py-6 text-center section-reveal md:py-8" style={{ '--banner-bg': color }}>
+  <div className="home-section-banner mb-14 flex min-h-[58vh] items-center justify-center px-6 py-16 text-center section-reveal md:mb-20 md:min-h-[64vh] md:py-20" style={{ '--banner-bg': color }}>
     <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center">
-      <div className="mb-4 flex w-full max-w-[320px] items-center justify-center gap-3">
+      <div className="mb-8 flex w-full max-w-[390px] items-center justify-center gap-3">
         <span className="h-px flex-1 bg-white/90" />
-        <span className="font-sketch text-xl font-normal uppercase tracking-[0.06em] text-white md:text-2xl">{eyebrow}</span>
+        <span className="font-flux text-xl font-normal uppercase tracking-[0.06em] text-white md:text-2xl">{eyebrow}</span>
         <span className="h-px flex-1 bg-white/90" />
       </div>
-      <Icon size={36} strokeWidth={1.8} className="mb-3 text-slate-700/85" />
-      <h2 className="font-sketch text-3xl font-normal uppercase leading-[0.98] tracking-wide text-white md:text-5xl">
-        {lines.map((line) => (
-          <span key={line} className="block">
-            {line}
+      <Icon size={48} strokeWidth={1.8} className="mb-9 text-slate-700/85" />
+      <h2 className="font-flux uppercase leading-[0.98] tracking-wide text-white">
+        <span className="block text-4xl font-normal md:text-5xl">
+          {lines[0]}
+        </span>
+        {lines[1] && (
+          <span className="mt-2 block text-5xl font-normal md:text-7xl">
+            {lines[1]}
           </span>
-        ))}
+        )}
       </h2>
     </div>
   </div>
@@ -324,7 +338,7 @@ const Home = () => {
 
         <div className="relative z-10 max-w-7xl w-full px-8">
           <div className="max-w-2xl">
-            <span className="hero-reveal inline-block px-4 py-1 rounded-full bg-primary/10 text-primary font-bold text-[10px] tracking-widest mb-6 uppercase">
+            <span className="hero-reveal inline-block px-4 py-1 rounded-full bg-primary/10 text-primary font-flux text-[10px] font-normal tracking-widest mb-6 uppercase">
               DGCA APPROVED DRONE ACADEMY
             </span>
             <h1 className="text-5xl md:text-7xl font-bold text-on-background mb-6 leading-[1.1] tracking-tight font-display overflow-hidden">
@@ -403,12 +417,12 @@ const Home = () => {
       </section>
 
       {/* About Us Section */}
-      <section className="py-0 overflow-hidden">
+      <section className="bg-white py-0 overflow-hidden">
         <HomeSectionBanner
           eyebrow="About Us"
           icon={Newspaper}
           lines={['Hi !', 'We are...']}
-          color="#58BFE0"
+          color="#1E9FD4"
         />
 
         <div className="max-w-7xl mx-auto px-8 pb-24">
@@ -585,34 +599,27 @@ const Home = () => {
           <span className="bg-navy/5 border border-primary/20 text-navy px-5 py-2 rounded-full font-bold text-sm backdrop-blur-sm">Class: Small</span>
         </div>
 
-        <div className="max-w-6xl mx-auto px-8">
-
-          {/* 2x2 Certificate Grid */}
-          <div className="grid grid-cols-2 gap-5">
-            {[
-              { src: "/assets/certs/cert1.jpg", title: "DGCA RPTO Authorization Certificate" },
-              { src: "/assets/certs/cert2.jpg", title: "Udhayam Registration Certificate" },
-              { src: "/assets/certs/cert3.jpg", title: "Startup India Certificate of Recognition" },
-              { src: "/assets/certs/cert4.jpeg", title: "Certificate of Incorporation" }
-            ].map((cert, index) => (
-              <div
-                key={index}
-                className="section-reveal bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 group hover:-translate-y-1 transition-all duration-300 cursor-zoom-in"
+        <div className="reach-carousel-mask reach-carousel-stage py-4 md:py-8">
+          <div className="reach-carousel-track py-6 md:py-8">
+            {[...certificates, ...certificates].map((cert, index) => (
+              <article
+                key={`${cert.src}-${index}`}
+                className="reach-carousel-card group w-[260px] flex-none cursor-zoom-in overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-xl transition-all duration-300 hover:-translate-y-1 md:w-[340px]"
                 onMouseEnter={() => setHoveredCert(cert)}
                 onMouseLeave={() => setHoveredCert(null)}
               >
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden bg-slate-50">
                   <img
                     src={cert.src}
                     alt={cert.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="h-full w-full object-contain p-3 transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
                 <div className="px-4 py-3 border-t border-slate-100 flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></div>
-                  <p className="font-bold text-navy font-display text-sm">{cert.title}</p>
+                  <p className="text-navy font-display text-sm">{cert.title}</p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
@@ -726,13 +733,16 @@ const Home = () => {
       </section>
 
       {/* SECTION C — Student Testimonials */}
-      <section ref={testimonialsSectionRef} className="bg-[#F0FAFF] py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy text-center font-[Space_Grotesk] mb-2">
-            Success Stories from Our Pilots
-          </h2>
-          <div className="w-16 h-1 bg-primary mx-auto mb-4 rounded-full" />
-          <p className="text-center text-[#555555] mb-12">Real students. Real results.</p>
+      <section ref={testimonialsSectionRef} className="bg-[#F0FAFF] py-0 overflow-hidden">
+        <HomeSectionBanner
+          eyebrow="Success Stories"
+          icon={Quote}
+          lines={['Real students', 'real results...']}
+          color="#58BFE0"
+        />
+
+        <div className="max-w-6xl mx-auto px-6 pb-20">
+          <p className="mb-12 text-center text-[#555555]">Success Stories from Our Pilots</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="testimonial-card bg-white rounded-2xl border border-[#BDDFF0] p-8 shadow-[0_4px_16px_rgba(30,159,212,0.10)] text-center">
@@ -775,63 +785,121 @@ const Home = () => {
       </section>
 
       {/* Enterprise Solutions Section */}
-      <section className="py-24 bg-slate-950 text-white">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="section-reveal flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <div className="max-w-xl">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display tracking-tight">Enterprise Solutions</h2>
-              <p className="text-slate-400 text-lg leading-relaxed font-sans">
-                We don't just provide drones; we provide end-to-end aerial intelligence strategies that transform businesses.
-              </p>
-            </div>
-            <a href="/services" className="text-white border-b-2 border-white/20 hover:border-primary hover:text-primary transition-all font-bold py-2 font-display tracking-wider uppercase text-xs">
-              See all services
+      <section className="bg-white py-0 overflow-hidden">
+        <HomeSectionBanner
+          eyebrow="Our Services"
+          icon={MonitorSmartphone}
+          lines={['Make a', 'difference...']}
+          color="#70D26B"
+        />
+
+        <div className="max-w-7xl mx-auto px-8 pb-24">
+          <div className="section-reveal mx-auto mb-12 flex max-w-4xl flex-col items-center gap-5 text-center">
+            <p className="max-w-3xl text-lg leading-relaxed text-slate-600 font-sans">
+              We don't just provide drones; we provide end-to-end aerial intelligence strategies that transform businesses.
+            </p>
+            <a href="/services" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-white font-display text-sm uppercase tracking-wide shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary/90">
+              See all services <ArrowRight size={18} />
             </a>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                name: "Industrial Inspection",
-                icon: <Construction className="w-8 h-8" />,
-                desc: "High-res thermal imaging for solar farms, cell towers, and energy grids.",
-                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDSGh_b64d1qjcvTuq38ziE2DwhyvYr5rZqpguYjRsYGSP3MqueJFraFeVzFbQC3e0oNLnAnR2ZptPLhTWMv2eUcCaMAFdtCK1c4L-LrDHztu_FocgrFD2AdVtQ55d8NUQ8HaR6MshQVhcJl1OCI7Cqb9ELgKMfu1EDEuHk-r-qE7dGTKGMrpFBv6CB6bh9LiADhTr3P7IT9UbdgJ-C4M9Lh3o0t9lGW2LYFFGNGew2YeXrN-kbbsJWVO2tH4bJZDwRfQGiXSjjtcw"
+                name: "Agriculture",
+                subtitle: "Precision Crop Management",
+                icon: <Leaf className="w-8 h-8" />,
+                desc: "Advanced drone solutions for crop health monitoring, precision spraying, and yield optimization.",
+                image: "/assets/services/fertilizer-spraying.jpeg",
+                path: "/services/agriculture",
+                color: "#1E9FD4",
+                tint: "#EAF8FE",
               },
               {
-                name: "Smart Agriculture",
-                icon: <Bolt className="w-8 h-8" />,
-                desc: "Precision spraying and multispectral crop health monitoring.",
-                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCwMUKn5Yioj31PXRmF9pQFlpaozx1JlnooFf5aRNl9m22RTuCUnbRq0IZQWoQ2mR8ilp8Qv1j70R44HJqyYBcO8OylsCjCGsAaOVcip4xjiEOZxsCLl0epXoFU2OVa2N0Q_n5-arHJMP--laeKjwA5heaidwnqGcEmQ52SLU9UaClk7RfTIRvbWvG7NqeKPS1kXK6XcEg3_J4v3VpWRUo_R1_16Ma9S28BmMI5Gz0URBC_950MXzMSRViHu_sXj5sW0D1yk1BjyFI"
+                name: "Events",
+                subtitle: "Aerial Coverage & Documentation",
+                icon: <Camera className="w-8 h-8" />,
+                desc: "Professional drone videography and photography for conferences, festivals, weddings, and productions.",
+                image: "/assets/services/videography.jpeg",
+                path: "/services/events",
+                color: "#70D26B",
+                tint: "#F0FBEF",
               },
               {
-                name: "GIS & Mapping",
+                name: "Inspection",
+                subtitle: "Infrastructure & Asset Monitoring",
+                icon: <Zap className="w-8 h-8" />,
+                desc: "Safe, efficient inspections of solar farms, wind turbines, towers, power lines, and equipment.",
+                image: "/assets/services/drone-thermography-service.jpeg",
+                path: "/services/inspection",
+                color: "#39C8BE",
+                tint: "#EAFBFA",
+              },
+              {
+                name: "Survey & Mapping",
+                subtitle: "Geospatial Intelligence",
                 icon: <Map className="w-8 h-8" />,
-                desc: "3D topographical mapping and land survey with CM-level accuracy.",
-                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBKE9ajFsVc3nn9WnzhqINdmr-IWQECLQYDR3CU9U2Gxcs2l81QBrJREvxgKQSor5kbgTPu0evm5lGbXej7FA13Kk8q9hn3l1K_E5B-xd4oG7qkQlOlTa3J1tqcn2dKQR5tpliTeQRLWWgxZ7xZqz5QINXC3ggPIIzgZiD0o37LAwEFIMpSqOhzw77JPWu2Gq4S2aB44n9jwSuPba0_R9GJ6oj9lWPY908WGoV0pXprvERaBu4kFLrLE1IJYSS6b4nwbEXCzb0yd3g"
-              },
-              {
-                name: "Delivery Logistics",
-                icon: <Truck className="w-8 h-8" />,
-                desc: "Next-mile autonomous delivery systems for medical and retail.",
-                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCK78P6BOnAzwTzS2brybHPRSzQ746PEXv5zNwmwQpe_YVIOWmNcV0Om7IRHc9OkoTllUXveiPBgoRwbCaeEwj6LSW2kmcbpnp24I9Xw5V81xvcdi59ZdIN9lqh0jKosk7YAJw5btz85ua17Stw5Xy3sDNYAHn9AOt9VPJfBdVKDJKTgKVTOcBAX_HHJA3SmqBmiJ9L-SVFb9_ebZezcHj-cGjVFwNIRgvyRMqStgkGQ5sm3NlHGCpBJSzxa_jJnCpV4rrMMf-WBKQ"
+                desc: "High-accuracy topographic surveys and 3D mapping for planning and monitoring workflows.",
+                image: "/assets/services/construction-service.jpeg",
+                path: "/services/survey-mapping",
+                color: "#F4CE45",
+                tint: "#FFF9E6",
               }
             ].map((service, i) => (
-              <div key={i} className="section-reveal relative overflow-hidden rounded-[2.5rem] p-10 group cursor-default transition-all duration-700 hover:-translate-y-3 border border-white/10 hover:border-primary/50 shadow-2xl h-[450px] flex flex-col justify-end">
-                {/* Background Image Layer */}
-                <div className="absolute inset-0 z-0">
-                  <img src={service.image} alt={service.name} className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-all duration-700 scale-110 group-hover:scale-100" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
-                </div>
-
-                {/* Glass Content Layer */}
-                <div className="relative z-10 backdrop-blur-xl bg-white/[0.03] border border-white/10 p-8 rounded-3xl group-hover:bg-primary/5 group-hover:border-primary/20 transition-all duration-500">
-                  <div className="text-primary mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+              <Link key={service.name} to={service.path} className="section-reveal group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-xl shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                <div className="relative h-48 overflow-hidden">
+                  <img src={service.image} alt={service.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/55 to-transparent" />
+                  <div
+                    className="absolute left-5 top-5 grid h-14 w-14 place-items-center rounded-2xl text-white shadow-lg"
+                    style={{ backgroundColor: service.color }}
+                  >
                     {service.icon}
                   </div>
-                  <h4 className="text-2xl font-bold mb-3 font-display tracking-tight text-white group-hover:text-primary transition-colors">{service.name}</h4>
-                  <p className="text-slate-300 text-sm leading-relaxed font-sans opacity-90 group-hover:opacity-100">{service.desc}</p>
                 </div>
-              </div>
+                <div className="min-h-[210px] p-6" style={{ backgroundColor: service.tint }}>
+                  <h4 className="mb-3 text-2xl font-display tracking-tight text-navy">{service.name}</h4>
+                  <p className="mb-3 text-sm text-primary font-display">{service.subtitle}</p>
+                  <p className="text-sm leading-relaxed text-slate-600 font-sans">{service.desc}</p>
+                  <div className="mt-6 h-1 w-16 rounded-full" style={{ backgroundColor: service.color }} />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Clients Section */}
+      <section className="bg-white py-0 overflow-hidden">
+        <HomeSectionBanner
+          eyebrow="Our Clients"
+          icon={Handshake}
+          lines={['In safe', 'hands']}
+          color="#8B83E6"
+        />
+
+        <div className="mx-auto max-w-7xl px-8 pb-24">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { name: "Hindustan College", type: "Training Partner", accent: "#8B83E6" },
+              { name: "Agri Innovators", type: "Agriculture Solutions", accent: "#70D26B" },
+              { name: "Infra Survey Group", type: "Mapping & Survey", accent: "#39C8BE" },
+              { name: "Energy Grid Works", type: "Industrial Inspection", accent: "#1E9FD4" },
+            ].map((client) => (
+              <article key={client.name} className="section-reveal rounded-3xl border border-slate-100 bg-white p-6 text-center shadow-xl shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2">
+                <div
+                  className="mx-auto mb-5 grid h-20 w-20 place-items-center rounded-2xl text-2xl text-white font-display"
+                  style={{ backgroundColor: client.accent }}
+                >
+                  {client.name
+                    .split(' ')
+                    .map((word) => word[0])
+                    .join('')
+                    .slice(0, 2)}
+                </div>
+                <h3 className="mb-2 text-2xl text-navy font-display">{client.name}</h3>
+                <p className="text-sm text-slate-500 font-sans">{client.type}</p>
+              </article>
             ))}
           </div>
         </div>
