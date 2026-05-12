@@ -61,18 +61,18 @@ const Footer = () => {
       {/* Top accent bar */}
       <div className="h-1 w-full bg-primary" />
 
-      <section className="relative flex min-h-[58vh] items-center justify-center overflow-hidden bg-[#F4CE45] px-6 py-16 text-center md:min-h-[64vh] md:py-20">
+      <section className="relative flex min-h-[170px] items-center justify-center overflow-hidden bg-[#F4CE45] px-6 py-6 text-center md:min-h-[210px] md:py-8">
         <div className="absolute inset-y-0 left-1/2 w-1/2 bg-black/5" />
         <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center">
-          <div className="mb-8 flex w-full max-w-[390px] items-center justify-center gap-3">
+          <div className="mb-3 flex w-full max-w-[320px] items-center justify-center gap-3">
             <span className="h-px flex-1 bg-white/90" />
-            <span className="font-flux text-xl font-normal uppercase tracking-[0.06em] text-white md:text-2xl">Contact Us</span>
+            <span className="font-flux text-lg font-normal uppercase tracking-[0.06em] text-white md:text-xl">Contact Us</span>
             <span className="h-px flex-1 bg-white/90" />
           </div>
-          <PhoneCall size={48} strokeWidth={2.2} className="mb-9 text-slate-700/85" />
+          <PhoneCall size={30} strokeWidth={2.2} className="mb-3 text-slate-700/85" />
           <h2 className="font-flux uppercase leading-[0.98] tracking-wide text-white">
-            <span className="block text-4xl font-normal md:text-5xl">Get in</span>
-            <span className="mt-2 block text-5xl font-normal md:text-7xl">touch...</span>
+            <span className="block text-2xl font-normal md:text-3xl">Get in</span>
+            <span className="mt-1 block text-3xl font-normal md:text-5xl">touch...</span>
           </h2>
         </div>
       </section>

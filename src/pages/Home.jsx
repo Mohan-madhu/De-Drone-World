@@ -60,20 +60,20 @@ const preloadImage = (src) =>
   });
 
 const HomeSectionBanner = ({ eyebrow, icon: Icon, lines, color }) => (
-  <div className="home-section-banner mb-14 flex min-h-[58vh] items-center justify-center px-6 py-16 text-center section-reveal md:mb-20 md:min-h-[64vh] md:py-20" style={{ '--banner-bg': color }}>
+  <div className="home-section-banner mb-6 flex min-h-[170px] items-center justify-center px-6 py-6 text-center section-reveal md:mb-8 md:min-h-[210px] md:py-8" style={{ '--banner-bg': color }}>
     <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center">
-      <div className="mb-8 flex w-full max-w-[390px] items-center justify-center gap-3">
+      <div className="mb-3 flex w-full max-w-[320px] items-center justify-center gap-3">
         <span className="h-px flex-1 bg-white/90" />
-        <span className="font-flux text-xl font-normal uppercase tracking-[0.06em] text-white md:text-2xl">{eyebrow}</span>
+        <span className="font-flux text-lg font-normal uppercase tracking-[0.06em] text-white md:text-xl">{eyebrow}</span>
         <span className="h-px flex-1 bg-white/90" />
       </div>
-      <Icon size={48} strokeWidth={1.8} className="mb-9 text-slate-700/85" />
+      <Icon size={30} strokeWidth={1.8} className="mb-3 text-slate-700/85" />
       <h2 className="font-flux uppercase leading-[0.98] tracking-wide text-white">
-        <span className="block text-4xl font-normal md:text-5xl">
+        <span className="block text-2xl font-normal md:text-3xl">
           {lines[0]}
         </span>
         {lines[1] && (
-          <span className="mt-2 block text-5xl font-normal md:text-7xl">
+          <span className="mt-1 block text-3xl font-normal md:text-5xl">
             {lines[1]}
           </span>
         )}
