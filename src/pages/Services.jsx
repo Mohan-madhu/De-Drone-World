@@ -177,8 +177,8 @@ const Services = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
           <div className="max-w-2xl">
-            <span className="hero-reveal font-bold text-[10px] tracking-[0.3em] text-blue-400 mb-6 block uppercase">Our Services</span>
-            <h1 className="hero-reveal text-5xl md:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
+            <span className="hero-reveal font-bold text-[10px] tracking-[0.3em] text-blue-400 mb-6 block ">Our Services</span>
+            <h1 className="hero-reveal text-4xl md:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
               Solutions for Every Mission
             </h1>
             <p className="hero-reveal text-lg md:text-xl text-slate-200 mb-10 leading-relaxed">

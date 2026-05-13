@@ -51,7 +51,7 @@ const Services = () => {
     <section ref={containerRef} id="services" className="py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold uppercase mb-4 tracking-tight">Global Industry <span className="text-primary">Solutions</span></h2>
+          <h2 className="text-4xl md:text-5xl font-bold  mb-4 tracking-tight">Global Industry <span className="text-primary">Solutions</span></h2>
           <div className="w-24 h-1 bg-primary" />
         </div>
 
@@ -61,9 +61,9 @@ const Services = () => {
               <div className="grid lg:grid-cols-2 items-center">
                 <div className="p-8 lg:p-16 relative z-10">
                   <service.icon size={48} className="text-primary mb-8" />
-                  <h3 className="text-3xl md:text-4xl font-bold uppercase mb-6 tracking-tight group-hover:text-primary transition-colors">{service.title}</h3>
+                  <h3 className="text-3xl md:text-4xl font-bold  mb-6 tracking-tight group-hover:text-primary transition-colors">{service.title}</h3>
                   <p className="text-white/60 text-lg leading-relaxed mb-10 max-w-lg">{service.desc}</p>
-                  <button className="flex items-center gap-2 text-primary font-display font-bold uppercase tracking-widest text-sm group/btn">
+                  <button className="flex items-center gap-2 text-primary font-display font-bold  tracking-widest text-sm group/btn">
                     Explore Solution <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
                   </button>
                 </div>

@@ -52,7 +52,7 @@ const Features = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 uppercase">Advanced Core <span className="text-primary">Systems</span></h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 ">Advanced Core <span className="text-primary">Systems</span></h2>
             <p className="text-white/60">Proprietary technology stack engineered for mission-critical reliability.</p>
           </div>
           <div className="h-[2px] flex-grow bg-primary/10 mx-8 hidden lg:block" />
@@ -75,11 +75,11 @@ const Features = () => {
                 <f.icon size={24} />
               </div>
               
-              <h3 className="text-xl font-bold mb-4 uppercase tracking-tight">{f.title}</h3>
+              <h3 className="text-xl font-bold mb-4  tracking-tight">{f.title}</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-8">{f.description}</p>
               
               <div className="pt-6 border-t border-white/5 flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-widest text-white/30 font-display">Benchmark</span>
+                <span className="text-[10px]  tracking-widest text-white/30 font-display">Benchmark</span>
                 <span className="text-sm font-display font-bold text-primary">{f.stats}</span>
               </div>
             </div>

@@ -169,8 +169,8 @@ const Services = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
           <div className="max-w-2xl">
-            <span className="hero-reveal font-bold text-[10px] tracking-[0.3em] text-primary mb-6 block uppercase">ELEVATING AGRICULTURE</span>
-            <h1 className="hero-reveal text-5xl md:text-7xl font-bold text-on-background mb-8 leading-[1.1] tracking-tight">
+            <span className="hero-reveal font-bold text-[10px] tracking-[0.3em] text-primary mb-6 block ">Elevating Agriculture</span>
+            <h1 className="hero-reveal text-4xl md:text-6xl font-bold text-on-background mb-8 leading-[1.1] tracking-tight">
               Precision Agriculture Ecosystem
             </h1>
             <p className="hero-reveal text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
@@ -192,7 +192,7 @@ const Services = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="section-reveal text-center mb-16 max-w-4xl mx-auto">
-            <span className="font-bold text-[10px] tracking-widest text-primary mb-4 block uppercase">SERVICE AREAS</span>
+            <span className="font-bold text-[10px] tracking-widest text-primary mb-4 block ">Service Areas</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-5">Drone Services Built for Real-World Operations</h2>
             <p className="text-slate-600 text-lg leading-relaxed">
               Explore the core service offerings below. Each card represents a clear capability with practical outcomes, and the layout is designed to stay readable even as you add more services later.
@@ -211,7 +211,7 @@ const Services = () => {
                     <div className="bg-primary text-white rounded-2xl p-4 shadow-lg shadow-primary/20">
                       {service.icon}
                     </div>
-                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-slate-400 pt-3">{service.featured ? 'Core Service' : 'Specialized Service'}</span>
+                    <span className="text-[10px] font-bold tracking-[0.3em]  text-slate-400 pt-3">{service.featured ? 'Core Service' : 'Specialized Service'}</span>
                   </div>
 
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">{service.title}</h3>
@@ -272,7 +272,7 @@ const Services = () => {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-8">
           <div className="section-reveal text-center mb-20">
-            <span className="font-bold text-[10px] tracking-widest text-primary mb-4 block uppercase">OUR CAPABILITIES</span>
+            <span className="font-bold text-[10px] tracking-widest text-primary mb-4 block ">Our Capabilities</span>
             <h2 className="text-4xl md:text-5xl font-bold">Precision Agriculture Services</h2>
           </div>
 
@@ -338,7 +338,7 @@ const Services = () => {
       <section className="py-24 max-w-7xl mx-auto px-8">
         <div className="flex flex-col lg:flex-row items-center gap-20">
           <div className="section-reveal w-full lg:w-1/2">
-            <span className="font-bold text-[10px] tracking-widest text-primary mb-4 block uppercase">VALUE PROPOSITION</span>
+            <span className="font-bold text-[10px] tracking-widest text-primary mb-4 block ">Value Proposition</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-10 leading-tight">Strategic Agricultural Benefits</h2>
             <ul className="space-y-8">
               {[
@@ -376,7 +376,7 @@ const Services = () => {
         <div className="max-w-7xl mx-auto px-8">
           <div className="section-reveal flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="max-w-2xl">
-              <span className="font-bold text-[10px] tracking-widest text-blue-400 mb-4 block uppercase">HARDWARE & PAYLOAD</span>
+              <span className="font-bold text-[10px] tracking-widest text-blue-400 mb-4 block ">Hardware & Payload</span>
               <h2 className="text-4xl font-bold leading-tight">The Technical Arsenal</h2>
               <p className="text-slate-400 mt-6 text-lg">Precision-engineered hardware designed for extreme agricultural conditions and mission-critical reliability.</p>
             </div>
@@ -410,7 +410,7 @@ const Services = () => {
                   <p className="text-slate-400 leading-relaxed mb-8">{card.desc}</p>
                   <div className="space-y-4">
                     <div className="flex justify-between text-sm font-bold">
-                      <span className="text-slate-500 uppercase tracking-widest">{card.stat}</span>
+                      <span className="text-slate-500  tracking-widest">{card.stat}</span>
                     </div>
                     <div className="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
                       <div className="bg-primary h-full transition-all duration-1000" style={{ width: `${card.progress}%` }}></div>

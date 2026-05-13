@@ -64,10 +64,10 @@ const Manufacturing = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
           <div className="max-w-2xl">
-            <span className="hero-reveal inline-block py-1.5 px-4 bg-primary/10 text-primary font-bold text-[10px] tracking-widest rounded-lg mb-6 uppercase">
-              PIONEERING INDIGENOUS TECHNOLOGY
+            <span className="hero-reveal inline-block py-1.5 px-4 bg-primary/10 text-primary font-bold text-[10px] tracking-widest rounded-lg mb-6 ">
+              Pioneering Indigenous Technology
             </span>
-            <h1 className="hero-reveal text-5xl md:text-7xl font-bold text-on-surface mb-8 leading-[1.1] tracking-tight">
+            <h1 className="hero-reveal text-4xl md:text-6xl font-bold text-on-surface mb-8 leading-[1.1] tracking-tight">
               Leading the 'Make in India' Drone Revolution
             </h1>
             <p className="hero-reveal text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
@@ -178,7 +178,7 @@ const Manufacturing = () => {
                 title: "Engineering Drone Kit",
                 model: "X-Series Pro",
                 img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAQhD9lar6W3N6tFdeVmvPi_6jJ4ueib09SKYdGHrHx_lZYprjhkPTv9Oa-S2JfhSTIIjmbWnDcRFFjxWTN1l8bpcU4_P80rxns-KbMhOleTJvmpCdsPO6kDh62lobDcULMfe96nL3laaQjQ0aEOyXB5oWZjOYdRndIp_pDibwDd4bNvQdJ8rypiqy6E3S7dqcYaU6fYGDL0VfVp_9r_ndXB_k_iT06-kROGv6mflP73TNKVYEBuw1X5hEBn11K_oIrHTxRAq10aTQ",
-                badge: "BEST SELLER",
+                badge: "Best Seller",
                 specs: [
                   { label: "Frame Material", value: "3K Carbon Fiber" },
                   { label: "Flight Controller", value: "Pixhawk 6C Ready" },
@@ -190,7 +190,7 @@ const Manufacturing = () => {
                 title: "Wooden Drone Kit",
                 model: "Eco-Flyer v2",
                 img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBpmTSs5QoxgiZN9vuK6yDS_a4YdYCM2RsZVOKyKAtvgvgZP-NsrgQm8xI9druYiWBd_4rEFBbvzvz5c6JC9KFbT5Pq9zyd-ZZp5fVVDhXVOU7S1Tx1zYG9TWSLvLS7sTUpKcUM0HZI1Wdx4X0E03nTPZWT7ldkrU7hemLEh1rR3IIEdRfQeE16_W5zz3khD8b0nviCchIWlKgun3Sv1mcYbGGS3I57FUGE9SiUScAX2SFsJtsTXAlcE8QPmaySD1ayaMJLRSH-IvA",
-                badge: "EDUCATIONAL",
+                badge: "Educational",
                 secondary: true,
                 specs: [
                   { label: "Frame Material", value: "Birch Plywood" },
@@ -203,7 +203,7 @@ const Manufacturing = () => {
               <div key={i} className="section-reveal bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 group">
                 <div className="h-80 overflow-hidden relative">
                   <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" src={kit.img} alt={kit.title} />
-                  <div className={`absolute top-6 left-6 px-4 py-1.5 rounded-lg text-[10px] font-bold tracking-widest uppercase backdrop-blur-md ${kit.secondary ? 'bg-slate-900/80 text-white' : 'bg-primary/90 text-white'}`}>
+                  <div className={`absolute top-6 left-6 px-4 py-1.5 rounded-lg text-[10px] font-bold tracking-widest  backdrop-blur-md ${kit.secondary ? 'bg-slate-900/80 text-white' : 'bg-primary/90 text-white'}`}>
                     {kit.badge}
                   </div>
                 </div>
@@ -242,17 +242,17 @@ const Manufacturing = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             {[
-              { value: "15,000+", label: "UNITS PRODUCED", icon: <Box className="text-primary" size={32} /> },
-              { value: "99.8%", label: "QA ACCURACY", icon: <ShieldCheck className="text-primary" size={32} /> },
-              { value: "24/7", label: "FACILITY MONITORING", icon: <Zap className="text-primary" size={32} /> },
-              { value: "ISO 9001", label: "CERTIFIED PROCESSES", icon: <Layers className="text-primary" size={32} /> }
+              { value: "15,000+", label: "Units Produced", icon: <Box className="text-primary" size={32} /> },
+              { value: "99.8%", label: "Qa Accuracy", icon: <ShieldCheck className="text-primary" size={32} /> },
+              { value: "24/7", label: "Facility Monitoring", icon: <Zap className="text-primary" size={32} /> },
+              { value: "ISO 9001", label: "Certified Processes", icon: <Layers className="text-primary" size={32} /> }
             ].map((stat, i) => (
               <div key={i} className="section-reveal text-center group">
                 <div className="flex justify-center mb-6 group-hover:scale-110 transition-transform">
                   {stat.icon}
                 </div>
                 <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase">{stat.label}</div>
+                <div className="text-[10px] font-bold tracking-[0.2em] text-slate-400 ">{stat.label}</div>
               </div>
             ))}
           </div>

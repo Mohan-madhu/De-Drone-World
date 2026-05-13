@@ -1569,32 +1569,32 @@ function EnrollmentCard({ program }) {
   };
 
   return (
-    <aside className="self-start lg:sticky lg:top-28">
+    <aside className="self-start lg:sticky lg:top-24">
       <div className="overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-2xl shadow-primary/10">
-        <div className="bg-navy p-7 text-white">
-          <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-primary">Ready to Take Off?</p>
-          <h3 className="mt-3 text-3xl font-bold font-display text-white">Start your journey</h3>
-          <p className="mt-3 text-base font-medium leading-relaxed text-slate-200">Share your details and get complete enrollment support.</p>
+        <div className="bg-navy p-5 text-white">
+          <p className="text-xs font-extrabold tracking-[0.12em] text-primary">Ready to Take Off?</p>
+          <h3 className="mt-2 text-2xl font-bold font-display text-white">Start your journey</h3>
+          <p className="mt-2 text-sm font-medium leading-relaxed text-slate-200">Share your details and get enrollment support.</p>
         </div>
 
-        <form className="grid gap-4 p-6" onSubmit={handleSubmit}>
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-base font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="Name" required />
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-base font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" type="email" placeholder="Email" required />
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-base font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="Phone" required />
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 text-base font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="City" required />
+        <form className="grid gap-3 p-5" onSubmit={handleSubmit}>
+          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="Name" required />
+          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" type="email" placeholder="Email" required />
+          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="Phone" required />
+          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="City" required />
           <input type="hidden" value={program.title} readOnly />
 
-          <button className="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-4 text-base font-extrabold text-white shadow-xl shadow-primary/20 transition-transform hover:scale-[1.02]">
+          <button className="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-xl shadow-primary/20 transition-transform hover:scale-[1.02]">
             Submit Details <Send size={18} />
           </button>
 
           {submitted && (
-            <p className="rounded-xl bg-primary/10 p-3 text-sm font-medium text-primary">
+            <p className="rounded-xl bg-primary/10 p-3 text-xs font-medium text-primary">
               Thanks. Your interest has been captured for {program.menuTitle}.
             </p>
           )}
 
-          <p className="text-center text-sm font-semibold text-slate-500">Get certified. Own the sky.</p>
+          <p className="text-center text-xs font-semibold text-slate-500">Get certified. Own the sky.</p>
         </form>
       </div>
     </aside>
@@ -1609,31 +1609,31 @@ export default function ProgramDetail() {
 
   return (
     <div className="bg-slate-50 pt-16">
-      <section className="relative overflow-hidden bg-slate-950 px-6 py-16 text-white md:py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(30,159,212,0.24),transparent_42%),radial-gradient(circle_at_82%_10%,rgba(8,47,73,0.55),transparent_40%)]" />
+      <section className="relative overflow-hidden bg-[#F0FAFF] px-6 py-16 text-navy md:py-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(30,159,212,0.16),transparent_42%),radial-gradient(circle_at_82%_10%,rgba(255,255,255,0.85),transparent_42%)]" />
         <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1fr_420px]">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-blue-300">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-2 text-xs font-bold tracking-wide text-primary">
               <BadgeCheck size={16} /> {program.eyebrow}
             </span>
-            <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.75)] md:text-6xl font-display">
+            <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-navy md:text-5xl font-display">
               {program.title}
             </h1>
-            <p className="mt-5 max-w-2xl text-xl font-semibold text-blue-100 drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)]">{program.tagline}</p>
+            <p className="mt-5 max-w-2xl text-xl font-semibold text-slate-600">{program.tagline}</p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <span className="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-5 py-3 font-semibold">
+              <span className="inline-flex items-center gap-2 rounded-2xl border border-primary/20 bg-white/80 px-5 py-3 font-semibold text-navy shadow-sm">
                 <Clock size={18} /> {program.duration}
               </span>
-              <span className="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-5 py-3 font-semibold">
+              <span className="inline-flex items-center gap-2 rounded-2xl border border-primary/20 bg-white/80 px-5 py-3 font-semibold text-navy shadow-sm">
                 <ShieldCheck size={18} /> {program.certification}
               </span>
             </div>
           </div>
-          <div className="group mx-auto w-full max-w-[420px] overflow-hidden rounded-3xl border border-white/20 bg-white/10 p-3 shadow-[0_20px_55px_rgba(2,6,23,0.5)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(2,6,23,0.62)] backdrop-blur-sm">
+          <div className="group mx-auto w-full max-w-[420px] overflow-hidden rounded-3xl border border-primary/15 bg-white/80 p-3 shadow-xl shadow-primary/10 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/15 backdrop-blur-sm">
             <img
               src={program.image}
               alt={program.title}
-              className="h-[360px] w-full rounded-2xl bg-slate-900 object-contain transition-transform duration-700 ease-out group-hover:scale-105 group-hover:rotate-[0.35deg] md:h-[420px]"
+              className="h-[360px] w-full rounded-2xl bg-slate-50 object-contain transition-transform duration-700 ease-out group-hover:scale-105 group-hover:rotate-[0.35deg] md:h-[420px]"
             />
           </div>
         </div>

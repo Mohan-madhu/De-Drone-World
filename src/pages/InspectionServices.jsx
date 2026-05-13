@@ -211,10 +211,10 @@ export default function InspectionServices() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/20 to-transparent" />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl">
-          <span className="inspection-hero-reveal inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-5 py-2 text-xs font-bold uppercase tracking-[0.24em] text-blue-200">
+          <span className="inspection-hero-reveal inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-5 py-2 text-xs font-bold  tracking-[0.24em] text-blue-200">
             <ShieldCheck size={16} /> Drone Inspection Services
           </span>
-          <h1 className="inspection-hero-reveal mt-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white md:mt-7 md:text-7xl">
+          <h1 className="inspection-hero-reveal mt-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white md:mt-7 md:text-5xl">
             Safer, faster inspections for critical infrastructure
           </h1>
           <p className="inspection-hero-reveal mt-4 max-w-2xl text-base leading-relaxed text-slate-200 md:mt-6 md:text-xl">
@@ -233,7 +233,7 @@ export default function InspectionServices() {
       <section className="px-6 py-20">
         <div className="mx-auto max-w-7xl">
           <div className="inspection-section-reveal mb-12 max-w-3xl">
-            <span className="mb-4 block text-xs font-bold uppercase tracking-[0.28em] text-primary">Our Solutions</span>
+            <span className="mb-4 block text-xs font-bold  tracking-[0.28em] text-primary">Our Solutions</span>
             <h2 className="text-4xl font-bold text-navy md:text-5xl">Inspection services for industrial assets</h2>
           </div>
 
@@ -260,7 +260,7 @@ export default function InspectionServices() {
                       <div className="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/30">
                         <Icon size={23} />
                       </div>
-                      <p className="mb-2 text-xs font-bold uppercase tracking-[0.22em] text-blue-200">{service.kicker}</p>
+                      <p className="mb-2 text-xs font-bold  tracking-[0.22em] text-blue-200">{service.kicker}</p>
                       <h3 className="text-3xl font-bold text-white">{service.title}</h3>
                     </div>
                   </div>
@@ -308,7 +308,7 @@ export default function InspectionServices() {
       <section className="bg-white px-6 py-18">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="inspection-section-reveal rounded-3xl bg-navy p-8 text-white md:p-10">
-            <span className="mb-4 block text-xs font-bold uppercase tracking-[0.28em] text-primary">Why Choose Us</span>
+            <span className="mb-4 block text-xs font-bold  tracking-[0.28em] text-primary">Why Choose Us</span>
             <h2 className="mb-6 text-4xl font-bold leading-tight text-white">
               Reliable inspection support from flight to final report
             </h2>
@@ -326,7 +326,7 @@ export default function InspectionServices() {
             id="inspection-contact"
             className="inspection-section-reveal rounded-3xl border border-slate-100 bg-white p-8 shadow-xl md:p-10"
           >
-            <span className="mb-3 block text-xs font-bold uppercase tracking-[0.28em] text-primary">Get Started</span>
+            <span className="mb-3 block text-xs font-bold  tracking-[0.28em] text-primary">Get Started</span>
             <h2 className="mb-3 text-3xl font-bold text-navy md:text-4xl">Upgrade your inspection process</h2>
             <p className="mb-8 text-slate-600">
               Contact us today for a consultation or demo using cutting-edge drone inspection technology.

@@ -70,7 +70,7 @@ const Hero = (props) => {
           
           <h1 
             ref={headlineRef} 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-navy font-[Space_Grotesk] leading-tight mb-6 max-w-2xl"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy font-[Space_Grotesk] leading-tight mb-6 max-w-2xl"
           >
             Become a DGCA Certified Drone Pilot
           </h1>

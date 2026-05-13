@@ -90,33 +90,34 @@ const Training = () => {
   return (
     <div ref={mainRef} className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-slate-950 parallax-container">
+      <section className="relative min-h-[560px] w-full flex items-center justify-center overflow-hidden bg-[#F0FAFF] parallax-container py-24 md:h-[76vh] md:min-h-[620px]">
         <div className="absolute inset-0 z-0">
           <img 
-            className="w-full h-full object-cover opacity-100 parallax-bg" 
+            className="w-full h-full object-cover opacity-75 parallax-bg" 
             src="/assets/training_hero.png" 
             alt="Drone Training"
             style={{ height: '120%', top: '-10%' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-slate-950/10 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/78 to-white/35"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#F0FAFF] via-transparent to-white/15"></div>
         </div>
         
         <div className="relative z-10 text-center px-8 max-w-[1000px]">
-          <div className="hero-reveal inline-flex items-center bg-primary/20 backdrop-blur-sm border border-primary/30 text-blue-400 px-6 py-2 rounded-full mb-8">
+          <div className="hero-reveal inline-flex items-center bg-primary/10 backdrop-blur-sm border border-primary/25 text-primary px-5 py-2 rounded-full mb-5">
             <BadgeCheck size={18} className="mr-2" />
-            <span className="font-bold text-[10px] tracking-[0.3em] uppercase font-display">Government of India Approved</span>
+            <span className="font-bold text-xs tracking-wide">Government of India Approved</span>
           </div>
-          <h1 className="hero-reveal text-5xl md:text-8xl font-bold text-white mb-8 leading-[1.1] tracking-tighter font-display">
+          <h1 className="hero-reveal mx-auto max-w-4xl text-3xl font-bold text-navy mb-5 leading-[1.12] tracking-tight md:text-5xl">
             Master the Skies with DGCA Certified Training
           </h1>
-          <p className="hero-reveal text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed font-sans">
+          <p className="hero-reveal text-base md:text-lg text-slate-600 mb-7 max-w-2xl mx-auto leading-relaxed font-sans">
             Launch your career in the booming drone industry with India's premier flight academy. Technical mastery meets expansive freedom.
           </p>
-          <div className="hero-reveal flex flex-col sm:flex-row gap-6 justify-center">
-            <a href="/contact" className="bg-primary text-white px-12 py-5 rounded-2xl font-bold text-lg shadow-2xl shadow-primary/30 hover:scale-105 transition-all font-display">
+          <div className="hero-reveal flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" className="bg-primary text-white px-8 py-3.5 rounded-xl font-bold text-base shadow-2xl shadow-primary/30 hover:scale-105 transition-all">
               Enroll for Next Batch
             </a>
-            <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all font-display">
+            <button className="bg-white/80 backdrop-blur-md border border-primary/25 text-primary px-8 py-3.5 rounded-xl font-bold text-base hover:bg-white transition-all">
               Download Brochure
             </button>
           </div>
@@ -264,11 +265,11 @@ const Training = () => {
             />
             <div className="absolute -bottom-8 -right-8 glass-card p-10 rounded-3xl max-w-[280px] shadow-2xl">
               <p className="text-primary text-5xl font-bold mb-2 stat-count">500</p>
-              <p className="text-sm font-bold text-slate-700 leading-tight uppercase tracking-widest">Certified Pilots graduated this year</p>
+              <p className="text-sm font-bold text-slate-700 leading-tight  tracking-widest">Certified Pilots graduated this year</p>
             </div>
           </div>
           <div className="section-reveal">
-            <span className="font-bold text-[10px] tracking-[0.2em] text-primary mb-4 block uppercase">EXPERTISE IN FLIGHT</span>
+            <span className="font-bold text-[10px] tracking-[0.2em] text-primary mb-4 block ">Expertise In Flight</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8 leading-[1.2]">Setting the Standard for Excellence in Unmanned Aviation</h2>
             <p className="text-lg text-slate-600 mb-6 leading-relaxed">
               At De Drone World, we believe that becoming a drone pilot is about more than just moving sticks on a controller. It's about safety, regulatory knowledge, and technical proficiency.
@@ -335,7 +336,7 @@ const Training = () => {
             />
             <div className="relative z-10">
               <Settings size={32} className="text-primary mb-4" />
-              <h4 className="font-bold text-white mb-2 uppercase text-xs tracking-widest">Maintenance</h4>
+              <h4 className="font-bold text-white mb-2  text-xs tracking-widest">Maintenance</h4>
               <p className="text-sm text-slate-300">Hardware troubleshooting & battery safety.</p>
             </div>
           </div>
@@ -348,7 +349,7 @@ const Training = () => {
             />
             <div className="relative z-10">
               <ShieldAlert size={32} className="text-primary mb-4" />
-              <h4 className="font-bold text-white mb-2 uppercase text-xs tracking-widest">Emergency</h4>
+              <h4 className="font-bold text-white mb-2  text-xs tracking-widest">Emergency</h4>
               <p className="text-sm text-slate-300">Failsafe logic & manual override recovery.</p>
             </div>
           </div>
@@ -356,14 +357,14 @@ const Training = () => {
       </section>
 
       {/* 5-Day Schedule */}
-      <section className="py-24 bg-slate-950 text-white">
+      <section className="py-24 bg-[#F0FAFF] text-navy">
         <div className="max-w-7xl mx-auto px-8">
           <div className="section-reveal flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
-              <span className="font-bold text-[10px] tracking-[0.2em] text-blue-400 mb-4 block uppercase">COURSE TIMELINE</span>
+              <span className="font-bold text-[10px] tracking-[0.2em] text-primary mb-4 block ">Course Timeline</span>
               <h2 className="text-4xl md:text-5xl font-bold leading-tight">5-Day Intensive Training Schedule</h2>
             </div>
-            <p className="text-slate-400 text-lg max-w-sm leading-relaxed">A structured journey from theory to professional flight certification.</p>
+            <p className="text-slate-600 text-lg max-w-sm leading-relaxed">A structured journey from theory to professional flight certification.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 schedule-grid">
@@ -374,14 +375,14 @@ const Training = () => {
               { day: "04", title: "Advanced Flight", items: ["Night Flying", "Payload Ops", "Beyond Line of Sight"], img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCwMUKn5Yioj31PXRmF9pQFlpaozx1JlnooFf5aRNl9m22RTuCUnbRq0IZQWoQ2mR8ilp8Qv1j70R44HJqyYBcO8OylsCjCGsAaOVcip4xjiEOZxsCLl0epXoFU2OVa2N0Q_n5-arHJMP--laeKjwA5heaidwnqGcEmQ52SLU9UaClk7RfTIRvbWvG7NqeKPS1kXK6XcEg3_J4v3VpWRUo_R1_16Ma9S28BmMI5Gz0URBC_950MXzMSRViHu_sXj5sW0D1yk1BjyFI" },
               { day: "05", title: "Certification", items: ["Theory Exam", "Practical Flight Test", "Graduation"], img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDSGh_b64d1qjcvTuq38ziE2DwhyvYr5rZqpguYjRsYGSP3MqueJFraFeVzFbQC3e0oNLnAnR2ZptPLhTWMv2eUcCaMAFdtCK1c4L-LrDHztu_FocgrFD2AdVtQ55d8NUQ8HaR6MshQVhcJl1OCI7Cqb9ELgKMfu1EDEuHk-r-qE7dGTKGMrpFBv6CB6bh9LiADhTr3P7IT9UbdgJ-C4M9Lh3o0t9lGW2LYFFGNGew2YeXrN-kbbsJWVO2tH4bJZDwRfQGiXSjjtcw" }
             ].map((d, i) => (
-              <div key={i} className="day-card relative overflow-hidden bg-white/5 p-8 border-l-4 border-primary rounded-r-2xl group transition-all duration-500">
+              <div key={i} className="day-card relative overflow-hidden bg-white p-8 border-l-4 border-primary rounded-r-2xl group transition-all duration-500 shadow-sm">
                 <div className="absolute inset-0 z-0">
-                  <img src={d.img} alt={d.title} className="w-full h-full object-cover opacity-5 group-hover:opacity-20 transition-opacity" />
+                  <img src={d.img} alt={d.title} className="w-full h-full object-cover opacity-[0.04] group-hover:opacity-10 transition-opacity" />
                 </div>
                 <div className="relative z-10">
-                  <span className="font-bold text-[10px] tracking-widest text-blue-400 block mb-4">DAY {d.day}</span>
+                  <span className="font-bold text-[10px] tracking-widest text-primary block mb-4">Day {d.day}</span>
                   <h4 className="text-xl font-bold mb-6">{d.title}</h4>
-                  <ul className="text-sm text-slate-400 space-y-3">
+                  <ul className="text-sm text-slate-600 space-y-3">
                     {d.items.map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2">
                         <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
@@ -399,7 +400,7 @@ const Training = () => {
       {/* Licensing Roadmap */}
       <section className="py-24 max-w-7xl mx-auto px-8">
         <div className="section-reveal text-center mb-20">
-          <span className="font-bold text-[10px] tracking-[0.2em] text-primary mb-4 block uppercase font-display">THE JOURNEY TO CERTIFICATION</span>
+          <span className="font-bold text-[10px] tracking-[0.2em] text-primary mb-4 block  font-display">The Journey To Certification</span>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 font-display tracking-tight">Your Path to a DGCA Drone License</h2>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto font-sans">
             We guide you through every step of the DigitalSky registration and certification process.

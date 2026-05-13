@@ -55,7 +55,7 @@ const Training = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="training-content">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase mb-8 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold  mb-8 leading-tight">
               DGCA CERTIFIED <br />
               <span className="text-primary">PILOT TRAINING</span>
             </h2>
@@ -65,14 +65,14 @@ const Training = () => {
             <div className="flex flex-col gap-6">
               <div className="glass-hud p-6 rounded-sm border-primary/20 flex items-center justify-between">
                 <div>
-                  <div className="text-[10px] text-white/40 uppercase tracking-widest font-display mb-1">Authorization No.</div>
+                  <div className="text-[10px] text-white/40  tracking-widest font-display mb-1">Authorization No.</div>
                   <div className="text-xl font-display font-bold text-primary">RPTO202500086</div>
                 </div>
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
                   <ShieldCheck size={24} />
                 </div>
               </div>
-              <button className="btn-primary py-4 uppercase tracking-widest text-sm font-bold">
+              <button className="btn-primary py-4  tracking-widest text-sm font-bold">
                 ENROLL IN ACADEMY
               </button>
             </div>
@@ -85,7 +85,7 @@ const Training = () => {
                 <div className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
                   <span className="stat-number" data-value={s.value}>0</span>{s.suffix}
                 </div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-display">{s.label}</div>
+                <div className="text-[10px]  tracking-[0.2em] text-white/30 font-display">{s.label}</div>
               </div>
             ))}
           </div>

@@ -67,8 +67,8 @@ const Fleet = () => {
     <section ref={sectionRef} className="py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold uppercase mb-4 tracking-tighter">The 2124 <span className="text-primary">Fleet</span></h2>
-          <p className="text-white/40 font-display tracking-[0.4em] uppercase text-sm">Engineering the Future</p>
+          <h2 className="text-4xl md:text-6xl font-bold  mb-4 tracking-tighter">The 2124 <span className="text-primary">Fleet</span></h2>
+          <p className="text-white/40 font-display tracking-[0.4em]  text-sm">Engineering the Future</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
@@ -81,23 +81,23 @@ const Fleet = () => {
                   className="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal group-hover:scale-110 transition-all duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60" />
-                <div className="absolute top-6 right-6 px-3 py-1 glass-hud rounded-sm text-[10px] text-primary font-display font-bold uppercase tracking-widest border-primary/20">
+                <div className="absolute top-6 right-6 px-3 py-1 glass-hud rounded-sm text-[10px] text-primary font-display font-bold  tracking-widest border-primary/20">
                   Unit {drone.id}
                 </div>
                 <div className="absolute bottom-6 left-6 right-6">
-                  <h3 className="text-3xl font-bold uppercase mb-1 tracking-tight">{drone.name}</h3>
-                  <p className="text-white/60 text-xs font-display uppercase tracking-widest">{drone.category}</p>
+                  <h3 className="text-3xl font-bold  mb-1 tracking-tight">{drone.name}</h3>
+                  <p className="text-white/60 text-xs font-display  tracking-widest">{drone.category}</p>
                 </div>
               </div>
 
               <div className="flex flex-col gap-4">
                 {drone.specs.map((spec) => (
                   <div key={spec.label} className="flex items-center justify-between p-4 glass-hud border-white/5 rounded-sm group-hover:border-primary/20 transition-all">
-                    <span className="text-[10px] text-white/40 uppercase tracking-widest font-display">{spec.label}</span>
+                    <span className="text-[10px] text-white/40  tracking-widest font-display">{spec.label}</span>
                     <span className="text-sm font-display font-bold text-primary">{spec.value}</span>
                   </div>
                 ))}
-                <button className="btn-secondary w-full py-4 uppercase tracking-[0.2em] text-xs font-bold mt-4">
+                <button className="btn-secondary w-full py-4  tracking-[0.2em] text-xs font-bold mt-4">
                   View Dossier
                 </button>
               </div>

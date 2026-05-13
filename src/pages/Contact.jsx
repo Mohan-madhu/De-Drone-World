@@ -67,15 +67,15 @@ const Contact = () => {
             <h2 className="text-3xl font-bold mb-8">Send a Message</h2>
             <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
-                <label className="text-xs font-bold tracking-widest text-slate-400 uppercase">Full Name</label>
+                <label className="text-xs font-bold tracking-widest text-slate-400 ">Full Name</label>
                 <input type="text" placeholder="John Doe" className="w-full bg-slate-50 border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary/20 transition-all outline-none" />
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-bold tracking-widest text-slate-400 uppercase">Email Address</label>
+                <label className="text-xs font-bold tracking-widest text-slate-400 ">Email Address</label>
                 <input type="email" placeholder="john@example.com" className="w-full bg-slate-50 border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary/20 transition-all outline-none" />
               </div>
               <div className="space-y-2 md:col-span-2">
-                <label className="text-xs font-bold tracking-widest text-slate-400 uppercase">Subject</label>
+                <label className="text-xs font-bold tracking-widest text-slate-400 ">Subject</label>
                 <select className="w-full bg-slate-50 border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary/20 transition-all outline-none appearance-none">
                   <option>Flight Training Enrollment</option>
                   <option>Enterprise Solutions</option>
@@ -84,7 +84,7 @@ const Contact = () => {
                 </select>
               </div>
               <div className="space-y-2 md:col-span-2">
-                <label className="text-xs font-bold tracking-widest text-slate-400 uppercase">Your Message</label>
+                <label className="text-xs font-bold tracking-widest text-slate-400 ">Your Message</label>
                 <textarea rows="5" placeholder="Tell us how we can help..." className="w-full bg-slate-50 border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none"></textarea>
               </div>
               <div className="md:col-span-2">

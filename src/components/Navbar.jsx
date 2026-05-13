@@ -191,7 +191,7 @@ const Navbar = () => {
                 >
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 min-w-[220px]">
                     <div className="px-4 py-2 bg-slate-50 border-b border-slate-100">
-                      <span className="font-display text-sm font-bold text-slate-500 uppercase tracking-[0.14em]">{dropdownLabel}</span>
+                      <span className="font-display text-sm font-bold text-slate-500  tracking-[0.14em]">{dropdownLabel}</span>
                     </div>
                     {dropdownItems.map((sub, i) => {
                       const submenu = dropdownMenus[sub.name];

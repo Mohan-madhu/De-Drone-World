@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PhoneCall } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
 const Icon = ({ children }) => (
   <svg viewBox="0 0 24 24" className="h-[18px] w-[18px] fill-current" aria-hidden="true">
@@ -55,95 +55,106 @@ const socialLinks = [
   },
 ];
 
+const quickLinks = [
+  ['Home', '/'],
+  ['Training', '/training'],
+  ['Services', '/services'],
+  ['Manufacturing', '/manufacturing'],
+  ['Contact', '/contact'],
+];
+
 const Footer = () => {
   return (
     <footer className="bg-[#1A2A3A] text-white">
-      {/* Top accent bar */}
       <div className="h-1 w-full bg-primary" />
 
-      <section className="relative flex min-h-[170px] items-center justify-center overflow-hidden bg-[#F4CE45] px-6 py-6 text-center md:min-h-[210px] md:py-8">
-        <div className="absolute inset-y-0 left-1/2 w-1/2 bg-black/5" />
-        <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center">
-          <div className="mb-3 flex w-full max-w-[320px] items-center justify-center gap-3">
-            <span className="h-px flex-1 bg-white/90" />
-            <span className="font-flux text-lg font-normal uppercase tracking-[0.06em] text-white md:text-xl">Contact Us</span>
-            <span className="h-px flex-1 bg-white/90" />
+      <div className="mx-auto max-w-7xl px-6 py-12 md:py-14">
+        <section className="mb-10 text-center">
+          <div className="mx-auto mb-3 flex w-full max-w-[320px] items-center justify-center gap-3">
+            <span className="h-px flex-1 bg-primary/70" />
+            <span className="text-lg font-semibold tracking-wide text-primary md:text-xl">Contact Us</span>
+            <span className="h-px flex-1 bg-primary/70" />
           </div>
-          <PhoneCall size={30} strokeWidth={2.2} className="mb-3 text-slate-700/85" />
-          <h2 className="font-flux uppercase leading-[0.98] tracking-wide text-white">
-            <span className="block text-2xl font-normal md:text-3xl">Get in</span>
-            <span className="mt-1 block text-3xl font-normal md:text-5xl">touch...</span>
+          <h2 className="font-sans leading-[0.98] tracking-wide text-white">
+            <span className="block text-xl font-semibold md:text-2xl">Get In</span>
+            <span className="mt-1 block text-2xl font-bold md:text-4xl">touch...</span>
           </h2>
-        </div>
-      </section>
-
-      {/* Main footer grid */}
-      <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
-
-        {/* Column 1 — Brand */}
-        <div>
-          {/* Logo */}
-          <img src="/assets/logo.png" alt="De Drone World Logo" className="h-12 w-auto object-contain mb-4 brightness-0 invert opacity-90" />
-          <p className="text-primary text-sm italic mb-3">Direct. Devise. Deliver.</p>
-          <p className="text-[#AABBC8] text-sm leading-relaxed">
-            DGCA Approved drone pilot training — building India's next generation of certified remote pilots.
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-[#AABBC8] md:text-base">
+            Drone training, aerial services, and technology support from our Coimbatore campus.
           </p>
-        </div>
+        </section>
 
-        {/* Column 2 — Quick Links */}
-        <div>
-          <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-          <ul className="space-y-2">
-            {[
-              ['Home', '/'],
-              ['Training', '/training'],
-              ['Services', '/services'],
-              ['Manufacturing', '/manufacturing'],
-              ['Contact', '/contact']
-            ].map(([label, path]) => (
-              <li key={path}>
-                <Link to={path} className="text-[#AABBC8] hover:text-primary text-sm transition-colors">
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Column 3 — Contact */}
-        <div>
-          <h4 className="text-white font-semibold mb-4">Contact Us</h4>
-          <div className="space-y-2 text-sm text-[#AABBC8]">
-            <p>+91 6382405660</p>
-            <p>+91 7708757581</p>
-            <p className="text-primary">md@thedroneworld.in</p>
-            <p>De Drone World, Hindusthan Engineering College Campus, Malumichampatti, Coimbatore – 641028, Tamil Nadu</p>
+        <div className="grid grid-cols-1 gap-10 border-t border-white/10 pt-10 md:grid-cols-[1.2fr_0.9fr_1.15fr_0.8fr]">
+          <div>
+            <img src="/assets/logo.png" alt="De Drone World Logo" className="mb-4 h-12 w-auto object-contain brightness-0 invert opacity-90" />
+            <p className="mb-3 text-sm italic text-primary">Direct. Devise. Deliver.</p>
+            <p className="max-w-sm text-sm leading-relaxed text-[#AABBC8]">
+              Building India's next generation of certified remote pilots and drone technology professionals.
+            </p>
           </div>
-        </div>
 
-        {/* Column 4 — Follow Us */}
-        <div>
-          <h4 className="text-white font-semibold mb-4">Follow Us</h4>
-          <div className="flex gap-3 flex-wrap">
-            {socialLinks.map((item) => (
+          <div>
+            <h4 className="mb-4 text-base font-semibold text-white">Quick Links</h4>
+            <ul className="space-y-2">
+              {quickLinks.map(([label, path]) => (
+                <li key={path}>
+                  <Link to={path} className="text-sm text-[#AABBC8] transition-colors hover:text-primary">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-4 text-base font-semibold text-white">Reach Us</h4>
+            <div className="space-y-3 text-sm text-[#AABBC8]">
+              <a href="tel:+916382405660" className="flex items-center gap-3 transition-colors hover:text-primary">
+                <Phone size={17} className="shrink-0 text-primary" /> +91 6382405660
+              </a>
+              <a href="tel:+917708757581" className="flex items-center gap-3 transition-colors hover:text-primary">
+                <Phone size={17} className="shrink-0 text-primary" /> +91 7708757581
+              </a>
+              <a href="mailto:md@thedroneworld.in" className="flex items-center gap-3 transition-colors hover:text-primary">
+                <Mail size={17} className="shrink-0 text-primary" /> md@thedroneworld.in
+              </a>
+              <div className="flex items-start gap-3">
+                <MapPin size={17} className="mt-1 shrink-0 text-primary" />
+                <p>Hindusthan Engineering College Campus, Malumichampatti, Coimbatore - 641028</p>
+              </div>
               <a
-                key={item.label}
-                href={item.href}
+                href="https://maps.app.goo.gl/N2GkBCJcN43bh3hM6"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Visit De Drone World on ${item.label}`}
-                title={item.label}
-                className="w-9 h-9 rounded-full bg-[#243340] flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                className="inline-flex text-sm font-semibold text-primary hover:text-white"
               >
-                {item.icon}
+                Open In Google Maps
               </a>
-            ))}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="mb-4 text-base font-semibold text-white">Follow Us</h4>
+            <div className="flex flex-wrap gap-3">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit De Drone World on ${item.label}`}
+                  title={item.label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#243340] text-primary transition-all hover:bg-primary hover:text-white"
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-[#243340] px-6 py-4 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 border-t border-[#243340] px-6 py-4 md:flex-row">
         <p className="text-[#AABBC8] text-xs">
           © 2025 De Drone World. All Rights Reserved.
         </p>

@@ -64,16 +64,16 @@ const HomeSectionBanner = ({ eyebrow, icon: Icon, lines, color }) => (
     <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center">
       <div className="mb-3 flex w-full max-w-[320px] items-center justify-center gap-3">
         <span className="h-px flex-1 bg-white/90" />
-        <span className="font-flux text-lg font-normal uppercase tracking-[0.06em] text-white md:text-xl">{eyebrow}</span>
+        <span className="text-lg font-semibold tracking-wide text-white md:text-xl">{eyebrow}</span>
         <span className="h-px flex-1 bg-white/90" />
       </div>
       <Icon size={30} strokeWidth={1.8} className="mb-3 text-slate-700/85" />
-      <h2 className="font-flux uppercase leading-[0.98] tracking-wide text-white">
-        <span className="block text-2xl font-normal md:text-3xl">
+      <h2 className="font-sans leading-[0.98] tracking-wide text-white">
+        <span className="block text-xl font-semibold md:text-2xl">
           {lines[0]}
         </span>
         {lines[1] && (
-          <span className="mt-1 block text-3xl font-normal md:text-5xl">
+          <span className="mt-1 block text-2xl font-bold md:text-4xl">
             {lines[1]}
           </span>
         )}
@@ -338,11 +338,14 @@ const Home = () => {
 
         <div className="relative z-10 max-w-7xl w-full px-8">
           <div className="max-w-2xl">
-            <span className="hero-reveal inline-block px-4 py-1 rounded-full bg-primary/10 text-primary font-flux text-[10px] font-normal tracking-widest mb-6 uppercase">
-              DGCA APPROVED DRONE ACADEMY
+            <span className="hero-reveal inline-block px-3.5 py-1 rounded-full bg-primary/10 text-primary font-sans text-xs font-semibold tracking-wide mb-5 md:text-sm">
+              Dgca Approved Drone Academy
             </span>
-            <h1 className="text-5xl md:text-7xl font-bold text-on-background mb-6 leading-[1.1] tracking-tight font-display overflow-hidden">
-              {splitTextToChars("Elevate Your Future with Professional Drone Training")}
+            <h1
+              className="hero-reveal text-4xl md:text-6xl font-bold text-on-background mb-6 leading-[1.12] tracking-tight overflow-hidden"
+              style={{ fontFamily: '"Manrope", sans-serif' }}
+            >
+              Elevate Your Future With Professional Drone Training
             </h1>
             <p className="hero-reveal text-lg md:text-xl text-slate-600 mb-10 max-w-lg leading-relaxed font-sans">
               Obtain your Remote Pilot License from India's premier drone academy. Technical mastery, safety excellence, and expansive career freedom.
@@ -361,8 +364,8 @@ const Home = () => {
       </section>
 
       {/* SECTION A — DGCA Trust Banner */}
-      <section ref={dgcaBannerRef} className="bg-primary py-12 px-6">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
+      <section ref={dgcaBannerRef} className="bg-primary px-6 py-12">
+        <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-8 text-center md:flex-row">
           <div className="w-24 h-24 rounded-2xl bg-white/95 shadow-lg ring-2 ring-white/30 flex items-center justify-center p-2 flex-shrink-0">
             <img
               src="/assets/dgca-badge.jpeg"
@@ -374,7 +377,7 @@ const Home = () => {
             />
           </div>
           {/* Text */}
-          <div>
+          <div className="flex max-w-3xl flex-col items-center justify-center">
             <h2 className="text-white text-2xl md:text-3xl font-bold font-[Space_Grotesk]">
               DGCA Approved RPTO
             </h2>
@@ -390,7 +393,7 @@ const Home = () => {
         <HomeSectionBanner
           eyebrow="Our Journey"
           icon={Images}
-          lines={['Moments', 'from the field...']}
+          lines={['Field', 'stories in motion...']}
           color="#5CC5E6"
         />
         <div className="max-w-7xl mx-auto px-6">
@@ -405,7 +408,7 @@ const Home = () => {
                   <div className="reach-carousel-card-inner absolute inset-0 overflow-hidden rounded-[2rem] transition-transform duration-300 ease-out will-change-transform">
                     <img
                       src={image.src}
-                      alt="De Drone World field gallery image"
+                      alt={`De Drone World field gallery moment ${index + 1}`}
                       className="h-full w-full scale-[1.04] object-cover object-center transition-transform duration-700 group-hover:scale-[1.12]"
                     />
                   </div>
@@ -421,7 +424,7 @@ const Home = () => {
         <HomeSectionBanner
           eyebrow="About Us"
           icon={Newspaper}
-          lines={['Hi !', 'We are...']}
+          lines={['Who', 'we are...']}
           color="#1E9FD4"
         />
 
@@ -448,10 +451,10 @@ const Home = () => {
           <div className="flex-1 section-reveal">
             <blockquote className="border-l-4 border-primary pl-6 py-2 mb-8 bg-slate-50 rounded-r-2xl">
               <p className="text-xl md:text-2xl font-medium text-slate-800 italic mb-4 font-display leading-relaxed">
-                "YOU MUST BE SHAPELESS FORMLESS LIKE WATER. WATER CAN DRIP AND IT CAN CRASH."
+                "You Must Be Shapeless Formless Like Water. Water Can Drip And It Can Crash."
               </p>
-              <footer className="text-sm font-bold text-slate-500 uppercase tracking-widest">
-                — BRUCE LEE
+              <footer className="text-sm font-bold text-slate-500  tracking-widest">
+                — Bruce Lee
               </footer>
             </blockquote>
 
@@ -471,7 +474,7 @@ const Home = () => {
         <HomeSectionBanner
           eyebrow="Vision & Mission"
           icon={ClipboardCheck}
-          lines={['We think', 'beyond...']}
+          lines={['Think', 'beyond limits...']}
           color="#3BC8BE"
         />
 
@@ -485,8 +488,14 @@ const Home = () => {
                   alt="Vision" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                <h3 className="absolute bottom-6 left-8 text-3xl font-bold text-white font-display tracking-tight">Vision</h3>
+                <div className="absolute inset-0 bg-slate-950/35 transition-all duration-500 group-hover:bg-white/15 group-hover:backdrop-blur-sm"></div>
+                <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-br from-white/30 via-white/10 to-slate-950/35"></div>
+                <div className="absolute inset-4 rounded-3xl border border-white/0 transition-all duration-500 group-hover:border-white/35 group-hover:shadow-[inset_0_1px_24px_rgba(255,255,255,0.22)]"></div>
+                <div className="absolute inset-0 flex items-center justify-center px-6">
+                  <h3 className="px-8 py-4 text-center text-3xl font-bold text-white font-display tracking-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.75)] md:text-4xl">
+                    Vision
+                  </h3>
+                </div>
               </div>
               <div className="p-8 md:p-10 flex-1">
                 <p className="text-lg text-slate-600 leading-relaxed font-sans">
@@ -503,8 +512,14 @@ const Home = () => {
                   alt="Mission" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                <h3 className="absolute bottom-6 left-8 text-3xl font-bold text-white font-display tracking-tight">Mission</h3>
+                <div className="absolute inset-0 bg-slate-950/35 transition-all duration-500 group-hover:bg-white/15 group-hover:backdrop-blur-sm"></div>
+                <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-br from-white/30 via-white/10 to-slate-950/35"></div>
+                <div className="absolute inset-4 rounded-3xl border border-white/0 transition-all duration-500 group-hover:border-white/35 group-hover:shadow-[inset_0_1px_24px_rgba(255,255,255,0.22)]"></div>
+                <div className="absolute inset-0 flex items-center justify-center px-6">
+                  <h3 className="px-8 py-4 text-center text-3xl font-bold text-white font-display tracking-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.75)] md:text-4xl">
+                    Mission
+                  </h3>
+                </div>
               </div>
               <div className="p-8 md:p-10 flex-1">
                 <p className="text-lg text-slate-600 leading-relaxed font-sans">
@@ -521,7 +536,7 @@ const Home = () => {
         <HomeSectionBanner
           eyebrow="Our Locations"
           icon={MapPin}
-          lines={['Train with', 'confidence...']}
+          lines={['Train', 'with confidence...']}
           color="#70D26B"
         />
 
@@ -588,9 +603,9 @@ const Home = () => {
       {/* Certifications Section */}
       <section className="py-14 overflow-hidden">
         <HomeSectionBanner
-          eyebrow="Trust & Safety"
+          eyebrow="Flight Assurance"
           icon={BadgeCheck}
-          lines={['Certified', 'to fly...']}
+          lines={['Ready', 'for every flight...']}
           color="#F4CE45"
         />
         <div className="mx-auto mb-12 flex max-w-4xl flex-wrap justify-center gap-3 px-6">
@@ -630,7 +645,7 @@ const Home = () => {
         <HomeSectionBanner
           eyebrow="Our Infrastructure"
           icon={Building2}
-          lines={['Built for', 'excellence...']}
+          lines={['Built', 'for excellence...']}
           color="#39C8BE"
         />
 
@@ -704,30 +719,33 @@ const Home = () => {
 
       {/* SECTION B — Stats Strip */}
       <section ref={statsSectionRef} className="bg-white border-y border-[#BDDFF0] py-10 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-[#BDDFF0]">
-          <div className="flex flex-col items-center text-center px-4">
-            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 gap-4 divide-x divide-[#BDDFF0] md:grid-cols-4 md:gap-6">
+          <div className="flex flex-col items-center text-center px-2 md:px-4">
+            <span className="whitespace-nowrap text-[clamp(1.55rem,3vw,2.25rem)] font-bold text-primary font-[Space_Grotesk]">
               <span className="stat-number">500</span>+
             </span>
-            <span className="text-sm text-[#555555] mt-1">Pilots Trained</span>
+            <span className="mt-1 whitespace-nowrap text-xs text-[#555555] sm:text-sm">Pilots Trained</span>
           </div>
-          <div className="flex flex-col items-center text-center px-4">
-            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
+          <div className="flex flex-col items-center text-center px-2 md:px-4">
+            <span className="whitespace-nowrap text-[clamp(1.55rem,3vw,2.25rem)] font-bold text-primary font-[Space_Grotesk]">
               <span className="stat-number">5</span> Days
             </span>
-            <span className="text-sm text-[#555555] mt-1">Training Duration</span>
+            <span className="mt-1 whitespace-nowrap text-xs text-[#555555] sm:text-sm">Training Duration</span>
           </div>
-          <div className="flex flex-col items-center text-center px-4">
-            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
+          <div className="flex flex-col items-center text-center px-2 md:px-4">
+            <span className="whitespace-nowrap text-[clamp(1.55rem,3vw,2.25rem)] font-bold text-primary font-[Space_Grotesk]">
               <span className="stat-number">10</span> Years
             </span>
-            <span className="text-sm text-[#555555] mt-1">License Validity</span>
+            <span className="mt-1 whitespace-nowrap text-xs text-[#555555] sm:text-sm">License Validity</span>
           </div>
-          <div className="flex flex-col items-center text-center px-4">
-            <span className="text-4xl font-bold text-primary font-[Space_Grotesk]">
-              ₹<span className="stat-number">1</span> Lakh
+          <div className="flex flex-col items-center text-center px-1 md:px-3">
+            <span
+              className="font-bold text-primary font-[Space_Grotesk]"
+              style={{ fontSize: 'clamp(1.2rem, 2.25vw, 2rem)', whiteSpace: 'nowrap' }}
+            >
+              Upto&nbsp;₹<span className="stat-number">1</span>&nbsp;Lakh
             </span>
-            <span className="text-sm text-[#555555] mt-1">Monthly Earning Potential</span>
+            <span className="mt-1 whitespace-nowrap text-xs text-[#555555] sm:text-sm">Monthly Earning Potential</span>
           </div>
         </div>
       </section>
@@ -735,15 +753,13 @@ const Home = () => {
       {/* SECTION C — Student Testimonials */}
       <section ref={testimonialsSectionRef} className="bg-[#F0FAFF] py-0 overflow-hidden">
         <HomeSectionBanner
-          eyebrow="Success Stories"
+          eyebrow="Pilot Outcomes"
           icon={Quote}
-          lines={['Real students', 'real results...']}
+          lines={['Career', 'paths taking off...']}
           color="#58BFE0"
         />
 
         <div className="max-w-6xl mx-auto px-6 pb-20">
-          <p className="mb-12 text-center text-[#555555]">Success Stories from Our Pilots</p>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="testimonial-card bg-white rounded-2xl border border-[#BDDFF0] p-8 shadow-[0_4px_16px_rgba(30,159,212,0.10)] text-center">
               <div className="w-20 h-20 rounded-full bg-[#1E9FD4] flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 flex-shrink-0">
@@ -789,7 +805,7 @@ const Home = () => {
         <HomeSectionBanner
           eyebrow="Our Services"
           icon={MonitorSmartphone}
-          lines={['Make a', 'difference...']}
+          lines={['Create', 'real impact...']}
           color="#70D26B"
         />
 
@@ -798,7 +814,7 @@ const Home = () => {
             <p className="max-w-3xl text-lg leading-relaxed text-slate-600 font-sans">
               We don't just provide drones; we provide end-to-end aerial intelligence strategies that transform businesses.
             </p>
-            <a href="/services" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-white font-display text-sm uppercase tracking-wide shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary/90">
+            <a href="/services" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-white font-display text-sm  tracking-wide shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary/90">
               See all services <ArrowRight size={18} />
             </a>
           </div>
@@ -874,14 +890,14 @@ const Home = () => {
         <HomeSectionBanner
           eyebrow="Our Clients"
           icon={Handshake}
-          lines={['In safe', 'hands']}
+          lines={['Trusted', 'by growing teams...']}
           color="#8B83E6"
         />
 
         <div className="mx-auto max-w-7xl px-8 pb-24">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { name: "Hindustan College", type: "Training Partner", accent: "#8B83E6" },
+              { name: "Hindusthan College", type: "Training Partner", accent: "#8B83E6" },
               { name: "Agri Innovators", type: "Agriculture Solutions", accent: "#70D26B" },
               { name: "Infra Survey Group", type: "Mapping & Survey", accent: "#39C8BE" },
               { name: "Energy Grid Works", type: "Industrial Inspection", accent: "#1E9FD4" },
