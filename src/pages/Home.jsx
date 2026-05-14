@@ -59,6 +59,69 @@ const clients = [
   { name: "VIL Aviation", src: "/assets/clients/vil-aviation.jpg" },
 ];
 
+const reviews = [
+  {
+    name: "George Kamini",
+    meta: "3 months ago",
+    text: "Hi everyone go ahead and got drone certification from user friendly De drone world one the best training center in Tamilnadu. User friendly.",
+  },
+  {
+    name: "Rahul Raj",
+    meta: "10 months ago",
+    text: "DE Drone World is an outstanding destination for drone enthusiasts, whether you're a beginner or a seasoned professional.",
+  },
+  {
+    name: "Monish Dharan",
+    meta: "4 months ago",
+    text: "I had an excellent experience with this company. Their team is highly professional, responsive, and committed to delivering quality results.",
+  },
+  {
+    name: "Swetha",
+    meta: "4 months ago",
+    text: "It is very useful to learn about drone technology. DE Drone World teaches with clear explanation and cleared all doubts from survey class.",
+  },
+  {
+    name: "Dharini Jayaraj",
+    meta: "4 months ago",
+    text: "I attended a workshop on drone survey in De Drone World Solutions. It is a good place to gain knowledge about drones.",
+  },
+  {
+    name: "Bhavavijayan",
+    meta: "4 months ago",
+    text: "I really enjoyed the drone survey workshop and all the information presented was relevant and important.",
+  },
+  {
+    name: "Hari Krish",
+    meta: "9 months ago",
+    text: "I had an excellent experience in DE Drone World as a student of HICET. Their seminar was well explained and practical oriented.",
+  },
+  {
+    name: "Vandhinika Senthilkumar",
+    meta: "10 months ago",
+    text: "I had a great learning experience interacting with Dedrone World Pvt Ltd as a student. The team was knowledgeable and the drone technology was impressive.",
+  },
+  {
+    name: "Yamini Janardhanan",
+    meta: "10 months ago",
+    text: "Flying a drone for the first time was a new experience, and I learned a lot about how drones work from the one-day workshop.",
+  },
+  {
+    name: "Karthikeyan K",
+    meta: "5 months ago",
+    text: "DE Drone World cleared my basic doubts about drones, and I enjoyed using their simulator.",
+  },
+  {
+    name: "Apoorna Devaraj",
+    meta: "5 months ago",
+    text: "It was an excellent class to attend and I learned a lot in this class.",
+  },
+  {
+    name: "Saravana Velu",
+    meta: "10 months ago",
+    text: "Best place to learn about drones. Great environment.",
+  },
+];
+
 const preloadImage = (src) =>
   new Promise((resolve) => {
     const image = new Image();
@@ -815,42 +878,28 @@ const Home = () => {
           color="#58BFE0"
         />
 
-        <div className="max-w-6xl mx-auto px-6 pb-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="testimonial-card bg-white rounded-2xl border border-[#BDDFF0] p-8 shadow-[0_4px_16px_rgba(30,159,212,0.10)] text-center">
-              <div className="w-20 h-20 rounded-full bg-[#1E9FD4] flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 flex-shrink-0">
-                RK
-              </div>
-              <h3 className="font-bold text-navy text-lg">Ravi Kumar</h3>
-              <p className="text-primary text-sm mt-1">Now earning ₹60,000/month as drone operator</p>
-              <div className="text-primary text-lg my-3">★★★★★</div>
-              <p className="text-[#555555] text-sm italic leading-relaxed">
-                "The 7-day training completely changed my career. The DGCA certification opened so many doors for me."
-              </p>
-            </div>
-
-            <div className="testimonial-card bg-white rounded-2xl border border-[#BDDFF0] p-8 shadow-[0_4px_16px_rgba(30,159,212,0.10)] text-center">
-              <div className="w-20 h-20 rounded-full bg-[#1A2A3A] flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 flex-shrink-0">
-                PL
-              </div>
-              <h3 className="font-bold text-navy text-lg">Priya Lakshmi</h3>
-              <p className="text-primary text-sm mt-1">Started her own drone business</p>
-              <div className="text-primary text-lg my-3">★★★★★</div>
-              <p className="text-[#555555] text-sm italic leading-relaxed">
-                "The instructors were phenomenal. I went from zero knowledge to confident pilot and business owner in weeks."
-              </p>
-            </div>
-
-            <div className="testimonial-card bg-white rounded-2xl border border-[#BDDFF0] p-8 shadow-[0_4px_16px_rgba(30,159,212,0.10)] text-center">
-              <div className="w-20 h-20 rounded-full bg-[#1E9FD4] flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 flex-shrink-0">
-                AS
-              </div>
-              <h3 className="font-bold text-navy text-lg">Arjun Selvam</h3>
-              <p className="text-primary text-sm mt-1">Agricultural drone operator TN</p>
-              <div className="text-primary text-lg my-3">★★★★★</div>
-              <p className="text-[#555555] text-sm italic leading-relaxed">
-                "Specialized precision agriculture training gave me the exact skills needed for modern farming solutions."
-              </p>
+        <div className="mx-auto px-6 pb-20">
+          <div className="review-carousel-mask">
+            <div className="review-carousel-track">
+              {[...reviews, ...reviews].map((review, index) => (
+                <article key={`${review.name}-${index}`} className="testimonial-card review-card">
+                  <div className="mb-5 flex items-center gap-4">
+                    <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-primary text-lg text-white font-display">
+                      {review.name
+                        .split(' ')
+                        .map((part) => part[0])
+                        .join('')
+                        .slice(0, 2)}
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-lg text-navy font-display">{review.name}</h3>
+                      <p className="text-xs text-slate-500 font-sans">{review.meta}</p>
+                    </div>
+                  </div>
+                  <div className="mb-4 text-lg text-primary">★★★★★</div>
+                  <p className="text-sm italic leading-relaxed text-[#555555] font-sans">"{review.text}"</p>
+                </article>
+              ))}
             </div>
           </div>
         </div>
