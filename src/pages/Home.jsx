@@ -46,17 +46,17 @@ const certificates = [
 ];
 
 const clients = [
-  { name: "Skywalk Robotics Academy", src: "/assets/clients/skywalk-robotics-academy.jpg" },
+  { name: "Startup India", src: "/assets/clients/startup-india.jpg" },
+  { name: "Ministry of MSME, Govt. of India", src: "/assets/clients/ministry-of-msme-govt-of-india.jpg" },
+  { name: "Naan Mudhalvan", src: "/assets/clients/naan-mudhalvan.jpg" },
+  { name: "MABIF", src: "/assets/clients/mabif.jpg" },
+  { name: "NABARD", src: "/assets/clients/nabard.jpg" },
+  { name: "Hindusthan College of Engineering and Technology", src: "/assets/clients/hindusthan-college-of-engineering-and-technology.jpg" },
   { name: "Vaigai College of Engineering", src: "/assets/clients/vaigai-college-of-engineering.jpg" },
   { name: "Dhaanish Ahmed Institute of Technology", src: "/assets/clients/dhaanish-ahmed-institute-of-technology.jpg" },
-  { name: "Hindusthan College of Engineering and Technology", src: "/assets/clients/hindusthan-college-of-engineering-and-technology.jpg" },
-  { name: "Naan Mudhalvan", src: "/assets/clients/naan-mudhalvan.jpg" },
-  { name: "Startup India", src: "/assets/clients/startup-india.jpg" },
-  { name: "NABARD", src: "/assets/clients/nabard.jpg" },
-  { name: "VIL Aviation", src: "/assets/clients/vil-aviation.jpg" },
-  { name: "Ministry of MSME, Govt. of India", src: "/assets/clients/ministry-of-msme-govt-of-india.jpg" },
-  { name: "MABIF", src: "/assets/clients/mabif.jpg" },
   { name: "TSAW", src: "/assets/clients/tsaw.jpg" },
+  { name: "Skywalk Robotics Academy", src: "/assets/clients/skywalk-robotics-academy.jpg" },
+  { name: "VIL Aviation", src: "/assets/clients/vil-aviation.jpg" },
 ];
 
 const preloadImage = (src) =>
@@ -353,17 +353,6 @@ const Home = () => {
           ease: 'elastic.out(1, 0.55)'
         });
 
-        clientCards.forEach((card, index) => {
-          gsap.to(card, {
-            y: index % 2 === 0 ? -9 : -14,
-            rotation: index % 2 === 0 ? 0.7 : -0.7,
-            duration: 2.8 + (index % 4) * 0.35,
-            repeat: -1,
-            yoyo: true,
-            ease: 'power1.inOut',
-            delay: index * 0.08
-          });
-        });
       }
 
       // Gallery Reveal
@@ -965,15 +954,16 @@ const Home = () => {
           <div className="relative overflow-hidden rounded-[2rem] border border-[#DCD9FF] bg-[#F6F5FF] px-4 py-7 shadow-2xl shadow-[#8B83E6]/10 md:px-8 md:py-9">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,131,230,0.16),transparent_32%),linear-gradient(315deg,rgba(57,200,190,0.16),transparent_30%)]" />
 
-            <div className="relative z-10 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
+            <div className="relative z-10 grid grid-cols-2 gap-4 md:grid-cols-6 xl:grid-cols-12">
               {clients.map((client, index) => {
                 const accents = ['#8B83E6', '#39C8BE', '#70D26B', '#F4CE45', '#1E9FD4'];
                 const fills = ['bg-white', 'bg-[#FBFAFF]', 'bg-[#F2FFFE]', 'bg-[#FFFBEA]', 'bg-[#F0FAFF]'];
+                const desktopPlacement = index === 6 ? 'xl:col-start-2' : '';
                 const accent = accents[index % accents.length];
                 const fill = fills[index % fills.length];
 
                 return (
-                  <article key={client.name} className={`client-logo-card group relative overflow-hidden rounded-2xl border border-white/80 ${fill} p-4 text-center shadow-lg shadow-[#8B83E6]/10 backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-2xl hover:shadow-[#8B83E6]/20 ${index % 2 === 0 ? 'rotate-[0.45deg]' : '-rotate-[0.45deg]'}`}>
+                  <article key={client.name} className={`client-logo-card group relative overflow-hidden rounded-2xl border border-white/80 ${fill} ${desktopPlacement} p-4 text-center shadow-lg shadow-[#8B83E6]/10 backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-2xl hover:shadow-[#8B83E6]/20 md:col-span-2 ${index % 2 === 0 ? 'rotate-[0.45deg]' : '-rotate-[0.45deg]'}`}>
                     <div className="client-logo-shine pointer-events-none absolute inset-0 z-20" />
                     <div className="absolute inset-x-5 top-0 h-1 rounded-b-full opacity-80 transition-all duration-500 group-hover:inset-x-2" style={{ backgroundColor: accent }} />
                     <div className="client-logo-frame mx-auto flex h-32 items-center justify-center rounded-xl bg-white p-3 ring-1 ring-slate-100 md:h-36">
