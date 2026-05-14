@@ -219,6 +219,28 @@
   }
 }
 
+.client-logo-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.client-logo-marquee-track {
+  animation: client-logo-drift 34s linear infinite;
+}
+
+.client-logo-marquee:hover .client-logo-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes client-logo-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
 /* Typography polish: keep tiny labels readable across the product pages. */
 .text-\[10px\] {
   font-size: 0.8125rem !important;

@@ -45,6 +45,13 @@ const certificates = [
   { src: "/assets/certs/cert4.jpeg", title: "Certificate of Incorporation" },
 ];
 
+const clients = [
+  { name: "NABARD", src: "/assets/clients/nabard-logo.png", type: "Institutional Partner" },
+  { name: "MSME", src: "/assets/clients/msme-1.jpeg", type: "Government Ecosystem" },
+  { name: "TSAW Drones", src: "/assets/clients/TSAW-Drones.webp", type: "Drone Technology" },
+  { name: "VIL", src: "/assets/clients/VIL.jpg.jpeg", type: "Enterprise Network" },
+];
+
 const preloadImage = (src) =>
   new Promise((resolve) => {
     const image = new Image();
@@ -296,6 +303,39 @@ const Home = () => {
           duration: 0.8,
           stagger: 0.2,
           ease: "power3.out"
+        });
+      }
+
+      const clientCards = gsap.utils.toArray('.client-logo-card');
+      if (clientCards.length > 0) {
+        gsap.from(clientCards, {
+          scrollTrigger: {
+            trigger: '.clients-showcase',
+            start: 'top 82%',
+          },
+          y: 52,
+          rotationX: -16,
+          opacity: 0,
+          duration: 0.9,
+          stagger: { amount: 0.45, from: 'center' },
+          ease: 'back.out(1.4)'
+        });
+
+        gsap.to(clientCards, {
+          y: -10,
+          duration: 2.6,
+          repeat: -1,
+          yoyo: true,
+          ease: 'power1.inOut',
+          stagger: { amount: 1.2, from: 'random' }
+        });
+
+        gsap.to('.client-orbit-ring', {
+          rotation: 360,
+          duration: 28,
+          repeat: -1,
+          ease: 'none',
+          transformOrigin: '50% 50%'
         });
       }
 
@@ -894,29 +934,44 @@ const Home = () => {
           color="#8B83E6"
         />
 
-        <div className="mx-auto max-w-7xl px-8 pb-24">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { name: "Hindusthan College", type: "Training Partner", accent: "#8B83E6" },
-              { name: "Agri Innovators", type: "Agriculture Solutions", accent: "#70D26B" },
-              { name: "Infra Survey Group", type: "Mapping & Survey", accent: "#39C8BE" },
-              { name: "Energy Grid Works", type: "Industrial Inspection", accent: "#1E9FD4" },
-            ].map((client) => (
-              <article key={client.name} className="section-reveal rounded-3xl border border-slate-100 bg-white p-6 text-center shadow-xl shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2">
-                <div
-                  className="mx-auto mb-5 grid h-20 w-20 place-items-center rounded-2xl text-2xl text-white font-display"
-                  style={{ backgroundColor: client.accent }}
-                >
-                  {client.name
-                    .split(' ')
-                    .map((word) => word[0])
-                    .join('')
-                    .slice(0, 2)}
-                </div>
-                <h3 className="mb-2 text-2xl text-navy font-display">{client.name}</h3>
-                <p className="text-sm text-slate-500 font-sans">{client.type}</p>
-              </article>
-            ))}
+        <div className="clients-showcase mx-auto max-w-7xl px-6 pb-24">
+          <div className="relative overflow-hidden rounded-[2rem] border border-[#DCD9FF] bg-[#F6F5FF] px-5 py-10 shadow-2xl shadow-[#8B83E6]/10 md:px-10 md:py-14">
+            <div className="client-orbit-ring pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#8B83E6]/20" />
+            <div className="client-orbit-ring pointer-events-none absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#39C8BE]/25" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(139,131,230,0.20),transparent_38%),linear-gradient(90deg,rgba(255,255,255,0.86),transparent_28%,transparent_72%,rgba(255,255,255,0.86))]" />
+
+            <div className="relative z-10 mx-auto mb-10 max-w-3xl text-center">
+              <p className="text-lg leading-relaxed text-slate-600 font-sans">
+                A growing network of institutions, government ecosystems, and drone technology partners working with De Drone World.
+              </p>
+            </div>
+
+            <div className="relative z-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {clients.map((client) => (
+                <article key={client.name} className="client-logo-card group relative min-h-[230px] overflow-hidden rounded-3xl border border-white/80 bg-white/90 p-6 text-center shadow-xl shadow-[#8B83E6]/10 backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#8B83E6]/20">
+                  <div className="absolute inset-x-6 top-0 h-1 rounded-b-full bg-[#8B83E6] opacity-70 transition-all duration-500 group-hover:inset-x-3" />
+                  <div className="mx-auto mb-5 flex h-28 items-center justify-center rounded-2xl bg-white p-4 ring-1 ring-slate-100">
+                    <img
+                      src={client.src}
+                      alt={`${client.name} logo`}
+                      className="max-h-20 max-w-full object-contain transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <h3 className="mb-2 text-2xl text-navy font-display">{client.name}</h3>
+                  <p className="text-sm text-slate-500 font-sans">{client.type}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="client-logo-marquee relative z-10 mt-10 overflow-hidden rounded-2xl border border-white/70 bg-white/60 py-4">
+              <div className="client-logo-marquee-track flex w-max items-center gap-10">
+                {[...clients, ...clients, ...clients].map((client, index) => (
+                  <div key={`${client.name}-${index}`} className="flex h-14 w-36 shrink-0 items-center justify-center opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0">
+                    <img src={client.src} alt={`${client.name} logo`} className="max-h-10 max-w-full object-contain" />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
