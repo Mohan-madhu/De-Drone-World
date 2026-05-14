@@ -46,10 +46,17 @@ const certificates = [
 ];
 
 const clients = [
-  { name: "NABARD", src: "/assets/clients/nabard-logo.png", type: "Institutional Partner" },
-  { name: "MSME", src: "/assets/clients/msme-1.jpeg", type: "Government Ecosystem" },
-  { name: "TSAW Drones", src: "/assets/clients/TSAW-Drones.webp", type: "Drone Technology" },
-  { name: "VIL", src: "/assets/clients/VIL.jpg.jpeg", type: "Enterprise Network" },
+  { name: "Skywalk Robotics Academy", src: "/assets/clients/skywalk-robotics-academy.jpg" },
+  { name: "Vaigai College of Engineering", src: "/assets/clients/vaigai-college-of-engineering.jpg" },
+  { name: "Dhaanish Ahmed Institute of Technology", src: "/assets/clients/dhaanish-ahmed-institute-of-technology.jpg" },
+  { name: "Hindusthan College of Engineering and Technology", src: "/assets/clients/hindusthan-college-of-engineering-and-technology.jpg" },
+  { name: "Naan Mudhalvan", src: "/assets/clients/naan-mudhalvan.jpg" },
+  { name: "Startup India", src: "/assets/clients/startup-india.jpg" },
+  { name: "NABARD", src: "/assets/clients/nabard.jpg" },
+  { name: "VIL Aviation", src: "/assets/clients/vil-aviation.jpg" },
+  { name: "Ministry of MSME, Govt. of India", src: "/assets/clients/ministry-of-msme-govt-of-india.jpg" },
+  { name: "MABIF", src: "/assets/clients/mabif.jpg" },
+  { name: "TSAW", src: "/assets/clients/tsaw.jpg" },
 ];
 
 const preloadImage = (src) =>
@@ -308,34 +315,54 @@ const Home = () => {
 
       const clientCards = gsap.utils.toArray('.client-logo-card');
       if (clientCards.length > 0) {
-        gsap.from(clientCards, {
+        gsap.fromTo(clientCards, {
+          y: 58,
+          scale: 0.82,
+          rotationX: -18,
+          rotationY: 10,
+          opacity: 0,
+          filter: 'blur(8px)'
+        }, {
           scrollTrigger: {
             trigger: '.clients-showcase',
             start: 'top 82%',
           },
-          y: 52,
-          rotationX: -16,
-          opacity: 0,
-          duration: 0.9,
-          stagger: { amount: 0.45, from: 'center' },
-          ease: 'back.out(1.4)'
+          y: 0,
+          scale: 1,
+          rotationX: 0,
+          rotationY: 0,
+          opacity: 1,
+          filter: 'blur(0px)',
+          duration: 0.95,
+          stagger: { amount: 0.65, from: 'center' },
+          ease: 'back.out(1.45)'
         });
 
-        gsap.to(clientCards, {
-          y: -10,
-          duration: 2.6,
-          repeat: -1,
-          yoyo: true,
-          ease: 'power1.inOut',
-          stagger: { amount: 1.2, from: 'random' }
+        gsap.fromTo('.client-logo-image', {
+          scale: 0.72,
+          opacity: 0
+        }, {
+          scrollTrigger: {
+            trigger: '.clients-showcase',
+            start: 'top 78%',
+          },
+          scale: 1,
+          opacity: 1,
+          duration: 0.7,
+          stagger: { each: 0.055, from: 'random' },
+          ease: 'elastic.out(1, 0.55)'
         });
 
-        gsap.to('.client-orbit-ring', {
-          rotation: 360,
-          duration: 28,
-          repeat: -1,
-          ease: 'none',
-          transformOrigin: '50% 50%'
+        clientCards.forEach((card, index) => {
+          gsap.to(card, {
+            y: index % 2 === 0 ? -9 : -14,
+            rotation: index % 2 === 0 ? 0.7 : -0.7,
+            duration: 2.8 + (index % 4) * 0.35,
+            repeat: -1,
+            yoyo: true,
+            ease: 'power1.inOut',
+            delay: index * 0.08
+          });
         });
       }
 
@@ -935,39 +962,37 @@ const Home = () => {
         />
 
         <div className="clients-showcase mx-auto max-w-7xl px-6 pb-24">
-          <div className="relative overflow-hidden rounded-[2rem] border border-[#DCD9FF] bg-[#F6F5FF] px-5 py-10 shadow-2xl shadow-[#8B83E6]/10 md:px-10 md:py-14">
-            <div className="client-orbit-ring pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#8B83E6]/20" />
-            <div className="client-orbit-ring pointer-events-none absolute left-1/2 top-1/2 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#39C8BE]/25" />
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(139,131,230,0.20),transparent_38%),linear-gradient(90deg,rgba(255,255,255,0.86),transparent_28%,transparent_72%,rgba(255,255,255,0.86))]" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-[#DCD9FF] bg-[#F6F5FF] px-4 py-7 shadow-2xl shadow-[#8B83E6]/10 md:px-8 md:py-9">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,131,230,0.16),transparent_32%),linear-gradient(315deg,rgba(57,200,190,0.16),transparent_30%)]" />
 
-            <div className="relative z-10 mx-auto mb-10 max-w-3xl text-center">
-              <p className="text-lg leading-relaxed text-slate-600 font-sans">
-                A growing network of institutions, government ecosystems, and drone technology partners working with De Drone World.
-              </p>
+            <div className="relative z-10 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6">
+              {clients.map((client, index) => {
+                const accents = ['#8B83E6', '#39C8BE', '#70D26B', '#F4CE45', '#1E9FD4'];
+                const fills = ['bg-white', 'bg-[#FBFAFF]', 'bg-[#F2FFFE]', 'bg-[#FFFBEA]', 'bg-[#F0FAFF]'];
+                const accent = accents[index % accents.length];
+                const fill = fills[index % fills.length];
+
+                return (
+                  <article key={client.name} className={`client-logo-card group relative overflow-hidden rounded-2xl border border-white/80 ${fill} p-4 text-center shadow-lg shadow-[#8B83E6]/10 backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-2xl hover:shadow-[#8B83E6]/20 ${index % 2 === 0 ? 'rotate-[0.45deg]' : '-rotate-[0.45deg]'}`}>
+                    <div className="client-logo-shine pointer-events-none absolute inset-0 z-20" />
+                    <div className="absolute inset-x-5 top-0 h-1 rounded-b-full opacity-80 transition-all duration-500 group-hover:inset-x-2" style={{ backgroundColor: accent }} />
+                    <div className="client-logo-frame mx-auto flex h-32 items-center justify-center rounded-xl bg-white p-3 ring-1 ring-slate-100 md:h-36">
+                      <img
+                        src={client.src}
+                        alt={`${client.name} logo`}
+                        className="client-logo-image max-h-24 max-w-full object-contain transition-transform duration-500 group-hover:scale-110 md:max-h-28"
+                      />
+                    </div>
+                  </article>
+                );
+              })}
             </div>
 
-            <div className="relative z-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {clients.map((client) => (
-                <article key={client.name} className="client-logo-card group relative min-h-[230px] overflow-hidden rounded-3xl border border-white/80 bg-white/90 p-6 text-center shadow-xl shadow-[#8B83E6]/10 backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#8B83E6]/20">
-                  <div className="absolute inset-x-6 top-0 h-1 rounded-b-full bg-[#8B83E6] opacity-70 transition-all duration-500 group-hover:inset-x-3" />
-                  <div className="mx-auto mb-5 flex h-28 items-center justify-center rounded-2xl bg-white p-4 ring-1 ring-slate-100">
-                    <img
-                      src={client.src}
-                      alt={`${client.name} logo`}
-                      className="max-h-20 max-w-full object-contain transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <h3 className="mb-2 text-2xl text-navy font-display">{client.name}</h3>
-                  <p className="text-sm text-slate-500 font-sans">{client.type}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="client-logo-marquee relative z-10 mt-10 overflow-hidden rounded-2xl border border-white/70 bg-white/60 py-4">
-              <div className="client-logo-marquee-track flex w-max items-center gap-10">
+            <div className="client-logo-marquee relative z-10 mt-6 overflow-hidden rounded-2xl border border-white/80 bg-white/80 py-5 shadow-inner">
+              <div className="client-logo-marquee-track flex w-max items-center gap-14">
                 {[...clients, ...clients, ...clients].map((client, index) => (
-                  <div key={`${client.name}-${index}`} className="flex h-14 w-36 shrink-0 items-center justify-center opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0">
-                    <img src={client.src} alt={`${client.name} logo`} className="max-h-10 max-w-full object-contain" />
+                  <div key={`${client.name}-${index}`} className="flex h-24 w-56 shrink-0 items-center justify-center opacity-90 transition-all duration-300 hover:opacity-100">
+                    <img src={client.src} alt={`${client.name} logo`} className="max-h-20 max-w-full object-contain" />
                   </div>
                 ))}
               </div>

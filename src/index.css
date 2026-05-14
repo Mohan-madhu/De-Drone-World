@@ -222,6 +222,84 @@
 .client-logo-card {
   transform-style: preserve-3d;
   will-change: transform;
+  perspective: 900px;
+}
+
+.client-logo-card::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  background: radial-gradient(circle, rgba(139, 131, 230, 0.18), transparent 56%);
+  opacity: 0.7;
+  transform: scale(0.92);
+  animation: client-logo-glow 4.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.client-logo-frame {
+  position: relative;
+  transform: translateZ(20px);
+  animation: client-logo-breathe 5.4s ease-in-out infinite;
+  box-shadow: 0 14px 34px rgba(139, 131, 230, 0.08);
+  transition: transform 420ms ease, box-shadow 420ms ease;
+}
+
+.client-logo-card:hover .client-logo-frame {
+  transform: translateZ(34px) scale(1.02);
+  box-shadow: 0 18px 45px rgba(139, 131, 230, 0.14);
+}
+
+.client-logo-shine {
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.62) 45%, transparent 70%);
+  animation: client-logo-shine 4.2s ease-in-out infinite;
+}
+
+.client-logo-image {
+  filter: drop-shadow(0 10px 18px rgba(26, 42, 58, 0.08));
+}
+
+.client-logo-card:nth-child(2n) .client-logo-frame,
+.client-logo-card:nth-child(2n)::before,
+.client-logo-card:nth-child(2n) .client-logo-shine {
+  animation-delay: 0.7s;
+}
+
+.client-logo-card:nth-child(3n) .client-logo-frame,
+.client-logo-card:nth-child(3n)::before,
+.client-logo-card:nth-child(3n) .client-logo-shine {
+  animation-delay: 1.15s;
+}
+
+@keyframes client-logo-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes client-logo-breathe {
+  0%,
+  100% {
+    transform: translateZ(20px) scale(1);
+  }
+  50% {
+    transform: translateZ(30px) scale(1.025);
+  }
+}
+
+@keyframes client-logo-shine {
+  0% {
+    transform: translateX(-130%);
+  }
+  38%,
+  100% {
+    transform: translateX(130%);
+  }
 }
 
 .client-logo-marquee-track {
