@@ -20,6 +20,7 @@ import {
   Newspaper,
   Quote,
   Target,
+  Wrench,
   Zap,
 } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
@@ -119,6 +120,97 @@ const reviews = [
     name: "Saravana Velu",
     meta: "10 months ago",
     text: "Best place to learn about drones. Great environment.",
+  },
+];
+
+const serviceAndTrainingCards = [
+  {
+    category: "Service",
+    name: "Agriculture",
+    subtitle: "Precision Crop Management",
+    icon: <Leaf className="w-8 h-8" />,
+    desc: "Advanced drone solutions for crop health monitoring, precision spraying, and yield optimization.",
+    image: "/assets/services/fertilizer-spraying.jpeg",
+    path: "/services/agriculture",
+    color: "#1E9FD4",
+    tint: "#EAF8FE",
+  },
+  {
+    category: "Service",
+    name: "Events",
+    subtitle: "Aerial Coverage & Documentation",
+    icon: <Camera className="w-8 h-8" />,
+    desc: "Professional drone videography and photography for conferences, festivals, weddings, and productions.",
+    image: "/assets/services/videography.jpeg",
+    path: "/services/events",
+    color: "#70D26B",
+    tint: "#F0FBEF",
+  },
+  {
+    category: "Service",
+    name: "Inspection",
+    subtitle: "Infrastructure & Asset Monitoring",
+    icon: <Zap className="w-8 h-8" />,
+    desc: "Safe, efficient inspections of solar farms, wind turbines, towers, power lines, and equipment.",
+    image: "/assets/services/drone-thermography-service.jpeg",
+    path: "/services/inspection",
+    color: "#39C8BE",
+    tint: "#EAFBFA",
+  },
+  {
+    category: "Service",
+    name: "Survey & Mapping",
+    subtitle: "Geospatial Intelligence",
+    icon: <Map className="w-8 h-8" />,
+    desc: "High-accuracy topographic surveys and 3D mapping for planning and monitoring workflows.",
+    image: "/assets/services/construction-service.jpeg",
+    path: "/services/survey-mapping",
+    color: "#F4CE45",
+    tint: "#FFF9E6",
+  },
+  {
+    category: "Training",
+    name: "Remote Pilot Course - Small",
+    subtitle: "DGCA Certified",
+    icon: <BadgeCheck className="w-8 h-8" />,
+    desc: "A 7-day DGCA approved program for professional small category drone operations.",
+    image: "/assets/training/small-training.jpeg",
+    path: "/training/small-rpc",
+    color: "#8B83E6",
+    tint: "#F6F5FF",
+  },
+  {
+    category: "Training",
+    name: "Remote Pilot Course - Small + Medium",
+    subtitle: "DGCA Certified",
+    icon: <Cpu className="w-8 h-8" />,
+    desc: "A complete 10-day skill progression covering small and medium class drone operation.",
+    image: "/assets/training/small-and-medium-training.jpeg",
+    path: "/training/small-and-medium-rpc",
+    color: "#1E9FD4",
+    tint: "#EAF8FE",
+  },
+  {
+    category: "Training",
+    name: "Drone Technician",
+    subtitle: "6-Month Diploma Program",
+    icon: <Wrench className="w-8 h-8" />,
+    desc: "Professional training in drone technology, operations, assembly, mapping, and live projects.",
+    image: "/assets/services/diplomo-course.jpeg",
+    path: "/training/drone-technician-6-months",
+    color: "#70D26B",
+    tint: "#F0FBEF",
+  },
+  {
+    category: "Training",
+    name: "Build Your Own Drone",
+    subtitle: "Hands-on Workshop",
+    icon: <MonitorSmartphone className="w-8 h-8" />,
+    desc: "Learn drone assembly, configuration, calibration, and practical flight from the ground up.",
+    image: "/assets/services/workshop-build-your-own-drone.jpeg",
+    path: "/training/build-your-own-drone",
+    color: "#F4CE45",
+    tint: "#FFF9E6",
   },
 ];
 
@@ -515,8 +607,8 @@ const Home = () => {
           lines={['Field', 'stories in motion...']}
           color="#5CC5E6"
         />
-        <div className="max-w-7xl mx-auto px-6">
-          <div ref={reachCarouselRef} className="reach-carousel-mask reach-carousel-stage py-8 md:py-12">
+        <div className="w-full">
+          <div ref={reachCarouselRef} className="reach-carousel-mask carousel-full-bleed reach-carousel-stage py-8 md:py-12">
             <div ref={reachTrackRef} className="reach-carousel-track reach-carousel-track--gallery py-6 md:py-8">
               {reachSlides.map((image, index) => (
                 <article
@@ -733,7 +825,7 @@ const Home = () => {
           <span className="bg-navy/5 border border-primary/20 text-navy px-5 py-2 rounded-full font-bold text-sm backdrop-blur-sm">Class: Small</span>
         </div>
 
-        <div className="reach-carousel-mask reach-carousel-stage py-4 md:py-8">
+        <div className="reach-carousel-mask carousel-full-bleed reach-carousel-stage py-4 md:py-8">
           <div className="reach-carousel-track py-6 md:py-8">
             {[...certificates, ...certificates].map((cert, index) => (
               <article
@@ -837,34 +929,40 @@ const Home = () => {
       </div>
 
       {/* SECTION B — Stats Strip */}
-      <section ref={statsSectionRef} className="bg-white border-y border-[#BDDFF0] py-10 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 gap-4 divide-x divide-[#BDDFF0] md:grid-cols-4 md:gap-6">
-          <div className="flex flex-col items-center text-center px-2 md:px-4">
-            <span className="whitespace-nowrap text-[clamp(1.55rem,3vw,2.25rem)] font-bold text-primary font-[Space_Grotesk]">
-              <span className="stat-number">500</span>+
+      <section ref={statsSectionRef} className="bg-white border-y border-[#BDDFF0] py-8 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-5">
+          <div className="flex flex-col items-center text-center px-2">
+            <span className="whitespace-nowrap text-[clamp(1.25rem,2vw,1.85rem)] font-bold text-primary font-[Space_Grotesk]">
+              <span className="stat-number">15000</span>+
             </span>
-            <span className="mt-1 whitespace-nowrap text-xs text-[#555555] sm:text-sm">Pilots Trained</span>
+            <span className="mt-1 text-[11px] text-[#555555] sm:text-xs">Students Trained</span>
           </div>
-          <div className="flex flex-col items-center text-center px-2 md:px-4">
-            <span className="whitespace-nowrap text-[clamp(1.55rem,3vw,2.25rem)] font-bold text-primary font-[Space_Grotesk]">
+          <div className="flex flex-col items-center text-center px-2">
+            <span className="whitespace-nowrap text-[clamp(1.25rem,2vw,1.85rem)] font-bold text-primary font-[Space_Grotesk]">
+              <span className="stat-number">100</span>+
+            </span>
+            <span className="mt-1 text-[11px] text-[#555555] sm:text-xs">Pilots Trained</span>
+          </div>
+          <div className="flex flex-col items-center text-center px-2">
+            <span className="whitespace-nowrap text-[clamp(1.25rem,2vw,1.85rem)] font-bold text-primary font-[Space_Grotesk]">
               <span className="stat-number">5</span> Days
             </span>
-            <span className="mt-1 whitespace-nowrap text-xs text-[#555555] sm:text-sm">Training Duration</span>
+            <span className="mt-1 text-[11px] text-[#555555] sm:text-xs">Program Duration</span>
           </div>
-          <div className="flex flex-col items-center text-center px-2 md:px-4">
-            <span className="whitespace-nowrap text-[clamp(1.55rem,3vw,2.25rem)] font-bold text-primary font-[Space_Grotesk]">
+          <div className="flex flex-col items-center text-center px-2">
+            <span className="whitespace-nowrap text-[clamp(1.25rem,2vw,1.85rem)] font-bold text-primary font-[Space_Grotesk]">
               <span className="stat-number">10</span> Years
             </span>
-            <span className="mt-1 whitespace-nowrap text-xs text-[#555555] sm:text-sm">License Validity</span>
+            <span className="mt-1 text-[11px] text-[#555555] sm:text-xs">License Validity</span>
           </div>
-          <div className="flex flex-col items-center text-center px-1 md:px-3">
+          <div className="flex flex-col items-center text-center px-2">
             <span
               className="font-bold text-primary font-[Space_Grotesk]"
-              style={{ fontSize: 'clamp(1.2rem, 2.25vw, 2rem)', whiteSpace: 'nowrap' }}
+              style={{ fontSize: 'clamp(1.05rem, 1.75vw, 1.7rem)', whiteSpace: 'nowrap' }}
             >
               Upto&nbsp;₹<span className="stat-number">1</span>&nbsp;Lakh
             </span>
-            <span className="mt-1 whitespace-nowrap text-xs text-[#555555] sm:text-sm">Monthly Earning Potential</span>
+            <span className="mt-1 text-[11px] text-[#555555] sm:text-xs">Monthly Earning Potential</span>
           </div>
         </div>
       </section>
@@ -872,14 +970,14 @@ const Home = () => {
       {/* SECTION C — Student Testimonials */}
       <section ref={testimonialsSectionRef} className="bg-[#F0FAFF] py-0 overflow-hidden">
         <HomeSectionBanner
-          eyebrow="Pilot Outcomes"
+          eyebrow="Google Reviews"
           icon={Quote}
-          lines={['Career', 'paths taking off...']}
+          lines={['Voices', 'from learners...']}
           color="#58BFE0"
         />
 
-        <div className="mx-auto px-6 pb-20">
-          <div className="review-carousel-mask">
+        <div className="mx-auto pb-20">
+          <div className="review-carousel-mask carousel-full-bleed">
             <div className="review-carousel-track">
               {[...reviews, ...reviews].map((review, index) => (
                 <article key={`${review.name}-${index}`} className="testimonial-card review-card">
@@ -892,7 +990,7 @@ const Home = () => {
                         .slice(0, 2)}
                     </div>
                     <div className="text-left">
-                      <h3 className="text-lg text-navy font-display">{review.name}</h3>
+                      <h3 className="text-xs text-navy font-display sm:text-sm">{review.name}</h3>
                       <p className="text-xs text-slate-500 font-sans">{review.meta}</p>
                     </div>
                   </div>
@@ -914,75 +1012,39 @@ const Home = () => {
           color="#70D26B"
         />
 
-        <div className="max-w-7xl mx-auto px-8 pb-24">
+        <div className="max-w-7xl mx-auto px-8">
           <div className="section-reveal mx-auto mb-12 flex max-w-4xl flex-col items-center gap-5 text-center">
             <p className="max-w-3xl text-lg leading-relaxed text-slate-600 font-sans">
-              We don't just provide drones; we provide end-to-end aerial intelligence strategies that transform businesses.
+              Explore drone services and hands-on training programs built for real industry outcomes.
             </p>
-            <a href="/services" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-white font-display text-sm  tracking-wide shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary/90">
-              See all services <ArrowRight size={18} />
-            </a>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                name: "Agriculture",
-                subtitle: "Precision Crop Management",
-                icon: <Leaf className="w-8 h-8" />,
-                desc: "Advanced drone solutions for crop health monitoring, precision spraying, and yield optimization.",
-                image: "/assets/services/fertilizer-spraying.jpeg",
-                path: "/services/agriculture",
-                color: "#1E9FD4",
-                tint: "#EAF8FE",
-              },
-              {
-                name: "Events",
-                subtitle: "Aerial Coverage & Documentation",
-                icon: <Camera className="w-8 h-8" />,
-                desc: "Professional drone videography and photography for conferences, festivals, weddings, and productions.",
-                image: "/assets/services/videography.jpeg",
-                path: "/services/events",
-                color: "#70D26B",
-                tint: "#F0FBEF",
-              },
-              {
-                name: "Inspection",
-                subtitle: "Infrastructure & Asset Monitoring",
-                icon: <Zap className="w-8 h-8" />,
-                desc: "Safe, efficient inspections of solar farms, wind turbines, towers, power lines, and equipment.",
-                image: "/assets/services/drone-thermography-service.jpeg",
-                path: "/services/inspection",
-                color: "#39C8BE",
-                tint: "#EAFBFA",
-              },
-              {
-                name: "Survey & Mapping",
-                subtitle: "Geospatial Intelligence",
-                icon: <Map className="w-8 h-8" />,
-                desc: "High-accuracy topographic surveys and 3D mapping for planning and monitoring workflows.",
-                image: "/assets/services/construction-service.jpeg",
-                path: "/services/survey-mapping",
-                color: "#F4CE45",
-                tint: "#FFF9E6",
-              }
-            ].map((service, i) => (
-              <Link key={service.name} to={service.path} className="section-reveal group overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-xl shadow-slate-200/70 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+        <div className="offer-carousel-mask pb-24">
+          <div className="offer-carousel-track">
+            {[...serviceAndTrainingCards, ...serviceAndTrainingCards].map((item, index) => (
+              <Link key={`${item.name}-${index}`} to={item.path} className="offer-card group">
                 <div className="relative h-48 overflow-hidden">
-                  <img src={service.image} alt={service.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img src={item.image} alt={item.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/55 to-transparent" />
                   <div
                     className="absolute left-5 top-5 grid h-14 w-14 place-items-center rounded-2xl text-white shadow-lg"
-                    style={{ backgroundColor: service.color }}
+                    style={{ backgroundColor: item.color }}
                   >
-                    {service.icon}
+                    {item.icon}
                   </div>
+                  <span className="absolute right-5 top-5 rounded-full bg-white/95 px-3 py-1 text-xs text-navy shadow-sm font-display">
+                    {item.category}
+                  </span>
                 </div>
-                <div className="min-h-[210px] p-6" style={{ backgroundColor: service.tint }}>
-                  <h4 className="mb-3 text-2xl font-display tracking-tight text-navy">{service.name}</h4>
-                  <p className="mb-3 text-sm text-primary font-display">{service.subtitle}</p>
-                  <p className="text-sm leading-relaxed text-slate-600 font-sans">{service.desc}</p>
-                  <div className="mt-6 h-1 w-16 rounded-full" style={{ backgroundColor: service.color }} />
+                <div className="min-h-[230px] p-6" style={{ backgroundColor: item.tint }}>
+                  <h4 className="mb-3 text-2xl font-display tracking-tight text-navy">{item.name}</h4>
+                  <p className="mb-3 text-sm text-primary font-display">{item.subtitle}</p>
+                  <p className="text-sm leading-relaxed text-slate-600 font-sans">{item.desc}</p>
+                  <div className="mt-6 flex items-center justify-between">
+                    <span className="h-1 w-16 rounded-full" style={{ backgroundColor: item.color }} />
+                    <ArrowRight size={18} className="text-primary transition-transform group-hover:translate-x-1" />
+                  </div>
                 </div>
               </Link>
             ))}
@@ -1027,7 +1089,7 @@ const Home = () => {
               })}
             </div>
 
-            <div className="client-logo-marquee relative z-10 mt-6 overflow-hidden rounded-2xl border border-white/80 bg-white/80 py-5 shadow-inner">
+            <div className="client-logo-marquee carousel-full-bleed relative z-10 mt-6 overflow-hidden border border-white/80 bg-white/80 py-5 shadow-inner">
               <div className="client-logo-marquee-track flex w-max items-center gap-14">
                 {[...clients, ...clients, ...clients].map((client, index) => (
                   <div key={`${client.name}-${index}`} className="flex h-24 w-56 shrink-0 items-center justify-center opacity-90 transition-all duration-300 hover:opacity-100">

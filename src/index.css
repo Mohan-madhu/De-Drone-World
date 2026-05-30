@@ -163,6 +163,12 @@
   position: relative;
 }
 
+.carousel-full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
 .reach-carousel-mask {
   overflow: hidden;
   width: 100%;
@@ -367,7 +373,72 @@
   box-shadow: 0 10px 28px rgba(30, 159, 212, 0.12);
 }
 
+.offer-carousel-mask {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-block: 0.75rem;
+}
+
+.offer-carousel-mask::before,
+.offer-carousel-mask::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 88px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.offer-carousel-mask::before {
+  left: 0;
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.offer-carousel-mask::after {
+  right: 0;
+  background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.offer-carousel-track {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+  animation: offer-scroll 54s linear infinite;
+}
+
+.offer-carousel-mask:hover .offer-carousel-track {
+  animation-play-state: paused;
+}
+
+.offer-card {
+  width: min(350px, calc(100vw - 3rem));
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid #dcecf4;
+  background: #ffffff;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-0.5rem);
+  border-color: #aee0f5;
+  box-shadow: 0 24px 46px rgba(30, 159, 212, 0.18);
+}
+
 @keyframes review-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes offer-scroll {
   from {
     transform: translateX(0);
   }
@@ -410,21 +481,75 @@ h6,
 }
 
 h1 {
-  font-size: clamp(2.25rem, 4.6vw, 3.6rem) !important;
+  font-size: clamp(1.9rem, 3.8vw, 3rem) !important;
   line-height: 1.08 !important;
 }
 
 h2 {
-  font-size: clamp(1.9rem, 3.4vw, 2.85rem) !important;
+  font-size: clamp(1.45rem, 2.7vw, 2.25rem) !important;
   line-height: 1.1 !important;
 }
 
 h3 {
-  font-size: clamp(1.35rem, 2.25vw, 2rem) !important;
+  font-size: clamp(1.15rem, 1.85vw, 1.65rem) !important;
   line-height: 1.12 !important;
 }
 
 h4 {
-  font-size: clamp(1.05rem, 1.5vw, 1.35rem) !important;
+  font-size: clamp(1rem, 1.25vw, 1.2rem) !important;
   line-height: 1.18 !important;
+}
+
+.program-detail-title {
+  font-size: clamp(1.35rem, 2vw, 1.75rem) !important;
+  line-height: 1.12 !important;
+}
+
+.font-display.text-lg,
+.font-heading.text-lg,
+.font-flux.text-lg,
+.font-sketch.text-lg {
+  font-size: 1rem !important;
+}
+
+.font-display.text-xl,
+.font-heading.text-xl,
+.font-flux.text-xl,
+.font-sketch.text-xl {
+  font-size: 1.08rem !important;
+}
+
+.font-display.text-2xl,
+.font-heading.text-2xl,
+.font-flux.text-2xl,
+.font-sketch.text-2xl {
+  font-size: clamp(1.15rem, 1.7vw, 1.35rem) !important;
+}
+
+.font-display.text-3xl,
+.font-heading.text-3xl,
+.font-flux.text-3xl,
+.font-sketch.text-3xl {
+  font-size: clamp(1.35rem, 2vw, 1.65rem) !important;
+}
+
+.font-display.text-4xl,
+.font-heading.text-4xl,
+.font-flux.text-4xl,
+.font-sketch.text-4xl {
+  font-size: clamp(1.7rem, 3vw, 2.25rem) !important;
+}
+
+.font-display.text-5xl,
+.font-heading.text-5xl,
+.font-flux.text-5xl,
+.font-sketch.text-5xl {
+  font-size: clamp(2rem, 3.7vw, 2.9rem) !important;
+}
+
+.font-display.text-6xl,
+.font-heading.text-6xl,
+.font-flux.text-6xl,
+.font-sketch.text-6xl {
+  font-size: clamp(2.35rem, 4.6vw, 3.5rem) !important;
 }

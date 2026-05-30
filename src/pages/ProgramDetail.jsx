@@ -1538,7 +1538,7 @@ function DetailBlock({ icon, title, children }) {
     <section className="rounded-3xl border border-slate-100 bg-white p-7 shadow-sm">
       <div className="grid grid-cols-[40px_1fr] items-center gap-x-3 gap-y-4">
         <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">{icon}</span>
-        <h2 className="text-2xl font-bold text-navy font-display">{title}</h2>
+        <h2 className="program-detail-title font-semibold text-navy font-display">{title}</h2>
         <div className="col-start-2">
           {children}
         </div>
