@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { BadgeCheck, Briefcase, CalendarDays, CheckCircle, Clock, GraduationCap, MapPin, Plane, Send, ShieldCheck, Sparkles } from 'lucide-react';
+import { BadgeCheck, Briefcase, Building2, CalendarDays, CheckCircle, Clock, GraduationCap, HelpCircle, IndianRupee, MapPin, Plane, Quote, Route, Send, ShieldCheck, Sparkles, Wrench } from 'lucide-react';
 
 const slugify = (value) =>
   value.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -1533,6 +1533,159 @@ const programMap = [...programs, ...simplePrograms, ...diplomaPrograms, ...works
   return acc;
 }, {});
 
+const learnerTestimonials = [
+  {
+    name: 'George Kamini',
+    source: 'Google review',
+    text: 'One of the best training centres in Tamil Nadu, with a user-friendly learning environment for drone certification.',
+  },
+  {
+    name: 'Rahul Raj',
+    source: 'Google review',
+    text: 'The trainers explained the concepts clearly and supported practical learning throughout the program.',
+  },
+];
+
+function getProgramFamily(program) {
+  const title = program.title.toLowerCase();
+  if (title.includes('remote pilot certificate')) return 'rpc';
+  if (title.includes('instructor')) return 'instructor';
+  if (title.includes('diploma')) return 'diploma';
+  if (title.includes('internship')) return 'internship';
+  if (title.includes('workshop')) return 'workshop';
+  if (title.includes('mapping') || title.includes('survey')) return 'mapping';
+  if (title.includes('lidar')) return 'lidar';
+  if (title.includes('gis') || title.includes('python')) return 'gis';
+  if (title.includes('agri')) return 'agriculture';
+  if (title.includes('videography') || title.includes('photography')) return 'media';
+  if (title.includes('repair') || title.includes('maintenance')) return 'maintenance';
+  if (title.includes('fpv')) return 'fpv';
+  return 'foundation';
+}
+
+const careerProfiles = {
+  rpc: {
+    careers: ['Commercial Drone Pilot', 'Agriculture Drone Operator', 'Survey Flight Operator', 'Inspection Pilot', 'UAV Operations Coordinator'],
+    tools: ['Flight simulator', 'Digital Sky and airspace workflow', 'Mission-planning applications', 'Pre-flight checklists and flight logbook', 'Small / medium rotorcraft controls'],
+    uses: ['Precision agriculture', 'Land survey and mapping', 'Infrastructure inspection', 'Aerial media', 'Public-safety and enterprise missions'],
+    salary: 'Indicative India market range: approximately ₹3.5–7.5 LPA for salaried pilot roles. Specialisation, aircraft class, location, project exposure, and additional GIS or inspection skills materially affect earnings.',
+    flight: 'Simulator sessions and supervised live flying are included according to the approved course schedule. Exact logged flight allocation is confirmed for each batch based on category, weather, safety, and DGCA/RPTO requirements.',
+  },
+  instructor: {
+    careers: ['RPTO Drone Instructor', 'Flight Evaluator', 'Ground Theory Trainer', 'Simulator Instructor', 'Training Operations Coordinator'],
+    tools: ['Instructor flight logbook', 'Simulator assessment workflow', 'Student evaluation sheets', 'DGCA/RPTO documentation', 'Small and medium training platforms'],
+    uses: ['RPTO instruction', 'Pilot assessment', 'Batch planning', 'Safety supervision', 'Compliance and audit preparation'],
+    salary: 'Indicative potential: approximately ₹4–8 LPA depending on valid credentials, logged flying experience, teaching responsibility, aircraft class, and RPTO location.',
+    flight: 'The current curriculum specifies a structured 20-hour flight-logging foundation with supervised flying, simulator briefing, evaluation, and mentoring practice.',
+  },
+  mapping: {
+    careers: ['Drone Survey Operator', 'Photogrammetry Technician', 'GIS Field Executive', 'Mapping Project Assistant', 'UAV Data-Capture Specialist'],
+    tools: ['Mission Planner / equivalent', 'QGIS', 'Photogrammetry processing workflow', 'Ground-control-point workflow', 'Orthomosaic and elevation-model tools'],
+    uses: ['Land records', 'Construction progress', 'Stockpile measurement', 'Corridor mapping', 'Urban and infrastructure planning'],
+    salary: 'Indicative early-career potential: approximately ₹2.5–6 LPA. Combined flying, GIS, CAD, photogrammetry, and client-reporting capability can improve progression.',
+    flight: 'Field mission planning and supervised data-capture practice are included where weather and site permissions allow. The counsellor confirms scheduled field hours before enrollment.',
+  },
+  lidar: {
+    careers: ['LiDAR Data Technician', '3D Mapping Associate', 'Geospatial Analyst', 'Point-Cloud Processing Executive', 'Survey Data Specialist'],
+    tools: ['LiDAR mission workflow', 'QGIS', 'Point-cloud classification tools', 'Digital elevation model workflow', '3D inspection and measurement tools'],
+    uses: ['Mining', 'Forestry', 'Transmission corridors', 'Topographic survey', 'Infrastructure digital twins'],
+    salary: 'Indicative early-career potential: approximately ₹3–7 LPA, varying significantly with surveying knowledge, point-cloud software proficiency, portfolio quality, and project responsibility.',
+    flight: 'Practical exposure covers LiDAR mission planning and data workflow. Aircraft time depends on sensor availability, site access, weather, and the announced batch plan.',
+  },
+  gis: {
+    careers: ['GIS Technician', 'Drone Data Processor', 'Geospatial Project Assistant', 'Mapping Analyst', 'Python GIS Automation Associate'],
+    tools: ['QGIS', 'Python', 'Raster and vector processing', 'Coordinate reference systems', 'Drone imagery and geospatial reporting'],
+    uses: ['Asset mapping', 'Environmental monitoring', 'Agriculture analytics', 'Infrastructure planning', 'Automated geospatial reporting'],
+    salary: 'Indicative early-career potential: approximately ₹2.5–6 LPA depending on software depth, coding ability, portfolio, domain knowledge, and location.',
+    flight: 'This is primarily a data-processing track. Drone field demonstrations may be included, but it does not replace a DGCA remote-pilot certification or promise logged pilot hours.',
+  },
+  agriculture: {
+    careers: ['Agriculture Drone Operator', 'Spraying Mission Coordinator', 'Crop-Monitoring Executive', 'Precision Agriculture Technician', 'Agri-Drone Service Entrepreneur'],
+    tools: ['Agriculture mission-planning application', 'Spray calibration workflow', 'Field boundary mapping', 'Battery and payload checklist', 'Crop-monitoring data workflow'],
+    uses: ['Fertilizer and nutrient spraying', 'Seed sowing', 'Crop-health monitoring', 'Field mapping', 'Farm service operations'],
+    salary: 'Indicative salaried potential: approximately ₹3–7 LPA. Seasonal contracting and entrepreneurship are project-based and must not be treated as guaranteed monthly income.',
+    flight: 'Supervised field practice focuses on mission setup, payload safety, calibration, and operating procedures. Exact aircraft hours depend on field permissions and batch conditions.',
+  },
+  media: {
+    careers: ['Aerial Camera Operator', 'Drone Videographer', 'Real-Estate Media Pilot', 'Event Drone Operator', 'Aerial Content Producer'],
+    tools: ['Camera and gimbal controls', 'Shot planning', 'Flight-path planning', 'Media transfer workflow', 'Editing and colour-workflow orientation'],
+    uses: ['Events', 'Real estate', 'Tourism', 'Construction documentation', 'Film and branded content'],
+    salary: 'Indicative salaried potential: approximately ₹2.5–6 LPA. Freelance revenue varies by portfolio, equipment, permissions, production scope, and local demand.',
+    flight: 'Guided flight practice covers safe framing, smooth movement, camera settings, and repeatable shot paths. Scheduled hours are confirmed in the batch plan.',
+  },
+  maintenance: {
+    careers: ['Drone Service Technician', 'UAV Assembly Technician', 'Field Support Executive', 'Battery and Power-System Technician', 'Drone Lab Assistant'],
+    tools: ['Multimeter and soldering tools', 'Firmware and calibration utilities', 'Flight-controller setup', 'ESC and motor diagnostics', 'Preventive-maintenance checklist'],
+    uses: ['Service centres', 'Fleet maintenance', 'Training labs', 'Manufacturing support', 'Field troubleshooting'],
+    salary: 'Indicative early-career potential: approximately ₹2.4–5.5 LPA depending on electronics fundamentals, diagnostics, platform familiarity, and practical portfolio.',
+    flight: 'Flight testing is used for diagnosis and validation where appropriate; this technical program is not a substitute for DGCA pilot certification.',
+  },
+  fpv: {
+    careers: ['FPV Pilot', 'Drone Event Operator', 'Cinematic FPV Assistant', 'FPV Build Technician', 'Practice-Coach Assistant'],
+    tools: ['FPV simulator', 'Radio and receiver configuration', 'Betaflight / equivalent setup', 'Goggle and video-link workflow', 'Battery and propeller safety tools'],
+    uses: ['Cinematic fly-throughs', 'Sports coverage', 'Drone racing', 'Indoor media', 'Prototype testing'],
+    salary: 'FPV income is usually portfolio- and project-based rather than a fixed entry salary. Broader RPC, media-production, and repair skills improve employability.',
+    flight: 'Simulator progression precedes supervised FPV flight practice. Actual live-flight time depends on learner readiness, safety, equipment, and venue conditions.',
+  },
+  diploma: {
+    careers: ['Drone Pilot Trainee', 'UAV Technician', 'Survey Operations Assistant', 'Drone Service Executive', 'UAV Project Coordinator'],
+    tools: ['Flight simulator', 'Mission-planning tools', 'QGIS and mapping workflow', 'Assembly and diagnostic tools', 'Flight logs and safety documentation'],
+    uses: ['Training operations', 'Survey and mapping', 'Agriculture', 'Inspection', 'Maintenance and manufacturing support'],
+    salary: 'Indicative entry-level potential: approximately ₹2.5–6 LPA depending on completed certifications, role, portfolio, technical depth, location, and employer.',
+    flight: 'The six-month pathway combines simulator, field operations, assembly, and live-project exposure. The institute should confirm the batch-specific logged-flight plan in writing.',
+  },
+  internship: {
+    careers: ['UAV Project Intern', 'Drone Lab Intern', 'Survey Support Intern', 'Operations Trainee', 'Technical Documentation Intern'],
+    tools: ['Flight simulator', 'Basic mission planning', 'Drone components and safety checklist', 'Project documentation', 'Introductory data workflow'],
+    uses: ['Career exploration', 'Academic projects', 'Portfolio development', 'Lab support', 'Entry-level operational exposure'],
+    salary: 'An internship is a skill and portfolio pathway, not a salary qualification. Stipends or later job compensation depend on the employer, duration, capability, and completed certifications.',
+    flight: 'Supervised demonstrations and practical exposure vary by internship duration. Logged flight hours and aircraft access must be confirmed for the selected batch.',
+  },
+  workshop: {
+    careers: ['Foundation for UAV Technician Training', 'Robotics Club Project Lead', 'Drone Lab Assistant Pathway', 'Prototype Builder', 'Further RPC / Diploma Progression'],
+    tools: ['Assembly tools', 'Soldering and wiring workflow', 'Flight-controller configuration', 'Calibration software', 'Pre-flight safety checklist'],
+    uses: ['STEM education', 'Prototype development', 'College innovation labs', 'Robotics clubs', 'Startup concept validation'],
+    salary: 'A short workshop alone does not qualify a participant for a specific salary. It provides a portfolio project and foundation for advanced technical or DGCA-certified pathways.',
+    flight: 'A supervised test flight may follow assembly and calibration. This is not logged commercial-pilot training and does not replace an RPC.',
+  },
+  foundation: {
+    careers: ['Drone Operations Trainee', 'UAV Lab Assistant', 'Technical Support Trainee', 'Further RPC / Skill Program Pathway'],
+    tools: ['Flight simulator', 'Basic drone controls', 'Safety checklist', 'Mission-planning introduction', 'Component identification tools'],
+    uses: ['Career exploration', 'Academic projects', 'Basic aerial operations', 'Technology orientation'],
+    salary: 'This foundation program develops entry skills but does not guarantee a role or salary. Career potential improves through DGCA certification, specialisation, and documented project experience.',
+    flight: 'Introductory simulator and supervised practical exposure are included as applicable. Confirm the batch-specific aircraft schedule before enrollment.',
+  },
+};
+
+function getProgramInsights(program) {
+  const family = getProgramFamily(program);
+  const profile = careerProfiles[family] || careerProfiles.foundation;
+  const learning = program.gains || program.skills || program.modules || program.highlights || [
+    'Safety-first drone workflow',
+    'Equipment and tool familiarisation',
+    'Guided practical tasks',
+    'Industry application awareness',
+  ];
+  const isDgca = program.certification.toLowerCase().includes('dgca') || program.eyebrow.toLowerCase().includes('dgca');
+
+  return {
+    ...profile,
+    learning,
+    dgca: isDgca
+      ? 'Directly aligned with the stated DGCA/RPTO certification pathway. Eligibility, attendance, assessment, documentation, and operating-category requirements apply.'
+      : 'This is a skill-development program and does not independently grant a DGCA Remote Pilot Certificate. Commercial flying eligibility requires the applicable DGCA pathway.',
+    certification: `${program.certification}. Certificate scope depends on successful attendance, practical work, assessment, and the program terms. Verify whether the credential is DGCA-issued, RPTO-issued, or an institute completion certificate before payment.`,
+    placement: 'Career support includes role mapping, resume and portfolio guidance, interview preparation, project-readiness feedback, and employer introductions where available. Assistance is provided; employment or salary is not guaranteed.',
+    faqs: [
+      { q: 'Do I need previous drone experience?', a: program.eligibility?.join(' ') || 'Most learners can begin without prior experience unless the listed eligibility states otherwise.' },
+      { q: 'Will I receive a DGCA certificate?', a: isDgca ? 'This program follows the stated DGCA/RPTO pathway, subject to eligibility, attendance, assessments, and applicable rules.' : 'No. This program provides skill or completion certification and does not replace an RPC.' },
+      { q: 'How much practical exposure is included?', a: profile.flight },
+      { q: 'Is placement guaranteed?', a: 'No. Placement assistance supports preparation and introductions, but hiring decisions and compensation remain with employers.' },
+      { q: 'What should I verify before enrolling?', a: 'Confirm batch dates, fees, aircraft category, exact practical hours, certificate issuer, assessment rules, accommodation, and refund terms in writing.' },
+    ],
+  };
+}
+
 function DetailBlock({ icon, title, children }) {
   return (
     <section className="rounded-3xl border border-slate-100 bg-white p-7 shadow-sm">
@@ -1569,7 +1722,7 @@ function EnrollmentCard({ program }) {
   };
 
   return (
-    <aside className="self-start lg:sticky lg:top-24">
+    <aside id="apply" className="self-start scroll-mt-28 lg:sticky lg:top-24">
       <div className="overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-2xl shadow-primary/10">
         <div className="bg-navy p-5 text-white">
           <p className="text-xs font-extrabold tracking-[0.12em] text-primary">Ready to Take Off?</p>
@@ -1604,6 +1757,7 @@ function EnrollmentCard({ program }) {
 export default function ProgramDetail() {
   const { programSlug } = useParams();
   const program = useMemo(() => programMap[programSlug], [programSlug]);
+  const insights = useMemo(() => (program ? getProgramInsights(program) : null), [program]);
 
   if (!program) return <Navigate to="/training" replace />;
 
@@ -1645,11 +1799,78 @@ export default function ProgramDetail() {
             <p className="text-lg leading-relaxed text-slate-600">{program.overview}</p>
           </DetailBlock>
 
-          {program.courseDuration && (
-            <DetailBlock icon={<Clock size={20} />} title={program.durationTitle || 'Course Duration'}>
-              <BulletList items={program.courseDuration} />
-            </DetailBlock>
-          )}
+          <DetailBlock icon={<GraduationCap size={20} />} title="1. What You Learn">
+            <BulletList items={insights.learning} />
+          </DetailBlock>
+
+          <DetailBlock icon={<Clock size={20} />} title="2. Duration">
+            <p className="font-semibold text-slate-700">{program.duration}</p>
+            {program.courseDuration && <div className="mt-4"><BulletList items={program.courseDuration} /></div>}
+          </DetailBlock>
+
+          <DetailBlock icon={<ShieldCheck size={20} />} title="3. DGCA Relevance">
+            <p className="leading-relaxed text-slate-600">{insights.dgca}</p>
+          </DetailBlock>
+
+          <DetailBlock icon={<Briefcase size={20} />} title="4. Career Opportunities">
+            <BulletList items={program.careers || insights.careers} />
+          </DetailBlock>
+
+          <DetailBlock icon={<IndianRupee size={20} />} title="5. Salary Potential">
+            <p className="leading-relaxed text-slate-600">{insights.salary}</p>
+            <p className="mt-4 rounded-xl bg-amber-50 p-4 font-semibold text-amber-900">Indicative market guidance only—not a placement, freelance-income, or salary guarantee.</p>
+          </DetailBlock>
+
+          <DetailBlock icon={<Wrench size={20} />} title="6. Tools & Software Covered">
+            <BulletList items={program.tools || insights.tools} />
+          </DetailBlock>
+
+          <DetailBlock icon={<Plane size={20} />} title="7. Real Flight Hours & Practical Exposure">
+            <p className="leading-relaxed text-slate-600">{insights.flight}</p>
+          </DetailBlock>
+
+          <DetailBlock icon={<Building2 size={20} />} title="8. Industry Use Cases">
+            <BulletList items={insights.uses} />
+          </DetailBlock>
+
+          <DetailBlock icon={<BadgeCheck size={20} />} title="9. Certification">
+            <p className="leading-relaxed text-slate-600">{insights.certification}</p>
+          </DetailBlock>
+
+          <DetailBlock icon={<Route size={20} />} title="10. Placement Assistance">
+            <p className="leading-relaxed text-slate-600">{insights.placement}</p>
+          </DetailBlock>
+
+          <DetailBlock icon={<Quote size={20} />} title="11. Learner Testimonials">
+            <div className="grid gap-4 md:grid-cols-2">
+              {learnerTestimonials.map((testimonial) => (
+                <blockquote key={testimonial.name} className="rounded-2xl border border-primary/15 bg-primary/5 p-5">
+                  <p className="leading-relaxed text-slate-700">“{testimonial.text}”</p>
+                  <footer className="mt-4 font-bold text-navy">{testimonial.name} · <span className="font-medium text-slate-500">{testimonial.source}</span></footer>
+                </blockquote>
+              ))}
+            </div>
+          </DetailBlock>
+
+          <DetailBlock icon={<HelpCircle size={20} />} title="12. Frequently Asked Questions">
+            <div className="divide-y divide-slate-200 rounded-2xl border border-slate-200">
+              {insights.faqs.map((faq) => (
+                <details key={faq.q} className="group p-5 open:bg-slate-50">
+                  <summary className="cursor-pointer list-none font-bold text-navy">{faq.q}</summary>
+                  <p className="mt-3 leading-relaxed text-slate-600">{faq.a}</p>
+                </details>
+              ))}
+            </div>
+          </DetailBlock>
+
+          <section className="rounded-3xl bg-navy p-7 text-white shadow-xl">
+            <p className="font-bold uppercase tracking-[0.12em] text-primary">13. Apply for This Program</p>
+            <h2 className="mt-2 text-white">Discuss Eligibility, Batch Dates, and Practical Hours</h2>
+            <p className="mt-3 text-slate-300">Speak with the admissions team and verify the complete written course terms before enrollment.</p>
+            <a href="#apply" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-bold text-white transition hover:bg-primary/90">
+              Apply Now <Send size={18} />
+            </a>
+          </section>
 
           {program.fee && (
             <DetailBlock icon={<BadgeCheck size={20} />} title="Internship Fee">
@@ -1682,21 +1903,9 @@ export default function ProgramDetail() {
             </DetailBlock>
           )}
 
-          {program.tools && (
-            <DetailBlock icon={<Sparkles size={20} />} title="Tools & Software">
-              <BulletList items={program.tools} />
-            </DetailBlock>
-          )}
-
           <DetailBlock icon={<MapPin size={20} />} title="Who Should Join">
             <BulletList items={program.audience} />
           </DetailBlock>
-
-          {program.gains && (
-            <DetailBlock icon={<GraduationCap size={20} />} title="What You'll Gain">
-              <BulletList items={program.gains} />
-            </DetailBlock>
-          )}
 
           {program.practical && (
             <DetailBlock icon={<Plane size={20} />} title="Practical Training Highlights">
@@ -1731,12 +1940,6 @@ export default function ProgramDetail() {
           {program.why && (
             <DetailBlock icon={<Sparkles size={20} />} title="Why This Course Stands Out">
               <BulletList items={program.why} />
-            </DetailBlock>
-          )}
-
-          {program.careers && (
-            <DetailBlock icon={<Briefcase size={20} />} title="Career Opportunities">
-              <BulletList items={program.careers} />
             </DetailBlock>
           )}
 

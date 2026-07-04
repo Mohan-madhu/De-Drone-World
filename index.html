@@ -4,14 +4,96 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>De Drone World | Cinematic Aerial Intelligence</title>
+    <title>DGCA Drone Training in Tamil Nadu | De Drone World</title>
+    <meta name="description" content="DGCA-approved drone training, UAV operations, mapping, inspection and agriculture drone solutions from Coimbatore, Tamil Nadu." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://thedroneworld.in/" />
+    <meta property="og:title" content="DGCA Drone Training in Tamil Nadu | De Drone World" />
+    <meta property="og:description" content="DGCA-approved drone training and professional UAV solutions from Coimbatore, Tamil Nadu." />
+    <meta property="og:image" content="https://thedroneworld.in/assets/home_hero.png" />
+    <meta property="og:url" content="https://thedroneworld.in/" />
+    <meta property="og:type" content="website" />
+    <link
+      rel="preload"
+      href="/fonts/Flux%20Architect%20Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Patrick+Hand+SC&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@20..48,100..700,0..1,-50..200" />
+    <style>
+      @font-face {
+        font-family: "Flux Architect";
+        src: url("/fonts/Flux%20Architect%20Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+        font-display: block;
+      }
+
+      #root {
+        opacity: 0;
+      }
+
+      #font-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        background: #ffffff;
+        transition: opacity 220ms ease, visibility 220ms ease;
+      }
+
+      .font-loader-mark {
+        width: 48px;
+        height: 48px;
+        border: 3px solid #d8eef8;
+        border-top-color: #1e9fd4;
+        border-radius: 9999px;
+        animation: font-loader-spin 700ms linear infinite;
+      }
+
+      html.fonts-ready #root {
+        opacity: 1;
+        transition: opacity 220ms ease;
+      }
+
+      html.fonts-ready #font-loader {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      @keyframes font-loader-spin {
+        to { transform: rotate(360deg); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .font-loader-mark { animation-duration: 1.4s; }
+      }
+    </style>
   </head>
   <body>
+    <div id="font-loader" role="status" aria-label="Loading De Drone World">
+      <span class="font-loader-mark" aria-hidden="true"></span>
+    </div>
     <div id="root"></div>
+    <script>
+      (() => {
+        const revealSite = () => document.documentElement.classList.add('fonts-ready');
+        const fontReady = document.fonts
+          ? document.fonts.load('1em "Flux Architect"')
+          : Promise.resolve();
+
+        Promise.race([
+          fontReady,
+          new Promise((resolve) => window.setTimeout(resolve, 3500)),
+        ]).then(revealSite, revealSite);
+      })();
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

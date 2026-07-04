@@ -31,6 +31,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://thedroneworld.in/social-media</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://thedroneworld.in/services/agriculture</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>

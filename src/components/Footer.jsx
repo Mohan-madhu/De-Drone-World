@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone } from 'lucide-react';
 
@@ -60,6 +59,7 @@ const quickLinks = [
   ['Training', '/training'],
   ['Services', '/services'],
   ['Manufacturing', '/manufacturing'],
+  ['Social Media Presence', '/social-media'],
   ['Contact', '/contact'],
 ];
 

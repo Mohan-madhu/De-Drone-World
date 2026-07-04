@@ -47,17 +47,23 @@ const certificates = [
 ];
 
 const clients = [
-  { name: "Startup India", src: "/assets/clients/startup-india.jpg" },
-  { name: "Ministry of MSME, Govt. of India", src: "/assets/clients/ministry-of-msme-govt-of-india.jpg" },
-  { name: "Naan Mudhalvan", src: "/assets/clients/naan-mudhalvan.jpg" },
-  { name: "MABIF", src: "/assets/clients/mabif.jpg" },
-  { name: "NABARD", src: "/assets/clients/nabard.jpg" },
-  { name: "Hindusthan College of Engineering and Technology", src: "/assets/clients/hindusthan-college-of-engineering-and-technology.jpg" },
-  { name: "Vaigai College of Engineering", src: "/assets/clients/vaigai-college-of-engineering.jpg" },
-  { name: "Dhaanish Ahmed Institute of Technology", src: "/assets/clients/dhaanish-ahmed-institute-of-technology.jpg" },
-  { name: "TSAW", src: "/assets/clients/tsaw.jpg" },
-  { name: "Skywalk Robotics Academy", src: "/assets/clients/skywalk-robotics-academy.jpg" },
-  { name: "VIL Aviation", src: "/assets/clients/vil-aviation.jpg" },
+  { name: "Startup India", src: "/assets/clients/startup-india.jpg", category: "Government & Public Ecosystem" },
+  { name: "Ministry of MSME, Govt. of India", src: "/assets/clients/ministry-of-msme-govt-of-india.jpg", category: "Government & Public Ecosystem" },
+  { name: "Naan Mudhalvan", src: "/assets/clients/naan-mudhalvan.jpg", category: "Government & Public Ecosystem" },
+  { name: "NABARD", src: "/assets/clients/nabard.jpg", category: "Government & Public Ecosystem" },
+  { name: "MABIF", src: "/assets/clients/mabif.jpg", category: "Academic & Institutional Network" },
+  { name: "Hindusthan College of Engineering and Technology", src: "/assets/clients/hindusthan-college-of-engineering-and-technology.jpg", category: "Academic & Institutional Network" },
+  { name: "Vaigai College of Engineering", src: "/assets/clients/vaigai-college-of-engineering.jpg", category: "Academic & Institutional Network" },
+  { name: "Dhaanish Ahmed Institute of Technology", src: "/assets/clients/dhaanish-ahmed-institute-of-technology.jpg", category: "Academic & Institutional Network" },
+  { name: "TSAW", src: "/assets/clients/tsaw.jpg", category: "Industry & Aviation Partners" },
+  { name: "Skywalk Robotics Academy", src: "/assets/clients/skywalk-robotics-academy.jpg", category: "Industry & Aviation Partners" },
+  { name: "VIL Aviation", src: "/assets/clients/vil-aviation.jpg", category: "Industry & Aviation Partners" },
+];
+
+const clientCategories = [
+  'Government & Public Ecosystem',
+  'Academic & Institutional Network',
+  'Industry & Aviation Partners',
 ];
 
 const reviews = [
@@ -211,6 +217,45 @@ const serviceAndTrainingCards = [
     path: "/training/build-your-own-drone",
     color: "#F4CE45",
     tint: "#FFF9E6",
+  },
+];
+
+const realNumbers = [
+  { value: 15000, suffix: '+', label: 'Students Trained' },
+  { value: 100, suffix: '+', label: 'DGCA Certifications' },
+  { value: 12000, suffix: '+', label: 'Flight Hours' },
+  { value: 10, suffix: '+', label: 'Institutional Tie-Ups' },
+  { value: 1000, suffix: '+', label: 'Drone Operations Completed' },
+  { value: 15, suffix: '+', label: 'States Served' },
+];
+
+const leadershipTeam = [
+  {
+    name: 'Capt. Arjun Rao',
+    role: 'Founder & Chief Executive Officer',
+    image: '/assets/leadership/founder-aviation-mock.png',
+    experience: '20+ years in military aviation and flight operations',
+    credentials: ['Former Defence Aviation Officer', 'DGCA aviation ecosystem specialist'],
+    achievement: 'Led multi-region aviation training and operational readiness programs.',
+    vision: 'Build a trusted national bridge between aviation discipline, drone careers, and industrial UAV adoption.',
+  },
+  {
+    name: 'Dr. Meera Nair',
+    role: 'Co-Founder & Chief Technology Officer',
+    image: '/assets/leadership/founder-technology-mock.png',
+    experience: '15+ years in aerospace systems and UAV engineering',
+    credentials: ['Aerospace Systems Specialist', 'UAV platform and payload integration lead'],
+    achievement: 'Directed the development of field-ready drone systems and technical training frameworks.',
+    vision: 'Make safe, indigenous drone technology accessible to institutions, industries, and emerging professionals.',
+  },
+  {
+    name: 'Vikram Iyer',
+    role: 'Co-Founder & Director of Operations',
+    image: '/assets/leadership/founder-operations-mock.png',
+    experience: '12+ years in UAV missions and enterprise deployment',
+    credentials: ['Certified Remote Pilot', 'Survey, inspection, and field operations leader'],
+    achievement: 'Planned and delivered complex UAV missions across infrastructure and geospatial applications.',
+    vision: 'Set a measurable standard for safe, scalable, and outcome-driven drone operations across India.',
   },
 ];
 
@@ -549,26 +594,56 @@ const Home = () => {
 
         <div className="relative z-10 max-w-7xl w-full px-8">
           <div className="max-w-2xl">
-            <span className="hero-reveal inline-block px-3.5 py-1 rounded-full bg-primary/10 text-primary font-sans text-xs font-semibold tracking-wide mb-5 md:text-sm">
-              Dgca Approved Drone Academy
-            </span>
+            <div className="hero-reveal mb-6 inline-flex items-center gap-3 rounded-2xl border border-primary/30 bg-white/95 px-4 py-3 shadow-[0_16px_40px_rgba(30,159,212,0.22)] backdrop-blur-md md:gap-4 md:px-5 md:py-4">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/25 md:h-12 md:w-12">
+                <BadgeCheck size={28} strokeWidth={2.4} />
+              </span>
+              <span className="flex flex-col text-left font-sans">
+                <span className="text-[0.72rem] font-extrabold uppercase tracking-[0.18em] text-slate-500 md:text-xs">
+                  Government Recognized
+                </span>
+                <span className="mt-0.5 text-base font-extrabold uppercase tracking-[0.035em] text-primary md:text-xl">
+                  DGCA Approved Drone Academy
+                </span>
+              </span>
+            </div>
             <h1
               className="hero-reveal text-4xl md:text-6xl font-bold text-on-background mb-6 leading-[1.12] tracking-tight overflow-hidden"
               style={{ fontFamily: '"Manrope", sans-serif' }}
             >
-              Elevate Your Future With Professional Drone Training
+              Building India’s Future Drone Workforce &amp; UAV Solutions Ecosystem
             </h1>
-            <p className="hero-reveal text-lg md:text-xl text-slate-600 mb-10 max-w-lg leading-relaxed font-sans">
-              Obtain your Remote Pilot License from India's premier drone academy. Technical mastery, safety excellence, and expansive career freedom.
+            <p className="hero-reveal mb-10 max-w-2xl text-lg leading-relaxed text-slate-700 font-sans md:text-xl">
+              Aviation-led drone training, industrial UAV operations, mapping, inspection, logistics, and institutional partnerships across India.
             </p>
-            <div className="hero-reveal flex flex-wrap gap-4">
-              <a href="/training" className="bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 group">
-                Get Your License
+            <div className="hero-reveal flex flex-wrap gap-3">
+              <Link to="/training" className="group flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-bold text-white shadow-xl shadow-primary/20 transition-all hover:bg-primary/90">
+                Apply for DGCA Training
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href="/contact" className="bg-white/10 backdrop-blur-md border border-slate-200 text-on-surface px-8 py-4 rounded-xl font-bold hover:bg-white transition-all">
-                Enroll Now
-              </a>
+              </Link>
+              <Link to="/contact" className="rounded-xl border border-navy/20 bg-white/90 px-6 py-3.5 font-bold text-navy shadow-sm backdrop-blur-md transition-all hover:border-primary hover:text-primary">
+                Partner With Us
+              </Link>
+              <Link to="/services" className="rounded-xl border border-navy/20 bg-white/55 px-6 py-3.5 font-bold text-navy backdrop-blur-md transition-all hover:border-primary hover:bg-white hover:text-primary">
+                Explore Drone Services
+              </Link>
+            </div>
+            <div className="hero-reveal mt-6 flex max-w-xl items-center gap-4 rounded-2xl border border-white/70 bg-white/75 px-4 py-3 shadow-lg backdrop-blur-md">
+              <div className="flex -space-x-2">
+                {leadershipTeam.map((leader) => (
+                  <img
+                    key={leader.name}
+                    src={leader.image}
+                    alt=""
+                    className="h-10 w-10 rounded-full border-2 border-white object-cover"
+                    style={{ objectPosition: 'center 35%' }}
+                  />
+                ))}
+              </div>
+              <div>
+                <p className="font-bold text-navy">Led by aviation, defence &amp; UAV professionals</p>
+                <p className="text-slate-600">Leadership profiles below are temporary mock content.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -595,6 +670,73 @@ const Home = () => {
             <p className="text-white/80 mt-1">
               Certified under Rule 39 of Drone Rules 2021 • Directorate General of Civil Aviation, Government of India
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Founder Leadership — temporary mock content */}
+      <section className="bg-[#F4FAFD] px-6 py-16 section-reveal">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <span className="inline-flex rounded-full bg-amber-100 px-4 py-2 font-bold uppercase tracking-[0.12em] text-amber-800">
+              Mock Leadership Content — Replace Before Publishing
+            </span>
+            <p className="mt-5 font-bold uppercase tracking-[0.14em] text-primary">Founder Leadership</p>
+            <h2 className="mt-2">Aviation Discipline. Operational Experience. Industry Vision.</h2>
+            <p className="mt-4 text-slate-600">
+              A leadership team built around defence credibility, technical depth, and real-world UAV execution.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {leadershipTeam.map((leader) => (
+              <article key={leader.name} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_45px_rgba(26,42,58,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_26px_65px_rgba(30,159,212,0.2)]">
+                <div className="relative h-80 overflow-hidden bg-slate-200">
+                  <img
+                    src={leader.image}
+                    alt={`Temporary mock portrait for ${leader.name}`}
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    style={{ objectPosition: 'center 35%' }}
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent opacity-50 transition-opacity duration-500 group-hover:opacity-20" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
+                  <span className="absolute left-4 top-4 rounded-full bg-amber-100 px-3 py-1 font-bold uppercase text-amber-800 shadow-sm">Mock Profile</span>
+                </div>
+                <div className="p-6">
+                  <h3>{leader.name}</h3>
+                  <p className="mt-1 font-bold text-primary">{leader.role}</p>
+                  <p className="mt-4 border-l-2 border-primary pl-4 font-semibold text-slate-700">{leader.experience}</p>
+
+                  <div className="mt-5 space-y-3">
+                    {leader.credentials.map((credential) => (
+                      <div key={credential} className="flex items-start gap-3 text-slate-600">
+                        <BadgeCheck size={20} className="mt-0.5 shrink-0 text-primary" />
+                        <span>{credential}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-5 border-t border-slate-100 pt-5">
+                    <p className="font-bold text-navy">Operational achievement</p>
+                    <p className="mt-2 text-slate-600">{leader.achievement}</p>
+                  </div>
+                  <div className="mt-5 rounded-2xl bg-primary/5 p-4">
+                    <p className="font-bold text-primary">Industry vision</p>
+                    <p className="mt-2 text-slate-600">{leader.vision}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col items-center justify-between gap-5 rounded-2xl bg-navy p-6 text-center text-white md:flex-row md:text-left">
+            <div>
+              <h3 className="text-white">Build With an Aviation-Led Drone Partner</h3>
+              <p className="mt-2 text-slate-300">Discuss institutional training, UAV operations, technology programs, or strategic partnerships.</p>
+            </div>
+            <Link to="/contact" className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-bold text-white transition hover:bg-primary/90">
+              Partner With Us <ArrowRight size={19} />
+            </Link>
           </div>
         </div>
       </section>
@@ -660,14 +802,13 @@ const Home = () => {
 
           {/* Text Side */}
           <div className="flex-1 section-reveal">
-            <blockquote className="border-l-4 border-primary pl-6 py-2 mb-8 bg-slate-50 rounded-r-2xl">
-              <p className="text-xl md:text-2xl font-medium text-slate-800 italic mb-4 font-display leading-relaxed">
-                "You Must Be Shapeless Formless Like Water. Water Can Drip And It Can Crash."
+            <div className="mb-8 rounded-r-2xl border-l-4 border-primary bg-slate-50 px-6 py-5">
+              <p className="font-bold uppercase tracking-[0.12em] text-primary">One Integrated Drone Ecosystem</p>
+              <h2 className="mt-2 text-navy">Training. Operations. Industry Partnerships.</h2>
+              <p className="mt-3 text-slate-600">
+                We combine aviation discipline, DGCA-approved pilot development, field-ready UAV services, and institutional collaboration under one organization.
               </p>
-              <footer className="text-sm font-bold text-slate-500  tracking-widest">
-                — Bruce Lee
-              </footer>
-            </blockquote>
+            </div>
 
             <p className="text-lg text-slate-600 mb-6 leading-relaxed font-sans">
               De Drone world is an entrepreneurial venture with a vision to become a global company by a team of aviation experts from the Indian armed forces and enthusiastic young technocrats with strong passion towards drones.
@@ -929,40 +1070,24 @@ const Home = () => {
       </div>
 
       {/* SECTION B — Stats Strip */}
-      <section ref={statsSectionRef} className="bg-white border-y border-[#BDDFF0] py-8 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-5">
-          <div className="flex flex-col items-center text-center px-2">
-            <span className="whitespace-nowrap text-[clamp(1.25rem,2vw,1.85rem)] font-bold text-primary font-[Space_Grotesk]">
-              <span className="stat-number">15000</span>+
-            </span>
-            <span className="mt-1 text-[11px] text-[#555555] sm:text-xs">Students Trained</span>
+      <section ref={statsSectionRef} className="border-y border-[#BDDFF0] bg-[#F7FCFE] px-6 py-14">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 text-center">
+            <p className="font-bold uppercase tracking-[0.14em] text-primary">Real Numbers</p>
+            <h2 className="mt-2">Proven Impact Across Training and Operations</h2>
           </div>
-          <div className="flex flex-col items-center text-center px-2">
-            <span className="whitespace-nowrap text-[clamp(1.25rem,2vw,1.85rem)] font-bold text-primary font-[Space_Grotesk]">
-              <span className="stat-number">100</span>+
-            </span>
-            <span className="mt-1 text-[11px] text-[#555555] sm:text-xs">Pilots Trained</span>
-          </div>
-          <div className="flex flex-col items-center text-center px-2">
-            <span className="whitespace-nowrap text-[clamp(1.25rem,2vw,1.85rem)] font-bold text-primary font-[Space_Grotesk]">
-              <span className="stat-number">5</span> Days
-            </span>
-            <span className="mt-1 text-[11px] text-[#555555] sm:text-xs">Program Duration</span>
-          </div>
-          <div className="flex flex-col items-center text-center px-2">
-            <span className="whitespace-nowrap text-[clamp(1.25rem,2vw,1.85rem)] font-bold text-primary font-[Space_Grotesk]">
-              <span className="stat-number">10</span> Years
-            </span>
-            <span className="mt-1 text-[11px] text-[#555555] sm:text-xs">License Validity</span>
-          </div>
-          <div className="flex flex-col items-center text-center px-2">
-            <span
-              className="font-bold text-primary font-[Space_Grotesk]"
-              style={{ fontSize: 'clamp(1.05rem, 1.75vw, 1.7rem)', whiteSpace: 'nowrap' }}
-            >
-              Upto&nbsp;₹<span className="stat-number">1</span>&nbsp;Lakh
-            </span>
-            <span className="mt-1 text-[11px] text-[#555555] sm:text-xs">Monthly Earning Potential</span>
+          <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-[#BDDFF0] bg-white sm:grid-cols-3 lg:grid-cols-6">
+            {realNumbers.map((stat) => (
+              <div
+                key={stat.label}
+                className="flex min-h-36 flex-col items-center justify-center border-b border-r border-[#BDDFF0] px-4 py-6 text-center last:border-r-0 sm:[&:nth-last-child(-n+3)]:border-b-0 lg:border-b-0"
+              >
+                <span className="whitespace-nowrap font-bold text-primary font-[Space_Grotesk]">
+                  <span className="stat-number">{stat.value}</span>{stat.suffix}
+                </span>
+                <span className="mt-2 font-semibold text-[#555555]">{stat.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -1053,51 +1178,70 @@ const Home = () => {
       </section>
 
       {/* Clients Section */}
-      <section className="bg-white py-0 overflow-hidden">
+      <section className="overflow-hidden bg-white py-0">
         <HomeSectionBanner
-          eyebrow="Our Clients"
+          eyebrow="Clients & Partners"
           icon={Handshake}
-          lines={['Trusted', 'by growing teams...']}
+          lines={['Trusted across', 'India’s drone ecosystem...']}
           color="#8B83E6"
         />
 
-        <div className="clients-showcase mx-auto max-w-7xl px-6 pb-24">
-          <div className="relative overflow-hidden rounded-[2rem] border border-[#DCD9FF] bg-[#F6F5FF] px-4 py-7 shadow-2xl shadow-[#8B83E6]/10 md:px-8 md:py-9">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,131,230,0.16),transparent_32%),linear-gradient(315deg,rgba(57,200,190,0.16),transparent_30%)]" />
-
-            <div className="relative z-10 grid grid-cols-2 gap-4 md:grid-cols-6 xl:grid-cols-12">
-              {clients.map((client, index) => {
-                const accents = ['#8B83E6', '#39C8BE', '#70D26B', '#F4CE45', '#1E9FD4'];
-                const fills = ['bg-white', 'bg-[#FBFAFF]', 'bg-[#F2FFFE]', 'bg-[#FFFBEA]', 'bg-[#F0FAFF]'];
-                const desktopPlacement = index === 6 ? 'xl:col-start-2' : '';
-                const accent = accents[index % accents.length];
-                const fill = fills[index % fills.length];
-
-                return (
-                  <article key={client.name} className={`client-logo-card group relative overflow-hidden rounded-2xl border border-white/80 ${fill} ${desktopPlacement} p-4 text-center shadow-lg shadow-[#8B83E6]/10 backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:rotate-0 hover:shadow-2xl hover:shadow-[#8B83E6]/20 md:col-span-2 ${index % 2 === 0 ? 'rotate-[0.45deg]' : '-rotate-[0.45deg]'}`}>
-                    <div className="client-logo-shine pointer-events-none absolute inset-0 z-20" />
-                    <div className="absolute inset-x-5 top-0 h-1 rounded-b-full opacity-80 transition-all duration-500 group-hover:inset-x-2" style={{ backgroundColor: accent }} />
-                    <div className="client-logo-frame mx-auto flex h-32 items-center justify-center rounded-xl bg-white p-3 ring-1 ring-slate-100 md:h-36">
-                      <img
-                        src={client.src}
-                        alt={`${client.name} logo`}
-                        className="client-logo-image max-h-24 max-w-full object-contain transition-transform duration-500 group-hover:scale-110 md:max-h-28"
-                      />
-                    </div>
-                  </article>
-                );
-              })}
+        <div className="mx-auto max-w-7xl px-6 pb-24">
+          <div className="mb-10 grid items-end gap-6 border-b border-slate-200 pb-8 md:grid-cols-[1fr_auto]">
+            <div className="max-w-3xl">
+              <p className="font-bold uppercase tracking-[0.14em] text-primary">Credibility Through Collaboration</p>
+              <h2 className="mt-2">Connected With Institutions That Shape Skills, Industry, and Innovation</h2>
+              <p className="mt-4 text-slate-600">
+                Our growing ecosystem spans public initiatives, educational institutions, aviation specialists, and technology collaborators.
+              </p>
             </div>
-
-            <div className="client-logo-marquee carousel-full-bleed relative z-10 mt-6 overflow-hidden border border-white/80 bg-white/80 py-5 shadow-inner">
-              <div className="client-logo-marquee-track flex w-max items-center gap-14">
-                {[...clients, ...clients, ...clients].map((client, index) => (
-                  <div key={`${client.name}-${index}`} className="flex h-24 w-56 shrink-0 items-center justify-center opacity-90 transition-all duration-300 hover:opacity-100">
-                    <img src={client.src} alt={`${client.name} logo`} className="max-h-20 max-w-full object-contain" />
-                  </div>
-                ))}
+            <div className="flex gap-3 md:justify-end">
+              <div className="rounded-2xl bg-navy px-5 py-4 text-center text-white">
+                <span className="block font-bold text-primary">11</span>
+                <span className="block text-slate-300">Organizations</span>
+              </div>
+              <div className="rounded-2xl bg-primary px-5 py-4 text-center text-white">
+                <span className="block font-bold">3</span>
+                <span className="block text-white/85">Ecosystems</span>
               </div>
             </div>
+          </div>
+
+          <div className="space-y-9">
+            {clientCategories.map((category, categoryIndex) => (
+              <div key={category}>
+                <div className="mb-4 flex items-center gap-4">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary font-bold text-white">{categoryIndex + 1}</span>
+                  <h3>{category}</h3>
+                  <span className="h-px flex-1 bg-slate-200" />
+                </div>
+                <div className={`grid gap-4 sm:grid-cols-2 ${categoryIndex === 2 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'}`}>
+                  {clients.filter((client) => client.category === category).map((client) => (
+                    <article key={client.name} className="group flex min-h-44 flex-col items-center justify-center rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
+                      <div className="flex h-24 w-full items-center justify-center rounded-xl bg-slate-50 p-3 transition-colors group-hover:bg-primary/5">
+                        <img
+                          src={client.src}
+                          alt={`${client.name} logo`}
+                          className="max-h-20 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
+                      <p className="mt-4 font-semibold text-navy">{client.name}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-2xl border border-primary/20 bg-primary/5 p-6 text-center md:flex-row md:text-left">
+            <div>
+              <h3>Build an Institutional or Industry Partnership</h3>
+              <p className="mt-2 text-slate-600">Collaborate on drone training, research, operations, workforce development, or technology deployment.</p>
+            </div>
+            <Link to="/contact" className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-bold text-white transition hover:bg-primary/90">
+              Partner With Us <ArrowRight size={19} />
+            </Link>
           </div>
         </div>
       </section>

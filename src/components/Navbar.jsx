@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import {
   Menu,
@@ -145,6 +145,7 @@ const Navbar = () => {
     { name: 'Training', path: '/training', hasDropdown: 'training' },
     { name: 'Services', path: '/services', hasDropdown: 'services' },
     { name: 'Manufacturing', path: '/manufacturing' },
+    { name: 'Social Media Presence', path: '/social-media' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -161,7 +162,7 @@ const Navbar = () => {
           <img src="/assets/logo.png" alt="De Drone World Logo" className="h-12 w-auto object-contain" />
         </Link>
 
-        <div className="hidden md:flex space-x-8 items-center h-full">
+        <div className="hidden xl:flex space-x-6 items-center h-full">
           {navLinks.map((link) => {
             if (link.hasDropdown) {
               const isServicesDropdown = link.hasDropdown === 'services';
@@ -252,11 +253,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center space-x-4">
-          <Link to="/contact" className="hidden md:block bg-primary text-white px-5 py-2 rounded-lg font-display text-[0.95rem] font-bold hover:bg-opacity-90 transition-all">
+          <Link to="/contact" className="hidden xl:block bg-primary text-white px-5 py-2 rounded-lg font-display text-[0.95rem] font-bold hover:bg-opacity-90 transition-all">
             Enroll Now
           </Link>
           <button
-            className="md:hidden text-navy p-2 hover:text-primary transition-colors focus:outline-none"
+            className="xl:hidden text-navy p-2 hover:text-primary transition-colors focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -266,7 +267,7 @@ const Navbar = () => {
       </nav>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 flex flex-col">
+        <div className="xl:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 flex flex-col">
           {navLinks.map((link) => {
             if (link.hasDropdown) {
               const isServicesDropdown = link.hasDropdown === 'services';

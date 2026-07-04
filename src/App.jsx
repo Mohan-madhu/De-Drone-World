@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import SEO from './components/SEO';
 import Home from './pages/Home';
 import Training from './pages/Training';
 import ProgramDetail from './pages/ProgramDetail';
@@ -15,6 +16,7 @@ import EventServices from './pages/EventServices';
 import SurveyMappingServices from './pages/SurveyMappingServices';
 import Manufacturing from './pages/Manufacturing';
 import Contact from './pages/Contact';
+import SocialMedia from './pages/SocialMedia';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -112,6 +114,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SEO />
       <Navbar />
       <main className="flex-grow">
         <Routes>
@@ -125,6 +128,7 @@ function App() {
           <Route path="/services/survey-mapping" element={<SurveyMappingServices />} />
           <Route path="/manufacturing" element={<Manufacturing />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/social-media" element={<SocialMedia />} />
         </Routes>
       </main>
       <Footer />

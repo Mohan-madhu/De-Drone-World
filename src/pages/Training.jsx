@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { School, Plane, Briefcase, CheckCircle, BarChart3, Settings, ShieldAlert, BadgeCheck } from 'lucide-react';
 
 const Training = () => {
@@ -120,6 +119,23 @@ const Training = () => {
             <button className="bg-white/80 backdrop-blur-md border border-primary/25 text-primary px-8 py-3.5 rounded-xl font-bold text-base hover:bg-white transition-all">
               Download Brochure
             </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-primary/15 bg-white px-6 py-12">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+          <div>
+            <p className="font-bold uppercase tracking-[0.14em] text-primary">DGCA RPTO · Coimbatore, Tamil Nadu</p>
+            <h2 className="mt-2">Professional Drone Pilot Training and UAV Skill Development</h2>
+            <p className="mt-4 text-slate-600">
+              De Drone World provides DGCA-aligned remote pilot training in Coimbatore alongside agriculture drone training, drone mapping courses, GIS, LiDAR, repair, FPV, workshops, internships, and institutional UAV programs. Learners combine aviation safety, simulator practice, supervised flight exposure, industry tools, and career guidance.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {['DGCA Drone Training', 'Drone Pilot Course', 'Agriculture Drones', 'Mapping & GIS'].map((item) => (
+              <div key={item} className="rounded-xl border border-primary/20 bg-primary/5 p-4 text-center font-bold text-navy">{item}</div>
+            ))}
           </div>
         </div>
       </section>
