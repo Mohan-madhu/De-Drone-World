@@ -903,7 +903,7 @@ const Home = () => {
               <div className="h-64 md:h-80 relative overflow-hidden border-b md:border-b-0 md:border-r border-slate-200">
                 <img 
                   src="/assets/hicet%20top%20view.jpeg" 
-                  alt="Hindustan College of Engineering" 
+                  alt="Idea Lab at HICET Campus, Malumichampatti, Coimbatore" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-0"></div>
@@ -916,14 +916,14 @@ const Home = () => {
               {/* Map Side */}
               <div className="h-64 md:h-80 relative bg-slate-100">
                 <iframe 
-                  src="https://maps.google.com/maps?q=Hindustan%20College%20of%20Engineering%20and%20Technology%20Coimbatore&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                  src="https://maps.google.com/maps?q=Idea%20Lab%20HICET%20Campus%20Malumichampatti%20Coimbatore&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
                   allowFullScreen="" 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Hindustan College of Engineering Map"
+                  title="Idea Lab, HICET Campus map"
                   className="w-full h-full grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
                 ></iframe>
               </div>
@@ -932,8 +932,8 @@ const Home = () => {
             {/* Bottom Content */}
             <div className="p-8 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div>
-                <p className="text-2xl font-bold text-navy mb-2">Hindustan College of Engineering</p>
-                <p className="text-slate-500 font-sans text-xl">Coimbatore, Tamil Nadu</p>
+                <p className="text-2xl font-bold text-navy mb-2">Idea Lab, First Floor</p>
+                <p className="text-slate-500 font-sans text-xl">HICET Campus, Malumichampatti, Coimbatore</p>
               </div>
               
               <a 

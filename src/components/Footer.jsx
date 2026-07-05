@@ -120,7 +120,7 @@ const Footer = () => {
               </a>
               <div className="flex items-start gap-3">
                 <MapPin size={17} className="mt-1 shrink-0 text-primary" />
-                <p>Hindusthan Engineering College Campus, Malumichampatti, Coimbatore - 641028</p>
+                <p>Idea Lab, First Floor, HICET Campus, Malumichampatti, Coimbatore</p>
               </div>
               <a
                 href="https://maps.app.goo.gl/N2GkBCJcN43bh3hM6"

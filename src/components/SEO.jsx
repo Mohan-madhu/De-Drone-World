@@ -78,7 +78,7 @@ export default function SEO() {
 
     const schemas = [{
       '@context': 'https://schema.org', '@type': ['EducationalOrganization', 'LocalBusiness'], '@id': `${SITE_URL}/#organization`, name: 'De Drone World', url: SITE_URL, logo: `${SITE_URL}/assets/logo.png`, telephone: ['+91 6382405660', '+91 7708757581'], email: 'md@thedroneworld.in',
-      address: { '@type': 'PostalAddress', streetAddress: 'Hindusthan Engineering College Campus, Malumichampatti', addressLocality: 'Coimbatore', addressRegion: 'Tamil Nadu', postalCode: '641028', addressCountry: 'IN' },
+      address: { '@type': 'PostalAddress', streetAddress: 'Idea Lab, First Floor, HICET Campus, Malumichampatti', addressLocality: 'Coimbatore', addressRegion: 'Tamil Nadu', addressCountry: 'IN' },
       areaServed: ['Tamil Nadu', 'India'],
       sameAs: ['https://www.instagram.com/dedroneworld.in', 'https://www.linkedin.com/company/de-drone-world-solutions-pvt-ltd/', 'https://youtube.com/@dedroneworld'],
     }];

@@ -202,7 +202,7 @@ export default function Contact() {
               </span>
               <h3>Visit Our Campus</h3>
               <p className="mt-3 text-slate-600">
-                Hindusthan Engineering College Campus, Malumichampatti, Coimbatore – 641028, Tamil Nadu.
+                Idea Lab, First Floor, HICET Campus, Malumichampatti, Coimbatore.
               </p>
               <a href="https://maps.app.goo.gl/N2GkBCJcN43bh3hM6" target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 font-bold text-primary hover:text-navy">
                 Open in Google Maps <ArrowUpRight size={18} />
