@@ -754,9 +754,9 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {teamMembers.map((member) => (
-              <article key={member.name} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_45px_rgba(26,42,58,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_26px_65px_rgba(30,159,212,0.2)]">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-6">
+            {teamMembers.map((member, index) => (
+              <article key={member.name} className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_45px_rgba(26,42,58,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_26px_65px_rgba(30,159,212,0.2)] xl:col-span-2 ${index === 3 ? 'xl:col-start-2' : ''}`}>
                 <div className="relative h-72 overflow-hidden bg-slate-200 sm:h-80">
                   <TeamPhoto member={member} />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent opacity-50 transition-opacity duration-500 group-hover:opacity-20" />
