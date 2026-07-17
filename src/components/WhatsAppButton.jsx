@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function WhatsAppButton() {
-  const number = '916382405660'; /* replace with +91XXXXXXXXXX */
+  const number = '917708757581'; /* replace with +91XXXXXXXXXX */
 
   return (
     <a

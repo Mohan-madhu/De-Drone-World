@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -25,17 +25,7 @@ import {
 } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 
-const splitTextToChars = (text) => {
-  return text.split(' ').map((word, wordIndex) => (
-    <span key={wordIndex} className="inline-block whitespace-nowrap mr-[0.25em]">
-      {word.split('').map((char, charIndex) => (
-        <span key={charIndex} className="inline-block hero-char opacity-0 translate-y-12 rotate-12">
-          {char}
-        </span>
-      ))}
-    </span>
-  ));
-};
+gsap.registerPlugin(ScrollTrigger);
 
 const REACH_IMAGE_LIMIT = 40;
 
@@ -222,42 +212,121 @@ const serviceAndTrainingCards = [
 
 const realNumbers = [
   { value: 15000, suffix: '+', label: 'Students Trained' },
-  { value: 100, suffix: '+', label: 'DGCA Certifications' },
-  { value: 12000, suffix: '+', label: 'Flight Hours' },
+  { value: 80, suffix: '+', label: 'DGCA Certifications' },
+  { value: 60000, suffix: '', label: 'Flight Hours' },
   { value: 10, suffix: '+', label: 'Institutional Tie-Ups' },
-  { value: 1000, suffix: '+', label: 'Drone Operations Completed' },
-  { value: 15, suffix: '+', label: 'States Served' },
+  { value: 300, suffix: '', label: 'Drone Operations Completed' },
+  { value: 6, suffix: '+', label: 'States Served' },
 ];
 
-const leadershipTeam = [
+const teamMembers = [
   {
-    name: 'Capt. Arjun Rao',
-    role: 'Founder & Chief Executive Officer',
-    image: '/assets/leadership/founder-aviation-mock.png',
-    experience: '20+ years in military aviation and flight operations',
-    credentials: ['Former Defence Aviation Officer', 'DGCA aviation ecosystem specialist'],
-    achievement: 'Led multi-region aviation training and operational readiness programs.',
-    vision: 'Build a trusted national bridge between aviation discipline, drone careers, and industrial UAV adoption.',
+    name: 'Satish Kumar A',
+    role: 'CEO & Founder',
+    tag: 'Retd. Wing Commander',
+    image: '/assets/team/satish-kumar-a.jpg',
+    photoPosition: 'center 32%',
+    bio: 'Satish Kumar A brings defence aviation discipline, operational decision-making, and safety-first leadership into De Drone World’s training and UAV solutions ecosystem.',
+    highlights: [
+      'Guides the company vision, aviation standards, and institutional direction',
+      'Strengthens safety culture across training, operations, and field deployment',
+      'Builds confidence for students, partners, and industry collaborators',
+    ],
   },
   {
-    name: 'Dr. Meera Nair',
-    role: 'Co-Founder & Chief Technology Officer',
-    image: '/assets/leadership/founder-technology-mock.png',
-    experience: '15+ years in aerospace systems and UAV engineering',
-    credentials: ['Aerospace Systems Specialist', 'UAV platform and payload integration lead'],
-    achievement: 'Directed the development of field-ready drone systems and technical training frameworks.',
-    vision: 'Make safe, indigenous drone technology accessible to institutions, industries, and emerging professionals.',
+    name: 'Abishek T',
+    role: 'Operations Manager',
+    image: '/assets/team/abishek-t.jpg',
+    photoPosition: 'center 30%',
+    bio: 'Abishek T coordinates the operational flow of De Drone World, keeping training batches, field teams, documentation, and delivery schedules aligned.',
+    highlights: [
+      'Manages daily training coordination and batch execution',
+      'Connects students, instructors, and field operation teams',
+      'Ensures planned activities move with clarity and accountability',
+    ],
   },
   {
-    name: 'Vikram Iyer',
-    role: 'Co-Founder & Director of Operations',
-    image: '/assets/leadership/founder-operations-mock.png',
-    experience: '12+ years in UAV missions and enterprise deployment',
-    credentials: ['Certified Remote Pilot', 'Survey, inspection, and field operations leader'],
-    achievement: 'Planned and delivered complex UAV missions across infrastructure and geospatial applications.',
-    vision: 'Set a measurable standard for safe, scalable, and outcome-driven drone operations across India.',
+    name: 'Vishali P',
+    role: 'Manufacturing Head',
+    image: '/assets/team/vishali-p.jpg',
+    photoPosition: 'center 36%',
+    bio: 'Vishali P leads the manufacturing function, focusing on drone assembly quality, component readiness, and reliable support for training and custom UAV builds.',
+    highlights: [
+      'Oversees drone assembly, production readiness, and build quality',
+      'Coordinates components, tools, and technical preparation',
+      'Supports hands-on learning through practical manufacturing exposure',
+    ],
+  },
+  {
+    name: 'Vinoth R',
+    role: 'Remote Pilot Instructor',
+    image: '/assets/team/vinoth-r.jpg',
+    photoPosition: 'center 28%',
+    bio: 'Vinoth R trains learners through simulator practice, live flight discipline, and practical UAV handling so students gain confidence before real-world operations.',
+    highlights: [
+      'Trains students in remote pilot fundamentals and live flying discipline',
+      'Supports DGCA-oriented skill development and operational confidence',
+      'Builds practical readiness through structured flight sessions',
+    ],
+  },
+  {
+    name: 'Jayaram R',
+    role: 'Admin',
+    image: '/assets/team/jayaram-r.jpg',
+    photoPosition: 'center 32%',
+    bio: 'Jayaram R supports the administrative backbone of De Drone World, handling student coordination, records, communication, and training process support.',
+    highlights: [
+      'Handles enrollment coordination, documentation, and student support',
+      'Keeps internal communication and scheduling organized',
+      'Supports smooth day-to-day administration across teams',
+    ],
   },
 ];
+
+const getInitials = (name) =>
+  name
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .slice(0, 2);
+
+const TeamPhoto = ({ member, variant = 'card' }) => {
+  const [imageFailed, setImageFailed] = useState(false);
+  const isAvatar = variant === 'avatar';
+
+  if (imageFailed) {
+    return (
+      <div
+        className={
+          isAvatar
+            ? 'grid h-10 w-10 place-items-center rounded-full border-2 border-white bg-gradient-to-br from-primary to-navy font-bold text-white'
+            : 'grid h-full w-full place-items-center bg-gradient-to-br from-primary/20 via-white to-navy/20'
+        }
+        aria-label={member.name}
+      >
+        <span className={isAvatar ? 'text-sm' : 'text-5xl font-bold text-navy'}>
+          {getInitials(member.name)}
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={member.image}
+      alt={isAvatar ? '' : member.name}
+      loading={isAvatar ? 'eager' : 'lazy'}
+      decoding="async"
+      onError={() => setImageFailed(true)}
+      className={
+        isAvatar
+          ? 'h-10 w-10 rounded-full border-2 border-white object-cover'
+          : 'h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105'
+      }
+      style={{ objectPosition: member.photoPosition || 'center 35%' }}
+    />
+  );
+};
 
 const preloadImage = (src) =>
   new Promise((resolve) => {
@@ -630,19 +699,13 @@ const Home = () => {
             </div>
             <div className="hero-reveal mt-6 flex max-w-xl items-center gap-4 rounded-2xl border border-white/70 bg-white/75 px-4 py-3 shadow-lg backdrop-blur-md">
               <div className="flex -space-x-2">
-                {leadershipTeam.map((leader) => (
-                  <img
-                    key={leader.name}
-                    src={leader.image}
-                    alt=""
-                    className="h-10 w-10 rounded-full border-2 border-white object-cover"
-                    style={{ objectPosition: 'center 35%' }}
-                  />
+                {teamMembers.map((member) => (
+                  <TeamPhoto key={member.name} member={member} variant="avatar" />
                 ))}
               </div>
               <div>
                 <p className="font-bold text-navy">Led by aviation, defence &amp; UAV professionals</p>
-                <p className="text-slate-600">Leadership profiles below are temporary mock content.</p>
+                <p className="text-slate-600">Meet the team behind De Drone World below.</p>
               </div>
             </div>
           </div>
@@ -674,56 +737,48 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Founder Leadership — temporary mock content */}
+      {/* Team De Drone World */}
       <section className="bg-[#F4FAFD] px-6 py-16 section-reveal">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto mb-10 max-w-3xl text-center">
-            <span className="inline-flex rounded-full bg-amber-100 px-4 py-2 font-bold uppercase tracking-[0.12em] text-amber-800">
-              Mock Leadership Content — Replace Before Publishing
-            </span>
-            <p className="mt-5 font-bold uppercase tracking-[0.14em] text-primary">Founder Leadership</p>
-            <h2 className="mt-2">Aviation Discipline. Operational Experience. Industry Vision.</h2>
-            <p className="mt-4 text-slate-600">
-              A leadership team built around defence credibility, technical depth, and real-world UAV execution.
-            </p>
+          <div className="mb-10 grid items-end gap-6 md:grid-cols-[1fr_auto]">
+            <div className="max-w-3xl">
+              <p className="font-bold uppercase tracking-[0.14em] text-primary">Team De Drone World</p>
+              <h2 className="mt-2">Leadership, Operations, Manufacturing and Pilot Training Under One Roof</h2>
+              <p className="mt-4 text-slate-600">
+                A practical team structure built for aviation discipline, reliable training delivery, drone manufacturing support, and smooth student coordination.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-primary/20 bg-white p-5 shadow-sm">
+              <span className="block font-bold text-primary">5 Core Members</span>
+              <span className="mt-1 block text-slate-600">Training • Operations • Manufacturing • Admin</span>
+            </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {leadershipTeam.map((leader) => (
-              <article key={leader.name} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_45px_rgba(26,42,58,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_26px_65px_rgba(30,159,212,0.2)]">
-                <div className="relative h-80 overflow-hidden bg-slate-200">
-                  <img
-                    src={leader.image}
-                    alt={`Temporary mock portrait for ${leader.name}`}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    style={{ objectPosition: 'center 35%' }}
-                  />
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {teamMembers.map((member) => (
+              <article key={member.name} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_16px_45px_rgba(26,42,58,0.08)] transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_26px_65px_rgba(30,159,212,0.2)]">
+                <div className="relative h-72 overflow-hidden bg-slate-200 sm:h-80">
+                  <TeamPhoto member={member} />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent opacity-50 transition-opacity duration-500 group-hover:opacity-20" />
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
-                  <span className="absolute left-4 top-4 rounded-full bg-amber-100 px-3 py-1 font-bold uppercase text-amber-800 shadow-sm">Mock Profile</span>
+                  {member.tag && (
+                    <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 font-bold uppercase text-primary shadow-sm">{member.tag}</span>
+                  )}
                 </div>
-                <div className="p-6">
-                  <h3>{leader.name}</h3>
-                  <p className="mt-1 font-bold text-primary">{leader.role}</p>
-                  <p className="mt-4 border-l-2 border-primary pl-4 font-semibold text-slate-700">{leader.experience}</p>
-
-                  <div className="mt-5 space-y-3">
-                    {leader.credentials.map((credential) => (
-                      <div key={credential} className="flex items-start gap-3 text-slate-600">
-                        <BadgeCheck size={20} className="mt-0.5 shrink-0 text-primary" />
-                        <span>{credential}</span>
-                      </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="tracking-wide">{member.name}</h3>
+                  <p className="mt-1 flex items-center gap-2 font-bold text-primary">
+                    <BadgeCheck size={18} className="shrink-0" /> {member.role}
+                  </p>
+                  <p className="mt-4 text-slate-600">{member.bio}</p>
+                  <ul className="mt-5 space-y-3">
+                    {member.highlights.map((point) => (
+                      <li key={point} className="flex gap-3 text-slate-700">
+                        <CheckCircle size={18} className="mt-1 shrink-0 text-primary" />
+                        <span>{point}</span>
+                      </li>
                     ))}
-                  </div>
-
-                  <div className="mt-5 border-t border-slate-100 pt-5">
-                    <p className="font-bold text-navy">Operational achievement</p>
-                    <p className="mt-2 text-slate-600">{leader.achievement}</p>
-                  </div>
-                  <div className="mt-5 rounded-2xl bg-primary/5 p-4">
-                    <p className="font-bold text-primary">Industry vision</p>
-                    <p className="mt-2 text-slate-600">{leader.vision}</p>
-                  </div>
+                  </ul>
                 </div>
               </article>
             ))}

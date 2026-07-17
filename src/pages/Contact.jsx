@@ -95,10 +95,10 @@ export default function Contact() {
             Tell us whether you need professional training, an aerial service, or a manufacturing partner. Our team will direct your enquiry to the right specialist.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <a href="tel:+916382405660" className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 font-bold text-white transition hover:bg-primary/90">
+            <a href="tel:+916380806450" className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 font-bold text-white transition hover:bg-primary/90">
               <Phone size={19} /> Call our team
             </a>
-            <a href="https://wa.me/916382405660" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-5 py-3 font-bold text-white backdrop-blur-sm transition hover:bg-white/15">
+            <a href="https://wa.me/917708757581" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-5 py-3 font-bold text-white backdrop-blur-sm transition hover:bg-white/15">
               <MessageCircle size={19} /> WhatsApp
             </a>
           </div>
@@ -177,9 +177,9 @@ export default function Contact() {
               <p className="font-bold uppercase tracking-[0.12em] text-primary">Direct contact</p>
               <h2 className="mt-2 text-white">Speak With Our Team</h2>
               <div className="mt-6 space-y-3">
-                <a href="tel:+916382405660" className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-base font-bold leading-relaxed text-white transition hover:border-primary/50">
+                <a href="tel:+916380806450" className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-base font-bold leading-relaxed text-white transition hover:border-primary/50">
                   <Phone className="shrink-0 text-primary" size={20} />
-                  <span className="text-base">+91 6382405660</span>
+                  <span className="text-base">+91 6380806450</span>
                 </a>
                 <a href="tel:+917708757581" className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-base font-bold leading-relaxed text-white transition hover:border-primary/50">
                   <Phone className="shrink-0 text-primary" size={20} />
