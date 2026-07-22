@@ -56,6 +56,7 @@ const socialLinks = [
 
 const quickLinks = [
   ['Home', '/'],
+  ['About', '/about'],
   ['Training', '/training'],
   ['Services', '/services'],
   ['Manufacturing', '/manufacturing'],
@@ -156,7 +157,7 @@ const Footer = () => {
 
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 border-t border-[#243340] px-6 py-4 md:flex-row">
         <p className="text-[#AABBC8] text-xs">
-          © 2025 De Drone World. All Rights Reserved.
+          © 2026 De Drone World. All Rights Reserved.
         </p>
         <div className="flex gap-4">
           <a href="#" className="text-[#AABBC8] hover:text-primary text-xs">Privacy Policy</a>

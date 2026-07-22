@@ -142,6 +142,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
     { name: 'Training', path: '/training', hasDropdown: 'training' },
     { name: 'Services', path: '/services', hasDropdown: 'services' },
     { name: 'Manufacturing', path: '/manufacturing' },
@@ -157,12 +158,12 @@ const Navbar = () => {
     >
       <div className="w-full h-[3px] bg-primary"></div>
 
-      <nav className="flex justify-between items-center h-16 px-8 max-w-7xl mx-auto w-full">
+      <nav className="grid h-16 w-full grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 xl:px-8">
         <Link to="/" className="flex items-center">
           <img src="/assets/logo.png" alt="De Drone World Logo" className="h-12 w-auto object-contain" />
         </Link>
 
-        <div className="hidden xl:flex space-x-6 items-center h-full">
+        <div className="hidden xl:flex items-center justify-center gap-5 2xl:gap-6 h-full">
           {navLinks.map((link) => {
             if (link.hasDropdown) {
               const isServicesDropdown = link.hasDropdown === 'services';
@@ -252,7 +253,7 @@ const Navbar = () => {
           })}
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center justify-end space-x-4">
           <Link to="/contact" className="hidden xl:block bg-primary text-white px-5 py-2 rounded-lg font-display text-[0.95rem] font-bold hover:bg-opacity-90 transition-all">
             Enroll Now
           </Link>

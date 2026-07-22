@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SEO from './components/SEO';
 import Home from './pages/Home';
+import About from './pages/About';
 import Training from './pages/Training';
 import ProgramDetail from './pages/ProgramDetail';
 import Services from './pages/Services';
@@ -119,6 +120,7 @@ function App() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/training" element={<Training />} />
           <Route path="/training/:programSlug" element={<ProgramDetail />} />
           <Route path="/services" element={<Services />} />

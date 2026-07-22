@@ -13,26 +13,11 @@
     <meta property="og:image" content="https://thedroneworld.in/assets/home_hero.png" />
     <meta property="og:url" content="https://thedroneworld.in/" />
     <meta property="og:type" content="website" />
-    <link
-      rel="preload"
-      href="/fonts/Flux%20Architect%20Regular.ttf"
-      as="font"
-      type="font/ttf"
-      crossorigin
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Patrick+Hand+SC&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@20..48,100..700,0..1,-50..200" />
     <style>
-      @font-face {
-        font-family: "Flux Architect";
-        src: url("/fonts/Flux%20Architect%20Regular.ttf") format("truetype");
-        font-weight: 400;
-        font-style: normal;
-        font-display: block;
-      }
-
       #root {
         opacity: 0;
       }
@@ -85,12 +70,15 @@
       (() => {
         const revealSite = () => document.documentElement.classList.add('fonts-ready');
         const fontReady = document.fonts
-          ? document.fonts.load('1em "Flux Architect"')
+          ? Promise.all([
+              document.fonts.load('700 1em "Space Grotesk"'),
+              document.fonts.load('600 1em "Manrope"'),
+            ]).then(() => document.fonts.ready)
           : Promise.resolve();
 
         Promise.race([
           fontReady,
-          new Promise((resolve) => window.setTimeout(resolve, 3500)),
+          new Promise((resolve) => window.setTimeout(resolve, 2200)),
         ]).then(revealSite, revealSite);
       })();
     </script>

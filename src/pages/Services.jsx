@@ -1,342 +1,254 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { X, ArrowRight, Leaf, Camera, Zap, Map } from 'lucide-react';
+import {
+  ArrowRight,
+  BadgeCheck,
+  Boxes,
+  Camera,
+  ChevronRight,
+  Cuboid,
+  Database,
+  Flame,
+  Flower2,
+  Gauge,
+  Hammer,
+  Layers,
+  Lightbulb,
+  MapPinned,
+  ShieldCheck,
+  Sprout,
+  Sun,
+  UtilityPole,
+  Wind,
+} from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const toServiceItemPath = (category, name) =>
+  `${category.path}#${name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
 
-const servicesData = [
+const serviceGroups = [
   {
-    id: 1,
-    title: 'Agriculture',
-    subtitle: 'Precision Crop Management',
-    icon: <Leaf size={40} />,
+    name: 'Agriculture',
+    path: '/services/agriculture',
+    eyebrow: 'Precision farming',
     image: '/assets/services/fertilizer-spraying.jpeg',
-    description: 'Advanced drone solutions for crop health monitoring, precision spraying, and yield optimization. Our multispectral imaging and GPS-guided application systems reduce chemical waste by up to 30% while increasing productivity.',
-    features: [
-      'Real-time crop health monitoring with NDVI sensors',
-      'Precision variable-rate spraying and seeding',
-      'Multispectral analysis for nutrient deficiency detection',
-      ' 3D field mapping for irrigation optimization',
-      'Automated flight path generation based on field data',
-      'Historical crop performance analytics'
+    icon: <Sprout size={24} />,
+    description: 'Drone-enabled agriculture services for spraying, sowing, crop monitoring, and precision farm operations.',
+    items: [
+      { name: 'Fertilizer Spraying', icon: <Sprout size={18} /> },
+      { name: 'Seed Sowing', icon: <Layers size={18} /> },
+      { name: 'Crop Monitoring', icon: <Gauge size={18} /> },
+      { name: 'Precision Agriculture Using Drones', icon: <MapPinned size={18} /> },
     ],
-    benefits: [
-      '30% reduction in chemical usage',
-      '25% improvement in crop yield',
-      'Labor cost savings through automation',
-      'Early pest and disease detection',
-      'Better ROI through data-driven decisions'
-    ],
-    path: '/services/agriculture'
   },
   {
-    id: 2,
-    title: 'Events',
-    subtitle: 'Aerial Coverage & Documentation',
-    icon: <Camera size={40} />,
+    name: 'Events',
+    path: '/services/events',
+    eyebrow: 'Aerial experiences',
     image: '/assets/services/videography.jpeg',
-    description: 'Professional drone videography and photography for conferences, festivals, weddings, corporate events, and large-scale productions. High-resolution 4K/8K capture with dynamic aerial perspectives that traditional crews cannot achieve.',
-    features: [
-      '4K and 8K video capture with professional color grading',
-      'Real-time FPV piloting for dynamic shots',
-      'Panoramic and time-lapse photography',
-      'Live event streaming capability',
-      'Multi-angle simultaneous filming',
-      'Post-production editing and montage creation'
+    icon: <Camera size={24} />,
+    description: 'Creative aerial coverage and drone-led event experiences for brands, institutions, celebrations, and public programs.',
+    items: [
+      { name: 'Drone Videography & Photography', icon: <Camera size={18} /> },
+      { name: 'Drone Flower Showering', icon: <Flower2 size={18} /> },
+      { name: 'Flag Towing', icon: <Layers size={18} /> },
+      { name: 'Drone Light Show', icon: <Lightbulb size={18} /> },
+      { name: 'Drone LED Panel Advertisement', icon: <BadgeCheck size={18} /> },
     ],
-    benefits: [
-      'Unique perspectives that engage audiences',
-      'Professional quality at 40% lower cost',
-      'Faster turnaround on post-production',
-      'Complete aerial event coverage',
-      'Shareable social media content',
-      'Archive-quality documentation'
-    ],
-    path: '/services/events'
   },
   {
-    id: 3,
-    title: 'Inspection',
-    subtitle: 'Infrastructure & Asset Monitoring',
-    icon: <Zap size={40} />,
+    name: 'Inspection',
+    path: '/services/inspection',
+    eyebrow: 'Industrial UAV operations',
     image: '/assets/services/drone-thermography-service.jpeg',
-    description: 'Safe, efficient, and cost-effective inspections of solar farms, wind turbines, telecommunications towers, power lines, and industrial equipment. Thermal imaging and HD cameras detect issues before they become critical failures.',
-    features: [
-      'Thermal imaging for electrical anomalies',
-      '4K HD close-up inspection footage',
-      'Safe access to hard-to-reach infrastructure',
-      'Real-time defect detection and mapping',
-      'Automated inspection reporting',
-      'Historical trend analysis for predictive maintenance'
+    icon: <ShieldCheck size={24} />,
+    description: 'Safer infrastructure and asset inspection with aerial imaging, thermal workflows, and field documentation.',
+    items: [
+      { name: 'Windmill Inspection', icon: <Wind size={18} /> },
+      { name: 'Solar Panel Inspection', icon: <Sun size={18} /> },
+      { name: 'Power Line Inspection', icon: <UtilityPole size={18} /> },
+      { name: 'Drone Thermography', icon: <Flame size={18} /> },
+      { name: 'Construction Inspection', icon: <Hammer size={18} /> },
+      { name: 'Pipeline Inspection', icon: <ShieldCheck size={18} /> },
     ],
-    benefits: [
-      '80% reduction in inspection time',
-      'Eliminates dangerous manual climbing',
-      'Early failure detection saves equipment',
-      'Comprehensive documentation',
-      'Minimal business disruption',
-      'Lower inspection costs'
-    ],
-    path: '/services/inspection'
   },
   {
-    id: 4,
-    title: 'Survey & Mapping',
-    subtitle: 'Geospatial Intelligence',
-    icon: <Map size={40} />,
+    name: 'Survey & Mapping',
+    path: '/services/survey-mapping',
+    eyebrow: 'Geospatial intelligence',
     image: '/assets/services/construction-service.jpeg',
-    description: 'High-accuracy topographic surveys and 3D mapping for land development, infrastructure planning, and environmental monitoring. Centimeter-level precision with GIS-ready outputs for seamless integration into planning workflows.',
-    features: [
-      'RTK GPS positioning for centimeter accuracy',
-      '3D orthomosaic map generation',
-      'Digital elevation model (DEM) creation',
-      'GIS data export (Shapefile, GeoTIFF)',
-      'Volume calculations for stockpiles',
-      'Change detection and progress tracking'
+    icon: <MapPinned size={24} />,
+    description: 'Drone survey, mapping, 3D modeling, GIS analysis, and measurement support for land and infrastructure teams.',
+    items: [
+      { name: 'Land Surveying', icon: <MapPinned size={18} /> },
+      { name: 'Construction & Infrastructure Mapping', icon: <Hammer size={18} /> },
+      { name: '3D Mapping & Modeling', icon: <Cuboid size={18} /> },
+      { name: 'GIS & Data Analysis', icon: <Database size={18} /> },
+      { name: 'Mining & Stockpile Analysis', icon: <Boxes size={18} /> },
     ],
-    benefits: [
-      'Centimeter-level accuracy for critical projects',
-      '60% faster surveying than traditional methods',
-      'Complete area coverage in single flight',
-      'GIS-compatible deliverables',
-      'Reduced field time and costs',
-      'Real-time project monitoring'
-    ],
-    path: '/services/survey-mapping'
-  }
+  },
 ];
 
 const Services = () => {
   const mainRef = useRef(null);
-  const [selectedService, setSelectedService] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [activeService, setActiveService] = useState(serviceGroups[0].name);
+
+  const selectedService = useMemo(
+    () => serviceGroups.find((group) => group.name === activeService) || serviceGroups[0],
+    [activeService]
+  );
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero Animation
-      gsap.from(".hero-reveal", {
-        y: 60,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power4.out"
+      gsap.from('.services-reveal', {
+        autoAlpha: 0,
+        y: 44,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power3.out',
       });
 
-      // Section Reveals
-      const reveals = gsap.utils.toArray('.section-reveal');
-      reveals.forEach((el) => {
-        gsap.from(el, {
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-          },
-          y: 40,
-          opacity: 0,
-          duration: 1,
-          ease: "power3.out"
-        });
+      gsap.from('.service-selector-card', {
+        scrollTrigger: {
+          trigger: '.service-selector-section',
+          start: 'top 82%',
+        },
+        autoAlpha: 0,
+        y: 18,
+        stagger: 0.09,
+        duration: 0.55,
+        ease: 'power2.out',
       });
     }, mainRef);
 
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
-
-  const handleOpenService = (service) => {
-    setSelectedService(service);
-    setIsOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsOpen(false);
-  };
-
   return (
-    <div ref={mainRef} className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[600px] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            className="w-full h-full object-cover" 
-            src="https://images.unsplash.com/photo-1578926314433-ed0da05e0dd4?auto=format&fit=crop&w=2000&q=80" 
-            alt="Services Hero"
-            style={{ height: '100%' }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/15 to-transparent"></div>
+    <div ref={mainRef} className="overflow-hidden bg-[#F7FCFE] pt-20">
+      <section className="relative overflow-hidden px-6 py-20">
+        <div className="absolute inset-0">
+          <img src="/assets/services_hero.png" alt="" className="h-full w-full object-cover opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#F7FCFE] via-[#F7FCFE]/90 to-[#F7FCFE]/60" />
         </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
-          <div className="max-w-2xl">
-            <span className="hero-reveal font-bold text-[10px] tracking-[0.3em] text-blue-400 mb-6 block ">Our Services</span>
-            <h1 className="hero-reveal text-4xl md:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
-              Solutions for Every Mission
-            </h1>
-            <p className="hero-reveal text-lg md:text-xl text-slate-200 mb-10 leading-relaxed">
-              From precision agriculture to infrastructure inspection, we deliver professional drone services tailored to your needs.
+        <div className="relative mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <p className="services-reveal font-bold uppercase tracking-[0.16em] text-primary">Service Categories</p>
+            <h1 className="services-reveal mt-4 leading-tight text-navy">Choose the Right Drone Service for Your Operation</h1>
+            <p className="services-reveal mt-5 max-w-2xl text-slate-600">
+              Start from a service group, reveal its sub-services, and open the exact operation page your project needs.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-32 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="section-reveal text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Explore Our Services</h2>
-            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-              Click on any service card to learn more about capabilities, features, and benefits.
+      <section className="service-selector-section px-6 pb-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="font-bold uppercase tracking-[0.14em] text-primary">Services</p>
+              <h2 className="mt-2">Hover or tap a group to view its service options</h2>
+            </div>
+            <p className="max-w-md text-slate-600">
+              Each sub-service links to the relevant service page section for capabilities, applications, and enquiry flow.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {servicesData.map((service) => {
-              const CardWrapper = service.path ? Link : 'div';
-              const wrapperProps = service.path
-                ? { to: service.path }
-                : { onClick: () => handleOpenService(service) };
-
+          <div className="grid items-stretch gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {serviceGroups.map((group) => {
+              const isActive = activeService === group.name;
               return (
-              <CardWrapper
-                key={service.id}
-                {...wrapperProps}
-                className="section-reveal group block cursor-pointer"
-              >
-                <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl border border-slate-200 hover:border-blue-400/50 transition-all duration-500 hover:shadow-2xl h-96">
-                  {/* Background Image */}
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent"></div>
-
-                  {/* Content */}
-                  <div className="relative h-full flex flex-col justify-end p-10">
-                    <div className="bg-blue-500 text-white rounded-2xl p-4 w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
-                      {service.icon}
-                    </div>
-                    <h3 className="text-4xl font-bold text-white mb-2">{service.title}</h3>
-                    <p className="text-blue-100 text-lg mb-6">{service.subtitle}</p>
-                    <div className="flex items-center gap-3 text-white font-bold group-hover:translate-x-2 transition-transform">
-                      Explore <ArrowRight size={20} />
+                <button
+                  key={group.name}
+                  type="button"
+                  onMouseEnter={() => setActiveService(group.name)}
+                  onFocus={() => setActiveService(group.name)}
+                  onClick={() => setActiveService(group.name)}
+                  className={`service-selector-card group relative h-72 overflow-hidden rounded-3xl border text-left shadow-sm transition-all duration-300 ${
+                    isActive ? 'border-primary shadow-xl shadow-primary/15' : 'border-slate-200 hover:border-primary/50'
+                  }`}
+                >
+                  <img src={group.image} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className={`absolute inset-0 transition-colors ${isActive ? 'bg-navy/48' : 'bg-navy/66 group-hover:bg-navy/55'}`} />
+                  <div className="relative z-10 flex h-full flex-col justify-between p-6 text-white">
+                    <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/30">
+                      {group.icon}
+                    </span>
+                    <div>
+                      <p className="mb-2 font-bold uppercase tracking-[0.12em] text-primary">{group.eyebrow}</p>
+                      <h3 className="text-white">{group.name}</h3>
                     </div>
                   </div>
-                </div>
-              </CardWrapper>
+                </button>
               );
             })}
           </div>
-        </div>
-      </section>
 
-      {/* Modal for Expanded Service Details */}
-      {isOpen && selectedService && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4" onClick={handleCloseModal}>
-          <div 
-            className="bg-white rounded-3xl shadow-2xl max-h-[90vh] overflow-y-auto w-full max-w-5xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header with Image */}
-            <div className="relative h-96 md:h-[500px] overflow-hidden">
-              <img 
-                src={selectedService.image} 
-                alt={selectedService.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
-              
-              {/* Close Button */}
-              <button
-                onClick={handleCloseModal}
-                className="absolute top-6 right-6 bg-white/90 hover:bg-white text-slate-900 rounded-full p-3 transition-all shadow-lg hover:shadow-xl"
-              >
-                <X size={24} />
-              </button>
-
-              {/* Title Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-10">
-                <div className="bg-blue-500 text-white rounded-2xl p-4 w-fit mb-4">
-                  {selectedService.icon}
-                </div>
-                <h2 className="text-5xl font-bold text-slate-900">{selectedService.title}</h2>
-                <p className="text-xl text-slate-700 mt-2">{selectedService.subtitle}</p>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="p-10 md:p-16">
-              {/* Main Description */}
-              <p className="text-xl text-slate-600 leading-relaxed mb-12">
-                {selectedService.description}
-              </p>
-
-              {/* Features and Benefits Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-                {/* Features */}
-                <div>
-                  <h3 className="text-2xl font-bold mb-8 text-slate-900">Key Features</h3>
-                  <ul className="space-y-4">
-                    {selectedService.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-4">
-                        <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-                        <span className="text-slate-700 leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Benefits */}
-                <div>
-                  <h3 className="text-2xl font-bold mb-8 text-slate-900">Benefits</h3>
-                  <ul className="space-y-4">
-                    {selectedService.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start gap-4">
-                        <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
-                        <span className="text-slate-700 leading-relaxed">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
+          <div className="mt-8 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl">
+            <div className="grid lg:grid-cols-[0.78fr_1.22fr]">
+              <div className="relative min-h-80 overflow-hidden bg-slate-900">
+                <img src={selectedService.image} alt={selectedService.name} className="absolute inset-0 h-full w-full object-cover opacity-75" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/45 to-transparent" />
+                <div className="relative z-10 flex h-full min-h-80 flex-col justify-end p-8 text-white">
+                  <span className="mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/30">
+                    {selectedService.icon}
+                  </span>
+                  <p className="font-bold uppercase tracking-[0.14em] text-primary">Selected Service Group</p>
+                  <h2 className="mt-2 text-white">{selectedService.name}</h2>
+                  <p className="mt-4 text-white/80">{selectedService.description}</p>
                 </div>
               </div>
 
-              {/* CTA */}
-              <div className="flex gap-4">
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl">
-                  Get Started
-                </button>
-                <button 
-                  onClick={handleCloseModal}
-                  className="bg-slate-100 hover:bg-slate-200 text-slate-900 px-8 py-4 rounded-xl font-bold transition-all"
-                >
-                  Close
-                </button>
+              <div className="p-6 md:p-8">
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <div>
+                    <p className="font-bold uppercase tracking-[0.14em] text-primary">Service options</p>
+                    <h3 className="mt-1">{selectedService.items.length} options available</h3>
+                  </div>
+                  <Link
+                    to={selectedService.path}
+                    className="hidden rounded-xl border border-primary/20 px-4 py-2 font-bold text-primary transition hover:bg-primary hover:text-white sm:inline-flex"
+                  >
+                    Open Category
+                  </Link>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {selectedService.items.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={toServiceItemPath(selectedService, item.name)}
+                      className="group/item flex min-h-20 items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-primary/5 hover:shadow-lg hover:shadow-primary/10"
+                    >
+                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white text-primary shadow-sm transition group-hover/item:bg-primary group-hover/item:text-white">
+                        {item.icon}
+                      </span>
+                      <span className="flex-1 font-bold text-navy">{item.name}</span>
+                      <ChevronRight size={18} className="text-slate-400 transition group-hover/item:translate-x-1 group-hover/item:text-primary" />
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      )}
+      </section>
 
-      {/* CTA Section */}
-      <section className="py-24 max-w-7xl mx-auto px-8">
-        <div className="section-reveal bg-gradient-to-r from-blue-600 to-blue-500 rounded-[3rem] p-16 text-center text-white relative overflow-hidden">
-          <div className="relative z-10">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">Ready to Transform Your Operations?</h2>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Contact our team today for a consultation and discover how our drone solutions can elevate your business.
-            </p>
-            <button className="bg-white text-blue-600 px-12 py-5 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-2xl">
-              Schedule a Demo
-            </button>
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-7xl rounded-3xl bg-primary px-8 py-16 text-white shadow-2xl shadow-primary/20 md:px-12 md:py-20">
+          <div className="flex flex-col items-center justify-between gap-10 text-center lg:flex-row lg:text-left">
+            <div>
+              <h2 className="text-white">Ready to Transform Your Operations?</h2>
+              <p className="mt-3 text-blue-100/85">
+                Contact our team for agriculture, events, inspection, survey, mapping, and institutional UAV requirements.
+              </p>
+            </div>
+            <Link to="/contact" className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 font-bold text-primary shadow-xl transition hover:bg-slate-50 sm:w-auto">
+              Talk to Our Team <ArrowRight size={19} />
+            </Link>
           </div>
         </div>
       </section>

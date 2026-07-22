@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Flux Architect";
-  src: url("/fonts/Flux Architect Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: block;
-}
-
 @theme {
   --color-primary: #1E9FD4;
   --color-navy: #1A2A3A;
@@ -19,10 +11,10 @@
   --color-text-muted: #555555;
   --color-accent: #1E9FD4;
   
-  --font-heading: "Flux Architect", sans-serif;
-  --font-display: "Flux Architect", sans-serif;
-  --font-sketch: "Flux Architect", sans-serif;
-  --font-flux: "Flux Architect", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sketch: "Space Grotesk", sans-serif;
+  --font-flux: "Space Grotesk", sans-serif;
   --font-body: "Manrope", sans-serif;
   --font-sans: "Manrope", sans-serif;
   
@@ -34,12 +26,15 @@
 @layer base {
   body {
     @apply bg-background text-text font-sans antialiased overflow-x-hidden;
+    font-family: "Manrope", sans-serif;
     font-size: 16px;
     line-height: 1.65;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight text-navy;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
     line-height: 1.12;
   }
 
@@ -51,7 +46,7 @@
   select,
   textarea,
   button {
-    font: inherit;
+    font-family: "Manrope", sans-serif;
   }
 
   input,
@@ -75,9 +70,32 @@
   h5,
   h6,
   [class*="font-[Space_Grotesk]"] {
-    font-family: "Flux Architect", sans-serif !important;
-    font-weight: 400 !important;
+    font-family: "Space Grotesk", sans-serif !important;
+    font-weight: 700 !important;
     font-synthesis: none;
+  }
+
+  .font-body,
+  .font-sans,
+  nav,
+  nav a,
+  nav button,
+  button,
+  [role="button"] {
+    font-family: "Manrope", sans-serif !important;
+  }
+
+  nav .font-display,
+  nav .font-heading,
+  nav .font-flux,
+  nav .font-sketch,
+  button.font-display,
+  a.font-display[class*="bg-"],
+  a.font-display[class*="rounded"],
+  a.font-display.inline-flex,
+  [role="button"].font-display {
+    font-family: "Manrope", sans-serif !important;
+    font-weight: 600 !important;
   }
 
   .home-section-banner {
@@ -208,6 +226,133 @@
   transform-origin: center center;
 }
 
+.selector-card,
+.service-selector-card,
+.team-3d-card,
+.offer-card,
+.review-card,
+.client-logo-card,
+.fleet-card,
+.feature-card,
+.testimonial-card,
+.course-card,
+.day-card,
+.gallery-item,
+article[class*="rounded-3xl"],
+div[class*="rounded-3xl"][class*="bg-white"],
+section[class*="rounded-3xl"][class*="bg-white"] {
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, box-shadow, border-color;
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 420ms ease,
+    filter 420ms ease;
+}
+
+.selector-card::after,
+.service-selector-card::after,
+.team-3d-card::after,
+.offer-card::after,
+.review-card::after,
+.fleet-card::after,
+.feature-card::after,
+.testimonial-card::after,
+.course-card::after,
+.day-card::after,
+.gallery-item::after,
+article[class*="rounded-3xl"]::after,
+div[class*="rounded-3xl"][class*="bg-white"]::after,
+section[class*="rounded-3xl"][class*="bg-white"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  border-radius: inherit;
+  background:
+    linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.34) 42%, rgba(255, 255, 255, 0.72) 50%, rgba(255, 255, 255, 0.18) 58%, transparent 74%),
+    radial-gradient(circle at 20% 0%, rgba(30, 159, 212, 0.16), transparent 38%);
+  opacity: 0;
+  transform: translateX(-55%) skewX(-12deg);
+  transition: opacity 420ms ease, transform 820ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.selector-card:hover,
+.service-selector-card:hover,
+.team-3d-card:hover,
+.offer-card:hover,
+.review-card:hover,
+.client-logo-card:hover,
+.fleet-card:hover,
+.feature-card:hover,
+.testimonial-card:hover,
+.course-card:hover,
+.day-card:hover,
+.gallery-item:hover,
+article[class*="rounded-3xl"]:hover,
+div[class*="rounded-3xl"][class*="bg-white"]:hover,
+section[class*="rounded-3xl"][class*="bg-white"]:hover {
+  transform: translateY(-10px) rotateX(2deg) rotateY(-2deg) scale(1.012);
+  border-color: rgba(30, 159, 212, 0.55) !important;
+  box-shadow:
+    0 30px 70px rgba(30, 159, 212, 0.2),
+    0 10px 24px rgba(15, 23, 42, 0.08) !important;
+  filter: saturate(1.04);
+}
+
+.selector-card:hover::after,
+.service-selector-card:hover::after,
+.team-3d-card:hover::after,
+.offer-card:hover::after,
+.review-card:hover::after,
+.fleet-card:hover::after,
+.feature-card:hover::after,
+.testimonial-card:hover::after,
+.course-card:hover::after,
+.day-card:hover::after,
+.gallery-item:hover::after,
+article[class*="rounded-3xl"]:hover::after,
+div[class*="rounded-3xl"][class*="bg-white"]:hover::after,
+section[class*="rounded-3xl"][class*="bg-white"]:hover::after {
+  opacity: 1;
+  transform: translateX(65%) skewX(-12deg);
+}
+
+.selector-card > *,
+.service-selector-card > *,
+.team-3d-card > *,
+.offer-card > *,
+.review-card > *,
+.fleet-card > *,
+.feature-card > *,
+.testimonial-card > *,
+.course-card > *,
+.day-card > *,
+.gallery-item > *,
+article[class*="rounded-3xl"] > *,
+div[class*="rounded-3xl"][class*="bg-white"] > *,
+section[class*="rounded-3xl"][class*="bg-white"] > * {
+  position: relative;
+  z-index: 2;
+}
+
+.selector-card > img,
+.selector-card > .absolute,
+.service-selector-card > img,
+.service-selector-card > .absolute {
+  position: absolute;
+  z-index: 0;
+}
+
+.selector-card > .relative,
+.service-selector-card > .relative {
+  position: relative;
+  z-index: 10;
+}
+
 .reach-carousel-stage {
   padding-block: 3rem;
 }
@@ -222,6 +367,44 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selector-card,
+  .service-selector-card,
+  .team-3d-card,
+  .offer-card,
+  .review-card,
+  .client-logo-card,
+  .fleet-card,
+  .feature-card,
+  .testimonial-card,
+  .course-card,
+  .day-card,
+  .gallery-item,
+  article[class*="rounded-3xl"],
+  div[class*="rounded-3xl"][class*="bg-white"],
+  section[class*="rounded-3xl"][class*="bg-white"] {
+    transition-duration: 1ms !important;
+  }
+
+  .selector-card:hover,
+  .service-selector-card:hover,
+  .team-3d-card:hover,
+  .offer-card:hover,
+  .review-card:hover,
+  .client-logo-card:hover,
+  .fleet-card:hover,
+  .feature-card:hover,
+  .testimonial-card:hover,
+  .course-card:hover,
+  .day-card:hover,
+  .gallery-item:hover,
+  article[class*="rounded-3xl"]:hover,
+  div[class*="rounded-3xl"][class*="bg-white"]:hover,
+  section[class*="rounded-3xl"][class*="bg-white"]:hover {
+    transform: none;
   }
 }
 
@@ -326,9 +509,11 @@
 }
 
 .review-carousel-mask {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   position: relative;
   width: 100%;
+  padding-block: 1.25rem 2.25rem;
 }
 
 .review-carousel-mask::before,
@@ -357,6 +542,7 @@
   width: max-content;
   gap: 1.5rem;
   animation: review-scroll 58s linear infinite;
+  padding-block: 0.75rem;
 }
 
 .review-carousel-mask:hover .review-carousel-track {
@@ -415,10 +601,13 @@
 .offer-card {
   width: min(350px, calc(100vw - 3rem));
   flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 452px;
   overflow: hidden;
   border-radius: 1.5rem;
   border: 1px solid #dcecf4;
-  background: #ffffff;
+  background: var(--offer-tint, #ffffff);
   box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
   transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
 }
@@ -463,8 +652,8 @@
   line-height: 1.55rem;
 }
 
-/* The Flux Architect font is uppercase-only and visually wide, so cap heading
-   scale globally to keep layouts calm and prevent crowded sections. */
+/* Professional institutional type scale: cap headings globally to keep layouts
+   calm, readable, and document-like across pages. */
 h1,
 h2,
 h3,
