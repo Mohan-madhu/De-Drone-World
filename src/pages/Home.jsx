@@ -214,6 +214,9 @@ const realNumbers = [
 
 const formatIndianNumber = (value) => Number(value).toLocaleString('en-IN');
 
+const ADMISSION_POPUP_SESSION_KEY = 'deDroneWorldAdmissionPopupSeen';
+const ADMISSION_REGISTER_URL = '';
+
 const preloadImage = (src) =>
   new Promise((resolve) => {
     const image = new Image();
@@ -261,6 +264,33 @@ const Home = () => {
   const statsSectionRef = useRef(null);
   const testimonialsSectionRef = useRef(null);
   const gallerySectionRef = useRef(null);
+  const [showAdmissionPopup, setShowAdmissionPopup] = useState(false);
+  const [showAdmissionSplash, setShowAdmissionSplash] = useState(true);
+  const [isAdmissionVisible, setIsAdmissionVisible] = useState(false);
+
+  useEffect(() => {
+    const alreadySeenPopup = window.sessionStorage.getItem(ADMISSION_POPUP_SESSION_KEY) === 'true';
+
+    const splashTimeout = window.setTimeout(() => {
+      setShowAdmissionSplash(false);
+
+      if (!alreadySeenPopup) {
+        setShowAdmissionPopup(true);
+        setIsAdmissionVisible(true);
+        window.sessionStorage.setItem(ADMISSION_POPUP_SESSION_KEY, 'true');
+      }
+    }, 2800);
+
+    return () => window.clearTimeout(splashTimeout);
+  }, []);
+
+  const closeAdmissionPopup = () => {
+    setIsAdmissionVisible(false);
+
+    window.setTimeout(() => {
+      setShowAdmissionPopup(false);
+    }, 220);
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -539,6 +569,85 @@ const Home = () => {
 
   return (
     <div ref={mainRef} className="overflow-hidden">
+      {showAdmissionSplash && (
+        <div className="fixed inset-0 z-[1100] flex items-center justify-center bg-[#081a25]/95 px-6 text-center backdrop-blur-md">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(30,159,212,0.28),transparent_58%),linear-gradient(135deg,rgba(255,255,255,0.06),transparent_45%)]" />
+          <div className="relative z-10 flex max-w-md flex-col items-center rounded-[2rem] border border-white/15 bg-white/8 px-8 py-10 shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
+            <img src="/assets/logo.png" alt="De Drone World logo" className="h-24 w-24 object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.35)]" />
+            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Loading your experience</p>
+            <h2 className="mt-3 text-3xl text-white">De Drone World</h2>
+            <div className="mt-8 flex items-center gap-2">
+              <span className="h-3 w-3 animate-pulse rounded-full bg-primary" />
+              <span className="h-3 w-3 animate-pulse rounded-full bg-white/80 [animation-delay:150ms]" />
+              <span className="h-3 w-3 animate-pulse rounded-full bg-primary/70 [animation-delay:300ms]" />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showAdmissionPopup && (
+        <div className={`fixed inset-0 z-[1090] flex items-center justify-center bg-slate-950/70 px-4 py-6 backdrop-blur-sm transition-opacity duration-200 ${isAdmissionVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`relative w-full max-w-4xl overflow-hidden rounded-[2rem] bg-white shadow-[0_30px_100px_rgba(15,23,42,0.4)] transition-transform duration-200 ${isAdmissionVisible ? 'scale-100' : 'scale-95'}`}>
+            <button
+              type="button"
+              onClick={closeAdmissionPopup}
+              className="absolute right-4 top-4 z-20 grid h-11 w-11 place-items-center rounded-full bg-white text-slate-700 shadow-lg transition hover:bg-slate-100"
+              aria-label="Close admissions popup"
+            >
+              <span className="text-2xl leading-none">×</span>
+            </button>
+
+            <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="relative min-h-[320px] bg-slate-100 lg:min-h-[640px]">
+                <img
+                  src="/assets/home_hero.png"
+                  alt="Admissions poster placeholder"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-slate-950/10 to-transparent" />
+                <div className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-primary shadow-lg">
+                  Admissions 2026
+                </div>
+              </div>
+
+              <div className="flex flex-col justify-between gap-8 px-6 py-7 sm:px-8 sm:py-8 lg:px-9 lg:py-10">
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">New intake open</p>
+                  <h2 className="mt-3 text-3xl text-navy sm:text-4xl">Start your drone journey with De Drone World</h2>
+                  <p className="mt-4 max-w-xl text-base text-slate-600 sm:text-lg">
+                    This is a temporary admissions banner placeholder. Replace the image and register link when you share the final details.
+                  </p>
+
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+                      <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Programs</p>
+                      <p className="mt-1 text-sm font-semibold text-navy">Training, inspection, mapping, and operations</p>
+                    </div>
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+                      <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Status</p>
+                      <p className="mt-1 text-sm font-semibold text-navy">Popup shown once per browser session</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <button
+                    type="button"
+                    disabled={!ADMISSION_REGISTER_URL}
+                    className="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-6 py-4 text-base font-bold text-white shadow-xl shadow-primary/20 transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none"
+                  >
+                    Register Now
+                  </button>
+                  <p className="text-center text-sm text-slate-500">
+                    Register link is not connected yet. Share it when ready and I will wire it in.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="relative h-[90vh] min-h-[700px] flex items-center justify-center overflow-hidden pt-[104px] parallax-container">
         <div className="absolute inset-0 z-0">
