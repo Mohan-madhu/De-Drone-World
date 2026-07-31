@@ -128,6 +128,12 @@ const serviceSubMenus = {
 const toServiceItemPath = (category, name) =>
   `${category.path}#${name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
 
+const announcements = [
+  'Admissions Open for B.Tech Avionics and Drone Engineering',
+  'Admissions Open for DGCA Approved Small Class Drone License',
+  'Internships for One Month',
+];
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -266,6 +272,17 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
+
+      <div className="announcement-marquee border-y border-primary/15 bg-navy text-white">
+        <div className="announcement-marquee-track">
+          {[...announcements, ...announcements, ...announcements].map((item, index) => (
+            <span key={`${item}-${index}`} className="announcement-marquee-item">
+              <span className="announcement-marquee-dot" aria-hidden="true" />
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
 
       {isMobileMenuOpen && (
         <div className="xl:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 flex flex-col">

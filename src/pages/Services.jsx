@@ -128,7 +128,7 @@ const Services = () => {
   }, []);
 
   return (
-    <div ref={mainRef} className="overflow-hidden bg-[#F7FCFE] pt-20">
+    <div ref={mainRef} className="overflow-hidden bg-[#F7FCFE] pt-[104px]">
       <section className="relative overflow-hidden px-6 py-20">
         <div className="absolute inset-0">
           <img src="/assets/services_hero.png" alt="" className="h-full w-full object-cover opacity-25" />

@@ -195,7 +195,7 @@ export default function SurveyMappingServices() {
 
   return (
     <div ref={mainRef} className="overflow-hidden bg-slate-50">
-      <section className="relative flex min-h-[560px] items-center overflow-hidden bg-slate-950 px-6 pb-12 pt-24 text-white md:min-h-[620px]">
+      <section className="relative flex min-h-[560px] items-center overflow-hidden bg-slate-950 px-6 pb-12 pt-[132px] text-white md:min-h-[620px]">
         <img
           src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=2000&q=80"
           alt="Survey and 3D mapping services"

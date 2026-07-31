@@ -191,7 +191,7 @@ export default function EventServices() {
 
   return (
     <div ref={mainRef} className="overflow-hidden bg-slate-50">
-      <section className="relative flex min-h-[560px] items-center overflow-hidden bg-slate-950 px-6 pb-12 pt-24 text-white md:min-h-[620px]">
+      <section className="relative flex min-h-[560px] items-center overflow-hidden bg-slate-950 px-6 pb-12 pt-[132px] text-white md:min-h-[620px]">
         <img
           src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=80"
           alt="Drone event services"

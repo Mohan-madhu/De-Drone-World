@@ -32,7 +32,7 @@ const media = [
 
 export default function SocialMedia() {
   return (
-    <div className="min-h-screen bg-[#F5FAFC] pt-[67px] text-navy">
+    <div className="min-h-screen bg-[#F5FAFC] pt-[104px] text-navy">
       <section className="relative overflow-hidden bg-navy px-6 py-16 text-white">
         <div className="absolute inset-0 opacity-25">
           <img src="/assets/home_hero.png" alt="" className="h-full w-full object-cover" />

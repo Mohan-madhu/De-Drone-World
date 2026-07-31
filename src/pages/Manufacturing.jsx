@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Settings, Handshake, Box, Layers, ShieldCheck, Zap } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Manufacturing = () => {
   const mainRef = useRef(null);
@@ -51,7 +53,7 @@ const Manufacturing = () => {
   return (
     <div ref={mainRef} className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[600px] flex items-center overflow-hidden pt-16 parallax-container">
+      <section className="relative h-[70vh] min-h-[600px] flex items-center overflow-hidden pt-[104px] parallax-container">
         <div className="absolute inset-0 z-0">
           <img 
             className="w-full h-full object-cover parallax-bg" 

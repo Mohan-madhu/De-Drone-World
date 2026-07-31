@@ -1762,7 +1762,7 @@ export default function ProgramDetail() {
   if (!program) return <Navigate to="/training" replace />;
 
   return (
-    <div className="bg-slate-50 pt-16">
+    <div className="bg-slate-50 pt-[104px]">
       <section className="relative overflow-hidden bg-[#F0FAFF] px-6 py-16 text-navy md:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(30,159,212,0.16),transparent_42%),radial-gradient(circle_at_82%_10%,rgba(255,255,255,0.85),transparent_42%)]" />
         <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1fr_420px]">

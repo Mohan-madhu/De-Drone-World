@@ -176,6 +176,60 @@
   will-change: transform;
 }
 
+.announcement-marquee {
+  height: 36px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.announcement-marquee-track {
+  display: flex;
+  width: max-content;
+  min-width: 100%;
+  animation: announcement-marquee-scroll 28s linear infinite;
+}
+
+.announcement-marquee:hover .announcement-marquee-track {
+  animation-play-state: paused;
+}
+
+.announcement-marquee-item {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 0.65rem;
+  padding-inline: 1.75rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.announcement-marquee-dot {
+  height: 0.48rem;
+  width: 0.48rem;
+  flex: 0 0 auto;
+  border-radius: 9999px;
+  background: #1E9FD4;
+  box-shadow: 0 0 0 5px rgba(30, 159, 212, 0.2);
+}
+
+@keyframes announcement-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement-marquee-track {
+    animation-duration: 60s;
+  }
+}
+
 .parallax-container {
   overflow: hidden;
   position: relative;

@@ -157,7 +157,7 @@ export default function AgricultureServices() {
 
   return (
     <div ref={mainRef} className="overflow-hidden bg-slate-50">
-      <section className="relative flex min-h-[560px] items-center overflow-hidden bg-slate-950 px-6 pb-12 pt-24 text-white md:min-h-[620px]">
+      <section className="relative flex min-h-[560px] items-center overflow-hidden bg-slate-950 px-6 pb-12 pt-[132px] text-white md:min-h-[620px]">
         <img
           src="/assets/services_hero.png"
           alt="Agriculture drone service"

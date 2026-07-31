@@ -178,7 +178,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white pt-20">
+    <div className="min-h-screen bg-white pt-[104px]">
       <section className="relative overflow-hidden bg-[#F4FAFD] px-6 py-20">
         <div className="absolute inset-y-0 right-0 hidden w-1/2 overflow-hidden lg:block">
           <img src="/assets/home_hero.png" alt="" className="h-full w-full object-cover opacity-20" />

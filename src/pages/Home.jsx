@@ -540,7 +540,7 @@ const Home = () => {
   return (
     <div ref={mainRef} className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-[90vh] min-h-[700px] flex items-center justify-center overflow-hidden pt-16 parallax-container">
+      <section className="relative h-[90vh] min-h-[700px] flex items-center justify-center overflow-hidden pt-[104px] parallax-container">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
