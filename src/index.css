@@ -224,9 +224,22 @@
   }
 }
 
+@keyframes loader-sweep {
+  0% {
+    transform: translateX(-130%);
+  }
+  100% {
+    transform: translateX(430%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .announcement-marquee-track {
     animation-duration: 60s;
+  }
+
+  .animate-\[loader-sweep_1\.2s_ease-in-out_infinite\] {
+    animation: none;
   }
 }
 

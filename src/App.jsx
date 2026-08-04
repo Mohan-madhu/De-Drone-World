@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import lottie from 'lottie-web';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -21,7 +22,7 @@ import SocialMedia from './pages/SocialMedia';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const API_BASE = 'https://dine360.ca/api'; 
+const API_BASE = 'https://dine360.ca'; 
 
 function getVisitorId() {
   let vid = localStorage.getItem('vid');
@@ -57,12 +58,20 @@ const ScrollToTop = () => {
 
 function App() {
   const { pathname } = useLocation();
+  const [showStartupLoader, setShowStartupLoader] = useState(true);
+  const loaderContainerRef = useRef(null);
+  const loaderInstanceRef = useRef(null);
+  const isLocalDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
   useEffect(() => {
+    if (isLocalDevelopment) {
+      return undefined;
+    }
+
     const visitorId = getVisitorId();
     const startTime = Date.now();
 
-    postJson(`${API_BASE}/api/track`, {
+    void postJson(`${API_BASE}/api/track`, {
       userAgent: navigator.userAgent,
       platform: navigator.platform,
       language: navigator.language,
@@ -73,21 +82,21 @@ function App() {
       connection: navigator.connection?.effectiveType || 'unknown',
       visitorId,
       page: window.location.pathname
-    });
+    }).catch(() => {});
 
     const handleVisibilityChange = () => {
-      postJson(`${API_BASE}/api/visibility`, {
+      void postJson(`${API_BASE}/api/visibility`, {
         visitorId,
         state: document.visibilityState
-      });
+      }).catch(() => {});
     };
 
     const handleClick = (event) => {
-      postJson(`${API_BASE}/api/click`, {
+      void postJson(`${API_BASE}/api/click`, {
         visitorId,
         x: event.clientX,
         y: event.clientY
-      });
+      }).catch(() => {});
     };
 
     const handleBeforeUnload = () => {
@@ -111,10 +120,84 @@ function App() {
       document.removeEventListener('click', handleClick);
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  }, [pathname]);
+  }, [pathname, isLocalDevelopment]);
+
+  useEffect(() => {
+    const minimumLoaderDuration = 2800;
+    const startedAt = Date.now();
+    let timeoutId;
+
+    const finishLoader = () => {
+      const elapsed = Date.now() - startedAt;
+      const waitTime = Math.max(minimumLoaderDuration - elapsed, 0);
+
+      timeoutId = window.setTimeout(() => {
+        setShowStartupLoader(false);
+      }, waitTime);
+    };
+
+    if (document.readyState === 'complete') {
+      finishLoader();
+    } else {
+      window.addEventListener('load', finishLoader, { once: true });
+    }
+
+    return () => {
+      window.clearTimeout(timeoutId);
+      window.removeEventListener('load', finishLoader);
+    };
+  }, []);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetch('/assets/drone-pilot-loader.json')
+      .then((response) => response.json())
+      .then((animationData) => {
+        if (!isMounted || !loaderContainerRef.current) {
+          return;
+        }
+
+        if (loaderInstanceRef.current) {
+          loaderInstanceRef.current.destroy();
+        }
+
+        loaderInstanceRef.current = lottie.loadAnimation({
+          container: loaderContainerRef.current,
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          animationData,
+        });
+      })
+      .catch(() => {});
+
+    return () => {
+      isMounted = false;
+
+      if (loaderInstanceRef.current) {
+        loaderInstanceRef.current.destroy();
+        loaderInstanceRef.current = null;
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      {showStartupLoader && (
+        <div className="fixed inset-0 z-[1200] flex items-center justify-center overflow-hidden bg-white/20 px-6 text-center backdrop-blur-xl">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.5),transparent_45%),radial-gradient(circle_at_bottom,rgba(30,159,212,0.18),transparent_52%)]" />
+          <div className="relative z-10 flex w-full max-w-md flex-col items-center rounded-[2rem] border border-white/35 bg-white/20 px-6 py-8 shadow-[0_24px_80px_rgba(15,23,42,0.18)] backdrop-blur-2xl sm:px-8 sm:py-10">
+            <div className="w-full max-w-[320px]">
+              <div ref={loaderContainerRef} className="min-h-[320px]" />
+            </div>
+            <div className="mt-2 space-y-2 text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/75">Loading De Drone World</p>
+              <h2 className="text-3xl text-slate-900 sm:text-4xl">Please wait a moment</h2>
+            </div>
+          </div>
+        </div>
+      )}
       <SEO />
       <Navbar />
       <main className="flex-grow">
