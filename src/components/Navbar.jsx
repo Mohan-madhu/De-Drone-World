@@ -195,7 +195,7 @@ const Navbar = () => {
                 </NavLink>
 
                 <div
-                  className="absolute top-[calc(100%-1px)] left-1/2 -translate-x-1/2 opacity-0 -translate-y-2 pointer-events-none transition-all duration-150 group-hover/training:opacity-100 group-hover/training:translate-y-0 group-hover/training:pointer-events-auto"
+                  className="absolute top-[calc(100%-1px)] left-1/2 z-60 -translate-x-1/2 opacity-0 -translate-y-2 pointer-events-none transition-all duration-150 group-hover/training:opacity-100 group-hover/training:translate-y-0 group-hover/training:pointer-events-auto"
                 >
                   <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 min-w-[220px]">
                     <div className="px-4 py-2 bg-slate-50 border-b border-slate-100">
@@ -273,7 +273,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="announcement-marquee bg-transparent text-red-600 mt-4">
+      <div className="announcement-marquee relative z-0 bg-transparent text-red-600 mt-4">
         <div className="announcement-marquee-track">
           {[...announcements, ...announcements, ...announcements].map((item, index) => (
             <a 
