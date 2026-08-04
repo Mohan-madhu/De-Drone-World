@@ -562,18 +562,18 @@ const Home = () => {
     <div ref={mainRef} className="overflow-hidden">
       {showAdmissionPopup && (
         <div className={`fixed inset-0 z-[1180] flex items-center justify-center bg-slate-950/70 px-4 py-6 backdrop-blur-sm transition-opacity duration-200 ${isAdmissionVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <div className={`relative w-full max-w-4xl overflow-hidden rounded-[2rem] bg-white shadow-[0_30px_100px_rgba(15,23,42,0.4)] transition-transform duration-200 ${isAdmissionVisible ? 'scale-100' : 'scale-95'}`}>
+          <div className={`relative w-full max-w-[496px] overflow-hidden rounded-[2rem] bg-white shadow-[0_30px_100px_rgba(15,23,42,0.4)] transition-transform duration-200 ${isAdmissionVisible ? 'scale-100' : 'scale-95'}`}>
             <button
               type="button"
               onClick={closeAdmissionPopup}
-              className="absolute right-4 top-4 z-20 grid h-11 w-11 place-items-center rounded-full bg-white text-slate-700 shadow-lg transition hover:bg-slate-100"
+              className="absolute right-3 top-3 z-20 grid h-11 w-11 place-items-center rounded-full bg-white text-slate-700 shadow-lg transition hover:bg-slate-100"
               aria-label="Close admissions popup"
             >
               <span className="text-2xl leading-none">×</span>
             </button>
 
-            <div className="flex flex-col items-center gap-3 p-2 sm:p-3 lg:p-4">
-              <div className="relative w-full lg:w-[60%]">
+            <div className="flex flex-col items-center gap-3 p-1 pb-4">
+              <div className="relative w-full">
                 <div className="relative aspect-square overflow-hidden rounded-[1.5rem] bg-slate-100 shadow-[0_18px_60px_rgba(15,23,42,0.18)]">
                   <img
                     src="/assets/admission-open-2026-2027.png"
