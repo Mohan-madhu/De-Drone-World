@@ -273,7 +273,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="announcement-marquee bg-transparent text-red-600 mt-1.5">
+      <div className="announcement-marquee bg-transparent text-red-600 mt-4">
         <div className="announcement-marquee-track">
           {[...announcements, ...announcements, ...announcements].map((item, index) => (
             <a 
