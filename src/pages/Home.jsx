@@ -49,68 +49,6 @@ const clientCategories = [
   'Industry & Aviation Partners',
 ];
 
-const reviews = [
-  {
-    name: "George Kamini",
-    meta: "3 months ago",
-    text: "Hi everyone go ahead and got drone certification from user friendly De drone world one the best training center in Tamilnadu. User friendly.",
-  },
-  {
-    name: "Rahul Raj",
-    meta: "10 months ago",
-    text: "DE Drone World is an outstanding destination for drone enthusiasts, whether you're a beginner or a seasoned professional.",
-  },
-  {
-    name: "Monish Dharan",
-    meta: "4 months ago",
-    text: "I had an excellent experience with this company. Their team is highly professional, responsive, and committed to delivering quality results.",
-  },
-  {
-    name: "Swetha",
-    meta: "4 months ago",
-    text: "It is very useful to learn about drone technology. DE Drone World teaches with clear explanation and cleared all doubts from survey class.",
-  },
-  {
-    name: "Dharini Jayaraj",
-    meta: "4 months ago",
-    text: "I attended a workshop on drone survey in De Drone World Solutions. It is a good place to gain knowledge about drones.",
-  },
-  {
-    name: "Bhavavijayan",
-    meta: "4 months ago",
-    text: "I really enjoyed the drone survey workshop and all the information presented was relevant and important.",
-  },
-  {
-    name: "Hari Krish",
-    meta: "9 months ago",
-    text: "I had an excellent experience in DE Drone World as a student of HICET. Their seminar was well explained and practical oriented.",
-  },
-  {
-    name: "Vandhinika Senthilkumar",
-    meta: "10 months ago",
-    text: "I had a great learning experience interacting with Dedrone World Pvt Ltd as a student. The team was knowledgeable and the drone technology was impressive.",
-  },
-  {
-    name: "Yamini Janardhanan",
-    meta: "10 months ago",
-    text: "Flying a drone for the first time was a new experience, and I learned a lot about how drones work from the one-day workshop.",
-  },
-  {
-    name: "Karthikeyan K",
-    meta: "5 months ago",
-    text: "DE Drone World cleared my basic doubts about drones, and I enjoyed using their simulator.",
-  },
-  {
-    name: "Apoorna Devaraj",
-    meta: "5 months ago",
-    text: "It was an excellent class to attend and I learned a lot in this class.",
-  },
-  {
-    name: "Saravana Velu",
-    meta: "10 months ago",
-    text: "Best place to learn about drones. Great environment.",
-  },
-];
 
 const serviceAndTrainingCards = [
   {
@@ -721,25 +659,24 @@ const Home = () => {
           <span className="bg-navy/5 border border-primary/20 text-navy px-5 py-2 rounded-full font-bold text-sm backdrop-blur-sm">Class: Small</span>
         </div>
 
-        <div className="reach-carousel-mask carousel-full-bleed reach-carousel-stage py-4 md:py-8">
-          <div className="reach-carousel-track py-6 md:py-8">
-            {[...certificates, ...certificates].map((cert, index) => (
+        <div className="mx-auto max-w-7xl px-6 py-4 md:py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {certificates.map((cert, index) => (
               <article
                 key={`${cert.src}-${index}`}
-                className="reach-carousel-card group w-[260px] flex-none cursor-zoom-in overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-xl transition-all duration-300 hover:-translate-y-1 md:w-[340px]"
-                onMouseEnter={() => setHoveredCert(cert)}
-                onMouseLeave={() => setHoveredCert(null)}
+                className="group cursor-zoom-in overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-xl transition-all duration-300 hover:-translate-y-1"
+                onClick={() => setHoveredCert(cert)}
               >
-                <div className="aspect-[4/3] overflow-hidden bg-slate-50">
+                <div className="aspect-square overflow-hidden bg-slate-50">
                   <img
                     src={cert.src}
                     alt={cert.title}
-                    className="h-full w-full object-contain p-3 transition-transform duration-700 group-hover:scale-105"
+                    className="h-full w-full object-contain p-4 transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="px-4 py-3 border-t border-slate-100 flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></div>
-                  <p className="text-navy font-display text-sm">{cert.title}</p>
+                <div className="px-4 py-4 border-t border-slate-100 flex items-start gap-2 h-full bg-white">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1.5"></div>
+                  <p className="text-navy font-display text-sm leading-snug font-medium">{cert.title}</p>
                 </div>
               </article>
             ))}
@@ -747,14 +684,18 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Certificate Fullscreen Hover Overlay */}
+      {/* Certificate Fullscreen Click Overlay */}
       <div
-        className={`fixed inset-0 z-[999] flex items-center justify-center transition-all duration-300 pointer-events-none ${
-          hoveredCert ? 'opacity-100 backdrop-blur-md bg-black/75' : 'opacity-0'
+        className={`fixed inset-0 z-[999] flex items-center justify-center transition-all duration-300 ${
+          hoveredCert ? 'opacity-100 backdrop-blur-md bg-black/75 pointer-events-auto cursor-zoom-out' : 'opacity-0 pointer-events-none'
         }`}
+        onClick={() => setHoveredCert(null)}
       >
         {hoveredCert && (
-          <div className="inline-flex flex-col rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 max-h-[90vh] max-w-[90vw]">
+          <div 
+            className="inline-flex flex-col rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 max-h-[90vh] max-w-[90vw] cursor-default"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img
               src={hoveredCert.src}
               alt={hoveredCert.title}
@@ -791,41 +732,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION C — Student Testimonials */}
-      <section ref={testimonialsSectionRef} className="bg-[#F0FAFF] py-0 overflow-hidden">
-        <HomeSectionBanner
-          eyebrow="Google Reviews"
-          icon={Quote}
-          lines={['Voices', 'from learners...']}
-          color="#58BFE0"
-        />
-
-        <div className="mx-auto pb-20">
-          <div className="review-carousel-mask carousel-full-bleed">
-            <div className="review-carousel-track">
-              {[...reviews, ...reviews].map((review, index) => (
-                <article key={`${review.name}-${index}`} className="testimonial-card review-card">
-                  <div className="mb-5 flex items-center gap-4">
-                    <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-primary text-lg text-white font-display">
-                      {review.name
-                        .split(' ')
-                        .map((part) => part[0])
-                        .join('')
-                        .slice(0, 2)}
-                    </div>
-                    <div className="text-left">
-                      <h3 className="text-xs text-navy font-display sm:text-sm">{review.name}</h3>
-                      <p className="text-xs text-slate-500 font-sans">{review.meta}</p>
-                    </div>
-                  </div>
-                  <div className="mb-4 text-lg text-primary">★★★★★</div>
-                  <p className="text-sm italic leading-relaxed text-[#555555] font-sans">"{review.text}"</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Enterprise Solutions Section */}
       <section className="bg-white py-0 overflow-hidden">

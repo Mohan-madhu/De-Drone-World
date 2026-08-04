@@ -15,10 +15,74 @@ import {
   Target,
   Users,
   Wrench,
+  Quote,
 } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const reviews = [
+  {
+    name: "George Kamini",
+    meta: "3 months ago",
+    text: "Hi everyone go ahead and got drone certification from user friendly De drone world one the best training center in Tamilnadu. User friendly.",
+  },
+  {
+    name: "Rahul Raj",
+    meta: "10 months ago",
+    text: "DE Drone World is an outstanding destination for drone enthusiasts, whether you're a beginner or a seasoned professional.",
+  },
+  {
+    name: "Monish Dharan",
+    meta: "4 months ago",
+    text: "I had an excellent experience with this company. Their team is highly professional, responsive, and committed to delivering quality results.",
+  },
+  {
+    name: "Swetha",
+    meta: "4 months ago",
+    text: "It is very useful to learn about drone technology. DE Drone World teaches with clear explanation and cleared all doubts from survey class.",
+  },
+  {
+    name: "Dharini Jayaraj",
+    meta: "4 months ago",
+    text: "I attended a workshop on drone survey in De Drone World Solutions. It is a good place to gain knowledge about drones.",
+  },
+  {
+    name: "Bhavavijayan",
+    meta: "4 months ago",
+    text: "I really enjoyed the drone survey workshop and all the information presented was relevant and important.",
+  },
+  {
+    name: "Hari Krish",
+    meta: "9 months ago",
+    text: "I had an excellent experience in DE Drone World as a student of HICET. Their seminar was well explained and practical oriented.",
+  },
+  {
+    name: "Vandhinika Senthilkumar",
+    meta: "10 months ago",
+    text: "I had a great learning experience interacting with Dedrone World Pvt Ltd as a student. The team was knowledgeable and the drone technology was impressive.",
+  },
+  {
+    name: "Yamini Janardhanan",
+    meta: "10 months ago",
+    text: "Flying a drone for the first time was a new experience, and I learned a lot about how drones work from the one-day workshop.",
+  },
+  {
+    name: "Karthikeyan K",
+    meta: "5 months ago",
+    text: "DE Drone World cleared my basic doubts about drones, and I enjoyed using their simulator.",
+  },
+  {
+    name: "Apoorna Devaraj",
+    meta: "5 months ago",
+    text: "It was an excellent class to attend and I learned a lot in this class.",
+  },
+  {
+    name: "Saravana Velu",
+    meta: "10 months ago",
+    text: "Best place to learn about drones. Great environment.",
+  },
+];
 
 const teamMembers = [
   {
@@ -347,6 +411,38 @@ const About = () => {
             <video autoPlay loop muted playsInline className="aspect-video h-full w-full object-cover">
               <source src="/assets/infra.mp4" type="video/mp4" />
             </video>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION C — Student Testimonials */}
+      <section className="bg-[#F0FAFF] py-0 overflow-hidden">
+        <SectionBanner
+          eyebrow="Google Reviews"
+          icon={Quote}
+          title="Voices from learners..."
+          color="#58BFE0"
+        />
+
+        <div className="mx-auto pb-20">
+          <div className="review-carousel-mask carousel-full-bleed">
+            <div className="review-carousel-track">
+              {[...reviews, ...reviews].map((review, index) => (
+                <article key={`${review.name}-${index}`} className="testimonial-card review-card">
+                  <div className="mb-5 flex items-center gap-4">
+                    <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-primary text-lg text-white font-display">
+                      {getInitials(review.name)}
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-xs text-navy font-display sm:text-sm">{review.name}</h3>
+                      <p className="text-xs text-slate-500 font-sans">{review.meta}</p>
+                    </div>
+                  </div>
+                  <div className="mb-4 text-lg text-primary">★★★★★</div>
+                  <p className="text-sm italic leading-relaxed text-[#555555] font-sans">"{review.text}"</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
