@@ -186,7 +186,7 @@
   display: flex;
   width: max-content;
   min-width: 100%;
-  animation: announcement-marquee-scroll 28s linear infinite;
+  animation: announcement-marquee-scroll 45s linear infinite;
 }
 
 .announcement-marquee:hover .announcement-marquee-track {

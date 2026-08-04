@@ -159,7 +159,7 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 flex flex-col ${
-        scrolled ? 'bg-white shadow-md' : 'bg-white/90 backdrop-blur-sm'
+        scrolled ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
       <div className="w-full h-[3px] bg-primary"></div>
@@ -273,13 +273,19 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="announcement-marquee border-y border-primary/15 bg-navy text-white">
+      <div className="announcement-marquee bg-transparent text-red-600 mt-1.5">
         <div className="announcement-marquee-track">
           {[...announcements, ...announcements, ...announcements].map((item, index) => (
-            <span key={`${item}-${index}`} className="announcement-marquee-item">
-              <span className="announcement-marquee-dot" aria-hidden="true" />
+            <a 
+              href="https://forms.gle/j39nA4HWN6jgmYgt7"
+              target="_blank"
+              rel="noopener noreferrer"
+              key={`${item}-${index}`} 
+              className="announcement-marquee-item hover:underline"
+            >
+              <span className="announcement-marquee-dot" style={{ background: '#dc2626', boxShadow: '0 0 0 5px rgba(220, 38, 38, 0.2)' }} aria-hidden="true" />
               {item}
-            </span>
+            </a>
           ))}
         </div>
       </div>
