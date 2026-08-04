@@ -280,39 +280,35 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
-            {teamMembers.map((member, index) => (
-              <div 
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {teamMembers.map((member) => (
+              <article
                 key={member.name}
-                className="group relative flex flex-col overflow-hidden rounded-[2rem] bg-white shadow-lg transition-all hover:-translate-y-2 hover:shadow-xl sm:flex-row"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-lg"
               >
-                {/* Image Section */}
-                <div className="relative h-72 w-full shrink-0 overflow-hidden sm:h-auto sm:w-2/5">
-                  <TeamPhoto member={member} />
-                  <div className="absolute inset-0 bg-navy/10 transition-colors group-hover:bg-transparent" />
+                {/* Photo */}
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
+                  <div className="h-full w-full grayscale transition-all duration-500 group-hover:grayscale-0">
+                    <TeamPhoto member={member} />
+                  </div>
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100" />
                   {member.tag && (
-                    <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold uppercase text-primary shadow-sm backdrop-blur-md">
+                    <span className="absolute left-4 top-4 rounded-full bg-navy/85 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-sm backdrop-blur-md">
                       {member.tag}
                     </span>
                   )}
-                  <span className="absolute bottom-4 left-4 flex h-8 w-8 items-center justify-center rounded-full bg-navy/80 text-xs font-bold text-white backdrop-blur-md">
-                    0{index + 1}
-                  </span>
                 </div>
-                
-                {/* Content Section */}
-                <div className="flex flex-col justify-center p-6 sm:p-8">
-                  <h3 className="text-xl font-bold text-navy group-hover:text-primary transition-colors">{member.name}</h3>
-                  <div className="mt-1 flex items-center gap-2 text-primary">
-                    <BadgeCheck size={16} />
-                    <span className="font-bold">{member.role}</span>
-                  </div>
-                  <div className="mt-4 h-px w-12 bg-primary/20 transition-all group-hover:w-full group-hover:bg-primary/50" />
+
+                {/* Content */}
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-lg font-bold text-navy">{member.name}</h3>
+                  <p className="mt-1 text-sm font-bold uppercase tracking-[0.08em] text-primary">{member.role}</p>
+                  <div className="mt-4 h-px w-full bg-slate-100" />
                   <p className="mt-4 text-sm leading-relaxed text-slate-600">
                     {member.bio}
                   </p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
@@ -354,7 +350,7 @@ const About = () => {
 
         <div className="mx-auto max-w-7xl px-6 pb-20">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {reviews.slice(0, 5).map((review, index) => (
+            {reviews.slice(0, 6).map((review, index) => (
               <article key={`${review.name}-${index}`} className="flex flex-col rounded-[2rem] border border-slate-100 bg-white p-8 shadow-[0_4px_20px_rgba(26,42,58,0.04)] transition-all hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(30,159,212,0.12)]">
                 <div className="mb-6 flex items-center gap-4">
                   <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-primary text-lg font-bold text-white shadow-sm">

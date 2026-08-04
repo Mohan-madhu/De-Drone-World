@@ -56,11 +56,11 @@ const socialLinks = [
 
 const quickLinks = [
   ['Home', '/'],
-  ['About', '/about'],
   ['Training', '/training'],
   ['Services', '/services'],
   ['Manufacturing', '/manufacturing'],
-  ['Social Media Presence', '/social-media'],
+  ['Gallery', '/gallery'],
+  ['About', '/about'],
   ['Contact', '/contact'],
 ];
 

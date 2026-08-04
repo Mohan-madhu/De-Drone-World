@@ -18,7 +18,7 @@ import EventServices from './pages/EventServices';
 import SurveyMappingServices from './pages/SurveyMappingServices';
 import Manufacturing from './pages/Manufacturing';
 import Contact from './pages/Contact';
-import SocialMedia from './pages/SocialMedia';
+import Gallery from './pages/Gallery';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -213,7 +213,7 @@ function App() {
           <Route path="/services/survey-mapping" element={<SurveyMappingServices />} />
           <Route path="/manufacturing" element={<Manufacturing />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/social-media" element={<SocialMedia />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </main>
       <Footer />

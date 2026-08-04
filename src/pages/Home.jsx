@@ -733,7 +733,8 @@ const Home = () => {
       </section>
 
 
-      {/* Enterprise Solutions Section */}
+      {/* Enterprise Solutions Section — commented out per request, keep code for later re-enable */}
+      {false && (
       <section className="bg-white py-0 overflow-hidden">
         <HomeSectionBanner
           eyebrow="Our Services"
@@ -784,6 +785,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      )}
 
       {/* Clients Section */}
       <section className="overflow-hidden bg-white py-0">

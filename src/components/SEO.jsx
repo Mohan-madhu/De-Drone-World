@@ -15,7 +15,7 @@ const routeMeta = {
   '/services/survey-mapping': ['Drone Survey & Mapping Services in Tamil Nadu', 'Drone land survey, GIS analysis, 3D mapping, construction mapping and stockpile measurement for accurate project intelligence.', 'drone mapping Tamil Nadu, drone land survey Coimbatore, GIS drone mapping, UAV survey services'],
   '/manufacturing': ['Drone Manufacturing & UAV Kits in India | De Drone World', 'Drone assembly kits, UAV components, private-label manufacturing and custom drone development for institutions and enterprises.', 'drone manufacturing India, UAV kits, custom drone development, drone components Tamil Nadu'],
   '/contact': ['Contact De Drone World | Drone Training Coimbatore', 'Contact De Drone World in Coimbatore for DGCA drone training, UAV services, institutional partnerships and drone manufacturing.', 'drone training contact Coimbatore, DGCA RPTO Coimbatore, drone institute Tamil Nadu'],
-  '/social-media': ['De Drone World Videos, Reels & Company Updates', 'Watch De Drone World training videos, UAV operations, institutional events and company updates across LinkedIn, YouTube and Instagram.', 'De Drone World videos, drone operations reels, UAV training videos, drone events Coimbatore'],
+  '/gallery': ['Gallery | De Drone World', 'Photos from De Drone World: MOU signings, DGCA RPC training, student workshops, and outreach events across Tamil Nadu.', 'De Drone World gallery, drone training photos Coimbatore, DGCA training photos, drone workshop photos'],
 };
 
 const courseNames = {
