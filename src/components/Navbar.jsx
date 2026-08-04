@@ -149,10 +149,10 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Training', path: '/training', hasDropdown: 'training' },
     { name: 'Services', path: '/services', hasDropdown: 'services' },
     { name: 'Manufacturing', path: '/manufacturing' },
-    { name: 'Social Media Presence', path: '/social-media' },
     { name: 'Contact', path: '/contact' },
   ];
 

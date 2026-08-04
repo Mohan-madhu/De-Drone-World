@@ -184,85 +184,58 @@ const SectionBanner = ({ eyebrow, icon: Icon, title, subtitle, color = '#1E9FD4'
 );
 
 const About = () => {
-  const teamSectionRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const section = teamSectionRef.current;
-      const stage = section?.querySelector('.team-3d-stage');
-      const cards = gsap.utils.toArray('.team-3d-card');
-      const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (!section || !stage || cards.length === 0) {
-        return;
-      }
-
-      if (isReducedMotion) {
-        gsap.set(cards, { autoAlpha: 1, clearProps: 'transform' });
-        return;
-      }
-
-      gsap.set(stage, {
-        perspective: 1400,
-        transformStyle: 'preserve-3d',
-      });
-
-      cards.forEach((card, index) => {
-        gsap.fromTo(card, {
-          autoAlpha: 0,
-          x: index % 2 === 0 ? -56 : 56,
-          y: 34,
-          z: -90,
-          rotationX: 3.5,
-          rotationY: index % 2 === 0 ? 4 : -4,
-          scale: 0.97,
-          transformOrigin: 'center center',
-          transformStyle: 'preserve-3d',
-        }, {
-          autoAlpha: 1,
-          x: 0,
-          y: 0,
-          z: 0,
-          rotationX: 0,
-          rotationY: 0,
-          scale: 1,
-          duration: 1.05,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 82%',
-            end: 'bottom 28%',
-            toggleActions: 'play none none reverse',
-          },
-        });
-      });
-    }, teamSectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <div className="min-h-screen bg-white pt-[104px]">
-      <section className="relative overflow-hidden bg-[#F4FAFD] px-6 py-20">
-        <div className="absolute inset-y-0 right-0 hidden w-1/2 overflow-hidden lg:block">
-          <img src="/assets/home_hero.png" alt="" className="h-full w-full object-cover opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#F4FAFD] via-[#F4FAFD]/80 to-transparent" />
-        </div>
-        <div className="relative mx-auto max-w-7xl">
-          <div className="max-w-3xl">
+      <section className="relative overflow-hidden bg-[#F4FAFD] px-6 py-20 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          {/* Left Text */}
+          <div className="relative z-10 max-w-3xl">
             <p className="font-bold uppercase tracking-[0.16em] text-primary">About De Drone World</p>
             <h1 className="mt-4 leading-tight text-navy">Aviation Discipline. Drone Skills. Industry Execution.</h1>
-            <p className="mt-5 max-w-2xl text-slate-700">
+            <p className="mt-5 text-lg font-medium text-slate-700">
               De Drone World is built around a simple operating belief: drone training and UAV services need disciplined aviation thinking, practical field execution, and a team that can deliver consistently.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/training" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-bold text-white shadow-xl shadow-primary/20 transition hover:bg-primary/90">
+            
+            <div className="mt-8 rounded-r-2xl border-l-4 border-primary bg-white px-6 py-5 shadow-sm">
+              <p className="font-bold uppercase tracking-[0.12em] text-primary">One Integrated Drone Ecosystem</p>
+              <h2 className="mt-2 text-xl font-bold text-navy">Training. Operations. Industry Partnerships.</h2>
+              <p className="mt-3 text-slate-600">
+                We combine aviation discipline, DGCA-approved pilot development, field-ready UAV services, and institutional collaboration under one organization.
+              </p>
+            </div>
+            
+            <p className="mt-6 leading-relaxed text-slate-600">
+              De Drone World is an entrepreneurial venture with a vision to become a global company, led by aviation experts from the Indian armed forces and enthusiastic young technocrats with strong passion for drone technology. We aim to usher in a new era in the development, adoption, and practical use of drones, creating meaningful change for industries, institutions, students, and field operations.
+            </p>
+            
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {pillars.map((item) => (
+                <div key={item.label} className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-primary/50">
+                  <span className="text-primary">{item.icon}</span>
+                  <span className="text-sm font-bold text-slate-700">{item.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link to="/training" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-bold text-white shadow-lg shadow-primary/20 transition hover:bg-primary/90">
                 Apply for DGCA Training <ArrowRight size={19} />
               </Link>
               <Link to="/contact" className="rounded-xl border border-navy/20 bg-white px-6 py-3.5 font-bold text-navy shadow-sm transition hover:border-primary hover:text-primary">
                 Partner With Us
               </Link>
             </div>
+          </div>
+          
+          {/* Right Video */}
+          <div className="relative lg:ml-auto w-full max-w-lg mt-8 lg:mt-0">
+             <div className="absolute -left-5 -top-5 h-28 w-28 rounded-[2rem] bg-primary/10" />
+             <div className="relative overflow-hidden rounded-[2rem] bg-slate-900 shadow-2xl">
+               <video autoPlay loop muted playsInline className="aspect-square h-full w-full object-cover">
+                 <source src="/assets/drone_logo_video.mp4" type="video/mp4" />
+               </video>
+               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+             </div>
           </div>
         </div>
       </section>
@@ -297,95 +270,50 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-white px-6 pt-14 pb-8">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div className="relative">
-            <div className="absolute -left-5 -top-5 h-28 w-28 rounded-[2rem] bg-primary/10" />
-            <div className="relative overflow-hidden rounded-[2rem] bg-slate-900 shadow-2xl">
-              <video autoPlay loop muted playsInline className="aspect-square h-full w-full object-cover">
-                <source src="/assets/drone_logo_video.mp4" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-            </div>
+      <section className="bg-slate-50 py-20 px-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 text-center">
+            <span className="font-bold uppercase tracking-[0.16em] text-primary">Team De Drone World</span>
+            <h2 className="mt-4 text-3xl font-bold text-navy lg:text-4xl">Leadership, Operations & Training</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-slate-600">
+              A practical team structure built for aviation discipline, reliable training delivery, drone manufacturing support, and smooth student coordination.
+            </p>
           </div>
-          <div>
-            <div className="mb-8 rounded-r-2xl border-l-4 border-primary bg-slate-50 px-6 py-5">
-              <p className="font-bold uppercase tracking-[0.12em] text-primary">One Integrated Drone Ecosystem</p>
-              <h2 className="mt-2 text-navy">Training. Operations. Industry Partnerships.</h2>
-              <p className="mt-3 text-slate-600">
-                We combine aviation discipline, DGCA-approved pilot development, field-ready UAV services, and institutional collaboration under one organization.
-              </p>
-            </div>
-            <p className="mb-6 leading-relaxed text-slate-600">
-              De Drone World is an entrepreneurial venture with a vision to become a global company, led by aviation experts from the Indian armed forces and enthusiastic young technocrats with strong passion for drone technology.
-            </p>
-            <p className="leading-relaxed text-slate-600">
-              We aim to usher in a new era in the development, adoption, and practical use of drones, creating meaningful change for industries, institutions, students, and field operations.
-            </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {pillars.map((item) => (
-                <div key={item.label} className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4">
-                  <span className="text-primary">{item.icon}</span>
-                  <span className="font-bold text-slate-700">{item.label}</span>
+
+          <div className="grid gap-8 lg:grid-cols-2">
+            {teamMembers.map((member, index) => (
+              <div 
+                key={member.name}
+                className="group relative flex flex-col overflow-hidden rounded-[2rem] bg-white shadow-lg transition-all hover:-translate-y-2 hover:shadow-xl sm:flex-row"
+              >
+                {/* Image Section */}
+                <div className="relative h-72 w-full shrink-0 overflow-hidden sm:h-auto sm:w-2/5">
+                  <TeamPhoto member={member} />
+                  <div className="absolute inset-0 bg-navy/10 transition-colors group-hover:bg-transparent" />
+                  {member.tag && (
+                    <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-bold uppercase text-primary shadow-sm backdrop-blur-md">
+                      {member.tag}
+                    </span>
+                  )}
+                  <span className="absolute bottom-4 left-4 flex h-8 w-8 items-center justify-center rounded-full bg-navy/80 text-xs font-bold text-white backdrop-blur-md">
+                    0{index + 1}
+                  </span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section ref={teamSectionRef} className="team-3d-section overflow-visible bg-[#F4FAFD]">
-        <div className="team-3d-pin py-0">
-          <div className="team-3d-heading bg-[#39C8BE] px-6 py-10 text-center shadow-sm">
-            <div className="mx-auto max-w-4xl">
-              <div className="mb-3 flex items-center justify-center gap-3 text-white">
-                <span className="h-px w-16 bg-white/80" />
-                <span className="font-bold uppercase tracking-[0.14em]">Team De Drone World</span>
-                <span className="h-px w-16 bg-white/80" />
-              </div>
-              <Users size={30} className="mx-auto mb-3 text-slate-700/80" />
-              <h2 className="text-white">Leadership, Operations, Manufacturing and Pilot Training Under One Roof</h2>
-              <p className="mx-auto mt-3 max-w-2xl text-white/85">
-                A practical team structure built for aviation discipline, reliable training delivery, drone manufacturing support, and smooth student coordination.
-              </p>
-            </div>
-          </div>
-          <div className="mx-auto max-w-7xl px-6 pt-10 pb-16">
-            <div className="team-3d-stage flex flex-col gap-16">
-              {teamMembers.map((member, index) => {
-                const isReverse = index % 2 === 1;
-
-                return (
-                  <div key={member.name} className="team-sticky-row min-h-[520px]">
-                    <article className="team-3d-card group sticky top-24 block overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_18px_55px_rgba(26,42,58,0.08)] transition-all duration-500 will-change-transform hover:border-primary/50 hover:shadow-[0_30px_75px_rgba(30,159,212,0.22)]">
-                      <div className={`grid min-h-[380px] lg:h-[400px] lg:grid-cols-[0.92fr_1.08fr] ${isReverse ? 'lg:[&>*:first-child]:order-2 lg:grid-cols-[1.08fr_0.92fr]' : ''}`}>
-                        <div className="relative min-h-[320px] overflow-hidden bg-slate-200 lg:h-full">
-                          <TeamPhoto member={member} />
-                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-35" />
-                          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
-                          {member.tag && (
-                            <span className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 font-bold uppercase text-primary shadow-sm">{member.tag}</span>
-                          )}
-                          <span className="absolute bottom-5 left-5 rounded-full border border-white/30 bg-white/15 px-4 py-2 font-bold text-white backdrop-blur-md">
-                            0{index + 1}
-                          </span>
-                        </div>
-
-                        <div className="flex min-h-[320px] flex-col justify-center p-7 md:p-10 lg:h-full lg:min-h-0 lg:p-12">
-                          <p className="font-bold uppercase tracking-[0.14em] text-primary">Team De Drone World</p>
-                          <h3 className="mt-3 tracking-wide">{member.name}</h3>
-                          <p className="mt-2 flex items-center gap-2 font-bold text-primary">
-                            <BadgeCheck size={18} className="shrink-0" /> {member.role}
-                          </p>
-                          <p className="mt-6 max-w-2xl text-slate-600">{member.bio}</p>
-                          <div className="mt-8 h-1 w-20 rounded-full bg-primary" />
-                        </div>
-                      </div>
-                    </article>
+                
+                {/* Content Section */}
+                <div className="flex flex-col justify-center p-6 sm:p-8">
+                  <h3 className="text-xl font-bold text-navy group-hover:text-primary transition-colors">{member.name}</h3>
+                  <div className="mt-1 flex items-center gap-2 text-primary">
+                    <BadgeCheck size={16} />
+                    <span className="font-bold">{member.role}</span>
                   </div>
-                );
-              })}
-            </div>
+                  <div className="mt-4 h-px w-12 bg-primary/20 transition-all group-hover:w-full group-hover:bg-primary/50" />
+                  <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                    {member.bio}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -424,25 +352,25 @@ const About = () => {
           color="#58BFE0"
         />
 
-        <div className="mx-auto pb-20">
-          <div className="review-carousel-mask carousel-full-bleed">
-            <div className="review-carousel-track">
-              {[...reviews, ...reviews].map((review, index) => (
-                <article key={`${review.name}-${index}`} className="testimonial-card review-card">
-                  <div className="mb-5 flex items-center gap-4">
-                    <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-primary text-lg text-white font-display">
-                      {getInitials(review.name)}
-                    </div>
-                    <div className="text-left">
-                      <h3 className="text-xs text-navy font-display sm:text-sm">{review.name}</h3>
-                      <p className="text-xs text-slate-500 font-sans">{review.meta}</p>
-                    </div>
+        <div className="mx-auto max-w-7xl px-6 pb-20">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {reviews.slice(0, 5).map((review, index) => (
+              <article key={`${review.name}-${index}`} className="flex flex-col rounded-[2rem] border border-slate-100 bg-white p-8 shadow-[0_4px_20px_rgba(26,42,58,0.04)] transition-all hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(30,159,212,0.12)]">
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-primary text-lg font-bold text-white shadow-sm">
+                    {getInitials(review.name)}
                   </div>
-                  <div className="mb-4 text-lg text-primary">★★★★★</div>
-                  <p className="text-sm italic leading-relaxed text-[#555555] font-sans">"{review.text}"</p>
-                </article>
-              ))}
-            </div>
+                  <div className="text-left">
+                    <h3 className="font-bold text-navy">{review.name}</h3>
+                    <p className="text-sm text-slate-500">{review.meta}</p>
+                  </div>
+                </div>
+                <div className="mb-4 flex gap-1 text-primary text-xl">
+                  ★★★★★
+                </div>
+                <p className="text-sm italic leading-relaxed text-slate-600">"{review.text}"</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
