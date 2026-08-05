@@ -240,37 +240,50 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-white py-0">
+      <section className="bg-slate-50 py-12">
         <SectionBanner eyebrow="Vision & Mission" icon={ClipboardCheck} title="Think Beyond Limits" color="#8B83E6" />
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 pb-20 md:grid-cols-2">
-          <article className="overflow-hidden rounded-[2rem] border border-slate-100 bg-white shadow-xl transition hover:-translate-y-1">
-            <div className="relative h-64 overflow-hidden">
-              <img src="/assets/drone_precision.png" alt="Vision" className="h-full w-full object-cover transition-transform duration-700 hover:scale-110" />
-              <div className="absolute inset-0 bg-slate-950/35" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <h3 className="text-white drop-shadow-lg">Vision</h3>
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2">
+          <article className="group relative overflow-hidden rounded-[2.5rem] bg-transparent transition-all duration-500">
+            <div className="relative h-[22rem] w-full overflow-hidden rounded-[2.5rem] shadow-lg">
+              <img 
+                src="/assets/drone_precision.png" 
+                alt="Vision" 
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-85" />
+              <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-4">
+                <h3 className="text-4xl font-bold tracking-wider text-white drop-shadow-2xl md:text-5xl">Vision</h3>
               </div>
             </div>
-            <p className="p-8 leading-relaxed text-slate-600">
-              To advance the drone field through trusted training, practical innovation, and reliable aerial solutions that help industries work smarter, safer, and faster.
-            </p>
+            <div className="relative z-10 -mt-20 mx-8 mb-4 rounded-3xl bg-white p-8 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] transition-transform duration-500 group-hover:-translate-y-2">
+              <p className="text-center text-base leading-relaxed text-slate-600 font-medium">
+                To advance the drone field through trusted training, practical innovation, and reliable aerial solutions that help industries work smarter, safer, and faster.
+              </p>
+            </div>
           </article>
-          <article className="overflow-hidden rounded-[2rem] border border-slate-100 bg-white shadow-xl transition hover:-translate-y-1">
-            <div className="relative h-64 overflow-hidden">
-              <img src="/assets/services_hero.png" alt="Mission" className="h-full w-full object-cover transition-transform duration-700 hover:scale-110" />
-              <div className="absolute inset-0 bg-slate-950/35" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <h3 className="text-white drop-shadow-lg">Mission</h3>
+
+          <article className="group relative overflow-hidden rounded-[2.5rem] bg-transparent transition-all duration-500">
+            <div className="relative h-[22rem] w-full overflow-hidden rounded-[2.5rem] shadow-lg">
+              <img 
+                src="/assets/services_hero.png" 
+                alt="Mission" 
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-85" />
+              <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-4">
+                <h3 className="text-4xl font-bold tracking-wider text-white drop-shadow-2xl md:text-5xl">Mission</h3>
               </div>
             </div>
-            <p className="p-8 leading-relaxed text-slate-600">
-              To be the most collaborative and trusted team in the drone industry, providing leading services and innovations to meet the needs of every customer.
-            </p>
+            <div className="relative z-10 -mt-20 mx-8 mb-4 rounded-3xl bg-white p-8 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] transition-transform duration-500 group-hover:-translate-y-2">
+              <p className="text-center text-base leading-relaxed text-slate-600 font-medium">
+                To be the most collaborative and trusted team in the drone industry, providing leading services and innovations to meet the needs of every customer.
+              </p>
+            </div>
           </article>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20 px-6">
+      <section className="bg-slate-50 pt-8 pb-20 px-6">
         <div className="mx-auto max-w-7xl">
           <div className="mb-16 text-center">
             <span className="font-bold uppercase tracking-[0.16em] text-primary">Team De Drone World</span>
