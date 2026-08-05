@@ -79,7 +79,7 @@ export default function Contact() {
   };
 
   return (
-    <div ref={mainRef} className="min-h-screen bg-[#F5FAFC] pt-[104px] text-navy">
+    <div ref={mainRef} className="min-h-screen bg-[#F5FAFC] pt-[132px] text-navy">
       <section className="relative overflow-hidden border-b border-primary/15 bg-navy px-6 py-16 text-white">
         <div className="absolute inset-0 opacity-20">
           <img src="/assets/home_hero.png" alt="" className="h-full w-full object-cover" />
