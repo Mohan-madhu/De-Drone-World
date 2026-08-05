@@ -1566,7 +1566,7 @@ function getProgramFamily(program) {
 const careerProfiles = {
   rpc: {
     careers: ['Commercial Drone Pilot', 'Agriculture Drone Operator', 'Survey Flight Operator', 'Inspection Pilot', 'UAV Operations Coordinator'],
-    tools: ['Flight simulator', 'Digital Sky and airspace workflow', 'Mission-planning applications', 'Pre-flight checklists and flight logbook', 'Small / medium rotorcraft controls'],
+    tools: ['Flight simulator', 'Egca and airspace workflow', 'Mission-planning applications', 'Pre-flight checklists and flight logbook', 'Small / medium rotorcraft controls'],
     uses: ['Precision agriculture', 'Land survey and mapping', 'Infrastructure inspection', 'Aerial media', 'Public-safety and enterprise missions'],
     salary: 'Indicative India market range: approximately ₹3.5–7.5 LPA for salaried pilot roles. Specialisation, aircraft class, location, project exposure, and additional GIS or inspection skills materially affect earnings.',
     flight: 'Simulator sessions and supervised live flying are included according to the approved course schedule. Exact logged flight allocation is confirmed for each batch based on category, weather, safety, and DGCA/RPTO requirements.',
