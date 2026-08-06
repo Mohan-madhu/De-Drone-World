@@ -5,9 +5,15 @@ import {
   ArrowRight,
   Award,
   BadgeCheck,
+  Bot,
+  BookOpen,
+  Braces,
+  BrainCircuit,
   Briefcase,
   Building2,
+  CalendarDays,
   CheckCircle2,
+  CircuitBoard,
   Cpu,
   FileText,
   FlaskConical,
@@ -15,15 +21,19 @@ import {
   Handshake,
   HelpCircle,
   Lightbulb,
+  Map,
   MapPin,
   Phone,
   Plane,
+  Radar,
   Rocket,
   Send,
   Sparkles,
   Target,
   Users,
+  Wrench,
   X,
+  Zap,
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -63,25 +73,25 @@ const ddwSpecialties = [
 ];
 
 const highlights = [
-  'Industry-Conducted Degree Programme',
-  'Industry-Aligned Curriculum',
-  '100% Practical Exposure',
-  'Drone Manufacturing Labs',
-  'Advanced Avionics Laboratory',
-  'Flight Simulation Training',
-  'UAV Design & Development',
-  'Drone Programming',
-  'Artificial Intelligence in Drones',
-  'Embedded Systems',
-  'Robotics & Automation',
-  'GIS & Drone Mapping',
-  'Aerospace Electronics',
-  'Internship Every Year',
-  'Industrial Visits',
-  'Live Industry Projects',
-  'Research Opportunities',
-  'Entrepreneurship Support',
-  'Placement Assistance',
+  { icon: Handshake, label: 'Industry-Integrated Degree Programme' },
+  { icon: BookOpen, label: 'Industry-Aligned Curriculum' },
+  { icon: Wrench, label: '100% Practical Exposure' },
+  { icon: FlaskConical, label: 'Drone Manufacturing Labs' },
+  { icon: Cpu, label: 'Advanced Avionics Laboratory' },
+  { icon: Plane, label: 'Flight Simulation Training' },
+  { icon: Radar, label: 'UAV Design & Development' },
+  { icon: Braces, label: 'Drone Programming' },
+  { icon: BrainCircuit, label: 'Artificial Intelligence in Drones' },
+  { icon: CircuitBoard, label: 'Embedded Systems' },
+  { icon: Bot, label: 'Robotics & Automation' },
+  { icon: Map, label: 'GIS & Drone Mapping' },
+  { icon: Zap, label: 'Aerospace Electronics' },
+  { icon: CalendarDays, label: 'Internship Every Year' },
+  { icon: Building2, label: 'Industrial Visits' },
+  { icon: Briefcase, label: 'Live Industry Projects' },
+  { icon: Lightbulb, label: 'Research Opportunities' },
+  { icon: Rocket, label: 'Entrepreneurship Support' },
+  { icon: Target, label: 'Placement Assistance' },
 ];
 
 const whyChooseUs = [
@@ -190,6 +200,7 @@ const PillGrid = ({ items }) => (
 
 export default function BTechAvionicsDrone() {
   const mainRef = useRef(null);
+  const highlightsCountRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -213,6 +224,23 @@ export default function BTechAvionicsDrone() {
           ease: 'power3.out',
         });
       });
+
+      if (highlightsCountRef.current) {
+        const counter = { value: 0 };
+        gsap.to(counter, {
+          value: highlights.length,
+          duration: 1.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: highlightsCountRef.current,
+            start: 'top 85%',
+            once: true,
+          },
+          onUpdate: () => {
+            highlightsCountRef.current.textContent = Math.round(counter.value);
+          },
+        });
+      }
     }, mainRef);
 
     return () => ctx.revert();
@@ -234,18 +262,18 @@ export default function BTechAvionicsDrone() {
       {/* Hero */}
       <section className="relative flex min-h-[560px] items-center overflow-hidden bg-slate-950 px-6 py-20 text-white">
         <img
-          src="/assets/manufacturing_hero.png"
+          src="/assets/pkdas-image.jpeg"
           alt="Avionics and Drone Engineering"
-          className="absolute inset-0 h-full w-full object-cover opacity-35"
+          className="absolute inset-0 h-full w-full object-cover opacity-70"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/70 to-slate-950/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/45 to-slate-950/20" />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl">
           <span className="btech-hero-reveal inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-5 py-2 text-xs font-bold tracking-[0.2em] text-blue-200">
             <Rocket size={16} /> Admissions Open 2026–2027
           </span>
           <h1 className="btech-hero-reveal mt-5 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl">
-            India's First Industry-Conducted B.Tech in Avionics &amp; Drone Engineering
+            India's First Industry-Integrated B.Tech in Avionics &amp; Drone Engineering
           </h1>
           <p className="btech-hero-reveal mt-4 text-lg font-bold text-primary">Learn. Build. Fly. Innovate.</p>
           <p className="btech-hero-reveal mt-4 max-w-2xl text-base leading-relaxed text-slate-200 md:text-lg">
@@ -299,12 +327,12 @@ export default function BTechAvionicsDrone() {
         </div>
       </section>
 
-      {/* India's First Industry-Conducted Degree Programme */}
+      {/* India's First Industry-Integrated Degree Programme */}
       <section className="btech-section-reveal px-6 pb-4">
         <div className="mx-auto max-w-7xl">
-          <SectionHeader eyebrow="A Revolutionary Engineering Education" title="India's First Industry-Conducted Degree Programme" />
+          <SectionHeader eyebrow="A Revolutionary Engineering Education" title="India's First Industry-Integrated Degree Programme" />
           <p className="max-w-4xl leading-relaxed text-slate-600">
-            This is one of India's pioneering Industry-Conducted B.Tech Degree Programmes in Avionics &amp; Drone Engineering, where academic
+            This is one of India's pioneering Industry-Integrated B.Tech Degree Programmes in Avionics &amp; Drone Engineering, where academic
             education is integrated with continuous industry involvement.
           </p>
           <p className="mt-4 max-w-4xl leading-relaxed text-slate-600">
@@ -355,8 +383,28 @@ export default function BTechAvionicsDrone() {
       {/* Course Highlights */}
       <section className="btech-section-reveal bg-white px-6 py-16">
         <div className="mx-auto max-w-7xl">
-          <SectionHeader eyebrow="Highlights" title="Course Highlights" />
-          <CheckList items={highlights} columns={3} />
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
+            <SectionHeader eyebrow="Highlights" title="Course Highlights" />
+            <div className="flex items-baseline gap-2 rounded-2xl bg-primary/5 px-6 py-4">
+              <span ref={highlightsCountRef} className="text-4xl font-bold text-primary font-[Space_Grotesk]">0</span>
+              <span className="font-bold text-slate-600">reasons this programme stands out</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+            {highlights.map(({ icon: Icon, label }, index) => (
+              <div
+                key={label}
+                className="highlight-card group flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:border-primary hover:bg-primary hover:shadow-xl hover:shadow-primary/20"
+                style={{ animationDelay: `${(index % 6) * 0.3}s` }}
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-white/20 group-hover:text-white">
+                  <Icon size={22} />
+                </span>
+                <span className="text-sm font-bold text-navy transition-colors duration-300 group-hover:text-white">{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

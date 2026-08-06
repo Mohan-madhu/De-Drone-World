@@ -253,6 +253,19 @@
   animation: gallery-photo-fade-in 0.5s ease-out both;
 }
 
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.highlight-card {
+  animation: gentle-float 4.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .announcement-marquee-track {
     animation-duration: 60s;

@@ -5,16 +5,17 @@ import { Camera, FileSignature, GraduationCap, Megaphone, Wrench, X, ZoomIn } fr
 
 gsap.registerPlugin(ScrollTrigger);
 
-const mouPhotos = Array.from({ length: 7 }, (_, index) => `/assets/mou/mou-${String(index + 1).padStart(2, '0')}.jpeg`);
+const mouNumbers = [1, 2, 3, 4, 5, 6, 7];
+const mouPhotos = mouNumbers.map((n) => `/assets/mou/mou-${String(n).padStart(2, '0')}.jpeg`);
 
-const dgcaPhotos = Array.from({ length: 28 }, (_, index) => `/assets/dgca/dgca-${String(index + 1).padStart(2, '0')}.jpeg`);
+const dgcaNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 15, 19, 20, 21, 23, 24, 25, 26, 27, 28];
+const dgcaPhotos = dgcaNumbers.map((n) => `/assets/dgca/dgca-${String(n).padStart(2, '0')}.jpeg`);
 
-const studentTrainingPhotos = Array.from(
-  { length: 36 },
-  (_, index) => `/assets/student-training/student-training-${String(index + 1).padStart(2, '0')}.jpeg`
-);
+const studentTrainingNumbers = [1, 2, 3, 4, 6, 7, 8, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 33, 34, 35, 36];
+const studentTrainingPhotos = studentTrainingNumbers.map((n) => `/assets/student-training/student-training-${String(n).padStart(2, '0')}.jpeg`);
 
-const outreachPhotos = Array.from({ length: 35 }, (_, index) => `/assets/outreach/outreach-${String(index + 1).padStart(2, '0')}.jpeg`);
+const outreachNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35];
+const outreachPhotos = outreachNumbers.map((n) => `/assets/outreach/outreach-${String(n).padStart(2, '0')}.jpeg`);
 
 const gallerySections = [
   {
@@ -50,15 +51,6 @@ const gallerySections = [
     photos: outreachPhotos,
   },
 ];
-
-// Mix of tile spans for a masonry-style rhythm instead of a flat uniform grid
-const tileSpanPattern = ['row-span-2', '', '', 'row-span-2', '', '', ''];
-
-// Local-only helper: shows each photo's filename on hover so it's easy to pick
-// out files to delete/replace. Never shown on the deployed site.
-const isLocalDevelopment =
-  typeof window !== 'undefined' &&
-  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
 
 export default function Gallery() {
   const mainRef = useRef(null);
@@ -173,18 +165,18 @@ export default function Gallery() {
                 <span className="ml-auto hidden h-px flex-1 bg-slate-200 sm:block" />
               </div>
 
-              <div className="gallery-photo-grid grid auto-rows-[140px] grid-cols-2 gap-4 sm:auto-rows-[170px] sm:grid-cols-3 lg:auto-rows-[190px] lg:grid-cols-4">
+              <div className="gallery-photo-grid columns-2 gap-4 sm:columns-3 lg:columns-4">
                 {section.photos.map((photo, index) => (
                   <button
                     type="button"
                     key={`${section.id}-${photo}-${index}`}
                     onClick={() => setLightbox({ src: photo, title: section.title, index: index + 1 })}
-                    className={`gallery-photo-card group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-2xl ${tileSpanPattern[index % tileSpanPattern.length]}`}
+                    className="gallery-photo-card group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-2xl"
                   >
                     <img
                       src={photo}
                       alt={`${section.title} photo ${index + 1}`}
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.15]"
+                      className="block h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                       loading="lazy"
                     />
                     <div
@@ -197,11 +189,6 @@ export default function Gallery() {
                       </span>
                     </div>
                     <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/0 transition-all duration-300 group-hover:ring-white/30" />
-                    {isLocalDevelopment && (
-                      <span className="pointer-events-none absolute left-2 top-2 rounded-md bg-black/80 px-2 py-1 font-mono text-[10px] font-bold text-lime-300 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-                        {photo.split('/').pop()}
-                      </span>
-                    )}
                   </button>
                 ))}
               </div>
