@@ -308,22 +308,31 @@ export default function BTechAvionicsDrone() {
 
       {/* About the Programme */}
       <section className="btech-section-reveal px-6 py-16">
-        <div className="mx-auto max-w-7xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-12">
-          <SectionHeader eyebrow="About the Programme" title="B.Tech in Avionics & Drone Engineering" />
-          <p className="max-w-4xl leading-relaxed text-slate-600">
-            The B.Tech in Avionics &amp; Drone Engineering is a next-generation engineering degree developed to prepare students for the
-            rapidly growing Aerospace, Aviation, UAV, and Drone Technology industries.
-          </p>
-          <p className="mt-4 max-w-4xl leading-relaxed text-slate-600">
-            This unique programme combines the academic strength of <strong className="text-navy">PK DAS University</strong> with the
-            extensive industry expertise of <strong className="text-navy">De Drone World Solutions Pvt. Ltd.</strong>, providing students with
-            hands-on practical learning, industrial exposure, live projects, internships, and professional certifications throughout their
-            academic journey.
-          </p>
-          <p className="mt-4 max-w-4xl leading-relaxed text-slate-600">
-            Unlike conventional engineering programmes that focus mainly on theory, this degree emphasizes experiential learning, innovation,
-            research, and industry readiness from the very first year.
-          </p>
+        <div className="mx-auto grid max-w-7xl gap-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:grid-cols-2 md:items-center md:p-12">
+          <div>
+            <SectionHeader eyebrow="About the Programme" title="B.Tech in Avionics & Drone Engineering" />
+            <p className="max-w-4xl leading-relaxed text-slate-600">
+              The B.Tech in Avionics &amp; Drone Engineering is a next-generation engineering degree developed to prepare students for the
+              rapidly growing Aerospace, Aviation, UAV, and Drone Technology industries.
+            </p>
+            <p className="mt-4 max-w-4xl leading-relaxed text-slate-600">
+              This unique programme combines the academic strength of <strong className="text-navy">PK DAS University</strong> with the
+              extensive industry expertise of <strong className="text-navy">De Drone World Solutions Pvt. Ltd.</strong>, providing students with
+              hands-on practical learning, industrial exposure, live projects, internships, and professional certifications throughout their
+              academic journey.
+            </p>
+            <p className="mt-4 max-w-4xl leading-relaxed text-slate-600">
+              Unlike conventional engineering programmes that focus mainly on theory, this degree emphasizes experiential learning, innovation,
+              research, and industry readiness from the very first year.
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-2xl shadow-lg">
+            <img
+              src="/assets/btech/btech-02.jpeg"
+              alt="Students assembling a drone in the engineering lab"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
@@ -340,9 +349,18 @@ export default function BTechAvionicsDrone() {
             real-world projects.
           </p>
 
-          <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h3 className="mb-5 font-bold text-navy">What Makes This Programme Different?</h3>
-            <CheckList items={differentiators} />
+          <div className="mt-8 grid gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm lg:grid-cols-[1fr_320px] lg:items-center">
+            <div>
+              <h3 className="mb-5 font-bold text-navy">What Makes This Programme Different?</h3>
+              <CheckList items={differentiators} />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src="/assets/btech/btech-04.jpeg"
+                alt="Students building a drone with safety glasses in the lab"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -391,6 +409,14 @@ export default function BTechAvionicsDrone() {
             </div>
           </div>
 
+          <div className="mb-10 overflow-hidden rounded-3xl shadow-lg">
+            <img
+              src="/assets/btech/btech-05.jpeg"
+              alt="Drone manufacturing and electronics lab"
+              className="h-64 w-full object-cover md:h-80"
+            />
+          </div>
+
           <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
             {highlights.map(({ icon: Icon, label }, index) => (
               <div
@@ -410,17 +436,25 @@ export default function BTechAvionicsDrone() {
 
       {/* Why Choose This Course */}
       <section className="btech-section-reveal px-6 py-16">
-        <div className="mx-auto max-w-7xl rounded-3xl bg-primary p-8 text-white shadow-xl md:p-12">
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/80">Why Choose This Course?</p>
-          <h2 className="mt-2 text-2xl font-bold text-white md:text-3xl">The Future Starts Here</h2>
-          <p className="mt-5 max-w-4xl leading-relaxed text-white/90">
-            The global demand for skilled Drone and Aerospace Engineers is growing rapidly. Governments, defence organizations, agriculture,
-            logistics, surveying, infrastructure, AI, and smart cities are increasingly adopting drone technology.
-          </p>
-          <p className="mt-4 max-w-4xl leading-relaxed text-white/90">
-            This programme prepares students to become industry-ready engineers capable of designing, developing, manufacturing, operating,
-            and managing advanced unmanned aerial systems. Students graduate with skills that employers actively seek.
-          </p>
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl p-8 text-white shadow-xl md:p-12">
+          <img
+            src="/assets/btech/btech-03.jpeg"
+            alt="Future of autonomous drone technology"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-slate-950/80" />
+          <div className="relative z-10">
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/80">Why Choose This Course?</p>
+            <h2 className="mt-2 text-2xl font-bold text-white md:text-3xl">The Future Starts Here</h2>
+            <p className="mt-5 max-w-4xl leading-relaxed text-white/90">
+              The global demand for skilled Drone and Aerospace Engineers is growing rapidly. Governments, defence organizations, agriculture,
+              logistics, surveying, infrastructure, AI, and smart cities are increasingly adopting drone technology.
+            </p>
+            <p className="mt-4 max-w-4xl leading-relaxed text-white/90">
+              This programme prepares students to become industry-ready engineers capable of designing, developing, manufacturing, operating,
+              and managing advanced unmanned aerial systems. Students graduate with skills that employers actively seek.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -461,8 +495,14 @@ export default function BTechAvionicsDrone() {
       </section>
 
       {/* Career Opportunities */}
-      <section className="btech-section-reveal bg-navy px-6 py-16 text-white">
-        <div className="mx-auto max-w-7xl">
+      <section className="btech-section-reveal relative overflow-hidden px-6 py-16 text-white">
+        <img
+          src="/assets/btech/btech-06.jpeg"
+          alt="Survey drone over a construction site at sunset"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-navy/88" />
+        <div className="relative z-10 mx-auto max-w-7xl">
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">Build Your Career In</p>
           <h2 className="mt-2 text-2xl font-bold text-white md:text-3xl">Career Opportunities</h2>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -477,17 +517,35 @@ export default function BTechAvionicsDrone() {
 
       {/* Learning Experience */}
       <section className="btech-section-reveal bg-white px-6 py-16">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeader eyebrow="Learning Experience" title="What You'll Learn" />
-          <PillGrid items={learning} />
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[320px_1fr] lg:items-center">
+          <div className="overflow-hidden rounded-2xl shadow-lg">
+            <img
+              src="/assets/btech/btech-07.jpeg"
+              alt="Students working on embedded systems and electronics"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div>
+            <SectionHeader eyebrow="Learning Experience" title="What You'll Learn" />
+            <PillGrid items={learning} />
+          </div>
         </div>
       </section>
 
       {/* Industry Exposure */}
       <section className="btech-section-reveal px-6 py-16">
-        <div className="mx-auto max-w-7xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-12">
-          <SectionHeader eyebrow="Industry Exposure" title="Beyond Classroom Learning" />
-          <CheckList items={industryExposure} columns={3} />
+        <div className="mx-auto grid max-w-7xl gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm lg:grid-cols-[1fr_320px] lg:items-center md:p-12">
+          <div>
+            <SectionHeader eyebrow="Industry Exposure" title="Beyond Classroom Learning" />
+            <CheckList items={industryExposure} columns={3} />
+          </div>
+          <div className="overflow-hidden rounded-2xl shadow-lg">
+            <img
+              src="/assets/btech/btech-01.jpeg"
+              alt="AI-powered drone technology"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
