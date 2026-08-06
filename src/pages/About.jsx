@@ -355,7 +355,8 @@ const About = () => {
             <div className="grid sm:grid-cols-[280px_1fr] sm:items-center">
               <div className="relative flex items-center justify-center bg-slate-100 px-8 py-10 sm:h-full">
                 <span className="pointer-events-none absolute h-44 w-44 rounded-full border-2 border-dashed border-primary/25 sm:h-52 sm:w-52" />
-                <div className="hexagon-frame relative h-36 overflow-hidden shadow-lg sm:h-44">
+                <span className="hexagon-frame pointer-events-none absolute h-44 border-[3px] border-primary/50 transition-transform duration-500 ease-out group-hover:rotate-30 sm:h-52" />
+                <div className="hexagon-frame relative h-36 overflow-hidden shadow-lg transition-transform duration-500 ease-out group-hover:scale-125 sm:h-44">
                   <TeamPhoto member={founder} />
                 </div>
               </div>
@@ -385,11 +386,15 @@ const About = () => {
               return (
                 <div
                   key={member.name}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.03] hover:shadow-xl"
                 >
-                  <div className="relative flex items-center justify-center bg-slate-100 py-8">
-                    <span className="pointer-events-none absolute h-24 w-24 rounded-full border-2 border-dashed border-slate-300 sm:h-28 sm:w-28" />
-                    <div className="hexagon-frame relative h-20 overflow-hidden shadow-md sm:h-24">
+                  <div className="relative flex items-center justify-center overflow-hidden bg-slate-100 py-8">
+                    <span className="pointer-events-none absolute h-24 w-24 rounded-full border-2 border-dashed border-slate-300 transition-transform duration-500 ease-out group-hover:rotate-45 sm:h-28 sm:w-28" />
+                    <span
+                      className="hexagon-frame pointer-events-none absolute h-24 border-[3px] transition-transform duration-500 ease-out group-hover:rotate-30 sm:h-28"
+                      style={{ borderColor: `${accentColor}80` }}
+                    />
+                    <div className="hexagon-frame relative h-20 overflow-hidden shadow-md transition-transform duration-500 ease-out group-hover:scale-125 sm:h-24">
                       <TeamPhoto member={member} />
                     </div>
                   </div>
