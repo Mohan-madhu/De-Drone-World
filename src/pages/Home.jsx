@@ -327,23 +327,13 @@ const Home = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Hero Animation
-      const tl = gsap.timeline();
-      
-      tl.to(".hero-char", {
-        y: 0,
-        opacity: 1,
-        rotateZ: 0,
-        duration: 0.8,
-        stagger: 0.03,
-        ease: "back.out(1.7)"
-      })
-      .from(".hero-reveal", {
+      gsap.from(".hero-reveal", {
         y: 40,
         opacity: 0,
         duration: 1,
         stagger: 0.2,
         ease: "power4.out"
-      }, "-=0.4");
+      });
 
       // Parallax Backgrounds
       const parallaxes = gsap.utils.toArray('.parallax-bg');
@@ -358,16 +348,6 @@ const Home = () => {
           yPercent: 30,
           ease: "none"
         });
-      });
-
-      // Floating Animation for Innovation Icons
-      gsap.to(".floating-icon", {
-        y: -20,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-        stagger: 0.5
       });
 
       // Section Reveals

@@ -129,6 +129,16 @@ const industryExposure = [
   'Industry Certifications', 'Guest Lectures', 'International Seminars', 'Startup Mentoring',
 ];
 
+const infrastructurePhotos = [
+  { src: '/assets/infra/infra-06.jpeg', caption: 'Aerial View of the Campus', span: 'sm:col-span-2' },
+  { src: '/assets/infra/infra-05.jpeg', caption: 'Modern Academic Block' },
+  { src: '/assets/infra/infra-07.jpeg', caption: 'Smart Classrooms' },
+  { src: '/assets/infra/infra-01.jpeg', caption: 'Fitness Centre' },
+  { src: '/assets/infra/infra-03.jpeg', caption: 'Sports Courts' },
+  { src: '/assets/infra/infra-04.jpeg', caption: 'Dining Hall' },
+  { src: '/assets/infra/infra-02.jpeg', caption: 'Campus Dining & Recreation' },
+];
+
 const admissionSteps = [
   'Submit Application',
   'Verify Eligibility',
@@ -237,7 +247,9 @@ export default function BTechAvionicsDrone() {
             once: true,
           },
           onUpdate: () => {
-            highlightsCountRef.current.textContent = Math.round(counter.value);
+            if (highlightsCountRef.current) {
+              highlightsCountRef.current.textContent = Math.round(counter.value);
+            }
           },
         });
       }
@@ -284,9 +296,12 @@ export default function BTechAvionicsDrone() {
 
           <div className="btech-hero-reveal mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
             {infoGrid.map(({ icon: Icon, label, value }) => (
-              <div key={label} className="rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur-sm">
-                <Icon size={18} className="text-primary" />
-                <p className="mt-3 text-[11px] font-bold uppercase tracking-wide text-slate-400">{label}</p>
+              <div
+                key={label}
+                className="group rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/60 hover:bg-primary/15 hover:shadow-xl hover:shadow-primary/20"
+              >
+                <Icon size={18} className="text-primary transition-transform duration-300 group-hover:scale-110" />
+                <p className="mt-3 text-[11px] font-bold uppercase tracking-wide text-slate-400 transition-colors duration-300 group-hover:text-slate-200">{label}</p>
                 <p className="mt-1 text-sm font-bold text-white">{value}</p>
               </div>
             ))}
@@ -372,14 +387,22 @@ export default function BTechAvionicsDrone() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <img src="/assets/clients/pkdas.png" alt="PK DAS University" className="mb-5 h-10 w-auto object-contain" />
-              <h3 className="font-bold text-navy">PK DAS University</h3>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">PK DAS University</p>
+              <h3 className="mt-1 font-bold text-navy">PK DAS University</h3>
               <p className="mt-3 leading-relaxed text-slate-600">
-                A multidisciplinary university committed to academic excellence, innovation, research, and global education.
+                Established originally as part of the Nehru Group of Institutions in 1968, PKDAS Deemed to be University stands tall as
+                a beacon of multidisciplinary education in Coimbatore, Tamil Nadu. Born from the visionary dream of our Founder
+                Chairman, Late Shri. P.K. Das, our institution was created to nurture, guide, and ignite the spirit of young minds.
+              </p>
+              <p className="mt-3 leading-relaxed text-slate-600">
+                Today, we continue to weather the fiercest of storms and challenges, emerging as a leading contender in the changing
+                world of global education without compromising on our core ethics and principles.
               </p>
             </div>
             <div className="rounded-3xl bg-navy p-8 text-white shadow-sm">
               <img src="/assets/logo.png" alt="De Drone World" className="mb-5 h-10 w-auto object-contain brightness-0 invert" />
-              <h3 className="font-bold text-white">De Drone World Solutions Pvt. Ltd.</h3>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">De Drone World</p>
+              <h3 className="mt-1 font-bold text-white">De Drone World Solutions Pvt. Ltd.</h3>
               <p className="mt-3 leading-relaxed text-slate-300">A leading Drone Technology Company specializing in:</p>
               <ul className="mt-4 space-y-2">
                 {ddwSpecialties.map((item) => (
@@ -454,6 +477,26 @@ export default function BTechAvionicsDrone() {
               This programme prepares students to become industry-ready engineers capable of designing, developing, manufacturing, operating,
               and managing advanced unmanned aerial systems. Students graduate with skills that employers actively seek.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Infrastructure */}
+      <section className="btech-section-reveal bg-white px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeader eyebrow="Infrastructure" title="World-Class Campus Facilities" />
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {infrastructurePhotos.map((photo) => (
+              <div key={photo.src} className={`group relative overflow-hidden rounded-2xl shadow-sm ${photo.span || ''}`}>
+                <img
+                  src={photo.src}
+                  alt={photo.caption}
+                  className="h-56 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
+                <p className="absolute bottom-4 left-4 right-4 text-sm font-bold text-white">{photo.caption}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

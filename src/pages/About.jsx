@@ -150,7 +150,7 @@ const teamMembers = [
   },
   {
     name: 'Abishek T',
-    role: 'Operations Manager',
+    role: 'Manager',
     image: '/assets/team/abishek-t.jpg',
     photoPosition: 'center 30%',
     bio: 'Abishek T coordinates the operational flow of De Drone World, keeping training batches, field teams, documentation, and delivery schedules aligned.',
