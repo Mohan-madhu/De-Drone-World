@@ -73,6 +73,7 @@ export default function Gallery() {
           scrollTrigger: {
             trigger: element,
             start: 'top 88%',
+            once: true,
           },
           y: 30,
           opacity: 0,
@@ -81,32 +82,13 @@ export default function Gallery() {
         });
       });
 
-      gsap.utils.toArray('.gallery-photo-grid').forEach((grid) => {
-        gsap.from(grid.querySelectorAll('.gallery-photo-card'), {
-          scrollTrigger: {
-            trigger: grid,
-            start: 'top 85%',
-          },
-          y: 50,
-          scale: 0.92,
-          opacity: 0,
-          duration: 0.7,
-          stagger: { each: 0.07, from: 'start' },
-          ease: 'power3.out',
-        });
-      });
+      // Photo tiles use a plain CSS fade-in (see .gallery-photo-card in index.css) instead
+      // of a scroll-triggered GSAP tween: with 4 large grids (up to 36 tiles each) the
+      // scroll-triggered version could get stuck at its initial opacity: 0 depending on
+      // scroll position/anchor timing, leaving tiles invisible until clicked.
     }, mainRef);
 
-    // If the page loads with a #section-id anchor (e.g. /gallery#outreach-events),
-    // the browser jumps straight there before ScrollTrigger measures positions, so
-    // entrance animations can get stuck at their initial opacity: 0. Refreshing after
-    // the jump settles re-syncs every trigger to the current scroll position.
-    const refreshId = window.setTimeout(() => ScrollTrigger.refresh(), 150);
-
-    return () => {
-      window.clearTimeout(refreshId);
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   useEffect(() => {
@@ -126,7 +108,7 @@ export default function Gallery() {
   }, [lightbox]);
 
   return (
-    <div ref={mainRef} className="overflow-hidden bg-slate-50 pt-16">
+    <div ref={mainRef} className="overflow-hidden bg-slate-50 pt-[104px]">
       <section className="relative flex min-h-[420px] items-center overflow-hidden bg-slate-950 px-6 py-20 text-white">
         <img
           src="/assets/home_hero.png"

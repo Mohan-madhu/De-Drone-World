@@ -219,7 +219,7 @@ export default function BTechAvionicsDrone() {
   }, []);
 
   return (
-    <div ref={mainRef} className="overflow-hidden bg-slate-50 pt-16">
+    <div ref={mainRef} className="overflow-hidden bg-slate-50 pt-[104px]">
       {/* Collaboration bar */}
       <div className="btech-hero-reveal border-b border-slate-200 bg-white px-6 py-5">
         <div className="mx-auto flex max-w-5xl items-center justify-center gap-6 sm:gap-10">

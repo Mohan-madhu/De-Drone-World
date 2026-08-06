@@ -1,48 +1,183 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Settings, Handshake, Box, Layers, ShieldCheck, Zap } from 'lucide-react';
+import {
+  ArrowRight,
+  Building2,
+  CheckCircle2,
+  Cpu,
+  Flame,
+  FlaskConical,
+  GraduationCap,
+  Handshake,
+  HardHat,
+  Mountain,
+  Package,
+  Phone,
+  Plane,
+  Radar,
+  Send,
+  Shield,
+  ShieldCheck,
+  Siren,
+  Sprout,
+  Target,
+  TreePine,
+  Users,
+  Zap,
+} from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Manufacturing = () => {
+const focusAreas = [
+  'Educational UAV Systems',
+  'Industrial Inspection Drones',
+  'Survey & Mapping Platforms',
+  'Agricultural Drones',
+  'Heavy Lift UAV Systems',
+  'Research & Development',
+  'Custom Drone Solutions',
+];
+
+const products = [
+  {
+    id: 'ddw-cutti',
+    name: 'DDW CUTTI™',
+    tagline: 'Nano Educational Drone',
+    quote: 'The Perfect First Drone for Future Innovators.',
+    image: '/assets/services/workshop-build-your-own-drone.jpeg',
+    description:
+      'Designed especially for school students, beginners, STEM education, and drone enthusiasts, DDW CUTTI™ introduces young learners to the exciting world of drone technology in a safe and engaging way.',
+    listALabel: 'Applications',
+    listA: ['STEM Education', 'Robotics Workshops', 'Coding & Programming', 'Indoor Drone Flying', 'Science Exhibitions', 'Drone Competitions', 'Kids Learning Platform'],
+    listBLabel: 'Highlights',
+    listB: ['Lightweight Nano Drone', 'Beginner Friendly', 'Safe Indoor Flying', 'Durable Design', 'Easy to Operate', 'Rechargeable Battery', 'Educational Platform', 'Perfect for Schools'],
+  },
+  {
+    id: 'aideen',
+    name: 'AIDEEN™',
+    tagline: 'Intelligent Micro Drone',
+    quote: 'Compact Size. Professional Performance.',
+    image: '/assets/services/videography.jpeg',
+    description:
+      'AIDEEN™ is a compact micro drone designed for professional aerial photography, surveillance, emergency response, and rapid deployment missions. Its lightweight design and stable flight capabilities make it suitable for various commercial and public safety applications.',
+    listALabel: 'Applications',
+    listA: ['Aerial Photography', 'Videography', 'Disaster Management', 'Emergency Response', 'Event Coverage', 'Search Operations', 'Infrastructure Monitoring'],
+    listBLabel: 'Highlights',
+    listB: ['High Stability Flight', 'HD Camera Integration', 'Compact & Portable', 'Intelligent Flight Modes', 'Long Flight Endurance', 'Easy Deployment', 'Professional Imaging'],
+  },
+  {
+    id: 'argus',
+    name: 'ARGUS™',
+    tagline: 'Survey & Inspection Drone',
+    quote: 'Precision Above Everything.',
+    image: '/assets/drone_precision.png',
+    description:
+      'ARGUS™ is a professional UAV platform built for surveying, mapping, industrial inspections, thermal imaging, and infrastructure monitoring. With its tethered flight capability, ARGUS™ can remain airborne for extended missions of up to 24 hours, making it ideal for continuous surveillance and monitoring.',
+    listALabel: 'Applications',
+    listA: ['Land Survey', 'GIS Mapping', 'Thermal Inspection', 'Infrastructure Inspection', 'Powerline Monitoring', 'Mining Survey', 'Smart City Monitoring', 'Border Surveillance'],
+    listBLabel: 'Highlights',
+    listB: ['Tethered Flight (Up to 24 Hours)', 'High-Precision Mapping', 'RTK Compatible', 'Thermal Camera Support', 'LiDAR Ready', 'AI-Based Mission Planning', 'Industrial Grade Design', 'Weather Resistant'],
+  },
+  {
+    id: 'engineering-drone-kit',
+    name: 'Engineering Drone Assembly Kit',
+    tagline: 'Learn by Building',
+    quote: null,
+    image: '/assets/services/fpv-drone-building.jpeg',
+    description:
+      'The Engineering Drone Assembly Kit is specially developed for engineering colleges, universities, training institutes, and drone enthusiasts. Students gain practical experience by assembling a complete drone from individual components while understanding each subsystem.',
+    listALabel: 'Kit Includes',
+    listA: ['BLDC Motors', 'Electronic Speed Controllers (ESC)', 'Flight Controller', 'GPS Module', 'Radio Controller & Receiver', 'Drone Frame', 'Landing Gear', 'Propellers', 'Battery', 'Power Module', 'Wiring Accessories', 'Assembly Manual'],
+    listBLabel: 'Highlights',
+    listB: ['Hands-on Learning', 'Industry Standard Components', 'Step-by-Step Assembly', 'Drone Programming Support', 'Flight Testing', 'Maintenance Training', 'Perfect for Practical Labs'],
+    listBSecondary: ['Engineering Colleges', 'Polytechnic Institutions', 'Drone Workshops', 'Skill Development Centres', 'UAV Research Labs', 'Final Year Projects', 'Drone Clubs'],
+  },
+  {
+    id: 'delphia',
+    name: 'DELPHIA™',
+    tagline: 'Agriculture Drone',
+    quote: 'Empowering Smart Farming.',
+    image: '/assets/services/fertilizer-spraying.jpeg',
+    description:
+      'DELPHIA™ is an intelligent agricultural drone designed to improve farming efficiency through precision spraying and automated seed dispensing. Built for modern agriculture, it helps farmers reduce manual effort while increasing productivity and accuracy.',
+    listALabel: 'Applications',
+    listA: ['Fertilizer Spraying', 'Pesticide Spraying', 'Seed Dispensing', 'Crop Health Monitoring', 'Precision Agriculture', 'Plantation Management'],
+    listBLabel: 'Highlights',
+    listB: ['High Capacity Spray Tank', 'Precision Spraying', 'Uniform Coverage', 'GPS Flight Planning', 'Autonomous Mission Support', 'Easy Maintenance', 'High Efficiency', 'Farmer Friendly Design'],
+  },
+  {
+    id: 'godaavan',
+    name: 'GODAAVAN™',
+    tagline: 'Heavy Lift Logistics Drone',
+    quote: "Delivering Where Others Can't.",
+    image: '/assets/home_hero.png',
+    description:
+      'GODAAVAN™ is a heavy-lift UAV designed for logistics, emergency response, and disaster relief operations. Capable of transporting essential supplies to difficult and inaccessible locations, it plays a vital role in humanitarian missions and industrial logistics.',
+    listALabel: 'Applications',
+    listA: ['Medical Supply Delivery', 'Disaster Relief', 'Emergency Logistics', 'Cargo Transportation', 'Defence Applications', 'Remote Area Delivery', 'Humanitarian Missions'],
+    listBLabel: 'Highlights',
+    listB: ['Heavy Payload Capacity', 'Long Flight Range', 'Autonomous Navigation', 'Emergency Deployment', 'Rugged Industrial Design', 'Reliable Flight Performance', 'Mission Planning Software', 'High Safety Standards'],
+  },
+];
+
+const whyChooseUs = [
+  'Designed & Manufactured in India',
+  'Advanced R&D Team',
+  'Industry-Tested Designs',
+  'High-Quality Components',
+  'Customizable Solutions',
+  'Reliable After-Sales Support',
+  'Training & Technical Assistance',
+  'Spare Parts Availability',
+  'Scalable Platforms',
+  'Built for Indian Operating Conditions',
+];
+
+const industries = [
+  { icon: Sprout, label: 'Agriculture' },
+  { icon: GraduationCap, label: 'Education' },
+  { icon: Shield, label: 'Defence' },
+  { icon: Target, label: 'Surveying' },
+  { icon: HardHat, label: 'Construction' },
+  { icon: Mountain, label: 'Mining' },
+  { icon: Flame, label: 'Oil & Gas' },
+  { icon: Zap, label: 'Power Transmission' },
+  { icon: Building2, label: 'Smart Cities' },
+  { icon: Siren, label: 'Disaster Management' },
+  { icon: ShieldCheck, label: 'Public Safety' },
+  { icon: Package, label: 'Logistics' },
+  { icon: TreePine, label: 'Environmental Monitoring' },
+  { icon: Radar, label: 'Infrastructure Inspection' },
+];
+
+const ENROLL_URL = 'https://forms.gle/9SdLE62GTYY1o9Av7';
+
+export default function Manufacturing() {
   const mainRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero Animation
-      gsap.from(".hero-reveal", {
-        y: 60,
+      gsap.from('.mfg-hero-reveal', {
+        y: 44,
         opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power4.out"
+        duration: 1,
+        stagger: 0.14,
+        ease: 'power3.out',
       });
 
-      // Parallax Background
-      gsap.to(".parallax-bg", {
-        scrollTrigger: {
-          trigger: ".parallax-container",
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        },
-        yPercent: 20,
-        ease: "none"
-      });
-
-      // Section Reveals
-      const reveals = gsap.utils.toArray('.section-reveal');
-      reveals.forEach((el) => {
-        gsap.from(el, {
+      gsap.utils.toArray('.mfg-section-reveal').forEach((element) => {
+        gsap.from(element, {
           scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
+            trigger: element,
+            start: 'top 88%',
+            once: true,
           },
-          y: 40,
+          y: 32,
           opacity: 0,
-          duration: 1,
-          ease: "power3.out"
+          duration: 0.75,
+          ease: 'power3.out',
         });
       });
     }, mainRef);
@@ -51,217 +186,214 @@ const Manufacturing = () => {
   }, []);
 
   return (
-    <div ref={mainRef} className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[600px] flex items-center overflow-hidden pt-[104px] parallax-container">
-        <div className="absolute inset-0 z-0">
-          <img 
-            className="w-full h-full object-cover parallax-bg" 
-            src="/assets/manufacturing_hero.png" 
-            alt="Manufacturing Facility"
-            style={{ height: '120%', top: '-10%' }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
-          <div className="max-w-2xl">
-            <span className="hero-reveal inline-block py-1.5 px-4 bg-primary/10 text-primary font-bold text-[10px] tracking-widest rounded-lg mb-6 ">
-              Pioneering Indigenous Technology
-            </span>
-            <h1 className="hero-reveal text-4xl md:text-6xl font-bold text-on-surface mb-8 leading-[1.1] tracking-tight">
-              Leading the 'Make in India' Drone Revolution
-            </h1>
-            <p className="hero-reveal text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
-              De Drone World is committed to strengthening the national ecosystem through local manufacturing, high-precision engineering, and scalable production capabilities.
-            </p>
-            <div className="hero-reveal flex flex-wrap gap-4">
-              <button className="bg-primary text-white px-10 py-4 rounded-xl font-bold shadow-2xl shadow-primary/20 hover:scale-105 transition-transform">
-                Our Facilities
-              </button>
-              <button className="border border-primary text-primary px-10 py-4 rounded-xl font-bold hover:bg-primary/5 transition-all">
-                Download Brochure
-              </button>
+    <div ref={mainRef} className="overflow-hidden bg-slate-50 pt-[104px]">
+      {/* Hero */}
+      <section className="relative flex min-h-[600px] items-center overflow-hidden bg-slate-950 px-6 py-20 text-white">
+        <img
+          src="/assets/manufacturing_hero.png"
+          alt="De Drone World manufacturing"
+          className="absolute inset-0 h-full w-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/92 via-slate-950/70 to-slate-950/40" />
+
+        <div className="relative z-10 mx-auto w-full max-w-7xl">
+          <span className="mfg-hero-reveal inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/15 px-5 py-2 text-xs font-bold tracking-[0.2em] text-blue-200">
+            <Cpu size={16} /> Indian Drone Manufacturer
+          </span>
+          <h1 className="mfg-hero-reveal mt-5 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl">
+            Innovating the Future of Indian Drone Technology
+          </h1>
+          <p className="mfg-hero-reveal mt-4 text-lg font-bold text-primary">
+            Designed. Engineered. Manufactured by De Drone World Solutions Pvt. Ltd.
+          </p>
+          <p className="mfg-hero-reveal mt-4 max-w-2xl text-base leading-relaxed text-slate-200 md:text-lg">
+            From educational drone kits to advanced industrial UAVs, we develop intelligent drone solutions for education,
+            agriculture, surveying, aerial imaging, logistics, and public safety.
+          </p>
+
+          <div className="mfg-hero-reveal mt-8">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Our Manufacturing Division Focuses On</p>
+            <div className="flex flex-wrap gap-3">
+              {focusAreas.map((item) => (
+                <span key={item} className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-slate-200 backdrop-blur-sm">
+                  {item}
+                </span>
+              ))}
             </div>
+          </div>
+
+          <div className="mfg-hero-reveal mt-8 flex flex-wrap gap-3">
+            <a href="#products" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-bold text-white shadow-xl shadow-primary/20 transition hover:bg-primary/90">
+              Explore Products <ArrowRight size={19} />
+            </a>
+            <a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 font-bold text-white backdrop-blur-sm transition hover:bg-white/15">
+              <Send size={18} /> Request a Demo
+            </a>
+            <a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 font-bold text-white backdrop-blur-sm transition hover:bg-white/15">
+              <Phone size={18} /> Contact Sales
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Contract Manufacturing - Bento */}
-      <section className="py-24 max-w-7xl mx-auto px-8">
-        <div className="section-reveal text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Contract Manufacturing Solutions</h2>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Scalable and precise manufacturing tailored to your business needs, from component fabrication to full product assembly.
+      {/* About */}
+      <section className="mfg-section-reveal px-6 py-16">
+        <div className="mx-auto max-w-7xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-12">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">About Our Manufacturing Division</p>
+          <h2 className="mt-2 text-2xl font-bold text-navy md:text-3xl">Building India's Next Generation of Drone Technology</h2>
+          <p className="mt-5 max-w-4xl leading-relaxed text-slate-600">
+            At De Drone World Solutions Pvt. Ltd., we are committed to designing and manufacturing innovative drone solutions that
+            meet the growing demands of education, agriculture, surveying, logistics, disaster management, and industrial
+            inspection.
+          </p>
+          <p className="mt-4 max-w-4xl leading-relaxed text-slate-600">
+            Every drone is developed with a focus on reliability, safety, performance, and real-world usability. Our in-house
+            research and development team continuously works on creating intelligent UAV platforms that support India's vision of
+            technological advancement and self-reliance.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 auto-rows-[280px]">
-          {/* Private Label */}
-          <div className="section-reveal md:col-span-8 bg-slate-900 rounded-3xl p-10 flex flex-col justify-end relative overflow-hidden group">
-            <img 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK78P6BOnAzwTzS2brybHPRSzQ746PEXv5zNwmwQpe_YVIOWmNcV0Om7IRHc9OkoTllUXveiPBgoRwbCaeEwj6LSW2kmcbpnp24I9Xw5V81xvcdi59ZdIN9lqh0jKosk7YAJw5btz85ua17Stw5Xy3sDNYAHn9AOt9VPJfBdVKDJKTgKVTOcBAX_HHJA3SmqBmiJ9L-SVFb9_ebZezcHj-cGjVFwNIRgvyRMqStgkGQ5sm3NlHGCpBJSzxa_jJnCpV4rrMMf-WBKQ" 
-              alt="Manufacturing" 
-              className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
-            />
-            <div className="absolute top-0 right-0 p-12 text-primary/10 group-hover:text-primary/20 transition-colors">
-              <Layers size={120} />
-            </div>
-            <div className="relative z-10">
-              <h3 className="text-3xl font-bold mb-4 text-white">Private Label Manufacturing</h3>
-              <p className="text-slate-300 text-lg max-w-lg leading-relaxed">
-                Launch your own brand with our flight-tested platforms. We handle the engineering; you own the brand identity.
-              </p>
-            </div>
-          </div>
-
-          {/* Individual Components */}
-          <div className="section-reveal md:col-span-4 bg-slate-900 text-white rounded-3xl p-10 flex flex-col justify-between group relative overflow-hidden">
-            <img 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPI3n_0-qvyXz3Yht1o5C-pOHJIk0dnorY8spJrME9zoDTNGypZjHOC0QIdWF2-5XalPzNAfEnNzabGTPN1z6-2cxouPyR28ayhcnZcxis9iRcV4AL4KMrXhvuUxaBTUH0gUz0AvLEEC3X1yX3pLn033uuWG0MT9M8S9nZ3oWhFORXc08TpkSdrtXdyZYjtzpUwFnTATwcdUXx_z5lnsbi3AO9lkLRWZ-8-E-ZL2AsQvjPVbWzacyKmHJ9edcThB7N6xAPKEWuIko" 
-              alt="Components" 
-              className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
-            />
-            <div className="relative z-10">
-              <Settings size={40} className="mb-6 group-hover:rotate-90 transition-transform duration-1000 text-primary" />
-              <div>
-                <h3 className="text-2xl font-bold mb-4">Individual Components</h3>
-                <p className="text-white/70 leading-relaxed text-sm">
-                  Precision fabrication of carbon fiber frames, PCB assembly, and motor enclosures.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Subcontracting */}
-          <div className="section-reveal md:col-span-4 bg-slate-50 border border-slate-100 rounded-3xl p-10 flex flex-col justify-between hover:bg-slate-100 transition-colors group">
-            <Handshake size={40} className="text-primary group-hover:scale-110 transition-transform" />
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-slate-900">Subcontracting</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Expert capacity for overflow production or specific technical modules for your existing supply chain.
-              </p>
-            </div>
-          </div>
-
-          {/* End-to-End */}
-          <div className="section-reveal md:col-span-8 glass-card rounded-3xl p-10 flex flex-col md:flex-row items-center gap-12 overflow-hidden group">
-            <div className="w-full md:w-2/5 h-full rounded-2xl overflow-hidden shrink-0">
-              <img 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx0-n0omTLwFaQAHjg4StQkEc79slY_FXsvSH2-TrRmb7m6EJ7lqYUoCTBUhPkA2HYqE3YG2Baf3wtUscv-vjXOZLs4bbt792URiSLZiE7ZqmuZCuZ0acJLuVC8kcapqmF4mhgtc9H6ULpJKWK5gEOlUzcN-X-sub1Y58F2Cy3_z8LGJ1xysSZIomsW9ddDooC46gJAgF1pLCJq3leyt3EG44qX91vFjg2-eKBeXgY1Qu2b6t7BWzPoJFjN-6QI7wK3tjXB0ZESEQ" 
-                alt="End-to-End Production"
-              />
-            </div>
-            <div className="flex-1">
-              <h3 className="text-3xl font-bold mb-4">End-to-End Production</h3>
-              <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                From initial CAD design and prototyping to final flight testing and packaging. A complete turnkey manufacturing solution.
-              </p>
-              <button className="text-primary font-bold flex items-center gap-2 group/btn">
-                Learn more <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
-              </button>
-            </div>
-          </div>
-        </div>
       </section>
 
-      {/* Assembly Kits Section */}
-      <section className="bg-slate-50 py-24">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="section-reveal mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-slate-900">Specialized Training & Assembly Kits</h2>
-            <p className="text-lg text-slate-500">Industrial-grade kits for engineering schools and private research labs.</p>
+      {/* Product Portfolio */}
+      <section id="products" className="mfg-section-reveal scroll-mt-24 bg-white px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">Our Product Portfolio</p>
+            <h2 className="mt-2 text-2xl font-bold text-navy md:text-3xl">The DDW Aerospace Series</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Engineering Drone Kit",
-                model: "X-Series Pro",
-                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAQhD9lar6W3N6tFdeVmvPi_6jJ4ueib09SKYdGHrHx_lZYprjhkPTv9Oa-S2JfhSTIIjmbWnDcRFFjxWTN1l8bpcU4_P80rxns-KbMhOleTJvmpCdsPO6kDh62lobDcULMfe96nL3laaQjQ0aEOyXB5oWZjOYdRndIp_pDibwDd4bNvQdJ8rypiqy6E3S7dqcYaU6fYGDL0VfVp_9r_ndXB_k_iT06-kROGv6mflP73TNKVYEBuw1X5hEBn11K_oIrHTxRAq10aTQ",
-                badge: "Best Seller",
-                specs: [
-                  { label: "Frame Material", value: "3K Carbon Fiber" },
-                  { label: "Flight Controller", value: "Pixhawk 6C Ready" },
-                  { label: "Payload Capacity", value: "1.5kg Max" },
-                  { label: "Assembly Time", value: "~4-6 Hours" }
-                ]
-              },
-              {
-                title: "Wooden Drone Kit",
-                model: "Eco-Flyer v2",
-                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBpmTSs5QoxgiZN9vuK6yDS_a4YdYCM2RsZVOKyKAtvgvgZP-NsrgQm8xI9druYiWBd_4rEFBbvzvz5c6JC9KFbT5Pq9zyd-ZZp5fVVDhXVOU7S1Tx1zYG9TWSLvLS7sTUpKcUM0HZI1Wdx4X0E03nTPZWT7ldkrU7hemLEh1rR3IIEdRfQeE16_W5zz3khD8b0nviCchIWlKgun3Sv1mcYbGGS3I57FUGE9SiUScAX2SFsJtsTXAlcE8QPmaySD1ayaMJLRSH-IvA",
-                badge: "Educational",
-                secondary: true,
-                specs: [
-                  { label: "Frame Material", value: "Birch Plywood" },
-                  { label: "Flight Controller", value: "Arduino Compatible" },
-                  { label: "Focus", value: "STEM Learning" },
-                  { label: "Sustainable", value: "100% Recyclable" }
-                ]
-              }
-            ].map((kit, i) => (
-              <div key={i} className="section-reveal bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 group">
-                <div className="h-80 overflow-hidden relative">
-                  <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" src={kit.img} alt={kit.title} />
-                  <div className={`absolute top-6 left-6 px-4 py-1.5 rounded-lg text-[10px] font-bold tracking-widest  backdrop-blur-md ${kit.secondary ? 'bg-slate-900/80 text-white' : 'bg-primary/90 text-white'}`}>
-                    {kit.badge}
+          <div className="grid gap-8 lg:grid-cols-2">
+            {products.map((product) => (
+              <article key={product.id} id={product.id} className="group flex scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-xl">
+                <div className="relative h-64 overflow-hidden bg-slate-200">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
+                  <div className="absolute bottom-5 left-6 right-6">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-200">{product.tagline}</p>
+                    <h3 className="text-2xl font-bold text-white">{product.name}</h3>
                   </div>
                 </div>
-                <div className="p-10">
-                  <div className="flex justify-between items-center mb-8">
-                    <h3 className="text-3xl font-bold">{kit.title}</h3>
-                    <span className={`font-bold px-3 py-1 rounded-full text-xs ${kit.secondary ? 'text-slate-500 bg-slate-50' : 'text-primary bg-primary/5'}`}>{kit.model}</span>
+
+                <div className="flex flex-1 flex-col p-7">
+                  {product.quote && <p className="mb-3 font-bold italic text-primary">&ldquo;{product.quote}&rdquo;</p>}
+                  <p className="text-sm leading-relaxed text-slate-600">{product.description}</p>
+
+                  <div className="mt-6 grid gap-6 sm:grid-cols-2">
+                    <div>
+                      <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-primary">{product.listALabel}</p>
+                      <ul className="space-y-2">
+                        {product.listA.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
+                            <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-primary" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-primary">{product.listBLabel}</p>
+                      <ul className="space-y-2">
+                        {product.listB.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
+                            <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-primary" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className="space-y-4 mb-10">
-                    {kit.specs.map((spec, idx) => (
-                      <div key={idx} className="flex justify-between py-3 border-b border-slate-50 text-sm">
-                        <span className="text-slate-400">{spec.label}</span>
-                        <span className="text-on-surface font-bold">{spec.value}</span>
+
+                  {product.listBSecondary && (
+                    <div className="mt-6 rounded-2xl bg-slate-50 p-5">
+                      <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-primary">Ideal For</p>
+                      <div className="flex flex-wrap gap-2">
+                        {product.listBSecondary.map((item) => (
+                          <span key={item} className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-navy shadow-sm">{item}</span>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                  <button className={`w-full py-5 rounded-2xl font-bold transition-all ${kit.secondary ? 'border-2 border-primary text-primary hover:bg-primary/5' : 'bg-primary text-white hover:bg-primary/90 shadow-xl shadow-primary/20'}`}>
-                    Enquire Now
-                  </button>
+                    </div>
+                  )}
                 </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Our Drones */}
+      <section className="mfg-section-reveal bg-navy px-6 py-16 text-white">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">Why Choose Our Drones?</p>
+          <h2 className="mt-2 text-2xl font-bold text-white md:text-3xl">Engineered for Real-World Reliability</h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {whyChooseUs.map((item) => (
+              <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+                <CheckCircle2 size={18} className="shrink-0 text-primary" />
+                <span className="text-sm font-bold text-slate-200">{item}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="relative py-24 bg-slate-950 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPxNSJqStxTr_l5aJvvg_7q_OM-gVPpRf8UpHr1amEIedIilnO_5QVo3XAhUaeK9NQZi9HW_-4mBab_mPOTqPdO4XlgRicPGPL762dTUR18a7ng-_gj1fcw008jmXnordu9U1dJ5GbLZFf9s-mvIvUFqvU3-AGgyDvqfmt5Y8LeASiPx4EgmiFTz7Q3x4RWU-8PnYz-eDD8jxCWPoIQisGDjPAkmzl8qaIoohrDDo5PQAd6zjjZMmMbT2r31b-uo1t7Yr_EMRIhSg" 
-            alt="Stats Background" 
-            className="w-full h-full object-cover opacity-10"
-          />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
-            {[
-              { value: "15,000+", label: "Units Produced", icon: <Box className="text-primary" size={32} /> },
-              { value: "99.8%", label: "Qa Accuracy", icon: <ShieldCheck className="text-primary" size={32} /> },
-              { value: "24/7", label: "Facility Monitoring", icon: <Zap className="text-primary" size={32} /> },
-              { value: "ISO 9001", label: "Certified Processes", icon: <Layers className="text-primary" size={32} /> }
-            ].map((stat, i) => (
-              <div key={i} className="section-reveal text-center group">
-                <div className="flex justify-center mb-6 group-hover:scale-110 transition-transform">
-                  {stat.icon}
-                </div>
-                <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-[10px] font-bold tracking-[0.2em] text-slate-400 ">{stat.label}</div>
+      {/* Industries We Serve */}
+      <section className="mfg-section-reveal bg-white px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-primary">Industries We Serve</p>
+          <h2 className="mt-2 text-2xl font-bold text-navy md:text-3xl">Drone Solutions Across Sectors</h2>
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
+            {industries.map(({ icon: Icon, label }) => (
+              <div key={label} className="flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm transition hover:border-primary/40 hover:shadow-md">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Icon size={22} />
+                </span>
+                <span className="text-sm font-bold text-navy">{label}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* R&D */}
+      <section className="mfg-section-reveal px-6 py-16">
+        <div className="mx-auto max-w-7xl rounded-3xl bg-primary p-8 text-white shadow-xl md:p-12">
+          <FlaskConical className="mb-4 text-white/80" size={30} />
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/80">Research &amp; Development</p>
+          <h2 className="mt-2 text-2xl font-bold text-white md:text-3xl">Innovation Drives Everything We Create</h2>
+          <p className="mt-5 max-w-4xl leading-relaxed text-white/90">
+            Our dedicated Research &amp; Development division continuously develops next-generation UAV technologies, autonomous
+            flight systems, intelligent payloads, AI-powered mission planning, and advanced aerial solutions to meet evolving
+            industry needs.
+          </p>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="mfg-section-reveal px-6 py-20">
+        <div className="mx-auto max-w-7xl rounded-3xl bg-slate-950 px-8 py-16 text-center text-white shadow-2xl md:px-16">
+          <Plane className="mx-auto mb-4 text-primary" size={32} />
+          <h2 className="text-3xl font-bold text-white md:text-4xl">Ready to Experience the Future of Drone Technology?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-slate-300">
+            Whether you're an educational institution, government organization, enterprise, or industry partner, our
+            manufacturing division delivers innovative drone solutions tailored to your needs.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a href={ENROLL_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 font-bold text-white shadow-xl shadow-primary/20 transition hover:bg-primary/90">
+              Request a Product Demo <ArrowRight size={19} />
+            </a>
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-8 py-4 font-bold text-white transition hover:bg-white/10">
+              <Handshake size={18} /> Talk to Our Experts
+            </Link>
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-8 py-4 font-bold text-white transition hover:bg-white/10">
+              <Users size={18} /> Become a Distribution Partner
+            </Link>
           </div>
         </div>
       </section>
     </div>
   );
-};
-
-export default Manufacturing;
+}
