@@ -54,6 +54,12 @@ const gallerySections = [
 // Mix of tile spans for a masonry-style rhythm instead of a flat uniform grid
 const tileSpanPattern = ['row-span-2', '', '', 'row-span-2', '', '', ''];
 
+// Local-only helper: shows each photo's filename on hover so it's easy to pick
+// out files to delete/replace. Never shown on the deployed site.
+const isLocalDevelopment =
+  typeof window !== 'undefined' &&
+  (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+
 export default function Gallery() {
   const mainRef = useRef(null);
   const [lightbox, setLightbox] = useState(null);
@@ -191,6 +197,11 @@ export default function Gallery() {
                       </span>
                     </div>
                     <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/0 transition-all duration-300 group-hover:ring-white/30" />
+                    {isLocalDevelopment && (
+                      <span className="pointer-events-none absolute left-2 top-2 rounded-md bg-black/80 px-2 py-1 font-mono text-[10px] font-bold text-lime-300 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+                        {photo.split('/').pop()}
+                      </span>
+                    )}
                   </button>
                 ))}
               </div>
