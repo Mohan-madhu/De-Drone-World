@@ -244,6 +244,10 @@
   }
 }
 
+.hexagon-frame {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
 .gallery-photo-card {
   animation: gallery-photo-fade-in 0.5s ease-out both;
 }

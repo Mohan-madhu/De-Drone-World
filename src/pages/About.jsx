@@ -21,6 +21,61 @@ import WhatsAppButton from '../components/WhatsAppButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const SocialIcon = ({ children }) => (
+  <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden="true">
+    {children}
+  </svg>
+);
+
+const teamSocialLinks = [
+  {
+    label: 'Facebook',
+    href: 'https://share.google/Bvu6INCnOeOjR5R60',
+    icon: (
+      <SocialIcon>
+        <path d="M22.7 12A10.7 10.7 0 1 0 10.3 22.6v-7.5H7.6V12h2.7V9.7c0-2.7 1.6-4.2 4.1-4.2 1.2 0 2.5.2 2.5.2v2.7h-1.4c-1.4 0-1.8.9-1.8 1.8V12h3.1l-.5 3.1h-2.6v7.5A10.7 10.7 0 0 0 22.7 12Z" />
+      </SocialIcon>
+    ),
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/dedroneworld.in?igsh=MWQ4aWM2Ymd0bWczMQ==',
+    icon: (
+      <SocialIcon>
+        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.8A4.2 4.2 0 1 1 7.8 12 4.2 4.2 0 0 1 12 7.8Zm0 2A2.2 2.2 0 1 0 14.2 12 2.2 2.2 0 0 0 12 9.8Zm5.6-3.1a1 1 0 1 1-1 1 1 1 0 0 1 1-1Z" />
+      </SocialIcon>
+    ),
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/de-drone-world-solutions-pvt-ltd/',
+    icon: (
+      <SocialIcon>
+        <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.8h4v10.7H3V9.8Zm6.2 0H13v1.5h.1a4.1 4.1 0 0 1 3.7-2c4 0 4.7 2.6 4.7 6v5.2h-4v-4.6c0-1.1 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5v4.7h-4V9.8Z" />
+      </SocialIcon>
+    ),
+  },
+];
+
+const TeamSocialRow = ({ dark }) => (
+  <div className="flex items-center justify-center gap-2">
+    {teamSocialLinks.map((item) => (
+      <a
+        key={item.label}
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={item.label}
+        className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors ${
+          dark ? 'bg-white/10 text-white hover:bg-primary hover:text-white' : 'bg-slate-100 text-slate-500 hover:bg-primary hover:text-white'
+        }`}
+      >
+        {item.icon}
+      </a>
+    ))}
+  </div>
+);
+
 const reviews = [
   {
     name: "George Kamini",
@@ -295,49 +350,63 @@ const About = () => {
             </p>
           </div>
 
-          {/* Founder — full-width row */}
-          <article className="group grid overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-xl lg:grid-cols-2">
-            <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100 lg:aspect-auto">
-              <div className="h-full w-full grayscale transition-all duration-500 group-hover:grayscale-0">
-                <TeamPhoto member={founder} />
+          {/* Founder — hexagon-badge card, larger scale */}
+          <article className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:shadow-xl">
+            <div className="grid sm:grid-cols-[280px_1fr] sm:items-center">
+              <div className="relative flex items-center justify-center bg-slate-100 px-8 py-10 sm:h-full">
+                <span className="pointer-events-none absolute h-44 w-44 rounded-full border-2 border-dashed border-primary/25 sm:h-52 sm:w-52" />
+                <div className="hexagon-frame relative h-36 w-36 overflow-hidden shadow-lg sm:h-44 sm:w-44">
+                  <TeamPhoto member={founder} />
+                </div>
               </div>
-              {founder.tag && (
-                <span className="absolute left-6 top-6 rounded-full bg-navy/85 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-sm backdrop-blur-md">
-                  {founder.tag}
-                </span>
-              )}
-            </div>
 
-            <div className="flex flex-col justify-center p-8 lg:p-12">
-              <p className="text-sm font-bold uppercase tracking-[0.14em] text-primary">{founder.role}</p>
-              <h3 className="mt-2 text-3xl font-bold text-navy lg:text-4xl">{founder.name}</h3>
-              <div className="mt-6 h-px w-16 bg-primary/30" />
-              <p className="mt-6 text-lg leading-relaxed text-slate-600">
-                {founder.bio}
-              </p>
+              <div className="p-8 text-center sm:p-10 sm:text-left">
+                {founder.tag && (
+                  <span className="mb-2 inline-flex rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary">
+                    {founder.tag}
+                  </span>
+                )}
+                <h3 className="text-2xl font-bold uppercase tracking-wide text-navy sm:text-3xl">{founder.name}</h3>
+                <p className="mt-1 text-sm font-bold uppercase tracking-[0.14em] text-primary">{founder.role}</p>
+                <p className="mt-4 leading-relaxed text-slate-600">{founder.bio}</p>
+                <div className="mt-6 sm:flex sm:justify-start">
+                  <TeamSocialRow />
+                </div>
+              </div>
             </div>
+            <div className="h-1.5 w-full bg-primary" />
           </article>
 
-          {/* Rest of the team — 4 across */}
-          <div className="mt-8 grid grid-cols-2 gap-6 lg:grid-cols-4">
-            {restOfTeam.map((member) => (
-              <article
-                key={member.name}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-lg"
-              >
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
-                  <div className="h-full w-full grayscale transition-all duration-500 group-hover:grayscale-0">
-                    <TeamPhoto member={member} />
-                  </div>
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100" />
-                </div>
+          {/* Rest of the team — one row, 4 across, hexagon-badge cards */}
+          <div className="mt-8 grid grid-cols-2 gap-5 lg:grid-cols-4">
+            {restOfTeam.map((member, index) => {
+              const accentColor = ['#1E9FD4', '#70D26B', '#F4CE45', '#8B83E6'][index % 4];
 
-                <div className="p-4 text-center sm:p-5">
-                  <h3 className="text-base font-bold text-navy">{member.name}</h3>
-                  <p className="mt-1 text-xs font-bold uppercase tracking-[0.06em] text-primary">{member.role}</p>
+              return (
+                <div
+                  key={member.name}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+                >
+                  <div className="relative flex items-center justify-center bg-slate-100 py-8">
+                    <span className="pointer-events-none absolute h-24 w-24 rounded-full border-2 border-dashed border-slate-300 sm:h-28 sm:w-28" />
+                    <div className="hexagon-frame relative h-20 w-20 overflow-hidden shadow-md sm:h-24 sm:w-24">
+                      <TeamPhoto member={member} />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-1 flex-col items-center px-4 pb-6 pt-5 text-center">
+                    <h3 className="text-sm font-bold uppercase tracking-wide text-navy">{member.name}</h3>
+                    <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.1em]" style={{ color: accentColor }}>{member.role}</p>
+                    <p className="mt-3 flex-1 text-xs leading-relaxed text-slate-500">{member.bio}</p>
+                    <div className="mt-4">
+                      <TeamSocialRow />
+                    </div>
+                  </div>
+
+                  <div className="h-1.5 w-full" style={{ backgroundColor: accentColor }} />
                 </div>
-              </article>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
