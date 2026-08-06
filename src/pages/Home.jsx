@@ -34,10 +34,12 @@ const clients = [
   { name: "Ministry of MSME, Govt. of India", src: "/assets/clients/ministry-of-msme-govt-of-india.jpg", category: "Government & Public Ecosystem" },
   { name: "Naan Mudhalvan", src: "/assets/clients/naan-mudhalvan.jpg", category: "Government & Public Ecosystem" },
   { name: "NABARD", src: "/assets/clients/nabard.jpg", category: "Government & Public Ecosystem" },
-  { name: "MABIF", src: "/assets/clients/mabif.jpg", category: "Academic & Institutional Network" },
+  { name: "MABIF", src: "/assets/clients/mabif.jpg", category: "Government & Public Ecosystem" },
   { name: "Hindusthan College of Engineering and Technology", src: "/assets/clients/hindusthan-college-of-engineering-and-technology.jpg", category: "Academic & Institutional Network" },
   { name: "Vaigai College of Engineering", src: "/assets/clients/vaigai-college-of-engineering.jpg", category: "Academic & Institutional Network" },
   { name: "Dhaanish Ahmed Institute of Technology", src: "/assets/clients/dhaanish-ahmed-institute-of-technology.jpg", category: "Academic & Institutional Network" },
+  { name: "Nehru Institute of Engineering and Technology", src: "/assets/clients/niet-logo.jpg", category: "Academic & Institutional Network" },
+  { name: "PKDAS University", src: "/assets/clients/pkdas.png", category: "Academic & Institutional Network" },
   { name: "TSAW", src: "/assets/clients/tsaw.jpg", category: "Industry & Aviation Partners" },
   { name: "Skywalk Robotics Academy", src: "/assets/clients/skywalk-robotics-academy.jpg", category: "Industry & Aviation Partners" },
   { name: "VIL Aviation", src: "/assets/clients/vil-aviation.jpg", category: "Industry & Aviation Partners" },
@@ -152,7 +154,7 @@ const realNumbers = [
 
 const formatIndianNumber = (value) => Number(value).toLocaleString('en-IN');
 
-const ADMISSION_REGISTER_URL = 'https://forms.gle/j39nA4HWN6jgmYgt7';
+const ADMISSION_REGISTER_URL = 'https://forms.gle/9SdLE62GTYY1o9Av7';
 
 const preloadImage = (src) =>
   new Promise((resolve) => {
@@ -807,7 +809,7 @@ const Home = () => {
             </div>
             <div className="flex gap-3 md:justify-end">
               <div className="rounded-2xl bg-navy px-5 py-4 text-center text-white">
-                <span className="block font-bold text-primary">11</span>
+                <span className="block font-bold text-primary">13</span>
                 <span className="block text-slate-300">Organizations</span>
               </div>
               <div className="rounded-2xl bg-primary px-5 py-4 text-center text-white">

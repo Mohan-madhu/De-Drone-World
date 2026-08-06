@@ -81,10 +81,10 @@ export default function Contact() {
   return (
     <div ref={mainRef} className="min-h-screen bg-[#F5FAFC] pt-[132px] text-navy">
       <section className="relative overflow-hidden border-b border-primary/15 bg-navy px-6 py-16 text-white">
-        <div className="absolute inset-0 opacity-20">
-          <img src="/assets/home_hero.png" alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0">
+          <img src="/assets/services_hero.png" alt="" className="h-full w-full object-cover object-[60%_35%]" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/75 to-navy/25" />
         <div className="contact-reveal relative mx-auto max-w-7xl">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 font-bold text-primary">
             <ShieldCheck size={18} />

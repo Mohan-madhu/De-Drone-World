@@ -123,6 +123,8 @@ const teamMembers = [
   },
 ];
 
+const [founder, ...restOfTeam] = teamMembers;
+
 const pillars = [
   { icon: <ShieldCheck size={22} />, label: 'Aviation-led safety culture' },
   { icon: <BadgeCheck size={22} />, label: 'DGCA-approved training focus' },
@@ -293,33 +295,46 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {teamMembers.map((member) => (
+          {/* Founder — full-width row */}
+          <article className="group grid overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-xl lg:grid-cols-2">
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100 lg:aspect-auto">
+              <div className="h-full w-full grayscale transition-all duration-500 group-hover:grayscale-0">
+                <TeamPhoto member={founder} />
+              </div>
+              {founder.tag && (
+                <span className="absolute left-6 top-6 rounded-full bg-navy/85 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-sm backdrop-blur-md">
+                  {founder.tag}
+                </span>
+              )}
+            </div>
+
+            <div className="flex flex-col justify-center p-8 lg:p-12">
+              <p className="text-sm font-bold uppercase tracking-[0.14em] text-primary">{founder.role}</p>
+              <h3 className="mt-2 text-3xl font-bold text-navy lg:text-4xl">{founder.name}</h3>
+              <div className="mt-6 h-px w-16 bg-primary/30" />
+              <p className="mt-6 text-lg leading-relaxed text-slate-600">
+                {founder.bio}
+              </p>
+            </div>
+          </article>
+
+          {/* Rest of the team — 4 across */}
+          <div className="mt-8 grid grid-cols-2 gap-6 lg:grid-cols-4">
+            {restOfTeam.map((member) => (
               <article
                 key={member.name}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-lg"
               >
-                {/* Photo */}
                 <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
                   <div className="h-full w-full grayscale transition-all duration-500 group-hover:grayscale-0">
                     <TeamPhoto member={member} />
                   </div>
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100" />
-                  {member.tag && (
-                    <span className="absolute left-4 top-4 rounded-full bg-navy/85 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-sm backdrop-blur-md">
-                      {member.tag}
-                    </span>
-                  )}
                 </div>
 
-                {/* Content */}
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-lg font-bold text-navy">{member.name}</h3>
-                  <p className="mt-1 text-sm font-bold uppercase tracking-[0.08em] text-primary">{member.role}</p>
-                  <div className="mt-4 h-px w-full bg-slate-100" />
-                  <p className="mt-4 text-sm leading-relaxed text-slate-600">
-                    {member.bio}
-                  </p>
+                <div className="p-4 text-center sm:p-5">
+                  <h3 className="text-base font-bold text-navy">{member.name}</h3>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-[0.06em] text-primary">{member.role}</p>
                 </div>
               </article>
             ))}

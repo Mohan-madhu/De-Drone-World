@@ -83,12 +83,14 @@ const Hero = (props) => {
           </p>
           
           <div ref={btnsRef} className="flex flex-col sm:flex-row gap-4">
-            <Link 
-              to="/contact" 
+            <a
+              href="https://forms.gle/9SdLE62GTYY1o9Av7"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary text-white px-8 py-3.5 rounded-lg font-semibold text-base hover:bg-opacity-90 transition-all shadow-lg shadow-primary/25 text-center"
             >
               Enroll Now
-            </Link>
+            </a>
             <Link 
               to="/training" 
               className="border-2 border-primary text-primary px-8 py-3.5 rounded-lg font-semibold text-base hover:bg-primary/10 transition-all text-center"

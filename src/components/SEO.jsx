@@ -16,6 +16,7 @@ const routeMeta = {
   '/manufacturing': ['Drone Manufacturing & UAV Kits in India | De Drone World', 'Drone assembly kits, UAV components, private-label manufacturing and custom drone development for institutions and enterprises.', 'drone manufacturing India, UAV kits, custom drone development, drone components Tamil Nadu'],
   '/contact': ['Contact De Drone World | Drone Training Coimbatore', 'Contact De Drone World in Coimbatore for DGCA drone training, UAV services, institutional partnerships and drone manufacturing.', 'drone training contact Coimbatore, DGCA RPTO Coimbatore, drone institute Tamil Nadu'],
   '/gallery': ['Gallery | De Drone World', 'Photos from De Drone World: MOU signings, DGCA RPC training, student workshops, and outreach events across Tamil Nadu.', 'De Drone World gallery, drone training photos Coimbatore, DGCA training photos, drone workshop photos'],
+  '/btech-avionics-and-drone-engineering': ['B.Tech Avionics & Drone Engineering | PK DAS University & De Drone World', "India's first industry-conducted B.Tech in Avionics & Drone Engineering, jointly offered by PK DAS University and De Drone World Solutions Pvt. Ltd. Admissions open 2026-2027.", 'B.Tech avionics drone engineering, PK DAS University drone course, industry conducted B.Tech, drone engineering degree Coimbatore'],
 };
 
 const courseNames = {

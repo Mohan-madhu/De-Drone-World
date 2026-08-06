@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { BadgeCheck, Briefcase, Building2, CalendarDays, CheckCircle, Clock, GraduationCap, HelpCircle, IndianRupee, MapPin, Plane, Quote, Route, Send, ShieldCheck, Sparkles, Wrench } from 'lucide-react';
 
@@ -1714,41 +1714,29 @@ function BulletList({ items }) {
 }
 
 function EnrollmentCard({ program }) {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
     <aside id="apply" className="self-start scroll-mt-28 lg:sticky lg:top-24">
       <div className="overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-2xl shadow-primary/10">
         <div className="bg-navy p-5 text-white">
           <p className="text-xs font-extrabold tracking-[0.12em] text-primary">Ready to Take Off?</p>
           <h3 className="mt-2 text-2xl font-bold font-display text-white">Start your journey</h3>
-          <p className="mt-2 text-sm font-medium leading-relaxed text-slate-200">Share your details and get enrollment support.</p>
+          <p className="mt-2 text-sm font-medium leading-relaxed text-slate-200">
+            Apply for {program.menuTitle} through our enrollment form and our admissions team will get in touch.
+          </p>
         </div>
 
-        <form className="grid gap-3 p-5" onSubmit={handleSubmit}>
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="Name" required />
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" type="email" placeholder="Email" required />
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="Phone" required />
-          <input className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold outline-none focus:border-primary focus:ring-4 focus:ring-primary/10" placeholder="City" required />
-          <input type="hidden" value={program.title} readOnly />
-
-          <button className="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-xl shadow-primary/20 transition-transform hover:scale-[1.02]">
-            Submit Details <Send size={18} />
-          </button>
-
-          {submitted && (
-            <p className="rounded-xl bg-primary/10 p-3 text-xs font-medium text-primary">
-              Thanks. Your interest has been captured for {program.menuTitle}.
-            </p>
-          )}
+        <div className="grid gap-3 p-5">
+          <a
+            href="https://forms.gle/9SdLE62GTYY1o9Av7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-extrabold text-white shadow-xl shadow-primary/20 transition-transform hover:scale-[1.02]"
+          >
+            Apply Now <Send size={18} />
+          </a>
 
           <p className="text-center text-xs font-semibold text-slate-500">Get certified. Own the sky.</p>
-        </form>
+        </div>
       </div>
     </aside>
   );

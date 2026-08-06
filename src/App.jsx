@@ -19,6 +19,7 @@ import SurveyMappingServices from './pages/SurveyMappingServices';
 import Manufacturing from './pages/Manufacturing';
 import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
+import BTechAvionicsDrone from './pages/BTechAvionicsDrone';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -214,6 +215,7 @@ function App() {
           <Route path="/manufacturing" element={<Manufacturing />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/btech-avionics-and-drone-engineering" element={<BTechAvionicsDrone />} />
         </Routes>
       </main>
       <Footer />

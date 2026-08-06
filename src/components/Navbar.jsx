@@ -148,6 +148,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'B.Tech Courses', path: '/btech-avionics-and-drone-engineering' },
     { name: 'Training', path: '/training', hasDropdown: 'training' },
     { name: 'Services', path: '/services', hasDropdown: 'services' },
     { name: 'Manufacturing', path: '/manufacturing' },
@@ -158,13 +159,13 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 flex flex-col ${
-        scrolled ? 'bg-white shadow-md' : 'bg-transparent'
+      className={`fixed top-0 left-0 w-full z-50 flex flex-col bg-white transition-shadow duration-300 ${
+        scrolled ? 'shadow-md' : ''
       }`}
     >
       <div className="w-full h-[3px] bg-primary"></div>
 
-      <nav className="grid h-16 w-full grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 xl:px-8">
+      <nav className="grid h-16 w-full grid-cols-[auto_1fr_auto] items-center gap-4 bg-white px-4 sm:px-6 xl:px-8">
         <Link to="/" className="flex items-center">
           <img src="/assets/logo.png" alt="De Drone World Logo" className="h-12 w-auto object-contain" />
         </Link>
@@ -260,9 +261,9 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center justify-end space-x-4">
-          <Link to="/contact" className="hidden xl:block bg-primary text-white px-5 py-2 rounded-lg font-display text-[0.95rem] font-bold hover:bg-opacity-90 transition-all">
+          <a href="https://forms.gle/9SdLE62GTYY1o9Av7" target="_blank" rel="noopener noreferrer" className="hidden xl:block bg-primary text-white px-5 py-2 rounded-lg font-display text-[0.95rem] font-bold hover:bg-opacity-90 transition-all">
             Enroll Now
-          </Link>
+          </a>
           <button
             className="xl:hidden text-navy p-2 hover:text-primary transition-colors focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -273,11 +274,11 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="announcement-marquee relative z-0 bg-transparent text-red-600 mt-4">
+      <div className="announcement-marquee relative z-0 bg-white text-red-600 mt-0">
         <div className="announcement-marquee-track">
           {[...announcements, ...announcements, ...announcements].map((item, index) => (
             <a 
-              href="https://forms.gle/j39nA4HWN6jgmYgt7"
+              href="https://forms.gle/9SdLE62GTYY1o9Av7"
               target="_blank"
               rel="noopener noreferrer"
               key={`${item}-${index}`} 
@@ -364,9 +365,9 @@ const Navbar = () => {
             );
           })}
           <div className="p-8">
-            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full bg-primary text-white px-5 py-3 rounded-lg font-display text-base font-bold text-center hover:bg-opacity-90 transition-all">
+            <a href="https://forms.gle/9SdLE62GTYY1o9Av7" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="block w-full bg-primary text-white px-5 py-3 rounded-lg font-display text-base font-bold text-center hover:bg-opacity-90 transition-all">
               Enroll Now
-            </Link>
+            </a>
           </div>
         </div>
       )}

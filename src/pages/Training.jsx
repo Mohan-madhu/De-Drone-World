@@ -188,12 +188,23 @@ const Training = () => {
               </p>
               <h3 className="mt-1">{group.items.length} options available</h3>
             </div>
-            <Link
-              to={type === 'program' ? '/contact' : group.path}
-              className="hidden rounded-xl border border-primary/20 px-4 py-2 font-bold text-primary transition hover:bg-primary hover:text-white sm:inline-flex"
-            >
-              {type === 'program' ? 'Apply' : 'Open'}
-            </Link>
+            {type === 'program' ? (
+              <a
+                href="https://forms.gle/9SdLE62GTYY1o9Av7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden rounded-xl border border-primary/20 px-4 py-2 font-bold text-primary transition hover:bg-primary hover:text-white sm:inline-flex"
+              >
+                Apply
+              </a>
+            ) : (
+              <Link
+                to={group.path}
+                className="hidden rounded-xl border border-primary/20 px-4 py-2 font-bold text-primary transition hover:bg-primary hover:text-white sm:inline-flex"
+              >
+                Open
+              </Link>
+            )}
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
@@ -259,9 +270,9 @@ const Training = () => {
               <p className="mt-3 text-blue-100/85">Join our upcoming batch in Coimbatore or Madurai. Limited seats available.</p>
             </div>
             <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-              <Link to="/contact" className="rounded-xl bg-white px-8 py-4 text-center font-bold text-primary shadow-xl transition hover:bg-slate-50">
+              <a href="https://forms.gle/9SdLE62GTYY1o9Av7" target="_blank" rel="noopener noreferrer" className="rounded-xl bg-white px-8 py-4 text-center font-bold text-primary shadow-xl transition hover:bg-slate-50">
                 Apply for Course
-              </Link>
+              </a>
               <Link to="/contact" className="rounded-xl border border-white/35 px-8 py-4 text-center font-bold text-white transition hover:bg-white/10">
                 Talk to Counselor
               </Link>

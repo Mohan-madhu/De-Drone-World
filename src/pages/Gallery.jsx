@@ -5,10 +5,16 @@ import { Camera, FileSignature, GraduationCap, Megaphone, Wrench, X, ZoomIn } fr
 
 gsap.registerPlugin(ScrollTrigger);
 
-const placeholderPhotos = Array.from(
-  { length: 7 },
-  (_, index) => `/assets/how-high-we-are/${String(index + 1).padStart(2, '0')}.jpeg`
+const mouPhotos = Array.from({ length: 7 }, (_, index) => `/assets/mou/mou-${String(index + 1).padStart(2, '0')}.jpeg`);
+
+const dgcaPhotos = Array.from({ length: 28 }, (_, index) => `/assets/dgca/dgca-${String(index + 1).padStart(2, '0')}.jpeg`);
+
+const studentTrainingPhotos = Array.from(
+  { length: 36 },
+  (_, index) => `/assets/student-training/student-training-${String(index + 1).padStart(2, '0')}.jpeg`
 );
+
+const outreachPhotos = Array.from({ length: 35 }, (_, index) => `/assets/outreach/outreach-${String(index + 1).padStart(2, '0')}.jpeg`);
 
 const gallerySections = [
   {
@@ -17,7 +23,7 @@ const gallerySections = [
     icon: FileSignature,
     color: '#1E9FD4',
     description: 'Institutional and industry partnership agreements signed by De Drone World.',
-    photos: placeholderPhotos,
+    photos: mouPhotos,
   },
   {
     id: 'dgca-rpc-training',
@@ -25,7 +31,7 @@ const gallerySections = [
     icon: GraduationCap,
     color: '#70D26B',
     description: 'DGCA-approved Remote Pilot Certificate training sessions and flight practice.',
-    photos: placeholderPhotos,
+    photos: dgcaPhotos,
   },
   {
     id: 'student-training-workshops',
@@ -33,7 +39,7 @@ const gallerySections = [
     icon: Wrench,
     color: '#F4CE45',
     description: 'Hands-on drone building and skill workshops conducted for students.',
-    photos: placeholderPhotos,
+    photos: studentTrainingPhotos,
   },
   {
     id: 'outreach-events',
@@ -41,7 +47,7 @@ const gallerySections = [
     icon: Megaphone,
     color: '#8B83E6',
     description: 'Community outreach, demonstrations, and public awareness drone events.',
-    photos: placeholderPhotos,
+    photos: outreachPhotos,
   },
 ];
 
@@ -91,7 +97,16 @@ export default function Gallery() {
       });
     }, mainRef);
 
-    return () => ctx.revert();
+    // If the page loads with a #section-id anchor (e.g. /gallery#outreach-events),
+    // the browser jumps straight there before ScrollTrigger measures positions, so
+    // entrance animations can get stuck at their initial opacity: 0. Refreshing after
+    // the jump settles re-syncs every trigger to the current scroll position.
+    const refreshId = window.setTimeout(() => ScrollTrigger.refresh(), 150);
+
+    return () => {
+      window.clearTimeout(refreshId);
+      ctx.revert();
+    };
   }, []);
 
   useEffect(() => {
