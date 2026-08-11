@@ -705,25 +705,17 @@ export default function BTechAvionicsDrone() {
         </div>
       </section>
 
-      {/* Sticky Brochure Button */}
-      <button
-        type="button"
-        onClick={openBrochure}
-        className="group fixed right-3 top-1/2 z-[1150] flex -translate-y-1/2 items-center gap-2 rounded-full bg-primary py-4 pl-4 pr-4 text-white shadow-2xl shadow-primary/40 transition-all duration-300 hover:bg-navy hover:shadow-xl md:right-6 md:pl-5 md:pr-5"
-        aria-label="Download B.Tech brochure"
-      >
-        <span className="relative grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white/20 transition-transform duration-300 group-hover:rotate-12">
-          <Download size={18} />
-        </span>
-        <span className="hidden text-left leading-tight lg:block">
-          <span className="block text-xs font-bold uppercase tracking-[0.14em] text-white/85">B.Tech Brochure</span>
-          <span className="block text-sm font-extrabold">Download PDF</span>
-        </span>
-        <span className="lg:hidden">
-          <span className="block text-xs font-extrabold leading-tight">Brochure</span>
-          <span className="block text-[0.7rem] font-semibold text-white/85">Download</span>
-        </span>
-      </button>
+      {/* Sticky Side Tabs */}
+      <div className="fixed right-0 top-1/2 z-[1150] flex -translate-y-1/2 flex-col overflow-hidden rounded-l-xl shadow-2xl">
+        <button
+          type="button"
+          onClick={openBrochure}
+          className="flex items-center justify-center bg-primary px-2.5 py-5 text-white"
+          aria-label="Download B.Tech brochure"
+        >
+          <span className="rotate-180 text-xs font-extrabold tracking-[0.14em] [writing-mode:vertical-rl]">Download Brochure</span>
+        </button>
+      </div>
 
       {/* Brochure Popup */}
       {showBrochure && (
@@ -744,14 +736,14 @@ export default function BTechAvionicsDrone() {
                 <button
                   type="button"
                   onClick={downloadBrochure}
-                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition hover:bg-primary/90"
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20"
                 >
                   <Download size={16} /> Download
                 </button>
                 <button
                   type="button"
                   onClick={() => setShowBrochure(false)}
-                  className="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 text-slate-700 transition hover:bg-slate-200"
+                  className="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 text-slate-700"
                   aria-label="Close brochure preview"
                 >
                   <X size={20} />
