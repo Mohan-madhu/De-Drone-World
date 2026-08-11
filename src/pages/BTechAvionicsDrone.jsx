@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -15,7 +15,7 @@ import {
   CheckCircle2,
   CircuitBoard,
   Cpu,
-  FileText,
+  Download,
   FlaskConical,
   GraduationCap,
   Handshake,
@@ -39,6 +39,16 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 const ENROLL_URL = 'https://forms.gle/9SdLE62GTYY1o9Av7';
+const BROCHURE_URL = '/assets/btech-brochure.pdf';
+
+const downloadBrochure = () => {
+  const link = document.createElement('a');
+  link.href = BROCHURE_URL;
+  link.download = 'De-Drone-World-BTech-Avionics-and-Drone-Engineering-Brochure.pdf';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+};
 
 const infoGrid = [
   { icon: Handshake, label: 'Industry Partner', value: 'De Drone World Solutions Pvt. Ltd.' },
@@ -211,6 +221,28 @@ const PillGrid = ({ items }) => (
 export default function BTechAvionicsDrone() {
   const mainRef = useRef(null);
   const highlightsCountRef = useRef(null);
+  const [showBrochure, setShowBrochure] = useState(false);
+
+  const openBrochure = () => {
+    setShowBrochure(true);
+    downloadBrochure();
+  };
+
+  useEffect(() => {
+    if (!showBrochure) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setShowBrochure(false);
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [showBrochure]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -310,9 +342,6 @@ export default function BTechAvionicsDrone() {
           <div className="btech-hero-reveal mt-8 flex flex-wrap gap-3">
             <a href={ENROLL_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-bold text-white shadow-xl shadow-primary/20 transition hover:bg-primary/90">
               Apply Now <ArrowRight size={19} />
-            </a>
-            <a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 font-bold text-white backdrop-blur-sm transition hover:bg-white/15">
-              <FileText size={18} /> Download Brochure
             </a>
             <a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 font-bold text-white backdrop-blur-sm transition hover:bg-white/15">
               <Phone size={18} /> Contact Admission
@@ -444,13 +473,13 @@ export default function BTechAvionicsDrone() {
             {highlights.map(({ icon: Icon, label }, index) => (
               <div
                 key={label}
-                className="highlight-card group flex flex-col items-center gap-3 rounded-2xl border border-primary bg-primary p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:border-slate-200 hover:bg-white hover:shadow-xl hover:shadow-primary/20"
+                className="highlight-card group flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:border-primary hover:bg-primary hover:shadow-xl hover:shadow-primary/20"
                 style={{ animationDelay: `${(index % 6) * 0.3}s` }}
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 text-white transition-colors duration-300 group-hover:bg-primary/10 group-hover:text-primary">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-white/20 group-hover:text-white">
                   <Icon size={22} />
                 </span>
-                <span className="text-sm font-bold text-white transition-colors duration-300 group-hover:text-navy">{label}</span>
+                <span className="text-sm font-bold text-navy transition-colors duration-300 group-hover:text-white">{label}</span>
               </div>
             ))}
           </div>
@@ -675,6 +704,68 @@ export default function BTechAvionicsDrone() {
           </div>
         </div>
       </section>
+
+      {/* Sticky Brochure Button */}
+      <button
+        type="button"
+        onClick={openBrochure}
+        className="group fixed right-3 top-1/2 z-[1150] flex -translate-y-1/2 items-center gap-2 rounded-full bg-primary py-4 pl-4 pr-4 text-white shadow-2xl shadow-primary/40 transition-all duration-300 hover:bg-navy hover:shadow-xl md:right-6 md:pl-5 md:pr-5"
+        aria-label="Download B.Tech brochure"
+      >
+        <span className="relative grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white/20 transition-transform duration-300 group-hover:rotate-12">
+          <Download size={18} />
+        </span>
+        <span className="hidden text-left leading-tight lg:block">
+          <span className="block text-xs font-bold uppercase tracking-[0.14em] text-white/85">B.Tech Brochure</span>
+          <span className="block text-sm font-extrabold">Download PDF</span>
+        </span>
+        <span className="lg:hidden">
+          <span className="block text-xs font-extrabold leading-tight">Brochure</span>
+          <span className="block text-[0.7rem] font-semibold text-white/85">Download</span>
+        </span>
+      </button>
+
+      {/* Brochure Popup */}
+      {showBrochure && (
+        <div
+          className="fixed inset-0 z-[1150] flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-md"
+          onClick={() => setShowBrochure(false)}
+        >
+          <div
+            className="relative flex h-[88vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-white shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between gap-4 border-b border-slate-200 bg-white px-5 py-4">
+              <div className="min-w-0">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-primary">Brochure Preview</p>
+                <p className="truncate font-bold text-navy">De Drone World — B.Tech Avionics &amp; Drone Engineering</p>
+              </div>
+              <div className="flex shrink-0 items-center gap-2">
+                <button
+                  type="button"
+                  onClick={downloadBrochure}
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition hover:bg-primary/90"
+                >
+                  <Download size={16} /> Download
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowBrochure(false)}
+                  className="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 text-slate-700 transition hover:bg-slate-200"
+                  aria-label="Close brochure preview"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+            </div>
+            <iframe
+              src={`${BROCHURE_URL}#toolbar=1&navpanes=0`}
+              title="B.Tech Avionics and Drone Engineering Brochure"
+              className="h-full w-full flex-1 bg-slate-100"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

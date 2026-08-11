@@ -561,12 +561,7 @@ const Home = () => {
             <p className="hero-reveal mb-10 max-w-2xl text-lg leading-relaxed text-slate-700 font-sans md:text-xl">
               Aviation-led drone training, industrial UAV operations, mapping, inspection, logistics, and institutional partnerships across India.
             </p>
-            <div className="hero-reveal flex flex-wrap gap-3">
-              <Link to="/training" className="group flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-bold text-white shadow-xl shadow-primary/20 transition-all hover:bg-primary/90">
-                Apply for DGCA Training
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            <div className="hero-reveal flex flex-wrap gap-3"></div>
           </div>
         </div>
       </section>
