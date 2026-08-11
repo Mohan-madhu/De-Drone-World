@@ -724,7 +724,8 @@ export default function BTechAvionicsDrone() {
           onClick={() => setShowBrochure(false)}
         >
           <div
-            className="relative flex h-[88vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-white shadow-2xl"
+            className="relative flex h-[88vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl border border-white/10 shadow-2xl"
+            style={{ backgroundColor: '#ffffff' }}
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-center justify-between gap-4 border-b border-slate-200 bg-white px-5 py-4">
