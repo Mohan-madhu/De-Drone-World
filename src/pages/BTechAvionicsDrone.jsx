@@ -371,8 +371,8 @@ export default function BTechAvionicsDrone() {
             </div>
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <img
-                src="/assets/btech/btech-04.jpeg"
-                alt="Students building a drone with safety glasses in the lab"
+                src="/assets/btech/btech-14.jpeg"
+                alt="Aircraft avionics cockpit instrument panel"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -434,8 +434,8 @@ export default function BTechAvionicsDrone() {
 
           <div className="mb-10 overflow-hidden rounded-3xl shadow-lg">
             <img
-              src="/assets/btech/btech-05.jpeg"
-              alt="Drone manufacturing and electronics lab"
+              src="/assets/btech/btech-10.jpeg"
+              alt="Semiconductor chip on a circuit board"
               className="h-64 w-full object-cover md:h-80"
             />
           </div>
@@ -444,13 +444,13 @@ export default function BTechAvionicsDrone() {
             {highlights.map(({ icon: Icon, label }, index) => (
               <div
                 key={label}
-                className="highlight-card group flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:border-primary hover:bg-primary hover:shadow-xl hover:shadow-primary/20"
+                className="highlight-card group flex flex-col items-center gap-3 rounded-2xl border border-primary bg-primary p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:border-slate-200 hover:bg-white hover:shadow-xl hover:shadow-primary/20"
                 style={{ animationDelay: `${(index % 6) * 0.3}s` }}
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-white/20 group-hover:text-white">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 text-white transition-colors duration-300 group-hover:bg-primary/10 group-hover:text-primary">
                   <Icon size={22} />
                 </span>
-                <span className="text-sm font-bold text-navy transition-colors duration-300 group-hover:text-white">{label}</span>
+                <span className="text-sm font-bold text-white transition-colors duration-300 group-hover:text-navy">{label}</span>
               </div>
             ))}
           </div>
@@ -461,8 +461,8 @@ export default function BTechAvionicsDrone() {
       <section className="btech-section-reveal px-6 py-16">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl p-8 text-white shadow-xl md:p-12">
           <img
-            src="/assets/btech/btech-03.jpeg"
-            alt="Future of autonomous drone technology"
+            src="/assets/btech/btech-13.jpeg"
+            alt="Rocket launch at dusk"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/85 to-slate-950/80" />
@@ -521,27 +521,36 @@ export default function BTechAvionicsDrone() {
 
       {/* Eligibility */}
       <section className="btech-section-reveal px-6 py-16">
-        <div className="mx-auto max-w-7xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-12">
-          <SectionHeader eyebrow="Eligibility" title="Admission Eligibility" />
-          <p className="max-w-3xl leading-relaxed text-slate-600">Candidates should have completed Higher Secondary (10+2) with:</p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            {['Physics', 'Chemistry', 'Mathematics (PCM)'].map((item) => (
-              <span key={item} className="rounded-full bg-primary/10 px-5 py-2 font-bold text-primary">{item}</span>
-            ))}
-            <span className="rounded-full bg-slate-100 px-5 py-2 font-semibold text-slate-600">or equivalent qualification recognized by the university</span>
+        <div className="mx-auto grid max-w-7xl gap-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm lg:grid-cols-2 lg:items-center md:p-12">
+          <div>
+            <SectionHeader eyebrow="Eligibility" title="Admission Eligibility" />
+            <p className="max-w-3xl leading-relaxed text-slate-600">Candidates should have completed Higher Secondary (10+2) with:</p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              {['Physics', 'Chemistry', 'Mathematics (PCM)'].map((item) => (
+                <span key={item} className="rounded-full bg-primary/10 px-5 py-2 font-bold text-primary">{item}</span>
+              ))}
+              <span className="rounded-full bg-slate-100 px-5 py-2 font-semibold text-slate-600">or equivalent qualification recognized by the university</span>
+            </div>
+            <p className="mt-6 max-w-3xl leading-relaxed text-slate-600">
+              Students passionate about Aviation, Aerospace, Electronics, Robotics, Artificial Intelligence, and Drone Technology are encouraged
+              to apply.
+            </p>
           </div>
-          <p className="mt-6 max-w-3xl leading-relaxed text-slate-600">
-            Students passionate about Aviation, Aerospace, Electronics, Robotics, Artificial Intelligence, and Drone Technology are encouraged
-            to apply.
-          </p>
+          <div className="overflow-hidden rounded-2xl shadow-lg">
+            <img
+              src="/assets/btech/btech-07.jpeg"
+              alt="Fighter jet, satellite, and airliner representing the aerospace industry"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
       {/* Career Opportunities */}
       <section className="btech-section-reveal relative overflow-hidden px-6 py-16 text-white">
         <img
-          src="/assets/btech/btech-06.jpeg"
-          alt="Survey drone over a construction site at sunset"
+          src="/assets/btech/btech-16.jpeg"
+          alt="Aerospace engineer servicing a jet engine"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-navy/88" />
@@ -563,7 +572,7 @@ export default function BTechAvionicsDrone() {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[320px_1fr] lg:items-center">
           <div className="overflow-hidden rounded-2xl shadow-lg">
             <img
-              src="/assets/btech/btech-07.jpeg"
+              src="/assets/btech/btech-15.jpeg"
               alt="Students working on embedded systems and electronics"
               className="h-full w-full object-cover"
             />
@@ -584,8 +593,8 @@ export default function BTechAvionicsDrone() {
           </div>
           <div className="overflow-hidden rounded-2xl shadow-lg">
             <img
-              src="/assets/btech/btech-01.jpeg"
-              alt="AI-powered drone technology"
+              src="/assets/btech/btech-12.jpeg"
+              alt="Engineers assembling a satellite in the research lab"
               className="h-full w-full object-cover"
             />
           </div>
