@@ -31,11 +31,17 @@ const certificates = [
 
 const clients = [
   { name: "Startup India", src: "/assets/clients/startup-india.jpg", category: "Government & Public Ecosystem" },
+  { name: "DGCA", src: "/assets/clients/dgca.jpeg", category: "Government & Public Ecosystem" },
+  { name: "Startup Tamil Nadu", src: "/assets/clients/startuptn.jpeg", category: "Government & Public Ecosystem" },
+  { name: "TIDCO", src: "/assets/clients/tidco.jpeg", category: "Government & Public Ecosystem" },
+  { name: "TN Skill Development Corporation", src: "/assets/clients/tnskill.jpeg", category: "Government & Public Ecosystem" },
   { name: "Ministry of MSME, Govt. of India", src: "/assets/clients/ministry-of-msme-govt-of-india.jpg", category: "Government & Public Ecosystem" },
   { name: "Naan Mudhalvan", src: "/assets/clients/naan-mudhalvan.jpg", category: "Government & Public Ecosystem" },
   { name: "NABARD", src: "/assets/clients/nabard.jpg", category: "Government & Public Ecosystem" },
   { name: "MABIF", src: "/assets/clients/mabif.jpg", category: "Government & Public Ecosystem" },
   { name: "Hindusthan College of Engineering and Technology", src: "/assets/clients/hindusthan-college-of-engineering-and-technology.jpg", category: "Academic & Institutional Network" },
+  { name: "PIPMATE", src: "/assets/clients/pipmate.jpeg", category: "Academic & Institutional Network" },
+  { name: "ASET Group of Institutions", src: "/assets/clients/aset.jpeg", category: "Academic & Institutional Network" },
   { name: "Vaigai College of Engineering", src: "/assets/clients/vaigai-college-of-engineering.jpg", category: "Academic & Institutional Network" },
   { name: "Dhaanish Ahmed Institute of Technology", src: "/assets/clients/dhaanish-ahmed-institute-of-technology.jpg", category: "Academic & Institutional Network" },
   { name: "Nehru Institute of Engineering and Technology", src: "/assets/clients/niet-logo.jpg", category: "Academic & Institutional Network" },
@@ -43,8 +49,13 @@ const clients = [
   { name: "TSAW", src: "/assets/clients/tsaw.jpg", category: "Industry & Aviation Partners" },
   { name: "Skywalk Robotics Academy", src: "/assets/clients/skywalk-robotics-academy.jpg", category: "Industry & Aviation Partners" },
   { name: "VIL Aviation", src: "/assets/clients/vil-aviation.jpg", category: "Industry & Aviation Partners" },
+  { name: "Altigator", src: "/assets/clients/altigator.jpeg", category: "Industry & Aviation Partners" },
+  { name: "Drone Destination", src: "/assets/clients/drone-destination.jpeg", category: "Industry & Aviation Partners" },
+  { name: "Eionic", src: "/assets/clients/eionic.jpeg", category: "Industry & Aviation Partners" },
+  { name: "", src: "/assets/clients/flight.jpeg", category: "Industry & Aviation Partners" },
+  { name: "Magic Myna", src: "/assets/clients/magic-myna.jpeg", category: "Industry & Aviation Partners" },
+  { name: "", src: "/assets/clients/new.jpeg", category: "Industry & Aviation Partners" },
 ];
-
 const clientCategories = [
   'Government & Public Ecosystem',
   'Academic & Institutional Network',
