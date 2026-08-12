@@ -46,7 +46,7 @@ const products = [
     name: 'DDW CUTTI™',
     tagline: 'Nano Educational Drone',
     quote: 'The Perfect First Drone for Future Innovators.',
-    image: '/assets/services/workshop-build-your-own-drone.jpeg',
+    image: '/assets/services/ddw-cutti.jpeg',
     description:
       'Designed especially for school students, beginners, STEM education, and drone enthusiasts, DDW CUTTI™ introduces young learners to the exciting world of drone technology in a safe and engaging way.',
     listALabel: 'Applications',
@@ -85,7 +85,7 @@ const products = [
     name: 'Engineering Drone Assembly Kit',
     tagline: 'Learn by Building',
     quote: null,
-    image: '/assets/services/fpv-drone-building.jpeg',
+    image: '/assets/services/edak.jpeg',
     description:
       'The Engineering Drone Assembly Kit is specially developed for engineering colleges, universities, training institutes, and drone enthusiasts. Students gain practical experience by assembling a complete drone from individual components while understanding each subsystem.',
     listALabel: 'Kit Includes',
